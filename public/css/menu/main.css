@@ -1,0 +1,9 @@
+.hideClearSearch{
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
