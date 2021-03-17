@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,15 +20,31 @@ Auth::routes();
 Route::group(["middleware" => "auth"], function () {
     Route::get('/', function () {
         return view('index');
+
+
     });
-//Despacho de Capa
+
+
+//Empleados
+    Route::get("/empleados","EmpleadoController@index")->name("empleados");
+    Route::post("/empleado/nuevo","EmpleadoController@storeEmpleado")->name("nuevoEmpleado");
+    Route::put("/empleado/editar","EmpleadoController@editarEmpleado")->name("editarEmpleado");
+    Route::delete("/empleado/borrar","EmpleadoController@borrarEmpleado")->name("borrarEmpleado");
+
+    Route::get('/empleados/export', 'EmpleadosExportController@export')->name("exportarEmpleado");
+
+
+
+
+
+// milware Despacho de Capa
     Route::group(['middleware' => 'capa'], function () {
 
         Route::get('/DesCapa', 'DesCapa@index')->name('DesCapa.index');
     });
 
 
-    //Despacho de tripa y banda
+    //mildaware Despacho de tripa y banda
 
     Route::group(['middleware' => 'banda'], function () {
         Route::get('/DesBanda', 'DesBanda@index')->name('DesBanda.index');

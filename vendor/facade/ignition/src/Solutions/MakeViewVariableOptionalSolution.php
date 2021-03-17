@@ -71,6 +71,18 @@ class MakeViewVariableOptionalSolution implements RunnableSolution
         }
     }
 
+    protected function isSafePath(string $path): bool
+    {
+        if (! Str::startsWith($path, ['/', './'])) {
+            return false;
+        }
+        if (! Str::endsWith($path, '.blade.php')) {
+            return false;
+        }
+
+        return true;
+    }
+
     public function makeOptional(array $parameters = [])
     {
         if (! $this->isSafePath($parameters['viewFile'])) {
@@ -90,19 +102,6 @@ class MakeViewVariableOptionalSolution implements RunnableSolution
         }
 
         return $newContents;
-    }
-
-    protected function isSafePath(string $path): bool
-    {
-        if (! Str::startsWith($path, ['/', './'])) {
-            return false;
-        }
-
-        if (! Str::endsWith($path, '.blade.php')) {
-            return false;
-        }
-
-        return true;
     }
 
     protected function generateExpectedTokens(array $originalTokens, string $variableName): array

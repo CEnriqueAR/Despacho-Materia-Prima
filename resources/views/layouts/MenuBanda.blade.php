@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -7,6 +7,27 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Despacho de Banda</title>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+{{-- <script src="js/bootstrap.min.js"></script> --}}
+{{-- <script src="js/popper.min.js"></script> --}}
+
+<!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
 
     <link href="{{asset("css/menu/styles.css")}}" rel="stylesheet"/>
     <link href="{{asset("css/menu/file-input.css")}}" media="all" rel="stylesheet" type="text/css"/>
@@ -69,6 +90,7 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a href="{{route("DesBanda.index")}}" class="nav-link">Listado de Prestados</a>
                             <a href="{{route("DesBanda.index")}}" class="nav-link">Listado de recursos</a>
+                            <a class="nav-link" href="{{url('empleados')}}">Empleados</a>
 
                         </nav>
                     </div>
@@ -129,56 +151,19 @@
 <script src="{{asset("js/jsmenu/mapbox-scripts.js")}}"></script>
 <script src="{{asset("js/jsmenu/categorias.js")}}"></script>
 <script src="{{asset("js/jsmenu/font-awesome.js")}}" crossorigin="anonymous"></script>
+<script src="{{asset("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js")}}"></script>
+<script src='{{asset("https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js")}}'></script>
+<script src="{{asset("js/mapbox-scripts.js")}}"></script>
+<script src="{{asset("js/categorias.js")}}"></script>
 
-<script>
-    $('#eliminarRecurso').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var modal = $(this);
-        modal.find('.modal-footer #id_recurso').val(id);
-    });
-    $('#editarRecursoModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var nombre=button.data("nombre");
-        var cantidad = button.data("cantidad");
+<script src="{{asset("js/productos.js")}}"></script>
+<script src="{{asset("js/empleado.js")}}"></script>
 
-        var modal = $(this);
-        modal.find('.modal-footer #id_recurso').val(id);
-        modal.find('.modal-body #nombre').val(nombre);
-        modal.find('.modal-body #cantidad').val(cantidad);
+<script src="{{asset("js/servicio.js")}}"></script>
+<script src="{{asset("js/partners.js")}}"></script>
+<script src="{{asset("js/promociones.js")}}"></script>
+<script src="{{asset("js/empresas.js")}}"></script>
 
-    });
-
-
-    $('#eliminarHistorial').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var modal = $(this);
-        modal.find('.modal-footer #id_historial').val(id);
-    });
-
-
-    $('#editarHistorialModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var id = button.data('id');
-        var nombre=button.data("nombre");
-        var cantidad = button.data("cantidad");
-        var numero_cuenta =button.data('numero_cuenta');
-        var fecha = button.data("fecha");
-        var id_recurso = button.data("recurso_id");
-
-
-        var modal = $(this);
-        modal.find('.modal-footer #id_historial').val(id);
-        modal.find('.modal-body #nombre').val(nombre);
-        modal.find('.modal-body #cantidad').val(cantidad);
-        modal.find('.modal-body #numero_cuenta').val(numero_cuenta);
-        modal.find('.modal-body #fecha').val(fecha);
-        modal.find('.modal-body #selectRecurso').val(id_recurso);
-
-    })
-</script>
 <script>
     $(document).ready(function () {
         $(".empresa2").select2({
@@ -192,26 +177,5 @@
         });
     });
 </script>
-<script>
-    $(document).ready(function () {
-        $(".tipoCategoria").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-        $(".empresa").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-        $(".disponible").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-        $(".marca").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-    });
-</script>
-
 </body>
 </html>

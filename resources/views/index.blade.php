@@ -16,10 +16,6 @@
 </head>
 <body>
 
-<div class="super_container">
-
-
-
     <div class="home">
         <!-- Hero Slider -->
 
@@ -36,14 +32,14 @@
 
 
 
-    </div>
+
 
     <div class="hero_boxes">
         <div class="hero_boxes_inner">
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-5 hero_box_col">
+                    <div class="col-lg-6 hero_box_col">
                         <a href="{{route('DesBanda.index')}}" >
                         <div class="hero_box d-flex flex-row align-items-center justify-content-start">
                             <img src="images/earth-globe.svg" class="svg" alt="">
@@ -55,7 +51,7 @@
                         </a>
                     </div>
 
-                    <div class="col-lg-5 hero_box_col">
+                    <div class="col-lg-6 hero_box_col">
                         <a href="{{route('DesCapa.index')}}" >
                         <div class="hero_box d-flex flex-row align-items-center justify-content-start">
                             <img src="images/books.svg" class="svg" alt="">
@@ -71,14 +67,12 @@
             </div>
         </div>
     </div>
+    </div>
 
 
 
 
 
-
-
-</div>
 
 <script src="js/jsindex/jquery-3.2.1.min.js"></script>
 <script src="styles/stylesindex/bootstrap4/popper.js"></script>
