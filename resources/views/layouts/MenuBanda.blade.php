@@ -1,33 +1,12 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
-    <title>Despacho de Banda</title>
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('js/fontawesome.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
-{{-- <script src="js/bootstrap.min.js"></script> --}}
-{{-- <script src="js/popper.min.js"></script> --}}
-
-<!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
+    <title>Despacho de Banda y Tripa</title>
 
     <link href="{{asset("css/menu/styles.css")}}" rel="stylesheet"/>
     <link href="{{asset("css/menu/file-input.css")}}" media="all" rel="stylesheet" type="text/css"/>
@@ -43,7 +22,7 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <button class="btn btn-link order-1 order-lg-0 ml-4" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>
     </button>
-    <a class="navbar-brand" href="/">Despacho de Banda</a>
+    <a class="navbar-brand" href="/">Despacho de Banda y Tripa</a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
@@ -54,8 +33,8 @@
             <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <!--  <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Activity Log</a>     -->
+                <!--  <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="#">Activity Log</a>     -->
 
                 <div class="dropdown-divider"></div>
                 <div class="dropdown-item" aria-labelledby="navbarDropdown">
@@ -88,9 +67,10 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a href="{{route("DesBanda.index")}}" class="nav-link">Listado de Prestados</a>
-                            <a href="{{route("DesBanda.index")}}" class="nav-link">Listado de recursos</a>
-                            <a class="nav-link" href="{{url('empleados')}}">Empleados</a>
+                            <a class="nav-link" href="{{url('DesBanda')}}">Ex</a>
+                            <a class="nav-link" href="{{url('DesBanda')}}">Ex</a>
+
+
 
                         </nav>
                     </div>
@@ -151,18 +131,7 @@
 <script src="{{asset("js/jsmenu/mapbox-scripts.js")}}"></script>
 <script src="{{asset("js/jsmenu/categorias.js")}}"></script>
 <script src="{{asset("js/jsmenu/font-awesome.js")}}" crossorigin="anonymous"></script>
-<script src="{{asset("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js")}}"></script>
-<script src='{{asset("https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js")}}'></script>
-<script src="{{asset("js/mapbox-scripts.js")}}"></script>
-<script src="{{asset("js/categorias.js")}}"></script>
 
-<script src="{{asset("js/productos.js")}}"></script>
-<script src="{{asset("js/empleado.js")}}"></script>
-
-<script src="{{asset("js/servicio.js")}}"></script>
-<script src="{{asset("js/partners.js")}}"></script>
-<script src="{{asset("js/promociones.js")}}"></script>
-<script src="{{asset("js/empresas.js")}}"></script>
 
 <script>
     $(document).ready(function () {
@@ -177,5 +146,26 @@
         });
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $(".tipoCategoria").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+        $(".empresa").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+        $(".disponible").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+        $(".marca").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+    });
+</script>
+
 </body>
 </html>

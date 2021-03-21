@@ -7,9 +7,12 @@ use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class EmpleadosExport implements FromCollection , ShouldAutoSize ,WithMapping
+class EmpleadosExport implements FromCollection , ShouldAutoSize ,WithMapping, WithHeadings,WithEvents
 {
 
     use Exportable;
@@ -36,5 +39,18 @@ class EmpleadosExport implements FromCollection , ShouldAutoSize ,WithMapping
             'Codigo',
             'Puesto',
         ];
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+
+            AfterSheet::class    => function(AfterSheet $event) {
+                $event->sheet->getStyle("A1:C1")->apllyFromArray([
+
+'font'=>[
+    'bold' =>true],
+                ]);
+        }];
     }
 }

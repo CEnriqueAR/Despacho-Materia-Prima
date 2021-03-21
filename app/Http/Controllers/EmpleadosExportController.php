@@ -32,4 +32,29 @@ class EmpleadosExportController extends Controller
         //codigo para exportar a pdf
         // return (new EmpleadosExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
     }
+    public function exportpdf()
+    {
+      //  return (new EmpleadosExport)->download('Listado de Empleados.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+
+        //return $this->excel->download(new EmpleadosExport, 'Listado de Empleados.csv', Excel::CSV);
+        //   return (new EmpleadosExport)->download('Listado de Empleados.csv', \Maatwebsite\Excel\Excel::CSV);
+
+        //return Excel::download(new EmpleadosExport, 'Listado de Empleados.pdf', Excel::DOMPDF);
+
+
+        //codigo para exportar a pdf
+         return (new EmpleadosExport)->download('Listado de Empleados.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
+
+    }
+    public function exportcvs()
+    {
+        return (new EmpleadosExport)->download('Listado de Empleados.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+    public function imprimir()
+    {
+        return (new EmpleadosExport)->download('Listado de Empleados.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+
 }
