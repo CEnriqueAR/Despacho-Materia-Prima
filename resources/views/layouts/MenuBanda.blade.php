@@ -135,19 +135,6 @@
 
 <script>
     $(document).ready(function () {
-        $(".empresa2").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-
-        $(".disponible2").select2({
-            theme: "classic",
-            placeholder: "Seleccione una opción"
-        });
-    });
-</script>
-<script>
-    $(document).ready(function () {
         $(".tipoCategoria").select2({
             theme: "classic",
             placeholder: "Seleccione una opción"

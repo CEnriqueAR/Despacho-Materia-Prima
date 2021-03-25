@@ -57,6 +57,14 @@ Route::group(["middleware" => "auth"], function () {
         Route::put("/marcas/editar","MarcaController@editarMarca")->name("editarMarca");
         Route::delete("/marcas/borrar","MarcaController@borrarMarca")->name("borrarMarca");
     });
+//--------------------------------------------CapaEntrega ROUTES------------------------------------------------------
+    Route::post("/CapaEntrega/nuevo","CapaEntregaController@StoreEntrega")->name("nuevoCapaEntrega");
+    Route::get("/CapaEntrega", "CapaEntregaController@index")->name("CapaEntrega");//Muestra el servicio de las empresas
+    Route::put("/CapaEntrega/editar","CapaEntregaController@editCapaEntrega")->name("editarCapaEntrega");
+    Route::delete("/CapaEntrega/borrar","CapaEntregaController@destroy")->name("borrarCapaEntrega");
+
+
+
 
 
     //mildaware Despacho de tripa y banda

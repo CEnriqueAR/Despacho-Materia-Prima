@@ -67,8 +67,11 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{url('CapaEntrega')}}">Despacho De Capa</a>
                             <a class="nav-link" href="{{url('empleados')}}">Empleados</a>
                             <a class="nav-link" href="{{url('marcas')}}">Marcas</a>
+
+
 
 
 
@@ -134,6 +137,8 @@
 <script src="{{asset("js/marca.js")}}"></script>
 
 <script src="{{asset("js/empleado.js")}}"></script>
+<script src="{{asset("js/CapaEntrega.js")}}"></script>
+
 
 <script>
     $(document).ready(function () {
@@ -154,14 +159,23 @@
             theme: "classic",
             placeholder: "Seleccione una opción"
         });
-        $(".empresa").select2({
+        $(".empleado").select2({
             theme: "classic",
             placeholder: "Seleccione una opción"
         });
-        $(".disponible").select2({
+        $(".vitola").select2({
             theme: "classic",
             placeholder: "Seleccione una opción"
         });
+        $(".semilla").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+        $(".calidad").select2({
+            theme: "classic",
+            placeholder: "Seleccione una opción"
+        });
+
         $(".marca").select2({
             theme: "classic",
             placeholder: "Seleccione una opción"

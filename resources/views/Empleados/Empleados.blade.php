@@ -200,7 +200,7 @@
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{route("editarEmpleado")}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route("editarEmpleado")}}">
                         @method('PUT');
                         @csrf
                         <div class="modal-body" style="object-fit: fill">
@@ -241,7 +241,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="id" id="id_empleado">
+                            <input type="hidden" name="id" id="id">
                             <button type="submit" class="btn btn-success" >Editar</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
