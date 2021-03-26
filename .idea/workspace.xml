@@ -2,31 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/CapaEntrega.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CalidadController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TamanoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/RecibirCapa.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Tamano.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_24_235517_create_tamanos_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/TamanoTableSeed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Alerts/errors.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/CapaRecibida.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/empleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/empleado.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/RecibirCapa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RecibirCapa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,59 +23,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/EmpleadoSeeder.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+            <state relative-caret-position="246">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
               <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
+                <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/SemillaTableSeeder.php">
+        <entry file="file://$PROJECT_DIR$/public/js/CapaRecibida.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="29" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/TamanoTableSeed.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/CapaEntrega.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Tamano.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="493">
+              <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -102,35 +56,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/RecibirCapa.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/CalidadTableSeeder.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+            <state relative-caret-position="2737">
+              <caret line="172" column="4" selection-start-line="172" selection-start-column="4" selection-end-line="179" selection-end-column="5" />
+              <folding>
+                <element signature="e#40#56#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-end-line="23" />
+            <state relative-caret-position="221">
+              <caret line="17" column="47" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -159,8 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/menu_banda.blade.php" />
         <option value="$PROJECT_DIR$/resources/js/components/Capa.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/Banda.vue" />
@@ -200,7 +146,6 @@
         <option value="$PROJECT_DIR$/public/js/empleado.js" />
         <option value="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" />
         <option value="$PROJECT_DIR$/public/js/CapaEntrega.js" />
         <option value="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" />
@@ -208,8 +153,11 @@
         <option value="$PROJECT_DIR$/database/migrations/2021_03_24_235517_create_tamanos_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/TamanoTableSeed.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" />
+        <option value="$PROJECT_DIR$/public/js/CapaRecibida.js" />
         <option value="$PROJECT_DIR$/app/RecibirCapa.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" />
       </list>
     </option>
   </component>
@@ -361,26 +309,7 @@
             <path>
               <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
               <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
@@ -396,7 +325,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -406,17 +335,17 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/qirolab/laravel-excel-export-import-example.git" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\public\js" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\app\Http\Requests" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\database\migrations" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\laragon\www\DespachoMateriaPrima\database\seeds" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\DespachoMateriaPrima\public\js" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\app\Http\Requests" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\database\migrations" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -476,7 +405,9 @@
       <workItem from="1616432755301" duration="1197000" />
       <workItem from="1616527508252" duration="2127000" />
       <workItem from="1616547796901" duration="4723000" />
-      <workItem from="1616629591916" duration="1670000" />
+      <workItem from="1616629591916" duration="5453000" />
+      <workItem from="1616715670583" duration="1365000" />
+      <workItem from="1616767415131" duration="260000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -492,16 +423,24 @@
       <option name="project" value="LOCAL" />
       <updated>1616289414627</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="entrega de despacho de capa , tamaño , se milla , calidad">
+      <created>1616631444755</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616631444755</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189759000" />
+    <option name="totallyTimeSpent" value="195167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23146747" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23903178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -516,7 +455,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.42549923" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.42549923" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -553,36 +492,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="uno bien gordo" />
     <MESSAGE value="Primero con Despacho de Banda" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primero con Despacho de Banda" />
+    <MESSAGE value="entrega de despacho de capa , tamaño , se milla , calidad" />
+    <option name="LAST_COMMIT_MESSAGE" value="entrega de despacho de capa , tamaño , se milla , calidad" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/Empleados/ImprimirEmpleados.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PrintEmpleadoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="58" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmpleadosExportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Exports/EmpleadosExport.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -791,16 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="29" column="51" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -863,13 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/SemillaTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="29" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -881,13 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="25" column="27" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/TamanoTableSeed.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -912,17 +801,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/RecibirCapa.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/TamanoTableSeed.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        <state relative-caret-position="272">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/SemillaTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="246">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/CapaRecibida.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/RecibirCapa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="172" column="4" selection-start-line="172" selection-start-column="4" selection-end-line="179" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="47" />
         </state>
       </provider>
     </entry>

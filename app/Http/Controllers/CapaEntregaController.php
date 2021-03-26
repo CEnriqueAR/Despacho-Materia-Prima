@@ -40,7 +40,7 @@ class CapaEntregaController extends Controller
                     "capa_entregas.id_empleado","capa_entregas.id_vitolas",
                     "capa_entregas.id_semilla","capa_entregas.id_calidad",
                     "capa_entregas.id_marca","marcas.name as nombre_marca","capa_entregas.total")
-                ->where("capa_entregas.id_empleado","Like","%".$query."%")
+                ->where("empleados.nombre","Like","%".$query."%")
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(10);
             $empleados = Empleado::all();

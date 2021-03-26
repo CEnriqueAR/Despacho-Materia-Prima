@@ -15,10 +15,9 @@ class CreateRecibirCapasTable extends Migration
     {
         Schema::create('recibir_capas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_marca")->references("id")->on("marcas");
+            $table->foreignId("id_semillas")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->integer("total");
-
 
             $table->timestamps();
         });
