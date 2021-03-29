@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class RecibirCapa extends Model
 {
 
-    protected $fillable=["id_semilla","id_tamano","total",];
+    protected $fillable=["id_semilla","id_calidad","id_tamano","total"];
     //
 }

@@ -68,8 +68,12 @@
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{url('CapaEntrega')}}">Despacho De Capa</a>
+                            <a class="nav-link" href="{{url('RecepcionCapa')}}">Recepcion De Capa</a>
                             <a class="nav-link" href="{{url('empleados')}}">Empleados</a>
                             <a class="nav-link" href="{{url('marcas')}}">Marcas</a>
+                            <a class="nav-link" href="{{url('semillas')}}">Semillas</a>
+                            <a class="nav-link" href="{{url('peso')}}">Pesos</a>
+
 
 
 
@@ -138,6 +142,11 @@
 
 <script src="{{asset("js/empleado.js")}}"></script>
 <script src="{{asset("js/CapaEntrega.js")}}"></script>
+<script src="{{asset("js/CapaRecibida.js")}}"></script>
+<script src="{{asset("js/Peso.js")}}"></script>
+<script src="{{asset("js/semilla.js")}}"></script>
+
+
 
 
 <script>

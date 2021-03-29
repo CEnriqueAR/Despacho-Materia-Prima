@@ -8,6 +8,7 @@ use App\Empleado;
 use App\Http\Requests\CreateProductosRequest;
 use App\Marca;
 use App\Semilla;
+use App\Tamano;
 use App\Vitola;
 use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
@@ -27,25 +28,40 @@ class CapaEntregaController extends Controller
 
         if ($request){
             $query = trim($request->get("search"));
+            $fecha = $request->get("fecha");
+
+            if ($fecha = null)
+                $fecha = Carbon::now()->format('Y-m-d');
+            else{
+                $fecha = $request->get("fecha");
+
+            }
+
             $entregaCapa=DB::table("capa_entregas")
                 ->leftJoin("empleados","capa_entregas.id_empleado","=","empleados.id")
                 ->leftJoin("vitolas","capa_entregas.id_vitolas","=","vitolas.id")
                 ->leftJoin("semillas","capa_entregas.id_semilla","=","semillas.id")
                 ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
                 ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
+                ->leftJoin("tamanos","capa_entregas.id_tamano","=","tamanos.id")
+
 
                 ->select("capa_entregas.id","empleados.nombre AS nombre_empleado",
                     "vitolas.name as nombre_vitolas","semillas.name as nombre_semillas",
                     "calidads.name as nombre_calidads",
+                    "capa_entregas.id_tamano","tamanos.name as nombre_tamano",
                     "capa_entregas.id_empleado","capa_entregas.id_vitolas",
                     "capa_entregas.id_semilla","capa_entregas.id_calidad",
                     "capa_entregas.id_marca","marcas.name as nombre_marca","capa_entregas.total")
                 ->where("empleados.nombre","Like","%".$query."%")
-                ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
+                ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+
+              //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(10);
             $empleados = Empleado::all();
             $semilla = Semilla::all();
             $calidad = Calidad::all();
+            $tamano = Tamano::all();
             $vitola = Vitola::all();
             $marca = Marca::all();
 
@@ -54,6 +70,7 @@ class CapaEntregaController extends Controller
                 ->withEntregaCapa($entregaCapa)
                 ->withEmpleados($empleados)
                 ->withSemillas($semilla)
+                ->withTamano($tamano)
                 ->withCalidad($calidad)
                 ->withVitola($vitola)
                 ->withMarca($marca);
@@ -79,6 +96,7 @@ class CapaEntregaController extends Controller
         $nuevoCapaEntrega->id_semilla=$request->input('id_semilla');
         $nuevoCapaEntrega->id_calidad=$request->input('id_calidad');
         $nuevoCapaEntrega->id_marca=$request->input("id_marca");
+        $nuevoCapaEntrega->id_tamano=$request->input("id_tamano");
         $nuevoCapaEntrega->total=$request->input('total');
 
 
@@ -121,6 +139,7 @@ class CapaEntregaController extends Controller
                 'id_marca'=>'required|integer',
                  'id_semilla'=>'required|integer',
                 'id_calidad'=>'required|integer',
+                'id_tamano'=>'required|integer',
                 'total'=>'required|integer'
             ]);
                  /**,$messages = [
@@ -141,6 +160,7 @@ class CapaEntregaController extends Controller
             $editarCapaEntrega->id_semilla=$request->input('id_semilla');
             $editarCapaEntrega->id_calidad=$request->input('id_calidad');
             $editarCapaEntrega->id_marca=$request->input("id_marca");
+            $editarCapaEntrega->id_matano=$request->input("id_tamano");
             $editarCapaEntrega->total=$request->input('total');
 
 

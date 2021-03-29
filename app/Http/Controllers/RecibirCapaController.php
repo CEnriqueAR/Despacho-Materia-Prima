@@ -27,22 +27,37 @@ class RecibirCapaController extends Controller
 
         if ($request){
             $query = trim($request->get("search"));
+
+            $fecha = $request->get("fecha");
+
+            if ($fecha = null)
+                $fecha = Carbon::now()->format('Y-m-d');
+            else{
+                $fecha = $request->get("fecha");
+
+            }
             $recibirCapa=DB::table("recibir_capas")
                 ->leftJoin("semillas","recibir_capas.id_semillas","=","semillas.id")
                 ->leftJoin("tamanos","recibir_capas.id_tamano","=","tamanos.id")
+                ->leftJoin("calidads","recibir_capas.id_calidad","=","calidads.id")
 
                 ->select("recibir_capas.id","tamanos.name AS nombre_tamano",
-                   "recibir_capas.id_calidad",
-                    "recibir_capas.id_semillas","semillas.name as nombre_semilla","recibir_capas.total")
-                ->where("semillas.nombre_semilla","Like","%".$query."%")
+                    "recibir_capas.id_calidad","calidads.name as nombre_calidad",
+                    "recibir_capas.id_semillas","semillas.name as nombre_semillas","recibir_capas.total")
+                ->where("semillas.name","Like","%".$query."%")
+                ->whereDate("recibir_capas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+
                 ->paginate(10);
         $tamano= Tamano::all();
-            $marca = Marca::all();
+            $semillas = Semilla::all();
+            $calidad = Calidad::all();
 
-            return view("EntregaDeCapa.CapaEntrega")
+            return view("RecepcionCapa.CapaRecepcion")
                 ->withNoPagina(1)
-                ->withEntregaCapa($recibirCapa)
-                ->withTamano($tamano);
+                ->withRecibirCapa($recibirCapa)
+                ->withTamano($tamano)
+            ->withSemillas($semillas)
+            ->withCalidad($calidad);
         }
 
         //
@@ -65,17 +80,19 @@ class RecibirCapaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function StoreRecibir(Request $request){
+    public function storeRecepcionCapa(Request $request){
         $nuevoCapaEntra = new RecibirCapa();
 
-        $nuevoCapaEntra->id_empleado=$request->input('id_tamano');
+        $nuevoCapaEntra->id_tamano=$request->input('id_tamano');
         $nuevoCapaEntra->id_semillas=$request->input("id_semillas");
+        $nuevoCapaEntra->id_calidad=$request->input("id_calidad");
+
         $nuevoCapaEntra->total=$request->input('total');
 
 
         $nuevoCapaEntra->save();
 
-        return redirect()->route("CapaEntrega")->withExito("Se creó la entrada Correctamente ");
+        return redirect()->route("RecepcionCapa")->withExito("Se creó la entrada Correctamente ");
 
     }
 
@@ -96,12 +113,13 @@ class RecibirCapaController extends Controller
      * @param  \App\RecibirCapa  $recibirCapa
      * @return \Illuminate\Http\Response
      */
-    public function editCapaEntrega( Request $request)
+    public function editarRecepcionCapa( Request $request)
     {
         try{
             $this->validate($request, [
                 'id_tamano'=>'required|integer',
                 'id_semilla'=>'required|integer',
+                'id_calidad'=>'required|integer',
                 'total'=>'required|integer'
             ]);
             /**,$messages = [
@@ -119,14 +137,16 @@ class RecibirCapaController extends Controller
             $editarCapaRecibida=RecibirCapa::findOrFail($request->id);
             $editarCapaRecibida->id_calidad=$request->input('id_tamano');
             $editarCapaRecibida->id_semillas=$request->input("id_semillas");
+            $editarCapaRecibida->id_calidad=$request->input("id_calidad");
+
             $editarCapaRecibida->total=$request->input('total');
 
 
             $editarCapaRecibida->save();
-            return redirect()->route("CapaEntrega")->withExito("Se editó Correctamente");
+            return redirect()->route("RecepcionCapa")->withExito("Se editó Correctamente");
 
         }catch (ValidationException $exception){
-            return redirect()->route("CapaEntrega")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
+            return redirect()->route("RecepcionCapa")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
         }
     }
 
@@ -148,12 +168,12 @@ class RecibirCapaController extends Controller
      * @param  \App\RecibirCapa  $recibirCapa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function borrarRecepcionCapa(Request $request)
     {
         $capaentrega = $request->input('id');
         $borrar = RecibirCapa::findOrFail($capaentrega);
 
         $borrar->delete();
-        return redirect()->route("CapaEntrega")->withExito("Se borró la entrega satisfactoriamente");
+        return redirect()->route("RecepcionCapa")->withExito("Se borró la entrega satisfactoriamente");
     }
 }

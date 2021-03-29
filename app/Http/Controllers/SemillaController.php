@@ -2,84 +2,91 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createMarcasRequest;
+use App\Marca;
 use App\Semilla;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class SemillaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    public function index(Request $request){
+        if ($request){
+            $query = trim($request->get("search"));
+            $semilla = Semilla::where("name","like","%".$query."%")->paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+            return View('Semilla.semillas')
+                ->withNoPagina(1)
+                ->withSemilla($semilla);
+        }
     }
+    //Funcion Crear Marca
+    public function storeSemilla(createMarcasRequest $request){
+        $marca = new Semilla();
+        $marca->name = $request->input("name");
+        $name = $request->input("name");
+        $marca->description = $request->input("description");
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $marca->save();
+        return redirect()->route("semillas")->withExito("Marca creada correctamente");
     }
+    //Funcion Editar Marca
+    public function editarSemilla(Request $request){
+        $name=Semilla::where("name",$request->input("name"))->Where("id","!=",$request->input("id"))->first();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Semilla  $semilla
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Semilla $semilla)
-    {
-        //
+        if ($name!=null){
+            try {
+                $this->validate($request, [
+                    'name'=> 'unique:marcas,name|required|string|max:30',
+                    'description'=>'max:100'
+                ],$messages = [
+                    'name.required'=>'El nombre de la marca es requerido',
+                    'name.unique'=>'El nombre de la marca debe de ser unico',
+                    'name.max:30'=>'El nombre no puede exceder 30 caracteres',
+                    'name.string'=>'El nombre no deben de ser solamente numeros',
+                    'description.max:100'=>'La descripcion no debe de excceder de 100 caracteres'
+                ]);
+                $id = $request->input("id");
+                $editar = Semilla::findOrFail($id);
+                $editar->name=$request->input("name");
+                $editar->description=$request->input("description");
+
+                $editar->save();
+                return redirect()->route("semillas")->withExito("Marca editada correctamente");
+            }catch (ValidationException $exception){
+                return redirect()->route("semillas")->with('errores','errores')->with('id_M',$request->input("id"))->withErrors($exception->errors());
+            }
+        }else{
+            try {
+                $this->validate($request, [
+                    'name'=> 'required|string|max:30',
+                    'description'=>'max:100'
+                ],$messages = [
+                    'name.required'=>'El nombre de la marca es requerido',
+                    'name.max:30'=>'El nombre no puede exceder 30 caracteres',
+                    'name.string'=>'El nombre no deben de ser solamente numeros',
+                    'description.max:100'=>'La descripcion no debe de excceder de 100 caracteres'
+                ]);
+                $id = $request->input("id");
+                $editar = Semilla::findOrFail($id);
+                $editar->name=$request->input("name");
+                $editar->description=$request->input("description");
+
+                $editar->save();
+                return redirect()->route("semillas")->withExito("Marca editada correctamente");
+            }catch (ValidationException $exception){
+                return redirect()->route("semillas")->with('errors','errors')->with('id_M',$request->input("id"))->withErrors($exception->errors());
+            }
+        }
+
+
     }
+    //Funcion Borrar Marca
+    public function borrarSemilla(Request $request){
+        $id = $request->input("id");
+        $borrar = Semilla::findOrFail($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Semilla  $semilla
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Semilla $semilla)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Semilla  $semilla
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Semilla $semilla)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Semilla  $semilla
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Semilla $semilla)
-    {
-        //
+        $borrar->delete();
+        return redirect()->route("semillas")->withExito("Marca borrada con éxito");
     }
 }

@@ -20,6 +20,7 @@ class CreateCapaEntregasTable extends Migration
             $table->foreignId("id_vitolas")->references("id")->on("vitolas");
             $table->foreignId("id_semilla")->references("id")->on("semillas");
             $table->foreignId("id_calidad")->references("id")->on("calidads");
+            $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->integer("total");
             $table->timestamps();
         });
