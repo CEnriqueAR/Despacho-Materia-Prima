@@ -88,7 +88,7 @@ class PesoController extends Controller
      * @param  \App\Peso  $peso
      * @return \Illuminate\Http\Response
      */
-    public function editarPeso( Request $request)
+    public function editarPeso(Request $request)
     {
         try{
             $this->validate($request, [
@@ -99,7 +99,12 @@ class PesoController extends Controller
 
             ]
            ,$messages = [
-                /**
+                    'PesoGrande.required' => 'El nombre del producto es requerido.',
+                    'PesoMediano.required' => 'El nombre del producto es requerido.',
+
+
+
+                    /**
             'name.required' => 'El nombre del producto es requerido.',
             'description.max:192' => 'La descripción  no debe de tener más de 192 caracteres.',
             'unit_price.numeric' => 'El precio debe ser un valor numérico.',

@@ -108,7 +108,7 @@
                                 data-toggle="modal"
                                 data-target="#modalEditarPeso"
                                 data-id="{{$productos->id}}"
-                                data-id_semillas="{{$productos->nombre_semillas}}"
+                                data-id_semillas="{{$productos->id_semillas}}"
                                 data-PesoGrande="{{$productos->PesoGrande}}"
                                 data-PesoMediano="{{$productos->PesoPequeno}}"
                                 data-PesoPequeno="{{$productos->PesoMediano}}"
@@ -147,9 +147,10 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="pesoGrande">Peso Grande</label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="PesoGrande" id="pesogrande" maxlength="100"
-                                   value="{{ old('PesoGrande')}}" required="required">
+                            <label for="PesoGrande">Peso Grande</label>
+                            <input class="form-control @error('name') is-invalid @enderror"
+                                   name="PesoGrande" id="PesoGrande" maxlength="100"
+                                   value="{{ Request::old('PesoGrande')}}" required="required">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -160,8 +161,9 @@
 
                         <div class="form-group">
                             <label for="PesoMediano">Peso Mediano</label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="PesoMediano" id="PesoMediano" maxlength="100"
-                                   value="{{ old('PesoMediano')}}" required="required">
+                            <input class="form-control @error('name') is-invalid @enderror"
+                                   name="PesoMediano" id="PesoMediano" maxlength="100"
+                                   value="{{Request::old('PesoMediano')}}" required="required">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -171,7 +173,7 @@
                         <div class="form-group">
                             <label for="PesoPequeno">Peso Pequeño</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="PesoPequeno" id="PesoPequeno" maxlength="100"
-                                   value="{{ old('PesoPequeno')}}" required="required">
+                                   value="{{ Request::old('PesoPequeno')}}" required="required">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -220,27 +222,29 @@
                         <span style="color: white" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{route("editarpeso")}}" enctype="multipart/form-data" >
+                <form method="post" action="{{route("editarpeso")}}">
                     @method('PUT');
                     @csrf
-                    <div class="modal-body" style="object-fit: fill">
-                        <div class="form-group">
-                            <label for="PesoGrande">Grande:</label>
-                            <input required="required" type="text"
-                                   class="form-control @error('name') is-invalid @enderror" name="PesoGrande" id="PesoGrande"
-                                   value="{{old('PesoGrande')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message}}</strong>
-                            </span>
-                            @enderror
-                        </div>
+                    <div class="modal-body">
+
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="PesoGrande">Grande</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="PesoGrande" id="PesoGrande" maxlength="100" value="{{old("PesoGrande")}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                             <div class="form-group">
                                 <label for="PesoMediano">Mediano:</label>
                                 <input required="required" type="text"
-                                       class="form-control @error('name') is-invalid @enderror" name="PesoMediano" id="PesoMediano"
-                                       value="{{old('PesoMediano')}}">
+                                       class="form-control @error('name') is-invalid @enderror"
+                                       name="PesoMediano" id="PesoMediano"
+                                       value="{{ old('PesoMediano')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message}}</strong>
@@ -248,11 +252,11 @@
                                 @enderror
                             </div>
 
-
                             <div class="form-group">
                                 <label for="PesoPequeno">Pequeño:</label>
                                 <input required="required" type="text"
-                                       class="form-control @error('name') is-invalid @enderror" name="PesoPequeno" id="PesoPequeno" maxlength="30"
+                                       class="form-control @error('name') is-invalid @enderror"
+                                       name="PesoPequeno" id="PesoPequeno"
                                        value="{{old('PesoPequeno')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -262,20 +266,20 @@
 
                     </div>
                         <div class="form-group">
-                            <label for="semillacapaentrega">Seleccione la semilla</label>
+                            <label for="id_semillas">Seleccione la semilla</label>
                             <br>
-                            <select name="id_semilla"
+                            <select name="id_semillas"
                                     required
                                     style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_semilla') is-invalid @enderror"
-                                    id="semillacapaentrega" required="required">
+                                    class=" form-control @error('id_semillas') is-invalid @enderror"
+                                    id="id_semillas" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semillas as $semillas)
                                     <option value="{{$semillas->id}}">{{$semillas->name}}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('id_empresa')
+                            @error('id_semillas')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -283,12 +287,13 @@
                         </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id" id="id_producto">
-                        <button type="submit" class="btn btn-success" >Editar</button>
+                        <button type="submit" class="btn btn-success"  id="id_producto" onclick="f()">Editar</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                     </div>
+                    </div>
                 </form>
-        </div>
+
     </div>
     </div>
 

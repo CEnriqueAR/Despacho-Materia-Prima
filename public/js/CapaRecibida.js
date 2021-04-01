@@ -9,14 +9,14 @@ $('#modalVistaPreviaCapaEntrega').on('show.bs.modal', function (event) {
 $('#modalEditarCapaRecibida').on('show.bs.modal',function (e) {
     var button = $(e.relatedTarget);
     var id_c = button.data('id');
-    var tamano = button.data('id_tamano');
+    var id_tamano = button.data('id_tamano');
     var id_semillas = button.data('id_semillas');
     var id_calidad = button.data('id_calidad');
     var total = button.data('total');
 
     var modal = $(this);
     modal.find('.modal-footer #id_producto').val(id_c);
-    modal.find('.modal-body #tamanocaparecibida').val(tamano).change();
+    modal.find('.modal-body #tamanocaparecibida').val(id_tamano).change();
     modal.find('.modal-body #totalcaparecibida').val(total);
     modal.find('.modal-body #semillacaparecibida').val(id_semillas).change();
     modal.find('.modal-body #calidadcaparecibida').val(id_calidad).change();

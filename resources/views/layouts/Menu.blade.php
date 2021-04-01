@@ -139,7 +139,6 @@
 <script src="{{asset("js/jsmenu/categorias.js")}}"></script>
 <script src="{{asset("js/jsmenu/font-awesome.js")}}" crossorigin="anonymous"></script>
 <script src="{{asset("js/marca.js")}}"></script>
-
 <script src="{{asset("js/empleado.js")}}"></script>
 <script src="{{asset("js/CapaEntrega.js")}}"></script>
 <script src="{{asset("js/CapaRecibida.js")}}"></script>

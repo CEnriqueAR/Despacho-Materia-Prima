@@ -119,8 +119,8 @@
                     <td>{{$productos->nombre_empleado}}</td>
                     <td>{{$productos->nombre_marca}}</td>
                     <td>{{$productos->nombre_vitolas}}</td>
-                    <td>{{$productos->nombre_calidads}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
+                    <td>{{$productos->nombre_calidads}}</td>
                     <td>{{$productos->nombre_tamano}}</td>
                     <td>{{$productos->total}}</td>
                     <td>
@@ -133,6 +133,7 @@
                                 data-id_vitolas="{{$productos->nombre_vitolas}}"
                                 data-id_semillas="{{$productos->nombre_semillas}}"
                                 data-id_calidad="{{$productos->nombre_calidads}}"
+                                data-id_tamano="{{$productos->nombre_tamano}}"
                                 data-total="{{$productos->total}}">
                             <span class="fas fa-eye"></span>
                         </button>
@@ -141,11 +142,12 @@
                                 data-toggle="modal"
                                 data-target="#modalEditarCapaEntrega"
                                 data-id="{{$productos->id}}"
-                                data-id_empleado="{{$productos->nombre_empleado}}"
-                                data-id_marca="{{$productos->nombre_marca}}"
-                                data-id_vitolas="{{$productos->nombre_vitolas}}"
-                                data-id_semilla="{{$productos->nombre_semillas}}"
-                                data-id_calidad="{{$productos->nombre_calidads}}"
+                                data-id_empleado="{{$productos->id_empleado}}"
+                                data-id_marca="{{$productos->id_marca}}"
+                                data-id_vitolas="{{$productos->id_vitolas}}"
+                                data-id_semilla="{{$productos->id_semilla}}"
+                                data-id_calidad="{{$productos->id_calidad}}"
+                                data-id_tamano="{{$productos->id_tamano}}"
                                 data-total="{{$productos->total}}"
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
@@ -251,7 +253,7 @@
                                 @foreach($tamano as $tamanos)
                                     <option value="{{$tamanos->id}}" @if(Request::old('id_tamano')==$tamanos->id){{'selected'}}@endif
                                     @if(session("idMarca"))
-                                        {{session("idSemilla")==$tamanos->id ? 'selected="selected"':''}}
+                                        {{session("idMarca")==$tamanos->id ? 'selected="selected"':''}}
                                             @endif>{{$tamanos->name}}
                                     </option>
                                 @endforeach
@@ -267,7 +269,7 @@
                                 @foreach($calidad as $calidades)
                                     <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
                                     @if(session("idMarca"))
-                                        {{session("idCalidad")==$calidades->id ? 'selected="selected"':''}}
+                                        {{session("idMarca")==$calidades->id ? 'selected="selected"':''}}
                                             @endif>{{$calidades->name}}
                                     </option>
                                 @endforeach
@@ -283,7 +285,7 @@
                                 @foreach($semillas as $semilla)
                                     <option value="{{$semilla->id}}" @if(Request::old('id_semilla')==$semilla->id){{'selected'}}@endif
                                     @if(session("idMarca"))
-                                        {{session("idCalidad")==$semilla->id ? 'selected="selected"':''}}
+                                        {{session("id_semilla")==$semilla->id ? 'selected="selected"':''}}
                                             @endif>{{$semilla->name}}
                                     </option>
                                 @endforeach
@@ -312,7 +314,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="editarP" method="POST" action="{{route("editarCapaEntrega")}}" >
+                <form id="nuevoP" method="POST" action="{{route("editarCapaEntrega")}}" >
                     @method("PUT")
 
                     @csrf
@@ -329,14 +331,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="empleadoNuevocapaentrega">Seleccione el Empleado:
+                            <label for="empleadoEditarcapaentrega">Seleccione el Empleado:
                             </label>
                             <br>
                             <select name="id_empleado"
                                     required="required"
                                     style="width: 85%"
-                                    class="select2 TipoCategoria form-control @error('id_categoria') is-invalid @enderror"
-                                    id="empleadoNuevocapaentrega" >
+                                    class="TipoCategoria form-control @error('id_categoria') is-invalid @enderror"
+                                    id="empleadoEditarcapaentrega" >
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($empleados as $empleado)
                                     <option value="{{$empleado->id}}">{{$empleado->nombre}}</option>
@@ -384,13 +386,54 @@
                                     </span>
                             @enderror
                         </div>
+
+
                         <div class="form-group">
-                            <label for="id_calidad">Seleccione la marca</label>
+                            <label for="calidadcapaentrega">Seleccione la calidad</label>
+                            <br>
+                            <select name="id_calidad"
+                                    style="width: 85%"
+                                    class=" TipoCategoria form-control @error('id_calidad') is-invalid @enderror"
+                                    id="calidadcapaentrega" required="required">
+                                <option disabled selected value="">Seleccione</option>
+                                @foreach($calidad as $calidades)
+                                    <option value="{{$calidades->id}}">{{$calidades->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('id_calidad')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="id_tamano">Seleccione el Tamaño</label>
+                            <br>
+                            <select name="id_tamano"
+                                    style="width: 85%"
+                                    class=" TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    id="tamanocapaentrega" required="required">
+                                <option disabled selected value="">Seleccione</option>
+                                @foreach($tamano as $tamanos)
+                                    <option value="{{$tamanos->id}}">{{$tamanos->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('id_marca')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="marcacapaentrega">Seleccione la marca</label>
                             <br>
                             <select name="id_marca"
                                     style="width: 85%"
-                                    class="select2TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="id_calidad" required="required">
+                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    id="marcacapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($marca as $marca)
                                     <option value="{{$marca->id}}">{{$marca->name}}
@@ -403,28 +446,6 @@
                                     </span>
                             @enderror
                         </div>
-
-                        <div class="form-group">
-                            <label for="calidadcapaentrega">Seleccione la calidad</label>
-                            <br>
-                            <select name="id_calidad"
-                                    style="width: 85%"
-                                    class=" empresa2 form-control @error('id_marca') is-invalid @enderror"
-                                    id="calidadcapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($calidad as $calidades)
-                                    <option value="{{$calidades->id}}">{{$calidades->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_marca')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-
 
                     </div>
                     <div class="modal-footer">

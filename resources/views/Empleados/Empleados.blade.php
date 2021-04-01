@@ -54,10 +54,10 @@
 
         <!--------------------------Reabrir modal si hay errror---------------------------->
         @if(session("errores"))
-            <input id="id" name="id" value="{{session("id")}}" type="hidden" >
+            <input id="id_producto" name="id_producto" value="{{session("id_producto")}}" type="hidden" >
 
             <script>
-                var id=document.getElementById("id").value;
+                var id=document.getElementById("id_producto").value;
                 document.onreadystatechange = function () {
                     if (document.readyState) {
                         document.getElementById("editar"+id).click();
@@ -87,12 +87,12 @@
             </tr>
             </thead>
             <tbody>
-            @if(!$marca)
+            @if(!$empleado)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay Empleados registradas</td>
                 </tr>
             @endif
-            @foreach($marca as $empleado)
+            @foreach($empleado as $empleado)
                 <tr>
                     <td>{{$noPagina++}}</td>
                     <td>{{$empleado->codigo}}</td>
@@ -200,14 +200,15 @@
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{route("editarEmpleado")}}">
+                    <form method="post" action="{{route("editarempleado")}}" >
                         @method('PUT');
                         @csrf
                         <div class="modal-body" style="object-fit: fill">
                             <div class="form-group">
                                 <label for="codigo">codigo Empleado:</label>
                                 <input required="required" type="text"
-                                       class="form-control @error('name') is-invalid @enderror" name="codigo" id="codigo" maxlength="30"
+                                       class="form-control @error('name') is-invalid @enderror"
+                                       name="codigo" id="codigo" maxlength="30"
                                        value="{{old('codigo')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -218,7 +219,8 @@
                             <div class="form-group">
                                 <label for="nombre">Nombre Empleado:</label>
                                 <input required="required" type="text"
-                                       class="form-control @error('name') is-invalid @enderror" name="nombre" id="nombre" maxlength="30"
+                                       class="form-control @error('name') is-invalid @enderror"
+                                       name="nombre" id="nombre" maxlength="30"
                                        value="{{old('nombre')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -229,10 +231,9 @@
                             <div class="form-group">
                                 <label for="puesto" >puesto:</label>
                                 <input class="form-control @error('description') is-invalid @enderror"
-                                          name="puesto"
-                                          id="puesto"
+                                          name="puesto" id="puesto"
                                           maxlength="192"
-                                {{Request::old('puesto')}}>
+                                {{old('puesto')}}>
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message}}</strong>
@@ -241,8 +242,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <input type="hidden" name="id" id="id">
-                            <button type="submit" class="btn btn-success" id="id" onclick="f()" >Editar</button>
+                            <input type="hidden" name="id" id="id_producto">
+                            <button type="submit" class="btn btn-success" >Editar</button>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>

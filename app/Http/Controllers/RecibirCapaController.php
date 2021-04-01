@@ -42,6 +42,7 @@ class RecibirCapaController extends Controller
                 ->leftJoin("calidads","recibir_capas.id_calidad","=","calidads.id")
 
                 ->select("recibir_capas.id","tamanos.name AS nombre_tamano",
+                    "recibir_capas.id_tamano",
                     "recibir_capas.id_calidad","calidads.name as nombre_calidad",
                     "recibir_capas.id_semillas","semillas.name as nombre_semillas","recibir_capas.total")
                 ->where("semillas.name","Like","%".$query."%")
@@ -118,7 +119,7 @@ class RecibirCapaController extends Controller
         try{
             $this->validate($request, [
                 'id_tamano'=>'required|integer',
-                'id_semilla'=>'required|integer',
+                'id_semillas'=>'required|integer',
                 'id_calidad'=>'required|integer',
                 'total'=>'required|integer'
             ]);

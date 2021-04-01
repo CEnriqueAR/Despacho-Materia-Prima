@@ -18,6 +18,7 @@ Auth::routes();
 
 
 Route::group(["middleware" => "auth"], function () {
+
     Route::get('/', function () {
         return view('index');
 
@@ -43,7 +44,7 @@ Route::group(["middleware" => "auth"], function () {
         //--------------------------------------------Empleados ROUTES-------------------------------------------------------->
         Route::get("/empleados","EmpleadoController@index")->name("empleados");
         Route::post("/empleado/nuevo","EmpleadoController@storeEmpleado")->name("nuevoEmpleado");
-        Route::put("/empleado/editar","EmpleadoController@editarEmpleado")->name("editarEmpleado");
+        Route::put("/empleados/editar","EmpleadoController@editarEmpleado")->name("editarempleado");
         Route::delete("/empleado/borrar","EmpleadoController@borrarEmpleado")->name("borrarEmpleado");
         //--------------------------------------------EmpleadosExportar ROUTES-------------------------------------------------------->
 

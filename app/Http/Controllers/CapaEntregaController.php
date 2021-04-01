@@ -50,9 +50,12 @@ class CapaEntregaController extends Controller
                     "vitolas.name as nombre_vitolas","semillas.name as nombre_semillas",
                     "calidads.name as nombre_calidads",
                     "capa_entregas.id_tamano","tamanos.name as nombre_tamano",
-                    "capa_entregas.id_empleado","capa_entregas.id_vitolas",
-                    "capa_entregas.id_semilla","capa_entregas.id_calidad",
-                    "capa_entregas.id_marca","marcas.name as nombre_marca","capa_entregas.total")
+                    "capa_entregas.id_empleado",
+                    "capa_entregas.id_vitolas",
+                    "capa_entregas.id_semilla",
+                    "capa_entregas.id_calidad",
+                    "capa_entregas.id_marca","marcas.name as nombre_marca"
+                    ,"capa_entregas.total")
                 ->where("empleados.nombre","Like","%".$query."%")
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
 
@@ -134,16 +137,17 @@ class CapaEntregaController extends Controller
     {
         try{
             $this->validate($request, [
-                'id_empleado'=>'required|integer',
-                'id_vitolas'=>'required|integer',
-                'id_marca'=>'required|integer',
-                 'id_semilla'=>'required|integer',
+                'id_empleado'=>'required',
+                'id_vitolas'=>'required',
+                'id_marca'=>'required',
+                 'id_semilla'=>'required',
                 'id_calidad'=>'required|integer',
                 'id_tamano'=>'required|integer',
-                'total'=>'required|integer'
+                'total'=>'required'
             ]);
                  /**,$messages = [
-                'name.required' => 'El nombre del producto es requerido.',
+                'id_empleado.required' => 'El nombre del producto es requerido.',
+
                 'description.max:192' => 'La descripción  no debe de tener más de 192 caracteres.',
                 'unit_price.numeric' => 'El precio debe ser un valor numérico.',
                 'unit_price.max:9999' =>'El precio unitario no debe de exceder de 9 caracteres',
@@ -155,12 +159,13 @@ class CapaEntregaController extends Controller
 
             ]);  */
             $editarCapaEntrega=CapaEntrega::findOrFail($request->id);
+
             $editarCapaEntrega->id_empleado=$request->input('id_empleado');
             $editarCapaEntrega->id_vitolas=$request->input('id_vitolas');
             $editarCapaEntrega->id_semilla=$request->input('id_semilla');
             $editarCapaEntrega->id_calidad=$request->input('id_calidad');
             $editarCapaEntrega->id_marca=$request->input("id_marca");
-            $editarCapaEntrega->id_matano=$request->input("id_tamano");
+            $editarCapaEntrega->id_tamano=$request->input("id_tamano");
             $editarCapaEntrega->total=$request->input('total');
 
 

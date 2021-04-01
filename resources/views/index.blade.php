@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-lg-6 hero_box_col">
-                        <a href="{{route('DesCapa.index')}}" >
+                        <a href="{{route('CapaEntrega')}}" >
                         <div class="hero_box d-flex flex-row align-items-center justify-content-start">
                             <img src="images/books.svg" class="svg" alt="">
                             <div class="hero_box_content">

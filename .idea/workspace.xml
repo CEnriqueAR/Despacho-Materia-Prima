@@ -2,35 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Peso.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_28_022204_create_pesos_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/Peso.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/semilla.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Semilla/Semillas.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DespachoMateriaPrima.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DespachoMateriaPrima.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/RecibirCapa.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/RecibirCapa.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_24_235517_create_tamanos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_24_235517_create_tamanos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/CapaRecibida.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaRecibida.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/Peso.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/Peso.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/empleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/empleado.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,112 +28,7 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution>
-      <executable />
-    </execution>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="243" column="65" selection-start-line="243" selection-start-column="65" selection-end-line="243" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-867">
-              <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/empleado.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/CapaRecibida.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="56" column="14" selection-start-line="56" selection-end-line="57" />
-              <folding>
-                <element signature="e#40#56#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6664">
-              <caret line="392" column="50" selection-start-line="392" selection-start-column="50" selection-end-line="392" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/marca.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="72" column="114" selection-start-line="72" selection-start-column="95" selection-end-line="72" selection-end-column="114" />
-              <folding>
-                <element signature="e#7#47#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -171,7 +56,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/EmpleadosExportController.php" />
         <option value="$PROJECT_DIR$/resources/views/Empleados/ImprimirEmpleados.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PrintEmpleadoController.php" />
-        <option value="$PROJECT_DIR$/resources/views/Marcas/marcas.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/storage/framework/views/978b038b22bd90a01127f0f38c41053c0c94d163.php" />
         <option value="$PROJECT_DIR$/resources/views/Banda.blade.php" />
@@ -203,21 +87,22 @@
         <option value="$PROJECT_DIR$/public/js/plugins/Peso.js" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MarcaController.php" />
         <option value="$PROJECT_DIR$/public/js/semilla.js" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" />
         <option value="$PROJECT_DIR$/resources/views/Semilla/Semillas.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/Peso.js" />
-        <option value="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" />
-        <option value="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" />
+        <option value="$PROJECT_DIR$/public/js/Peso.js" />
+        <option value="$PROJECT_DIR$/resources/views/Marcas/marcas.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" />
         <option value="$PROJECT_DIR$/public/js/empleado.js" />
         <option value="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" />
       </list>
     </option>
   </component>
@@ -348,6 +233,7 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectId" id="1qU22nfU8P2rzq1avyPWE2vprYa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -382,62 +268,13 @@
             <path>
               <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
               <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
               <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Empleados" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="EntregaDeCapa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="RecepcionCapa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Semilla" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DespachoMateriaPrima" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DespachoMateriaPrima" type="b2602c69:ProjectViewProjectNode" />
@@ -450,6 +287,10 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -457,7 +298,8 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="OPEN_URL_DIALOG">
@@ -477,24 +319,13 @@
       <recent name="C:\laragon\www\DespachoMateriaPrima\public" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -542,7 +373,16 @@
       <workItem from="1616897940973" duration="481000" />
       <workItem from="1616944148599" duration="9430000" />
       <workItem from="1616955674398" duration="16824000" />
-      <workItem from="1617047072191" duration="529000" />
+      <workItem from="1617047072191" duration="9558000" />
+      <workItem from="1617117008259" duration="397000" />
+      <workItem from="1617117894350" duration="398000" />
+      <workItem from="1617118320547" duration="143000" />
+      <workItem from="1617118564448" duration="613000" />
+      <workItem from="1617119683143" duration="767000" />
+      <workItem from="1617120578825" duration="863000" />
+      <workItem from="1617122647284" duration="1495000" />
+      <workItem from="1617152575582" duration="1276000" />
+      <workItem from="1617207721428" duration="28918000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -572,16 +412,32 @@
       <option name="project" value="LOCAL" />
       <updated>1616767812208</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="peso">
+      <created>1617047941198</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617047941198</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237080000" />
+    <option name="totallyTimeSpent" value="247660000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30711043" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3260212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -591,12 +447,12 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49924356" weight="0.32872504" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.42549923" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50075644" side_tool="true" weight="0.32872504" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.42549923" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -628,14 +484,19 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="uno bien gordo" />
     <MESSAGE value="Primero con Despacho de Banda" />
     <MESSAGE value="entrega de despacho de capa , tamaño , se milla , calidad" />
     <MESSAGE value="recibir capa  falta la vista" />
-    <option name="LAST_COMMIT_MESSAGE" value="recibir capa  falta la vista" />
+    <MESSAGE value="peso" />
+    <option name="LAST_COMMIT_MESSAGE" value="peso" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/database/seeds/VitolaTableSeeder.php">
@@ -662,13 +523,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -683,13 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="49" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_13_183659_create_empleados_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -854,81 +701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SemillaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding>
-            <element signature="e#40#82#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/Menu.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="73" column="83" selection-start-line="73" selection-start-column="83" selection-end-line="73" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="93" column="5" selection-start-line="15" selection-start-column="4" selection-end-line="93" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Marcas/marcas.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="175" column="103" selection-start-line="175" selection-start-column="74" selection-end-line="175" selection-end-column="103" />
-          <folding>
-            <element signature="e#8519#8543#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="284" column="51" lean-forward="true" selection-start-line="284" selection-start-column="51" selection-end-line="284" selection-end-column="51" />
-          <folding>
-            <element signature="e#10124#10151#0#HTML" expanded="true" />
-            <element signature="e#10201#10221#0#HTML" expanded="true" />
-            <element signature="e#10440#10460#0#HTML" expanded="true" />
-            <element signature="e#10782#10806#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PesoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
-          <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_28_022204_create_pesos_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="42" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/Peso.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="39" column="34" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -942,30 +718,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php">
+    <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="243" column="65" selection-start-line="243" selection-start-column="65" selection-end-line="243" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/empleado.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="221">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/CapaRecibida.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="354">
           <caret line="21" column="48" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="255">
           <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
@@ -973,16 +742,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
+        <state relative-caret-position="391">
           <caret line="56" column="14" selection-start-line="56" selection-end-line="57" />
           <folding>
             <element signature="e#40#56#0#PHP" expanded="true" />
@@ -992,7 +754,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6664">
+        <state relative-caret-position="34">
           <caret line="392" column="50" selection-start-line="392" selection-start-column="50" selection-end-line="392" selection-end-column="50" />
         </state>
       </provider>
@@ -1004,22 +766,138 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1009">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/Menu.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="147" lean-forward="true" selection-start-line="147" selection-end-line="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/Peso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/PesoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="126" column="90" selection-start-line="126" selection-start-column="79" selection-end-line="126" selection-end-column="90" />
+          <folding>
+            <element signature="e#40#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3774">
+          <caret line="222" column="68" selection-start-line="222" selection-start-column="68" selection-end-line="222" selection-end-column="68" />
+          <folding>
+            <element signature="e#3655#3682#0#HTML" expanded="true" />
+            <element signature="e#10105#10132#0#HTML" expanded="true" />
+            <element signature="e#10178#10198#0#HTML" expanded="true" />
+            <element signature="e#10404#10424#0#HTML" expanded="true" />
+            <element signature="e#10444#10451#1#HTML" expanded="true" />
+            <element signature="e#13071#13089#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Marcas/marcas.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1517">
+          <caret line="212" column="14" lean-forward="true" selection-start-line="165" selection-end-line="213" />
+          <folding>
+            <element signature="e#7644#10541#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SemillaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="e#40#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="199" column="12" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2021_03_13_183659_create_empleados_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="98" selection-start-line="98" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/MarcaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/empleado.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2125">
+          <caret line="125" column="31" selection-start-line="125" selection-start-column="31" selection-end-line="125" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
-          <caret line="72" column="114" selection-start-line="72" selection-start-column="95" selection-end-line="72" selection-end-column="114" />
+        <state relative-caret-position="1309">
+          <caret line="78" column="80" selection-start-line="78" selection-start-column="70" selection-end-line="78" selection-end-column="80" />
           <folding>
             <element signature="e#7#47#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-867">
-          <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

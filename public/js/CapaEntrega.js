@@ -12,8 +12,9 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var empleado = button.data('id_empleado');
     var vitola = button.data('id_vitolas');
     var semilla = button.data('id_semilla');
-    var calidad = button.data('id_calidads');
+    var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
+    var id_tamano= button.data('id_tamano');
     var total = button.data('total');
 
     var modal = $(this);
@@ -24,6 +25,8 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
+    modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
+
 });
 //Ver Producto
 $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {

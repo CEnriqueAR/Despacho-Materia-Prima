@@ -16,10 +16,10 @@ $('#modalEditarPeso').on('show.bs.modal',function (e) {
 
     var modal = $(this);
     modal.find('.modal-footer #id_producto').val(id_c);
-    modal.find('.modal-body #PesoGrande').val(PesoGrande).change();
+    modal.find('.modal-body #PesoGrande').val(PesoGrande);
     modal.find('.modal-body #PesoPequeno').val(PesoPequeno);
     modal.find('.modal-body #id_semillas').val(id_semillas).change();
-    modal.find('.modal-body #PesoMediano').val(PesoMediano).change();
+    modal.find('.modal-body #PesoMediano').val(PesoMediano);
 });
 //Ver Producto
 
