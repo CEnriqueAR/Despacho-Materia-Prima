@@ -68,11 +68,27 @@ Route::group(["middleware" => "auth"], function () {
         Route::get("/CapaEntrega", "CapaEntregaController@index")->name("CapaEntrega");//Muestra el servicio de las empresas
         Route::put("/CapaEntrega/editar","CapaEntregaController@editCapaEntrega")->name("editarCapaEntrega");
         Route::delete("/CapaEntrega/borrar","CapaEntregaController@destroy")->name("borrarCapaEntrega");
+
+        //--------------------------------------------CapaEntregaExportar ROUTES-------------------------------------------------------->
+        Route::post('/CapaEntrega/export', 'CapaEntregaController@export')->name("exportarcapaentrega");
+        Route::get('/CapaEntrega/export', 'CapaEntregaController@export')->name("exportarcapaentrega");
+        Route::post('/CapaEntrega/exportPDF', 'CapaEntregaController@exportpdf')->name("exportarcapaentregapdf");
+        Route::get('/CapaEntrega/exportPDF', 'CapaEntregaController@exportpdf')->name("exportarcapaentregapdf");
+        Route::post('/CapaEntrega/exportCVS', 'CapaEntregaController@exportcvs')->name("exportarcapaentregaacvs");
+        Route::get('/CapaEntrega/exportCVS', 'CapaEntregaController@exportcvs')->name("exportarcapaentregacvs");
+
         //--------------------------------------------Recibir Capa ROUTES-------------------------------------------------------->
         Route::get("/RecepcionCapa","RecibirCapaController@index")->name("RecepcionCapa");
         Route::post("/RecepcionCapa/nuevo","RecibirCapaController@storeRecepcionCapa")->name("nuevaRecepcionCapa");
         Route::put("/RecepcionCapa/editar","RecibirCapaController@editarRecepcionCapa")->name("editarRecepcionCapa");
         Route::delete("/RecepcionCapa/borrar","RecibirCapaController@borrarRecepcionCapa")->name("borrarRecepcionCapa");
+        //--------------------------------------------RECIBIRCAPAExportar ROUTES-------------------------------------------------------->
+        Route::post('/RecepcionCapa/export', 'RecibirCapaController@export')->name("exportarRecibircapa");
+        Route::get('/RecepcionCapa/export', 'RecibirCapaController@export')->name("exportarRecibircapa");
+        Route::post('/RecepcionCapa/exportPDF', 'RecibirCapaController@exportpdf')->name("exportarRecibircapapdf");
+        Route::get('/RecepcionCapa/exportPDF', 'RecibirCapaController@exportpdf')->name("exportarRecibircapapdf");
+        Route::post('/RecepcionCapa/exportCVS', 'RecibirCapaController@exportcvs')->name("exportarRecibircapacvs");
+        Route::get('/RecepcionCapa/exportCVS', 'RecibirCapaController@exportcvs')->name("exportarRecibircapacvs");
 
         //--------------------------------------------PESOS ROUTES-------------------------------------------------------->
         Route::get("/peso","PesoController@index")->name("peso");

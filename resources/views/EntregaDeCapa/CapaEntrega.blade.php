@@ -30,7 +30,20 @@
                     </div>
                 </form>
             </ol>
+
             <div class="pagination pagination-sm">
+
+                <a class="btn btn-dark hideClearSearch" style="color: white"
+                   id="botonAbrirModalNuevoRecepcionCapa"
+                   data-toggle="modal" data-target="#modalfechacvs">CVS</a>
+
+                <a class="btn btn-success hideClearSearch" style="color: white"
+                   id="botonAbrirModalNuevoRecepcionCapa"
+                   data-toggle="modal" data-target="#modalfecha">Excel</a>
+
+                <a class="btn btn-danger hideClearSearch" style="color: white"
+                   id="botonAbrirModalNuevoRecepcionCapa"
+                   data-toggle="modal" data-target="#modalfechapdf">PDF</a>
 
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
@@ -545,6 +558,117 @@
                 </form>
             </div>
 
+        </div>
+    </div>
+
+    <!----------------------------------------------------MODAL fecha Exportar Excel------------------------------------------------------->
+
+    <div class="modal fade" id="modalfecha" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #2a2a35">
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Exportar EXCEL
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <form id="nuevoP" method="POST" action="{{route("exportarcapaentrega")}}" enctype="multipart/form-data">
+
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha1">Fecha</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha1')}}" >
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="nuevoP" class="btn btn-success">Exportar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------MODAL fecha Exportar PDF------------------------------------------------------->
+
+    <div class="modal fade" id="modalfechapdf" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #2a2a35">
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Exportar PDF
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <form id="nuevoP" method="POST" action="{{route("exportarcapaentregapdf")}}" enctype="multipart/form-data">
+
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha1">Fecha</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha1')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="nuevoP" class="btn btn-success">Exportar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------MODAL fecha Exportar CVS------------------------------------------------------->
+    <div class="modal fade" id="modalfechacvs" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #2a2a35">
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Exportar CVS
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color: white">&times;</span>
+                    </button>
+                </div>
+                <form id="nuevoP" method="POST" action="{{route("exportarcapaentregacvs")}}" enctype="multipart/form-data">
+
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha1">Fecha</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha1')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="nuevoP" class="btn btn-success">Exportar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </div>
 

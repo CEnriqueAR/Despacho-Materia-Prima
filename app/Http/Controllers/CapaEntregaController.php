@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Calidad;
 use App\CapaEntrega;
 use App\Empleado;
+use App\Exports\EntregaCapaExport;
+use App\Exports\RecepcionCapaExport;
 use App\Http\Requests\CreateProductosRequest;
 use App\Marca;
 use App\Semilla;
@@ -202,6 +204,48 @@ class CapaEntregaController extends Controller
 
         $borrar->delete();
         return redirect()->route("CapaEntrega")->withExito("Se borró la entrega satisfactoriamente");
+    }
+
+
+    public function export(Request $request)
+    {
+
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new EntregaCapaExport($fecha))->download('Listado de Entrega'.$fecha.'.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+    }
+
+    public function exportpdf(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new EntregaCapaExport($fecha))->download('Listado De Entrega'.$fecha.'.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
+    }
+    public function exportcvs(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new EntregaCapaExport($fecha))->download('Listado de Entrega'.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 
 }

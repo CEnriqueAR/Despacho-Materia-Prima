@@ -100,8 +100,9 @@
                     <td>{{$noPagina++}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
                     <td>{{$productos->PesoGrande}}</td>
-                    <td>{{$productos->PesoPequeno}}</td>
                     <td>{{$productos->PesoMediano}}</td>
+                    <td>{{$productos->PesoPequeno}}</td>
+
                     <td>
                         <button class="btn btn-sm btn-success"
                                 id="editarPeso{{$productos->id}}"
@@ -222,16 +223,14 @@
                         <span style="color: white" aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form method="post" action="{{route("editarpeso")}}">
-                    @method('PUT');
+                <form method="post" action="{{route("editarpeso")}}" enctype="multipart/form-data">
+                    @method('PUT')
                     @csrf
-                    <div class="modal-body">
-
-                        <div class="modal-body">
+                        <div class="modal-body" style="object-fit: fill">
                             <div class="form-group">
                                 <label for="PesoGrande">Grande</label>
                                 <input  class="form-control @error('name') is-invalid @enderror"
-                                        name="PesoGrande" id="PesoGrande" maxlength="100" value="{{old("PesoGrande")}}">
+                                        name="PesoGrande" id="PesoGrande" value="{{old('PesoGrande')}}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -244,7 +243,7 @@
                                 <input required="required" type="text"
                                        class="form-control @error('name') is-invalid @enderror"
                                        name="PesoMediano" id="PesoMediano"
-                                       value="{{ old('PesoMediano')}}">
+                                       value="{{old('PesoMediano')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message}}</strong>
@@ -257,7 +256,7 @@
                                 <input required="required" type="text"
                                        class="form-control @error('name') is-invalid @enderror"
                                        name="PesoPequeno" id="PesoPequeno"
-                                       value="{{old('PesoPequeno')}}">
+                                       value="{{Request::old('PesoPequeno')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message}}</strong>
@@ -291,9 +290,10 @@
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
                     </div>
-                    </div>
+
                 </form>
 
+    </div>
     </div>
     </div>
 

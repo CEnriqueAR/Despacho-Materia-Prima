@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Calidad;
-use App\CapaEntrega;
-use App\Empleado;
-use App\Marca;
+use App\Exports\RecepcionCapaExport;
 use App\RecibirCapa;
 use App\Semilla;
 use App\Tamano;
-use App\Vitola;
 use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class RecibirCapaController extends Controller
 {
@@ -28,7 +26,7 @@ class RecibirCapaController extends Controller
         if ($request){
             $query = trim($request->get("search"));
 
-            $fecha = $request->get("fecha");
+          $fecha = $request->get("fecha");
 
             if ($fecha = null)
                 $fecha = Carbon::now()->format('Y-m-d');
@@ -49,7 +47,7 @@ class RecibirCapaController extends Controller
                 ->whereDate("recibir_capas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
 
                 ->paginate(10);
-        $tamano= Tamano::all();
+           $tamano= Tamano::all();
             $semillas = Semilla::all();
             $calidad = Calidad::all();
 
@@ -57,8 +55,8 @@ class RecibirCapaController extends Controller
                 ->withNoPagina(1)
                 ->withRecibirCapa($recibirCapa)
                 ->withTamano($tamano)
-            ->withSemillas($semillas)
-            ->withCalidad($calidad);
+               ->withSemillas($semillas)
+               ->withCalidad($calidad);
         }
 
         //
@@ -177,4 +175,46 @@ class RecibirCapaController extends Controller
         $borrar->delete();
         return redirect()->route("RecepcionCapa")->withExito("Se borró la entrega satisfactoriamente");
     }
+
+    public function export(Request $request)
+    {
+
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+            return (new RecepcionCapaExport($fecha))->download('Listado de Capa Recibida'.$fecha.'.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+    }
+
+    public function exportpdf(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new RecepcionCapaExport($fecha))->download('Listado de Capa Recibida'.$fecha.'.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
+    }
+    public function exportcvs(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new RecepcionCapaExport($fecha))->download('Listado de Capa Recibida'.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+
 }
