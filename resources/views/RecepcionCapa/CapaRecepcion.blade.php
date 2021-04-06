@@ -110,7 +110,7 @@
                 <th>Tamaño</th>
                 <th>Calidad</th>
                 <th>total</th>
-                <th><span class="fas fa-info-circle">Agregar</span></th>
+                <th><span>Agregar</span></th>
 
 
 
@@ -134,16 +134,28 @@
                     <td>{{$productos->total}}</td>
                     <td>
 
+
+                        <button
+                            class="btn btn-sm btn-info"
+                            data-toggle="modal"
+                            data-target="#modalSumar200"
+                            data-id="{{$productos->id}}"
+                            title="200"> 200</button>
+
+
                         <button class="btn btn-sm btn-info"
-                                title="200">
-                            200
-                        </button>
-                        <button class="btn btn-sm btn-info"
-                                title="100">
-                       100 </button>
-                        <button class="btn btn-sm btn-info"
+                                data-toggle="modal"
+                                data-target="#modalSumar50"
+                                data-id="{{$productos->id}}"
                                 title="50">
                        50 </button>
+
+                        <button class="btn btn-sm btn-success"
+                                data-toggle="modal"
+                                data-target="#modalSumar"
+                                data-id="{{$productos->id}}"
+                                title="Agregar">
+                            <span class="fas fa-plus"></span>  </button>
                     </td>
                     <td>
 
@@ -155,7 +167,6 @@
                                 data-id_semillas="{{$productos->nombre_semillas}}"
                                 data-id_calidad="{{$productos->nombre_calidad}}"
                                 data-id_tamano="{{$productos->nombre_tamano}}"
-
                                 data-total="{{$productos->total}}">
                             <span class="fas fa-eye"></span>
                         </button>
@@ -536,9 +547,8 @@
         </div>
     </div>
 
-
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
-    <div class="modal fade" id="modalBorrarCapaRecibida" tabindex="-1" role="dialog">
+    <div class="modal fade" id="modalBorrarCapaEntrega" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <form method="post" action="{{route("borrarRecepcionCapa")}}" >
@@ -552,7 +562,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar esta entrada <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>
@@ -567,6 +577,104 @@
         </div>
     </div>
 
+    <!-------------------MODAL sumar 200------------------------------>
+    <div class="modal fade" id="modalSumar200" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumar200Recibircapa")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro que deseas Sumar 200 <label
+                                id="nombreProducto"></label>?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden" value="">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id">Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <!-------------------MODAL sumar  50------------------------------>
+
+
+    <div class="modal fade" id="modalSumar50" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumar50Recibircapa")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro que deseas  Sumar 50 <label
+                                id="nombreProducto"></label>?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-------------------MODAL sumar  50------------------------------>
+
+
+    <div class="modal fade" id="modalSumar" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumarRecibircapa")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-group">
+                        <label for="suma">Tota a Sumarl</label>
+                        <input class="form-control @error('name') is-invalid @enderror" name="suma" id="suma" maxlength="100"
+                               value="{{ old('suma')}}" required="required">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div></div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
     <!-------------------MODAL NUEVO CATEGORIA------------------------------>
 
     {{-- <div class="modal fade" id="modalNuevaCategoria" tabindex="-1" role="dialog">

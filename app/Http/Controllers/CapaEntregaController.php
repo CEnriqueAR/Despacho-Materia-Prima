@@ -62,7 +62,7 @@ class CapaEntregaController extends Controller
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
 
               //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
-                ->paginate(10);
+                ->paginate(1000);
             $empleados = Empleado::all();
             $semilla = Semilla::all();
             $calidad = Calidad::all();
@@ -248,4 +248,37 @@ class CapaEntregaController extends Controller
         return (new EntregaCapaExport($fecha))->download('Listado de Entrega'.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 
+
+    public function Suma25(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('capa_entregas')->where("capa_entregas.id","=",$capaentrega)->increment('total', 75);
+
+        return redirect()->route("CapaEntrega")->withExito("Se editó Correctamente");
+
+    }
+    public function Suma50(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('capa_entregas')->where("capa_entregas.id","=",$capaentrega)->increment('total', 100);
+
+        return redirect()->route("CapaEntrega")->withExito("Se editó Correctamente");
+
+    }
+    public function Sumas(Request $request){
+
+        $incremeto =  $request->get('suma');
+        $capaentrega = $request->get('id');
+
+        DB::table('capa_entregas')->where("capa_entregas.id","=",$capaentrega)
+            ->increment('total', $incremeto);
+
+        return redirect()->route("CapaEntrega")->withExito("Se editó Correctamente");
+
+
+    }
 }

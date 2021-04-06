@@ -12,6 +12,8 @@ return array(
     'App\\Empleado' => $baseDir . '/app/Empleado.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Exports\\EmpleadosExport' => $baseDir . '/app/Exports/EmpleadosExport.php',
+    'App\\Exports\\EntregaCapaExport' => $baseDir . '/app/Exports/EntregaCapaExport.php',
+    'App\\Exports\\RecepcionCapaExport' => $baseDir . '/app/Exports/RecepcionCapaExport.php',
     'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',

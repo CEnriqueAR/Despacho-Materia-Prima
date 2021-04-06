@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Exports/RecepcionCapaExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/CapaRecibida.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaRecibida.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -379,7 +380,9 @@
       <workItem from="1617247389282" duration="258000" />
       <workItem from="1617486828886" duration="8321000" />
       <workItem from="1617573056902" duration="11455000" />
-      <workItem from="1617631159740" duration="6107000" />
+      <workItem from="1617631159740" duration="17361000" />
+      <workItem from="1617654722714" duration="4006000" />
+      <workItem from="1617716973895" duration="11404000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -423,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617247574275</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Exportar Por Fecha">
+      <created>1617637550458</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617637550458</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -497,7 +507,8 @@
     <MESSAGE value="recibir capa  falta la vista" />
     <MESSAGE value="peso" />
     <MESSAGE value="correxion el de editar faltan 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="correxion el de editar faltan 2" />
+    <MESSAGE value="Exportar Por Fecha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exportar Por Fecha" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

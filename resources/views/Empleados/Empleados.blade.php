@@ -108,6 +108,7 @@
                                 id="editar{{$empleado->id}}"
                                 data-toggle="modal"
                                 data-target="#modalEditarEmpleado"
+                                data-id="{{$empleado->id}}"
                                 data-codigo="{{$empleado->codigo}}"
                                 data-nombre="{{$empleado->nombre}}"
                                 data-puesto="{{$empleado->puesto}}"

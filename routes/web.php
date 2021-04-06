@@ -76,6 +76,10 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/CapaEntrega/exportPDF', 'CapaEntregaController@exportpdf')->name("exportarcapaentregapdf");
         Route::post('/CapaEntrega/exportCVS', 'CapaEntregaController@exportcvs')->name("exportarcapaentregaacvs");
         Route::get('/CapaEntrega/exportCVS', 'CapaEntregaController@exportcvs')->name("exportarcapaentregacvs");
+        //--------------------------------------------CapaEntrega ROUTES------------------------------------------------------
+        Route::put("/CapaEntrega/25","CapaEntregaController@Suma25")->name("Suma25CapaEntrega");
+        Route::put("/CapaEntrega/50","CapaEntregaController@Suma50")->name("Suma50CapaEntrega");
+        Route::put("/CapaEntrega/suma","CapaEntregaController@Sumas")->name("SumasCapaEntrega");
 
         //--------------------------------------------Recibir Capa ROUTES-------------------------------------------------------->
         Route::get("/RecepcionCapa","RecibirCapaController@index")->name("RecepcionCapa");
@@ -89,7 +93,10 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/RecepcionCapa/exportPDF', 'RecibirCapaController@exportpdf')->name("exportarRecibircapapdf");
         Route::post('/RecepcionCapa/exportCVS', 'RecibirCapaController@exportcvs')->name("exportarRecibircapacvs");
         Route::get('/RecepcionCapa/exportCVS', 'RecibirCapaController@exportcvs')->name("exportarRecibircapacvs");
-
+        //--------------------------------------------Sumar Capa ROUTES-------------------------------------------------------->
+        Route::put('/RecepcionCapa/200', 'RecibirCapaController@Suma200')->name("sumar200Recibircapa");
+        Route::put('/RecepcionCapa/50', 'RecibirCapaController@Suma50')->name("sumar50Recibircapa");
+        Route::put('/RecepcionCapa/sumar', 'RecibirCapaController@Sumas')->name("sumarRecibircapa");
         //--------------------------------------------PESOS ROUTES-------------------------------------------------------->
         Route::get("/peso","PesoController@index")->name("peso");
         Route::post("/peso/nuevo","PesoController@StorePeso")->name("nuevopeso");

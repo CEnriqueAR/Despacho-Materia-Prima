@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\Cast\Int_;
+use Ramsey\Uuid\Type\Integer;
 
 
 class RecibirCapaController extends Controller
@@ -46,7 +48,7 @@ class RecibirCapaController extends Controller
                 ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("recibir_capas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
 
-                ->paginate(10);
+                ->paginate(1000);
            $tamano= Tamano::all();
             $semillas = Semilla::all();
             $calidad = Calidad::all();
@@ -217,4 +219,36 @@ class RecibirCapaController extends Controller
         return (new RecepcionCapaExport($fecha))->download('Listado de Capa Recibida'.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 
+
+    public function Suma200(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('recibir_capas')->where("recibir_capas.id","=",$capaentrega)->increment('total', 200);
+
+        return redirect()->route("RecepcionCapa")->withExito("Se editó Correctamente");
+
+    }
+    public function Suma50(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('recibir_capas')->where("recibir_capas.id","=",$capaentrega)->increment('total', 50);
+
+        return redirect()->route("RecepcionCapa")->withExito("Se editó Correctamente");
+
+    }
+    public function Sumas(Request $request){
+
+  $incremeto =  $request->get('suma');
+        $capaentrega = $request->get('id');
+
+        DB::table('recibir_capas')->where("recibir_capas.id","=",$capaentrega)
+            ->increment('total', $incremeto);
+
+        return redirect()->route("RecepcionCapa")->withExito("Se editó Correctamente");
+
+    }
 }

@@ -45,10 +45,52 @@ $('#modalBorrarCapaRecibida').on('show.bs.modal', function (e) {
     modal.find('.modal-footer #id_capa_entrega').val(id);
 });
 
+$('#modalSumar50').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('id');
+
+    var modal=$(this);
+    modal.find('.modal-footer #id_capa_entrega').val(id);
+
+
+
+});$('#modalSumar200').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('data-id');
+
+    var modal=$(this);
+    modal.find('.modal-footer #id_capa_entrega').val(id);
+
+
+
+
+});$('#modalSumar').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('id');
+
+    var modal=$(this);
+    modal.find('.modal-footer #id_capa_entrega').val(id);
+});
 
 
 
 
 
+$('#modalSumar75').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('id');
 
+    var modal=$(this);
+    modal.find('.modal-footer #id_capa_entrega').val(id);
+
+
+
+});$('#modalSumar100').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    var id = button.data('id');
+
+    var modal=$(this);
+    modal.find('.modal-footer #id_capa_entrega').val(id);
+
+});
 

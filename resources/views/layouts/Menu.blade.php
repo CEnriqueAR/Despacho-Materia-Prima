@@ -57,7 +57,23 @@
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Inicio</div>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseinicio"
+                       aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                        Entrega y Recepcion
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseinicio" aria-labelledby="headingOne"
+                         data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{url('CapaEntrega')}}">Despacho De Capa</a>
+                            <a class="nav-link" href="{{url('RecepcionCapa')}}">Recepcion De Capa</a>
 
+
+                        </nav>
+                    </div>
+                    <div class="sb-sidenav-menu-heading">Administración General</div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
@@ -67,17 +83,10 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('CapaEntrega')}}">Despacho De Capa</a>
-                            <a class="nav-link" href="{{url('RecepcionCapa')}}">Recepcion De Capa</a>
                             <a class="nav-link" href="{{url('empleados')}}">Empleados</a>
                             <a class="nav-link" href="{{url('marcas')}}">Marcas</a>
                             <a class="nav-link" href="{{url('semillas')}}">Semillas</a>
                             <a class="nav-link" href="{{url('peso')}}">Pesos</a>
-
-
-
-
-
 
                         </nav>
                     </div>

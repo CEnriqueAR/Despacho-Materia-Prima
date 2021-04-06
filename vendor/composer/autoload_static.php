@@ -618,6 +618,8 @@ class ComposerStaticInit288433da5e986a50aa61b1fac96e4108
         'App\\Empleado' => __DIR__ . '/../..' . '/app/Empleado.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\EmpleadosExport' => __DIR__ . '/../..' . '/app/Exports/EmpleadosExport.php',
+        'App\\Exports\\EntregaCapaExport' => __DIR__ . '/../..' . '/app/Exports/EntregaCapaExport.php',
+        'App\\Exports\\RecepcionCapaExport' => __DIR__ . '/../..' . '/app/Exports/RecepcionCapaExport.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
