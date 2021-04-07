@@ -36,7 +36,8 @@ Route::group(["middleware" => "auth"], function () {
 
 
 
-// milware Despacho de Capa
+//--------------------------------------------mildware de Capa------------------------------------------------------
+    //--------------------------------------------Mildware de Capa------------------------------------------------------
     Route::group(['middleware' => 'capa'], function () {
 
         Route::get('/DesCapa', 'DesCapa@index')->name('DesCapa.index');
@@ -112,14 +113,24 @@ Route::group(["middleware" => "auth"], function () {
 
 
 
-
-
-    //mildaware Despacho de tripa y banda
+//--------------------------------------------mildaware Despacho de tripa y banda------------------------------------------------------
+//--------------------------------------------mildaware Despacho de tripa y bandaS------------------------------------------------------
 
     Route::group(['middleware' => 'banda'], function () {
         Route::get('/DesBanda', 'DesBanda@index')->name('DesBanda.index');
 
     });
+//--------------------------------------------mildaware Admin------------------------------------------------------
+    //--------------------------------------------mildaware Admin------------------------------------------------------
+
+    Route::group(['middleware' => 'admin'], function () {
+        Route::get('/registro', function () {
+            return view('auth.registro');})->name('registro');
+
+        Route::post('/Usuario/registrar', 'Usuario@agregarUsuario')->name('registrarUsuario');
+    });
+
+
 
 });
 

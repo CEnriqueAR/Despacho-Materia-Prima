@@ -16,10 +16,9 @@ class CreatePesosTable extends Migration
         Schema::create('pesos', function (Blueprint $table) {
             $table->id();
             $table->foreignId("id_semillas")->references("id")->on("semillas");
-            $table->float('PesoGrande');
-            $table->float('PesoMediano');
-            $table->float('PesoPequeno');
-
+            $table->decimal('PesoGrande',50,2);
+            $table->decimal('PesoMediano',50,2);
+            $table->decimal('PesoPequeno',50,2);
             $table->timestamps();
         });
     }

@@ -54,9 +54,12 @@ $('#modalSumar50').on('show.bs.modal', function (e) {
 
 
 
-});$('#modalSumar200').on('show.bs.modal', function (e) {
+});
+
+
+$('#modalSumar200').on('show.bs.modal', function (e) {
     var button = $(e.relatedTarget);
-    var id = button.data('data-id');
+    var id = button.data('id');
 
     var modal=$(this);
     modal.find('.modal-footer #id_capa_entrega').val(id);

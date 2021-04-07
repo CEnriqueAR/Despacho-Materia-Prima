@@ -30,6 +30,7 @@ class CapaEntregaController extends Controller
 
         if ($request){
             $query = trim($request->get("search"));
+
             $fecha = $request->get("fecha");
 
             if ($fecha = null)

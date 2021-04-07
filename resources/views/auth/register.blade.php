@@ -60,6 +60,22 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="disponible">Seleccione Tipo De usuario
+                            </label>
+                            <br>
+                            <select
+                                    required="required"
+                                    style="width: 85%"
+                                    class="disponible form-control @error('disponible') is-invalid @enderror" id="disponible">
+                                <option disabled selected value="s">Seleccione</option>
+                                <option value="1"@if(Request::old('is_admin')==1){{'selected'}}@endif>Administrador </option>
+                                <option value="1"@if(Request::old('is_capa')==1){{'selected'}}@endif>Despacho De Capa </option>
+                                <option value="1"@if(Request::old('is_banda')==1){{'selected'}}@endif>Despacho De Banda Y Tripa </option>
+
+                            </select>
+                            <!---- Boton para crear un nuevo tipo de categoria- -->
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

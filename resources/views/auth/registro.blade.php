@@ -13,11 +13,11 @@
 <body >
 <!-- START: pages/login -->
 
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('imagen/Login.png');">
-            <div class="wrap-login100 p-t-30 p-b-50"><br><br>
+<div class="limiter">
+    <div class="container-login100" style="background-image: url('imagen/Login.png');">
+        <div class="wrap-login100 p-t-30 p-b-50"><br><br>
 
-                <div class="col-xl-12">
+            <div class="col-xl-12">
                 <div class="cat__pages__login__block__promo text-white text-center">
                     <h2 class="mb-3">
                         <strong>DESPACHO DE MATERIA PRIMA</strong>
@@ -26,7 +26,7 @@
                 <div class="cat__pages__login__block__inner">
                     <div class="cat__pages__login__block__form">
                         <h4 class="text-uppercase">
-                            <strong>INICIE SESIÓN POR FAVOR</strong>
+                            <strong>REGISTRAR NUEVO USUARIO</strong>
                         </h4>
                         <br />
                         @if(isset(Auth::user()->email))
@@ -46,8 +46,18 @@
                                 </ul>
                             </div>
                         @endif
-                        <form id="form-validation" name="form-validation" method="POST" action="{{ route('login') }}">
+                        <form id="form-validation" name="form-validation" method="POST" action="{{ route('registrarUsuario') }}">
                             {{ csrf_field() }}
+
+                            <div class="form-group">
+                                <label class="form-label">Nombre</label>
+                                <input id="validation-email"
+                                       class="form-control"
+                                       placeholder="Nombre"
+                                       name="name"
+                                       type="text"
+                                       data-validation="[NOTEMPTY]">
+                            </div>
                             <div class="form-group">
                                 <label class="form-label">Correo Electronico</label>
                                 <input id="validation-email"
@@ -67,25 +77,40 @@
                                        placeholder="Contraseña">
                             </div>
                             <div class="form-group">
-                                <a href="{{ url('/password/lost') }}" class="pull-right cat__core__link--blue cat__core__link--underlined">¿Olvidaste la contraseña?
-                                    </a>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"  checked>
-                                        Recuérdame
-                                    </label>
+                                <label for="password-confirm" class="labeltamaño">Confirmar contraseña</label>
+
+                                <div class="inputtamaño">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="disponible">Seleccione Tipo De usuario
+                                </label>
+                                <br>
+                                <select
+                                    name="is_admin"
+                                    required="required"
+                                    style="width: 100%"
+                                    class="disponible form-control @error('disponible') is-invalid @enderror" id="disponible">
+                                    <option disabled selected value="s">Seleccione</option>
+                                    <option value="0"@if(Request::old('is_admin')==0){{'selected'}}@endif>Administrador </option>
+                                    <option value="1"@if(Request::old('is_admin')==1){{'selected'}}@endif>Despacho De Capa </option>
+                                    <option value="2"@if(Request::old('is_admin')==2){{'selected'}}@endif>Despacho De Banda Y Tripa </option>
+
+                                </select>
+                                <!---- Boton para crear un nuevo tipo de categoria- -->
+                            </div>
                             <div class="form-actions">
-                                <button type="submit" class="btn btn-primary mr-3" name="login" value="login">Inicia Sesion</button>
+                                <button type="submit" class="btn btn-primary">Registrar </button>
+                                <button type="button" class="btn btn-danger" href="/">Cancelar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
+</div>
 <!-- END: pages/login-alpha -->
 
 <!-- START: page scripts -->

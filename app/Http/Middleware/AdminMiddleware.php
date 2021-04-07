@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CapaMiddlewar
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,9 +15,11 @@ class CapaMiddlewar
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->is_capa or auth()->check() && auth()->user()->is_admin)
-            return $next($request);
-        return redirect('/');
 
+
+        if (auth()->check() && auth()->user()->is_admin)
+        return $next($request);
+
+        return redirect('/');
     }
 }
