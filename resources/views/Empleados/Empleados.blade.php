@@ -82,7 +82,7 @@
                 <th>#</th>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>Puesto</th>
+
                 <th><span class="fas fa-info-circle"></span></th>
             </tr>
             </thead>
@@ -97,11 +97,9 @@
                     <td>{{$noPagina++}}</td>
                     <td>{{$empleado->codigo}}</td>
                     <td>{{$empleado->nombre}}</td>
-                    <td>{{$empleado->puesto}}</td>
 
-                @if(!$empleado->puesto)
-                    <td>N/A</td>
-                    @endif
+
+
                     <td>
                         <button class="btn btn-sm btn-success"
                                 title="Editar"
@@ -111,7 +109,6 @@
                                 data-id="{{$empleado->id}}"
                                 data-codigo="{{$empleado->codigo}}"
                                 data-nombre="{{$empleado->nombre}}"
-                                data-puesto="{{$empleado->puesto}}"
                         >
                             <span class="fas fa-pencil-alt"></span>
                         </button>
@@ -167,19 +164,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="puesto" >Puesto:</label>
-                            <input class="form-control @error('description') is-invalid @enderror"
-                                      name="puesto"
-                                      id="puesto"
-                                      maxlength="192"
-                            {{Request::old('puesto')}}>
-                            @error('description')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success" >Crear</button>
@@ -229,18 +214,7 @@
                             </span>
                                 @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="puesto" >puesto:</label>
-                                <input class="form-control @error('description') is-invalid @enderror"
-                                          name="puesto" id="puesto"
-                                          maxlength="192"
-                                {{old('puesto')}}>
-                                @error('description')
-                                <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message}}</strong>
-                            </span>
-                                @enderror
-                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="id" id="id_producto">

@@ -2,30 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/ExistenciaDiario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Usuario.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminMiddleware.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_06_171417_create_existencia_diarios_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/registro.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/BultosDevuelto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/BultosSalida.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/EmpleadosBanda.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/DevolucionesBultoExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Exports/EntregaBultoExport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosDevueltoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoBandaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/MarcaBandaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_141136_empleados_banda.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_155401_create_bultos_salidas_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_173834_create_bultos_devueltos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/vitola.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/BultosDevueltos/Bultosdevuelto.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Marcas/marcasbanda.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Semilla/SemillasBanda.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Vitola/vitola.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Vitola/vitolaBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/BandaMiddlewar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/BandaMiddlewar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CapaMiddlewar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CapaMiddlewar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_28_022204_create_pesos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_28_022204_create_pesos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/EmpleadoSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/EmpleadoSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/CapaRecibida.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaRecibida.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SemillaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VitolaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VitolaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Marca.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Marca.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/VitolaTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/VitolaTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/EmpleadosBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/EmpleadosBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/EmpleadosCapa.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,9 +308,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/auth/passwords" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Bultos Devueltos" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -310,11 +322,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\auth\passwords" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\RecepcionCapa" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Bultos Devueltos" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\BultosSalida" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Vitola" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\public\js" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Semilla" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\public\js\plugins" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\app\Http\Controllers" />
     </key>
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/qirolab/laravel-excel-export-import-example.git" />
@@ -398,7 +410,12 @@
       <workItem from="1617654722714" duration="4006000" />
       <workItem from="1617716973895" duration="21261000" />
       <workItem from="1617744931908" duration="1623000" />
-      <workItem from="1617803046736" duration="21215000" />
+      <workItem from="1617803046736" duration="22718000" />
+      <workItem from="1617985000743" duration="3827000" />
+      <workItem from="1618103181325" duration="3491000" />
+      <workItem from="1618180991610" duration="938000" />
+      <workItem from="1618186583628" duration="1326000" />
+      <workItem from="1618236421812" duration="20933000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -456,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617729331129</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Agregar usuarios depende el rol">
+      <created>1617831513215</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617831513215</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -542,7 +566,8 @@
     <MESSAGE value="correxion el de editar faltan 2" />
     <MESSAGE value="Exportar Por Fecha" />
     <MESSAGE value="Botones de sumar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Botones de sumar" />
+    <MESSAGE value="Agregar usuarios depende el rol" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregar usuarios depende el rol" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

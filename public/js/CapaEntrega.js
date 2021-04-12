@@ -15,6 +15,8 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
+    var onzas = button.data('onzas');
+    var libras= button.data('libras');
     var total = button.data('total');
 
     var modal = $(this);
@@ -24,6 +26,8 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #semillacapaentrega').val(semilla).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
+    modal.find('.modal-body #onzascapaentrega').val(onzas);
+    modal.find('.modal-body #librascapaentrega').val(libras);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
     modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
 
@@ -37,11 +41,15 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var total = button.data('total');
+    var onzas = button.data('onzas');
+    var libras= button.data('libras');
 
     var modal = $(this);
     modal.find('.modal-body #empleadoNuevocapaentrega').text(empleado);
     modal.find('.modal-body #vitolacapaentrega').text(vitola);
     modal.find('.modal-body #semillacapaentrega').text(semilla);
+    modal.find('.modal-body #librascapaentrega').val(libras);
+    modal.find('.modal-body #onzascapaentrega').text(onzas);
     modal.find('.modal-body #calidadcapaentrega').text(calidad);
     modal.find('.modal-body #totalcapaentrega').text(total);
     modal.find('.modal-body #marcacapaentrega').text(id_marca);

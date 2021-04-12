@@ -12,19 +12,19 @@ class VitolaTableSeeder extends Seeder
     public function run()
     {
         DB::table('vitolas')->insert([
-        'name' => 'Habano ',
+        'name' => '50x6 ',
         'description' => null,
     ]);
         DB::table('vitolas')->insert([
-            'name' => 'Conerico ',
+            'name' => '50x7 ',
             'description' => null,
         ]);
         DB::table('vitolas')->insert([
-            'name' => 'Maduro ',
+            'name' => '60x3 ',
             'description' => null,
         ]);
         DB::table('vitolas')->insert([
-            'name' => 'Candela ',
+            'name' => '60x4 ',
             'description' => null,
         ]);
     }
