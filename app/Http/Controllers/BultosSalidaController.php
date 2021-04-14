@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\BultosSalida;
+use App\ConsumoBanda;
 use App\Empleado;
+use App\EmpleadosBanda;
 use App\Exports\EntregaBultoExport;
 use App\Exports\EntregaCapaExport;
 use App\Marca;
@@ -37,23 +39,23 @@ class BultosSalidaController extends Controller
             }
 
             $bultoentrega=DB::table("bultos_salidas")
-                ->leftJoin("empleados","bultos_salidas.id_empleado","=","empleados.id")
+                ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
                 ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
                 ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
 
                 ->select("bultos_salidas.id",
-                    "empleados.nombre AS nombre_empleado",
+                    "empleados_bandas.nombre AS nombre_empleado",
                     "vitolas.name as nombre_vitolas",
                     "bultos_salidas.id_empleado",
                     "bultos_salidas.id_vitolas",
                     "bultos_salidas.id_marca","marcas.name as nombre_marca"
                     ,"bultos_salidas.total")
-                ->where("empleados.nombre","Like","%".$query."%")
+                ->where("empleados_bandas.nombre","Like","%".$query."%")
                 ->whereDate("bultos_salidas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
 
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
-            $empleados = Empleado::all();
+            $empleados = EmpleadosBanda::all();
             $vitola = Vitola::all();
             $marca = Marca::all();
 
@@ -88,12 +90,35 @@ class BultosSalidaController extends Controller
     public function store(Request $request)
     {
 
-        $nuevoBultoEntrega = new BultosSalida();
+        //para consultar si existe la marca y vitola en la tabla consumo de banda y si no existe se inserta
+        $banda  =  DB::table('consumo_bandas')
+            ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
+            ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
+            ->select(
+                "vitolas.name as nombre_vitolas",
+                "marcas.name as nombre_marca",
+                "consumo_bandas.id_vitolas",
+                "consumo_bandas.id_marca")
+            ->where("consumo_bandas.id_marca","=",$request->input("id_marca"))
+            ->where("consumo_bandas.id_vitolas","=",$request->input("id_vitolas"))
+            ->whereDate("consumo_bandas.created_at","=" ,Carbon::now()->format('Y-m-d'))->paginate(1000);
+        if($banda->count()>0){
+        }else{
+            $nuevoConsumo = new ConsumoBanda();
+            $nuevoConsumo->id_vitolas=$request->input('id_vitolas');
+            $nuevoConsumo->id_marca=$request->input("id_marca");
+            $nuevoConsumo->id_semillas= '1';
+            $nuevoConsumo->id_tamano='1';
+            $nuevoConsumo->save();
+        }
 
+        $nuevoBultoEntrega = new BultosSalida();
         $nuevoBultoEntrega->id_empleado=$request->input('id_empleado');
         $nuevoBultoEntrega->id_vitolas=$request->input('id_vitolas');
         $nuevoBultoEntrega->id_marca=$request->input("id_marca");
         $nuevoBultoEntrega->total=('1');
+
+
 
 
         $nuevoBultoEntrega->save();

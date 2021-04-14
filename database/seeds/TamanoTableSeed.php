@@ -11,7 +11,10 @@ class TamanoTableSeed extends Seeder
      */
     public function run()
     {
-
+        DB::table('tamanos')->insert([
+            'name' => 'ninguna ',
+            'description' => null,
+        ]);
         DB::table('tamanos')->insert([
             'name' => 'Grande ',
             'description' => null,
@@ -24,6 +27,7 @@ class TamanoTableSeed extends Seeder
             'name' => 'Pequeño ',
             'description' => null,
         ]);
+
         //
     }
 }

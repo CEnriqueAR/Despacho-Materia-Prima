@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBultosSalidasTable extends Migration
+class CreateConsumoBandasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateBultosSalidasTable extends Migration
      */
     public function up()
     {
-        Schema::create('bultos_salidas', function (Blueprint $table) {
+        Schema::create('consumo_bandas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_empleado")->references("id")->on("empleados_bandas");
+            $table->foreignId("id_semillas")->references("id")->on("semillas");
             $table->foreignId("id_marca")->references("id")->on("marcas");
+            $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->foreignId("id_vitolas")->references("id")->on("vitolas");
-            $table->integer("total");
+            $table->integer("onzas")->nullable();
+            $table->integer("total")->nullable();
+            $table->decimal("libras",50,2)->nullable();
+
             $table->timestamps();
         });
     }
@@ -30,6 +34,6 @@ class CreateBultosSalidasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bultos_salidas');
+        Schema::dropIfExists('consumo_bandas');
     }
 }

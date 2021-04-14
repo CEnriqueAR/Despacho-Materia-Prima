@@ -170,13 +170,28 @@ Route::group(["middleware" => "auth"], function () {
         Route::post("/BultoDevuelto/nuevo","BultosDevueltoController@store")->name("BultoDevueltonueva");
         Route::put("/BultoDevuelto/editar","BultosDevueltoController@edit")->name("BultoDevueltoeditar");
         Route::delete("/BultoDevuelto/borrar","BultosDevueltoController@destroy")->name("BultoDevueltoborrar");
-        //--------------------------------------------CapaEntregaExportar ROUTES-------------------------------------------------------->
+        //--------------------------------------------Bulto Devuelto ROUTES-------------------------------------------------------->
         Route::post('/BultoDevuelto/export', 'BultosDevueltoController@export')->name("exportarbultodevuelto");
         Route::get('/BultoDevuelto/export', 'BultosDevueltoController@export')->name("exportarbultodevuelto");
         Route::post('/BultoDevuelto/exportPDF', 'BultosDevueltoController@exportpdf')->name("exportarbultodevueltopdf");
         Route::get('/BultoDevuelto/exportPDF', 'BultosDevueltoController@exportpdf')->name("exportarbultodevueltopdf");
         Route::post('/BultoDevuelto/exportCVS', 'BultosDevueltoController@exportcvs')->name("exportarbultodevueltocvs");
         Route::get('/BultoDevuelto/exportCVS', 'BultosDevueltoController@exportcvs')->name("exportarbultodevueltocvs");
+//--------------------------------------------Consumo De Banda ROUTES-------------------------------------------------------->
+        Route::get('/ConsumoBanda', 'ConsumoBandaController@index')->name("ConsumoBanda");
+        Route::post("/ConsumoBanda/nuevo","ConsumoBandaController@store")->name("ConsumoBandanueva");
+        Route::put("/ConsumoBanda/editar","ConsumoBandaController@edit")->name("ConsumoBandaeditar");
+        Route::delete("/ConsumoBanda/borrar","ConsumoBandaController@destroy")->name("ConsumoBandaborrar");
+        //--------------------------------------------Consumo De Bnada Exportar ROUTES-------------------------------------------------------->
+        Route::post('/ConsumoBanda/export', 'ConsumoBandaController@export')->name("exportarconsumobanda");
+        Route::get('/ConsumoBanda/export', 'ConsumoBandaController@export')->name("exportarconsumobanda");
+        Route::post('/ConsumoBanda/exportPDF', 'ConsumoBandaController@exportpdf')->name("exportarconsumobandapdf");
+        Route::get('/ConsumoBanda/exportPDF', 'ConsumoBandaController@exportpdf')->name("exportarconsumobandapdf");
+        Route::post('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
+        Route::get('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
+
+
+
 
     });
 //--------------------------------------------mildaware Admin------------------------------------------------------

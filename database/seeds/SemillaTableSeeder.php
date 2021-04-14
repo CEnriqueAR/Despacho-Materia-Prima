@@ -11,7 +11,10 @@ class SemillaTableSeeder extends Seeder
      */
     public function run()
     {
-
+        DB::table('semillas')->insert([
+            'name' => 'ninguna ',
+            'description' => null,
+        ]);
         DB::table('semillas')->insert([
             'name' => 'Habano ',
             'description' => null,
@@ -28,6 +31,7 @@ class SemillaTableSeeder extends Seeder
             'name' => 'Candela ',
             'description' => null,
         ]);
+
         //
     }
 }

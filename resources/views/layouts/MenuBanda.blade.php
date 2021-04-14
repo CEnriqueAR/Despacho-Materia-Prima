@@ -61,7 +61,7 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseinicio"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                        Entrega y Recepcion
+                        Salida Y Devoluciones De Bultos
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseinicio" aria-labelledby="headingOne"
@@ -69,6 +69,7 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{url('BultoSalida')}}">Despacho De Bulto</a>
                             <a class="nav-link" href="{{url('BultoDevuelto')}}">Bultos Devueltos</a>
+                            <a class="nav-link" href="{{url('ConsumoBanda')}}">Consumo Banda</a>
 
 
 
