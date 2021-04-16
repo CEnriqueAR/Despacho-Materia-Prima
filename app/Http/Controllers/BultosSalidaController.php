@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BInvInicial;
 use App\BultosSalida;
 use App\ConsumoBanda;
 use App\Empleado;
@@ -24,6 +25,8 @@ class BultosSalidaController extends Controller
      */
     public function index(Request $request)
     {
+
+
 
 
         if ($request){
@@ -111,6 +114,29 @@ class BultosSalidaController extends Controller
             $nuevoConsumo->id_tamano='1';
             $nuevoConsumo->save();
         }
+
+
+        $inve  =  DB::table('b_inv_inicials')
+            ->leftJoin("vitolas","b_inv_inicials.id_vitolas","=","vitolas.id")
+            ->leftJoin("marcas","b_inv_inicials.id_marca","=","marcas.id")
+            ->select(
+                "vitolas.name as nombre_vitolas",
+                "marcas.name as nombre_marca",
+                "consumo_bandas.id_vitolas",
+                "consumo_bandas.id_marca")
+            ->where("b_inv_inicials.id_marca","=",$request->input("id_marca"))
+            ->where("b_inv_inicials.id_vitolas","=",$request->input("id_vitolas"));
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new BInvInicial();
+            $nuevoConsumo->id_vitolas=$request->input('id_vitolas');
+            $nuevoConsumo->id_marca=$request->input("id_marca");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+        }
+
+
+
 
         $nuevoBultoEntrega = new BultosSalida();
         $nuevoBultoEntrega->id_empleado=$request->input('id_empleado');

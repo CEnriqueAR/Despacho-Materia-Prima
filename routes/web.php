@@ -189,6 +189,19 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/ConsumoBanda/exportPDF', 'ConsumoBandaController@exportpdf')->name("exportarconsumobandapdf");
         Route::post('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
         Route::get('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
+        //--------------------------------------------Consumo De Bnada Exportar ROUTES-------------------------------------------------------->
+        Route::get('/InventarioDiario', 'ReBulDiarioController@index')->name("InventarioDiario");
+        Route::post("/InventarioDiario/nuevo","ReBulDiarioController@store")->name("InventarioDiarionuevo");
+        Route::put("/InventarioDiario/editar","ReBulDiarioController@edit")->name("InventarioDiarioeditar");
+        Route::delete("/InventarioDiario/borrar","ReBulDiarioController@destroy")->name("InventarioDiarioborrar");
+
+        //--------------------------------------------Registro Diario Bultos Exportar ROUTES-------------------------------------------------------->
+        Route::post('/InventarioDiario/export', 'ReBulDiarioController@export')->name("exportarbultoentregadiario");
+        Route::get('/InventarioDiario/export', 'ReBulDiarioController@export')->name("exportarbultoentregadiario");
+        Route::post('/InventarioDiario/exportPDF', 'ReBulDiarioController@exportpdf')->name("exportarbultoentregapdfdiario");
+        Route::get('/InventarioDiario/exportPDF', 'ReBulDiarioController@exportpdf')->name("exportarbultoentregapdfdiario");
+        Route::post('/InventarioDiario/exportCVS', 'ReBulDiarioController@exportcvs')->name("exportarbultoentregaacvsdiario");
+        Route::get('/InventarioDiario/exportCVS', 'ReBulDiarioController@exportcvs')->name("exportarbultoentregacvsdiario");
 
 
 
