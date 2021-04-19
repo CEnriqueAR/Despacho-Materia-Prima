@@ -100,14 +100,7 @@
                                 data-description="{{$marca->description}}">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
-                        <button class="btn btn-sm btn-danger"
-                                title="Borrar"
-                                data-toggle="modal"
-                                data-target="#modalBorrarSemilla"
-                                data-id="{{$marca->id}}"
-                                data-name="{{$marca->name}}">
-                            <span class="fas fa-trash"></span>
-                        </button>
+
                     </td>
                 </tr>
                 @endforeach

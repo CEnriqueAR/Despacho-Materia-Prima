@@ -47,7 +47,7 @@ class RecibirCapaController extends Controller
                     "recibir_capas.id_semillas","semillas.name as nombre_semillas","recibir_capas.total")
                 ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("recibir_capas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-
+                ->orderBy("nombre_semillas")
                 ->paginate(1000);
            $tamano= Tamano::all();
             $semillas = Semilla::all();

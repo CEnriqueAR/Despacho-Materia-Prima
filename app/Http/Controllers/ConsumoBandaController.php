@@ -26,6 +26,7 @@ class ConsumoBandaController extends Controller
     public function index(Request $request)
     {
 
+        $Monday = 'Monday';
 
 
         if ($request){
@@ -33,9 +34,40 @@ class ConsumoBandaController extends Controller
 
             $fecha = $request->get("fecha");
 
-            if ($fecha = null)
-                $fecha = Carbon::now()->format('Y-m-d');
-            else{
+            if ($fecha == null) {
+                $fecha = Carbon::now()->format('l');
+                if ($fecha = 'Monday') {
+                    $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
+                    $consumobanda1=DB::table("consumo_bandas")
+                        ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
+                        ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
+                        ->leftJoin("tamanos","consumo_bandas.id_tamano","=","tamanos.id")
+                        ->leftJoin("semillas","consumo_bandas.id_semillas","=","semillas.id")
+
+                        ->select("consumo_bandas.id",
+                            "vitolas.name as nombre_vitolas",
+                            "semillas.name as nombre_semillas",
+                            "consumo_bandas.id_tamano",
+                            "tamanos.name as nombre_tamano",
+                            "consumo_bandas.id_vitolas",
+                            "consumo_bandas.id_semillas",
+                            "consumo_bandas.id_marca","marcas.name as nombre_marca"
+                            ,"consumo_bandas.total"
+                            ,"consumo_bandas.onzas"
+                            ,"consumo_bandas.libras")
+                        ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))->get();
+                    if ($consumobanda1->count()>0){{
+                    }
+                    }
+                    else{
+                            $fecha = Carbon::now()->subDays(3)->format('Y-m-d');
+                        }
+
+                } else {
+                    $fecha = Carbon::now()->subDay()->format('Y-m-d');
+                }
+            } else{
+
                 $fecha = $request->get("fecha");
 
             }
@@ -97,12 +129,20 @@ class ConsumoBandaController extends Controller
      */
     public function store(Request $request)
     {
+
+        try{
+            $this->validate($request, [
+                'id_vitolas'=>'required',
+                'id_marca'=>'required',
+                'id_semillas'=>'required',
+                'id_tamano'=>'required|integer',
+                'onzas'=>'required',
+                'total'=>'required'
+            ]);
         $fecha = $request->get("fecha");
         $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
 
         $nuevoConsumoBanda = new ConsumoBanda();
-
-
         $nuevoConsumoBanda->id_vitolas=$request->input('id_vitolas');
         $nuevoConsumoBanda->id_semillas=$request->input('id_semillas');
         $nuevoConsumoBanda->id_marca=$request->input("id_marca");
@@ -115,7 +155,9 @@ class ConsumoBandaController extends Controller
         $nuevoConsumoBanda->save();
 
         return redirect()->route("ConsumoBanda")->withExito("Se creó la entraga Correctamente ");
-
+        }catch (ValidationException $exception){
+            return redirect()->route("ConsumoBanda")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
+        }
         //
     }
 

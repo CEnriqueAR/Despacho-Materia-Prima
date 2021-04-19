@@ -55,7 +55,7 @@ class BultosSalidaController extends Controller
                     ,"bultos_salidas.total")
                 ->where("empleados_bandas.nombre","Like","%".$query."%")
                 ->whereDate("bultos_salidas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-
+                ->orderBy("nombre_marca")
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $empleados = EmpleadosBanda::all();
@@ -92,6 +92,13 @@ class BultosSalidaController extends Controller
      */
     public function store(Request $request)
     {
+
+        try{
+            $this->validate($request, [
+                'id_empleado'=>'required',
+                'id_vitolas'=>'required',
+                'id_marca'=>'required',
+            ]);
 
         //para consultar si existe la marca y vitola en la tabla consumo de banda y si no existe se inserta
         $banda  =  DB::table('consumo_bandas')
@@ -138,6 +145,7 @@ class BultosSalidaController extends Controller
 
 
 
+
         $nuevoBultoEntrega = new BultosSalida();
         $nuevoBultoEntrega->id_empleado=$request->input('id_empleado');
         $nuevoBultoEntrega->id_vitolas=$request->input('id_vitolas');
@@ -150,7 +158,9 @@ class BultosSalidaController extends Controller
         $nuevoBultoEntrega->save();
 
         return redirect()->route("BultoSalida")->withExito("Se creó la entrega Correctamente ");
-
+        }catch (ValidationException $exception){
+            return redirect()->route("BultoSalida")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
+        }
         //
     }
 
@@ -203,7 +213,7 @@ class BultosSalidaController extends Controller
 
 
             $editarBultoEntrega->save();
-            return redirect()->route("BultoSalida")->withExito("Se editó Correctamente");
+            return redirect()->route("BultoSalida")->withExito("Se editó La Salida  Correctamente");
 
         }catch (ValidationException $exception){
             return redirect()->route("BultoSalida")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
@@ -247,7 +257,7 @@ class BultosSalidaController extends Controller
 
         DB::table('bultos_salidas')->where("bultos_salidas.id","=",$capaentrega)->increment('total', 1);
 
-        return redirect()->route("BultoSalida")->withExito("Se editó Correctamente");
+        return redirect()->route("BultoSalida")->withExito("Se Incremento el bulto  Correctamente");
     }
 
 

@@ -115,7 +115,7 @@
             </tr>
             </thead>
             <tbody>
-            @if(!$entregaBulto)
+            @if($entregaBulto->count()<= 0)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay productos</td>
                 </tr>
@@ -183,7 +183,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Salida De Capa
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Salida De Bulto
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -260,7 +260,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Salida De Bulto
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -358,7 +358,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle de la Salida De Bulto
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -412,15 +412,15 @@
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida De Bulto
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
-                                id="nombreProducto"></label>?</p>
+                        <p>¿Estás seguro que deseas borrar esta Salida De Bulto? <label
+                                id="nombreProducto"></label></p>
 
                     </div>
                     <div class="modal-footer">
@@ -553,7 +553,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Agregar un Nuevo Bulto
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -561,7 +561,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <p>¿Estás seguro que deseas Sumar Un Bulto<label
+                        <p>¿Estás seguro que deseas agregar  Un Bulto<label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

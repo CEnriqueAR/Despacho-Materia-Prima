@@ -16,7 +16,7 @@ class MarcaController extends Controller
     public function index(Request $request){
       if ($request){
           $query = trim($request->get("search"));
-          $marca = Marca::where("name","like","%".$query."%")->paginate(10);
+          $marca = Marca::where("name","like","%".$query."%")  ->orderBy("name")->paginate(10);
 
           return View('Marcas.marcas')
               ->withNoPagina(1)

@@ -43,6 +43,7 @@ class BultosDevueltoController extends Controller
                     ,"bultos_devueltos.total","bultos_devueltos.libras","bultos_devueltos.onzas")
                 ->where("marcas.name","Like","%".$query."%")
                 ->whereDate("bultos_devueltos.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->orderBy("nombre_marca")
 
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
@@ -78,20 +79,34 @@ class BultosDevueltoController extends Controller
      */
     public function store(Request $request)
     {
+        try{
+            $this->validate($request, [
+                'id_vitolas'=>'required',
+                'id_marca'=>'required',
+                'onzas'=>'required',
+                 'total'=>'required'
+            ]);
 
-        $nuevoBultoEntrega = new BultosDevuelto();
+            $fecha = $request->get("fecha");
+            $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
+
+
+            $nuevoBultoEntrega = new BultosDevuelto();
 
         $nuevoBultoEntrega->onzas=$request->input('onzas');
         $nuevoBultoEntrega->id_vitolas=$request->input('id_vitolas');
         $nuevoBultoEntrega->id_marca=$request->input("id_marca");
         $nuevoBultoEntrega->total=$request->input("total");
         $nuevoBultoEntrega->libras=  ($request->input("total") * $request->input('onzas')/16);
+        $nuevoBultoEntrega->created_at =$fecha1;
 
 
         $nuevoBultoEntrega->save();
 
-        return redirect()->route("BultoDevuelto")->withExito("Se creó la entrega Correctamente ");
-
+        return redirect()->route("BultoDevuelto")->withExito("Se creó la Devolucion Correctamente ");
+        }catch (ValidationException $exception){
+            return redirect()->route("BultoDevuelto")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
+        }
         //
     }
 
@@ -119,6 +134,7 @@ class BultosDevueltoController extends Controller
             $this->validate($request, [
                 'id_vitolas'=>'required',
                 'id_marca'=>'required',
+                'onzas'=>'required',
                 'total'=>'required'
             ]);
             /**,$messages = [
@@ -177,7 +193,7 @@ class BultosDevueltoController extends Controller
         $borrar = BultosDevuelto::findOrFail($capaentrega);
 
         $borrar->delete();
-        return redirect()->route("BultoDevuelto")->withExito("Se borró la entrega satisfactoriamente");
+        return redirect()->route("BultoDevuelto")->withExito("Se borró la Devolucion satisfactoriamente");
         //
     }
 

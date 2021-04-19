@@ -61,7 +61,7 @@ class CapaEntregaController extends Controller
                     ,"capa_entregas.total")
                 ->where("empleados.nombre","Like","%".$query."%")
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-
+                ->orderBy("empleados.nombre")
               //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $empleados = Empleado::all();

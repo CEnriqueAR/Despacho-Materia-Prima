@@ -11,9 +11,9 @@ use App\ReBulDiario;
 use App\Semilla;
 use App\Tamano;
 use App\Vitola;
-use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class ReBulDiarioController extends Controller
@@ -23,19 +23,47 @@ class ReBulDiarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index(Request $request)
     {
-
 
         if ($request){
             $query = trim($request->get("search"));
 
             $fecha = $request->get("fecha");
 
-            if ($fecha = null)
-                $fecha = Carbon::now()->format('Y-m-d');
-            else{
+            if ($fecha == null) {
+                $fecha = Carbon::now()->format('l');
+                if ($fecha = 'Monday') {
+                    $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
+                    $inventarioDiario1=DB::table("re_bul_diarios")
+                        ->leftJoin("vitolas","re_bul_diarios.id_vitolas","=","vitolas.id")
+                        ->leftJoin("marcas","re_bul_diarios.id_marca","=","marcas.id")
+                        ->select("re_bul_diarios.id",
+                            "vitolas.name as nombre_vitolas",
+                            "re_bul_diarios.id_vitolas",
+                            "re_bul_diarios.id_marca","marcas.name as nombre_marca"
+                            ,"re_bul_diarios.totalinicial","re_bul_diarios.pesoinicial"
+                            ,"re_bul_diarios.totalentrada","re_bul_diarios.pesoentrada"
+                            ,"re_bul_diarios.totalfinal","re_bul_diarios.pesofinal",
+                            "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
+                            ,"re_bul_diarios.onzas")
+                        ->whereDate("re_bul_diarios.created_at","=" ,$fecha)->get();
+                    if ($inventarioDiario1->count()>0){{
+                    }
+                    }
+                    else{
+                        $fecha = Carbon::now()->subDays(3)->format('Y-m-d');
+                    }
+
+                } else {
+                    $fecha = Carbon::now()->subDay()->format('Y-m-d');
+                }
+            } else{
+
                 $fecha = $request->get("fecha");
+
             }
 
             $inventarioDiario=DB::table("re_bul_diarios")
@@ -51,7 +79,7 @@ class ReBulDiarioController extends Controller
                     "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
                     ,"re_bul_diarios.onzas")
                 ->where("marcas.name","Like","%".$query."%")
-                ->whereDate("re_bul_diarios.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->whereDate("re_bul_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_marca")
 
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
@@ -74,7 +102,8 @@ class ReBulDiarioController extends Controller
                         "marcas.name as nombre_marca",
                         "b_inv_inicials.id_vitolas",
                         "b_inv_inicials.id_marca",
-                        "b_inv_inicials.totalinicial")->paginate(1000);
+                        "b_inv_inicials.totalinicial")
+                    ->orderBy("nombre_marca")->paginate(1000);
 
                 foreach ($inve as $inventario) {
 

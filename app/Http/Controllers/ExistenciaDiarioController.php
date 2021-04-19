@@ -50,7 +50,7 @@ class ExistenciaDiarioController extends Controller
                     ,"capa_entregas.totalfinal","capa_entregas.pesofinal",
                     "capa_entregas.totalconsumo","capa_entregas.pesoconsumo")
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-
+                ->orderBy("nombre_semillas")
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $semilla = Semilla::all();

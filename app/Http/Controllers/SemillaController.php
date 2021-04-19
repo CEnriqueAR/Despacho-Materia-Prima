@@ -13,7 +13,7 @@ class SemillaController extends Controller
     public function index(Request $request){
         if ($request){
             $query = trim($request->get("search"));
-            $semilla = Semilla::where("name","like","%".$query."%")->paginate(10);
+            $semilla = Semilla::where("name","like","%".$query."%")->orderBy("name")->paginate(10);
 
             return View('Semilla.semillas')
                 ->withNoPagina(1)

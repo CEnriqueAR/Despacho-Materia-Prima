@@ -48,7 +48,7 @@
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
                     <div class="input-group" style="width: 300px">
-                        <input class="form-control" name="search" type="search" placeholder="Search"
+                        <input class="form-control" name="search" type="search" placeholder="Buscar"
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
@@ -116,7 +116,7 @@
             </tr>
             </thead>
             <tbody>
-            @if(!$bultoDevuelto)
+            @if($bultoDevuelto->count()<= 0)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay productos</td>
                 </tr>
@@ -135,17 +135,7 @@
 
 
 
-                        <button class="btn btn-sm btn-info"
-                                title="Ver"
-                                data-toggle="modal"
-                                data-target="#modalVerCapaEntrega"
-                                data-id_marca="{{$productos->nombre_marca}}"
-                                data-id_vitolas="{{$productos->nombre_vitolas}}"
-                                data-total="{{$productos->total}}"
-                                data-onza="{{$productos->onzas}}"
-                                data-libra="{{$productos->libras}}">
-                            <span class="fas fa-eye"></span>
-                        </button>
+
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
                                 data-toggle="modal"
@@ -189,7 +179,18 @@
                 <form id="nuevoP" method="POST" action="{{route("BultoDevueltonueva")}}" enctype="multipart/form-data">
 
                     @csrf
+
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control @error('onzas') is-invalid @enderror" name="fecha" id="fecha" maxlength="100"
+                                   value="{{ old('fecha')}}" type="date" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label for="nombreNuevoProducto">Total</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"
@@ -260,7 +261,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Devoluciones
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -274,7 +275,8 @@
                         <div class="form-group">
                             <label for="totalcapaentrega">Total</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="total" id="totalcapaentrega" maxlength="100" type="number" value="{{old('total')}}">
+                                    name="total" id="totalcapaentrega"  required="required"
+                                    maxlength="100" type="number" value="{{old('total')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -282,9 +284,11 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="onzascapaentrega">Total</label>
+                            <label for="onzascapaentrega">Onzas</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzas" id="onzascapaentrega" maxlength="100"  type="number" value="{{old('onzas')}}">
+                                    name="onzas"  required="required"
+                                    id="onzascapaentrega" maxlength="100"
+                                    type="number" value="{{old('onzas')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -348,59 +352,6 @@
         </div>
     </div>
 
-    <!------------------MODAL VER PRODUCTO-------------------------------->
-    <div class="modal fade" id="modalVerCapaEntrega" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                    </button>
-                </div>
-                    @include('Alerts.errors')
-
-                    @csrf
-                    <div class="modal-body row" >
-
-
-                        <div class="col-sm-10 card">
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="marcacapaentrega"><strong>Marca:</strong></label></div>
-                                <div class="col-sm-2"><label for="marca" id="marcacapaentrega"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="vitolacapaentrega"><strong>Vitola:</strong></label></div>
-                                <div class="col-sm-2"><label for="precioLoteProducto" id="vitolacapaentrega"></label></div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalcapaentrega"><strong>Total Entregado:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalcapaentrega"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="onzascapaentrega"><strong>Onzas:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="onzascapaentrega"></label></div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="librascapaentrega"><strong>Libras:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="librascapaentrega"></label></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-success">Aceptar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
@@ -418,7 +369,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar la devolucion? <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

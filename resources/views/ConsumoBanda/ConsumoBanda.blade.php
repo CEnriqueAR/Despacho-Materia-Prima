@@ -118,7 +118,7 @@
             </tr>
             </thead>
             <tbody>
-            @if(!$consumoBanda)
+            @if($consumoBanda->count()<= 0)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay productos</td>
                 </tr>
@@ -139,19 +139,6 @@
 
 
 
-                        <button class="btn btn-sm btn-info"
-                                title="Ver"
-                                data-toggle="modal"
-                                data-target="#modalVerCapaEntrega"
-                                data-id_semilla="{{$productos->nombre_semillas}}"
-                                data-id_tamano="{{$productos->nombre_tamano}}"
-                                data-id_marca="{{$productos->nombre_marca}}"
-                                data-id_vitolas="{{$productos->nombre_vitolas}}"
-                                data-total="{{$productos->total}}"
-                                data-onza="{{$productos->onzas}}"
-                                data-libra="{{$productos->libras}}">
-                            <span class="fas fa-eye"></span>
-                        </button>
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
                                 data-toggle="modal"
@@ -188,7 +175,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Devoluciones De Bultos
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Consumo  De Banda
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -310,7 +297,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Consumo De Banda
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -324,7 +311,8 @@
                         <div class="form-group">
                             <label for="totalcapaentrega">Total</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="total" id="totalcapaentrega" maxlength="100" type="number" value="{{old('total')}}">
+                                    name="total" id="totalcapaentrega" maxlength="100"
+                                    required="required"type="number" value="{{old('total')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -334,7 +322,8 @@
                         <div class="form-group">
                             <label for="onzascapaentrega">Onzas</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzas" id="onzascapaentrega" maxlength="100"  type="number" value="{{old('onzas')}}">
+                                    name="onzas" id="onzascapaentrega" maxlength="100"
+                                    required="required" type="number" value="{{old('onzas')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -437,57 +426,6 @@
     </div>
 
     <!------------------MODAL VER PRODUCTO-------------------------------->
-    <div class="modal fade" id="modalVerCapaEntrega" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                    </button>
-                </div>
-                    @include('Alerts.errors')
-
-                    @csrf
-                    <div class="modal-body row" >
-
-
-                        <div class="col-sm-10 card">
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="marcacapaentrega"><strong>Marca:</strong></label></div>
-                                <div class="col-sm-2"><label for="marca" id="marcacapaentrega"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="vitolacapaentrega"><strong>Vitola:</strong></label></div>
-                                <div class="col-sm-2"><label for="precioLoteProducto" id="vitolacapaentrega"></label></div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalcapaentrega"><strong>Total Entregado:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalcapaentrega"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="onzascapaentrega"><strong>Onzas:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="onzascapaentrega"></label></div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="librascapaentrega"><strong>Libras:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="librascapaentrega"></label></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-success">Aceptar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -506,7 +444,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar El Consumo De Banda ? <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

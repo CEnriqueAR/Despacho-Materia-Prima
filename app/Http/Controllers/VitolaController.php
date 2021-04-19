@@ -13,7 +13,7 @@ class VitolaController extends Controller
     public function index(Request $request){
         if ($request){
             $query = trim($request->get("search"));
-            $vitola = Vitola::where("name","like","%".$query."%")->paginate(1000);
+            $vitola = Vitola::where("name","like","%".$query."%")->orderBy("name")->paginate(1000);
 
             return View('Vitola.vitolaBanda')
                 ->withNoPagina(1)
