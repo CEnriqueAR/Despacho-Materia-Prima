@@ -89,7 +89,7 @@ class ConsumoBandaController extends Controller
                     ,"consumo_bandas.onzas"
                     ,"consumo_bandas.libras")
                 ->where("marcas.name","Like","%".$query."%")
-                ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->whereDate("consumo_bandas.created_at","=" ,$fecha)
                 ->orderBy("nombre_marca")
 
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))

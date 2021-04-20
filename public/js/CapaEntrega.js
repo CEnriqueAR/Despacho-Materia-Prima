@@ -16,6 +16,7 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
     var libras= button.data('libras');
+    var onzas = button.data('onzas');
     var total = button.data('total');
     var totalinicial = button.data('totalinicial');
     var pesoinicial= button.data('pesoinicial');
