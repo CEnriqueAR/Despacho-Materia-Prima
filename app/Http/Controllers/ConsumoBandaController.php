@@ -36,7 +36,7 @@ class ConsumoBandaController extends Controller
 
             if ($fecha == null) {
                 $fecha = Carbon::now()->format('l');
-                if ($fecha = 'Monday') {
+                if ($fecha == 'Monday') {
                     $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
                     $consumobanda1=DB::table("consumo_bandas")
                         ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
@@ -56,8 +56,7 @@ class ConsumoBandaController extends Controller
                             ,"consumo_bandas.onzas"
                             ,"consumo_bandas.libras")
                         ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))->get();
-                    if ($consumobanda1->count()>0){{
-                    }
+                    if ($consumobanda1->count()>0){
                     }
                     else{
                             $fecha = Carbon::now()->subDays(3)->format('Y-m-d');

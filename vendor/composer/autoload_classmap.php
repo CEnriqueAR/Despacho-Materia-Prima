@@ -9,6 +9,7 @@ return array(
     'App\\BInvInicial' => $baseDir . '/app/BInvInicial.php',
     'App\\BultosDevuelto' => $baseDir . '/app/BultosDevuelto.php',
     'App\\BultosSalida' => $baseDir . '/app/BultosSalida.php',
+    'App\\CInvInicial' => $baseDir . '/app/CInvInicial.php',
     'App\\Calidad' => $baseDir . '/app/Calidad.php',
     'App\\CapaEntrega' => $baseDir . '/app/CapaEntrega.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',

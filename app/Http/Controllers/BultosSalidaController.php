@@ -121,7 +121,7 @@ class BultosSalidaController extends Controller
             $nuevoConsumo->id_tamano='1';
             $nuevoConsumo->save();
         }
-
+//parea ver si exiaste en la tabla intermediaria y si no la inserta
 
         $inve  =  DB::table('b_inv_inicials')
             ->leftJoin("vitolas","b_inv_inicials.id_vitolas","=","vitolas.id")

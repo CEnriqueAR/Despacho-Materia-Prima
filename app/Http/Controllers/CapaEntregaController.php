@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\BInvInicial;
 use App\Calidad;
 use App\CapaEntrega;
+use App\CInvInicial;
 use App\Empleado;
 use App\Exports\EntregaCapaExport;
 use App\Exports\RecepcionCapaExport;
@@ -95,6 +97,26 @@ class CapaEntregaController extends Controller
         //
     }
     public function StoreEntrega(Request $request){
+
+        $inve  =  DB::table('c_inv_inicials')
+            ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("vitolas","c_inv_inicials.id_calidad","=","vitolas.id")
+            ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
+
+            ->select(
+                "c_inv_inicials.id")
+            ->where("c_inv_inicials.id_semilla","=",$request->input("id_semilla"))
+            ->where("c_inv_inicials.id_calidad","=",$request->input("id_calidad"))
+            ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semilla');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+        }
         $nuevoCapaEntrega = new CapaEntrega();
 
         $nuevoCapaEntrega->id_empleado=$request->input('id_empleado');

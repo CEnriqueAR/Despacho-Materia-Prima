@@ -615,6 +615,7 @@ class ComposerStaticInit288433da5e986a50aa61b1fac96e4108
         'App\\BInvInicial' => __DIR__ . '/../..' . '/app/BInvInicial.php',
         'App\\BultosDevuelto' => __DIR__ . '/../..' . '/app/BultosDevuelto.php',
         'App\\BultosSalida' => __DIR__ . '/../..' . '/app/BultosSalida.php',
+        'App\\CInvInicial' => __DIR__ . '/../..' . '/app/CInvInicial.php',
         'App\\Calidad' => __DIR__ . '/../..' . '/app/Calidad.php',
         'App\\CapaEntrega' => __DIR__ . '/../..' . '/app/CapaEntrega.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',

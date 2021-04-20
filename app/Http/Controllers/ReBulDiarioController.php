@@ -35,7 +35,7 @@ class ReBulDiarioController extends Controller
 
             if ($fecha == null) {
                 $fecha = Carbon::now()->format('l');
-                if ($fecha = 'Monday') {
+                if ($fecha == 'Monday') {
                     $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
                     $inventarioDiario1=DB::table("re_bul_diarios")
                         ->leftJoin("vitolas","re_bul_diarios.id_vitolas","=","vitolas.id")
@@ -50,8 +50,7 @@ class ReBulDiarioController extends Controller
                             "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
                             ,"re_bul_diarios.onzas")
                         ->whereDate("re_bul_diarios.created_at","=" ,$fecha)->get();
-                    if ($inventarioDiario1->count()>0){{
-                    }
+                    if ($inventarioDiario1->count()>0){
                     }
                     else{
                         $fecha = Carbon::now()->subDays(3)->format('Y-m-d');

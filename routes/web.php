@@ -110,6 +110,12 @@ Route::group(["middleware" => "auth"], function () {
         Route::put("/vitola/editar","VitolaController@editarVitola1")->name("vitolaeditar");
         Route::delete("/vitola/borrar","VitolaController@borrarVitola1")->name("vitolaBorrar");
 
+        //--------------------------------------------vitola ROUTES-------------------------------------------------------->
+        Route::get("/ExistenciaDiario","ExistenciaDiarioController@index")->name("ExistenciaDiario");
+        Route::post("/vitola/nuevo","VitolaController@storeVitola1")->name("vitolanueva");
+        Route::put("/vitola/editar","VitolaController@editarVitola1")->name("vitolaeditar");
+        Route::delete("/vitola/borrar","VitolaController@borrarVitola1")->name("vitolaBorrar");
+
 
 
 

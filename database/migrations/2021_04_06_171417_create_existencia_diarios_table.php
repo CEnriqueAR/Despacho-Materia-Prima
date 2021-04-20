@@ -18,14 +18,15 @@ class CreateExistenciaDiariosTable extends Migration
             $table->foreignId("id_semillas")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->foreignId("id_calidad")->references("id")->on("calidads");
-            $table->integer("totalinicial");
-            $table->decimal("pesoinicial",50,2);
-            $table->integer("totalentrada");
-            $table->decimal("pesoentrada",50,2);
-            $table->integer("totalfinal");
-            $table->decimal("pesofinal",50,2);
-            $table->integer("totalconsumo");
-            $table->decimal("pesoconsumo",50,2);
+            $table->integer("totalinicial")->nullable();
+            $table->decimal("pesoinicial",50,2)->nullable();
+            $table->integer("totalentrada")->nullable();
+            $table->decimal("pesoentrada",50,2)->nullable();
+            $table->integer("totalfinal")->nullable();
+            $table->decimal("pesofinal",50,2)->nullable();
+            $table->integer("totalconsumo")->nullable();
+            $table->decimal("pesoconsumo",50,2)->nullable();
+            $table->integer("onzas")->nullable();
             $table->timestamps();
         });
     }

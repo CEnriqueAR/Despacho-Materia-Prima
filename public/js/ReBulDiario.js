@@ -37,14 +37,14 @@ $('#modaleditardiario').on('show.bs.modal',function (e) {
     modal.find('.modal-body #librascapaentrega').val(libras);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
     modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
-    modal.find('.modal-body #totalinicialdiario').text(totalinicial);
-    modal.find('.modal-body #pesoinicialdiario').text(pesoinicial);
-    modal.find('.modal-body #totalentradadiario').text(totalentrada);
-    modal.find('.modal-body #pesoentradadiario').text(pesoentrada);
-    modal.find('.modal-body #totalfinaldiario').text(totalfinal);
-    modal.find('.modal-body #pesofinaldiario').text(pesofinal);
-    modal.find('.modal-body #totalconsumodiario').text(totalconsumo);
-    modal.find('.modal-body #pesoconsumodiario').text(pesoconsumo);
+    modal.find('.modal-body #totalinicialdiario').val(totalinicial);
+    modal.find('.modal-body #pesoinicialdiario').val(pesoinicial);
+    modal.find('.modal-body #totalentradadiario').val(totalentrada);
+    modal.find('.modal-body #pesoentradadiario').val(pesoentrada);
+    modal.find('.modal-body #totalfinaldiario').val(totalfinal);
+    modal.find('.modal-body #pesofinaldiario').val(pesofinal);
+    modal.find('.modal-body #totalconsumodiario').val(totalconsumo);
+    modal.find('.modal-body #pesoconsumodiario').val(pesoconsumo);
 
 });
 //Ver Producto
@@ -71,7 +71,7 @@ $('#modalVerReBulDiario').on('show.bs.modal',function (e) {
     modal.find('.modal-body #empleadoNuevocapaentrega').text(empleado);
     modal.find('.modal-body #vitolacapaentrega').text(vitola);
     modal.find('.modal-body #semillacapaentrega').text(semilla);
-    modal.find('.modal-body #librascapaentrega').val(libras);
+    modal.find('.modal-body #librascapaentrega').text(libras);
     modal.find('.modal-body #onzascapaentrega').text(onzas);
     modal.find('.modal-body #calidadcapaentrega').text(calidad);
     modal.find('.modal-body #totalcapaentrega').text(total);
