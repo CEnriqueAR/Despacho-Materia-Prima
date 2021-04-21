@@ -163,7 +163,6 @@
                             <span class="fas fa-plus"></span>  </button>
                     </td>
                     <td>
-                    <td>
 
                         <button class="btn btn-sm btn-info"
                                 title="Ver"

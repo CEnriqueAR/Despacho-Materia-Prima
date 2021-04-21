@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use App\CapaEntrega;
 use App\Empleado;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\Exportable;
@@ -34,7 +35,6 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
             ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
             ->leftJoin("tamanos","capa_entregas.id_tamano","=","tamanos.id")
 
-
             ->select("empleados.nombre AS nombre_empleado",
                 "vitolas.name as nombre_vitolas",
                 "marcas.name as nombre_marca",
@@ -42,10 +42,15 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
                 "calidads.name as nombre_calidads",
                "tamanos.name as nombre_tamano"
 
+
                 ,"capa_entregas.total") ->whereDate('capa_entregas.created_at', '=', $this->fecha)
+
+
             ->get();
 
-        return $entregaCapa;
+
+
+        return $entregaCapa ;
     }
     public function headings(): array
     {
@@ -56,8 +61,7 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
             'Semilla',
             'Calidad',
             'Tamaño',
-            'Total Recibida',
-        ];
+            'Total Recibida'];
     }
 
 }

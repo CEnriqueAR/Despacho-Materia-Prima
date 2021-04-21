@@ -18,6 +18,6 @@ class BandaMiddlewar
         if (auth()->check() && auth()->user()->is_banda or auth()->check() && auth()->user()->is_admin)
             return $next($request);
 
-        return redirect('/');
+        return redirect('/SinAcceso');
     }
 }

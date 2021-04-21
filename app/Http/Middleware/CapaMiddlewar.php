@@ -17,7 +17,7 @@ class CapaMiddlewar
     {
         if (auth()->check() && auth()->user()->is_capa or auth()->check() && auth()->user()->is_admin)
             return $next($request);
-        return redirect('/');
+        return redirect('/SinAcceso');
 
     }
 }

@@ -26,6 +26,12 @@ Route::group(["middleware" => "auth"], function () {
     });
 
 
+    Route::get('/SinAcceso', function () {
+        return view('Alerts.SinAcceso');
+
+
+    });
+
 
 
     Route::get('/prnpriview','PrintEmpleadoController@prnpriview')->name("imprimirEmpleado");
