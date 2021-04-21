@@ -154,7 +154,7 @@
                                 data-target="#modalVerCapaEntrega"
                                 data-semilla="{{$productos->nombre_semillas}}"
                                 data-calidad="{{$productos->nombre_calidads}}"
-                                data-tamano="{{$productos->nombre_tamano}}"
+                                data-id_tamano="{{$productos->nombre_tamano}}"
                                 data-inicial="{{$productos->totalinicial}}"
                                 data-pesoinicial="{{$productos->pesoinicial}}"
                                 data-totalentrada="{{$productos->totalentrada}}"
@@ -171,9 +171,9 @@
                                 data-toggle="modal"
                                 data-target="#modalEditarCapaEntrega"
                                 data-id="{{$productos->id}}"
-                                data-semilla="{{$productos->nombre_semillas}}"
-                                data-calidad="{{$productos->nombre_calidads}}"
-                                data-tamano="{{$productos->nombre_tamano}}"
+                                data-id_semilla="{{$productos->id_semillas}}"
+                                data-id_calidad="{{$productos->id_calidad}}"
+                                data-id_tamano="{{$productos->id_tamano}}"
                                 data-totalinicial="{{$productos->totalinicial}}"
                                 data-totalentrada="{{$productos->totalentrada}}"
                                 data-totalfinal="{{$productos->totalfinal}}"
@@ -209,7 +209,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("InventarioDiarionuevo")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("ExistenciaDiarionuevo")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -328,7 +328,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("InventarioDiarioeditar")}}" >
+                <form id="nuevoP" method="POST" action="{{route("ExistenciaDiarioeditar")}}" >
                     @method("PUT")
 
                     @csrf
@@ -336,13 +336,13 @@
 
 
                         <div class="form-group">
-                            <label for="id_semillas">Seleccione la vitola</label>
+                            <label for="semillacapaentrega">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
                                     required
                                     style="width: 85%"
                                     class="select2 form-control @error('id_empresa') is-invalid @enderror"
-                                    id="id_semillas" required="required">
+                                    id="semillacapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semilla as $semillas)
                                     <option value="{{$semillas->id}}">{{$semillas->name}}
@@ -359,12 +359,12 @@
 
 
                         <div class="form-group">
-                            <label for="id_calidad">Seleccione la marca</label>
+                            <label for="calidadcapaentrega">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
                                     style="width: 85%"
                                     class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="id_calidad" required="required">
+                                    id="calidadcapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
                                     <option value="{{$calidades->id}}">{{$calidades->name}}
@@ -378,12 +378,12 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="id_tamano">Seleccione la marca</label>
+                            <label for="tamanocapaentrega">Seleccione el tamaño </label>
                             <br>
                             <select name="id_tamano"
                                     style="width: 85%"
                                     class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="id_tamano" required="required">
+                                    id="tamanocapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)
                                     <option value="{{$tamanos->id}}">{{$tamanos->name}}
@@ -508,7 +508,7 @@
     <div class="modal fade" id="modalBorrarReBulDiario" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form method="post" action="{{route("InventarioDiarioborrar")}}" >
+                <form method="post" action="{{route("ExistenciaDiarioborrar")}}" >
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
@@ -546,7 +546,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarbultoentregadiario")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarExistenciaDiario")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -583,7 +583,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarbultoentregapdfdiario")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarExistenciaDiariopdf")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -619,7 +619,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarbultoentregaacvsdiario")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarExistenciaDiariocvs")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">

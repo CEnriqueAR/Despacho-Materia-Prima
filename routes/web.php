@@ -112,10 +112,17 @@ Route::group(["middleware" => "auth"], function () {
 
         //--------------------------------------------vitola ROUTES-------------------------------------------------------->
         Route::get("/ExistenciaDiario","ExistenciaDiarioController@index")->name("ExistenciaDiario");
-        Route::post("/vitola/nuevo","VitolaController@storeVitola1")->name("vitolanueva");
-        Route::put("/vitola/editar","VitolaController@editarVitola1")->name("vitolaeditar");
-        Route::delete("/vitola/borrar","VitolaController@borrarVitola1")->name("vitolaBorrar");
+        Route::post("/ExistenciaDiario/nuevo","ExistenciaDiarioController@store")->name("ExistenciaDiarionuevo");
+        Route::put("/ExistenciaDiario/editar","ExistenciaDiarioController@edit")->name("ExistenciaDiarioeditar");
+        Route::delete("/ExistenciaDiario/borrar","ExistenciaDiarioController@destroy")->name("ExistenciaDiarioborrar");
 
+        //--------------------------------------------Existencia Diario xportar ROUTES-------------------------------------------------------->
+        Route::post('/ExistenciaDiario/export', 'ExistenciaDiarioController@export')->name("exportarExistenciaDiario");
+        Route::get('/ExistenciaDiario/export', 'ExistenciaDiarioController@export')->name("exportarExistenciaDiario");
+        Route::post('/ExistenciaDiario/exportPDF', 'ExistenciaDiarioController@exportpdf')->name("exportarExistenciaDiariopdf");
+        Route::get('/ExistenciaDiario/exportPDF', 'ExistenciaDiarioController@exportpdf')->name("exportarExistenciaDiariopdf");
+        Route::post('/ExistenciaDiario/exportCVS', 'ExistenciaDiarioController@exportcvs')->name("exportarExistenciaDiariocvs");
+        Route::get('/ExistenciaDiario/exportCVS', 'ExistenciaDiarioController@exportcvs')->name("exportarExistenciaDiariocvs");
 
 
 

@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\BInvInicial;
 use App\Calidad;
 use App\CapaEntrega;
+use App\CInvInicial;
+use App\ConsumoBanda;
 use App\Empleado;
 use App\ExistenciaDiario;
+use App\Exports\ConsumoBandaExport;
+use App\Exports\ExistenciaDiarioExports;
 use App\Marca;
 use App\ReBulDiario;
 use App\Semilla;
 use App\Tamano;
 use App\Vitola;
 use Carbon\Carbon;
+use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -31,7 +37,7 @@ class ExistenciaDiarioController extends Controller
 
             if ($fecha == null) {
                 $fecha = Carbon::now()->format('l');
-                if ($fecha = 'Monday') {
+                if ($fecha == 'Monday') {
                     $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
                     $entregaCapa1=DB::table("capa_entregas")
                         ->leftJoin("empleados","capa_entregas.id_empleado","=","empleados.id")
@@ -132,22 +138,25 @@ class ExistenciaDiarioController extends Controller
             }
 
             foreach ($entregaCapa as $entrega){
-                if ($entrega->totalentrada == null or '0'){
+                $recibirCapa=DB::table("recibir_capas")
+                ->leftJoin("semillas","recibir_capas.id_semillas","=","semillas.id")
+                ->leftJoin("tamanos","recibir_capas.id_tamano","=","tamanos.id")
+                ->leftJoin("calidads","recibir_capas.id_calidad","=","calidads.id")
 
-                    $recibirCapa=DB::table("recibir_capas")
-                        ->leftJoin("semillas","recibir_capas.id_semillas","=","semillas.id")
-                        ->leftJoin("tamanos","recibir_capas.id_tamano","=","tamanos.id")
-                        ->leftJoin("calidads","recibir_capas.id_calidad","=","calidads.id")
+                ->select("recibir_capas.id","tamanos.name AS nombre_tamano",
+                    "recibir_capas.id_tamano",
+                    "recibir_capas.id_calidad","calidads.name as nombre_calidad",
+                    "recibir_capas.id_semillas","semillas.name as nombre_semillas","recibir_capas.total")
+                ->where("recibir_capas.id_semillas","=",$entrega->id_semillas)
+                ->where("recibir_capas.id_tamano","=",$entrega->id_tamano)
+                ->where("recibir_capas.id_calidad","=",$entrega->id_calidad)
+                ->whereDate("recibir_capas.created_at","=" ,$fecha)->get();
 
-                        ->select("recibir_capas.id","tamanos.name AS nombre_tamano",
-                            "recibir_capas.id_tamano",
-                            "recibir_capas.id_calidad","calidads.name as nombre_calidad",
-                            "recibir_capas.id_semillas","semillas.name as nombre_semillas","recibir_capas.total")
-                        ->where("recibir_capas.id_semillas","=",$entrega->id_semillas)
-                        ->where("recibir_capas.id_tamano","=",$entrega->id_tamano)
-                        ->where("recibir_capas.id_calidad","=",$entrega->id_calidad)
-                        ->whereDate("recibir_capas.created_at","=" ,$fecha)->get();
+
+
                 foreach ($recibirCapa as $reci){
+                    if ($entrega->totalentrada == $reci->total){
+                         } else{
 
                     $editarCapaEntrega=ExistenciaDiario::findOrFail($entrega->id);
 
@@ -192,6 +201,55 @@ class ExistenciaDiarioController extends Controller
      */
     public function store(Request $request)
     {
+        $inve  =  DB::table('c_inv_inicials')
+            ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("calidads","c_inv_inicials.id_calidad","=","calidads.id")
+            ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
+
+            ->select(
+                "c_inv_inicials.id",
+                "semillas.name as nombre_semillas",
+                "calidads.name as nombre_calidads",
+                "c_inv_inicials.id_tamano","tamanos.name as nombre_tamano",
+                "c_inv_inicials.id_semilla",
+                "c_inv_inicials.id_calidad"
+                ,"c_inv_inicials.totalinicial"
+            )
+            ->where("c_inv_inicials.id_semilla","=",$request->input('id_semillas'))
+            ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))
+            ->where("c_inv_inicials.id_calidad","=",$request->input('id_calidad'))->get();
+        if($inve->count()>0) {
+        }else{
+            $nuevoConsumo = new ExistenciaDiario();
+
+            $nuevoConsumo->id_semillas = $request->input('id_semillas');
+            $nuevoConsumo->id_calidad = $request->input('id_calidad');
+            $nuevoConsumo->id_tamano = $request->input("id_tamano");
+            $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+            $nuevoConsumo->save();
+        }
+
+        $nuevoInvDiario = new ExistenciaDiario();
+        $nuevoInvDiario->id_semillas=$request->input('id_semillas');
+        $nuevoInvDiario->id_calidad=$request->input('id_calidad');
+        $nuevoInvDiario->id_tamano=$request->input("id_tamano");
+        $nuevoInvDiario->onzas=$request->input("onzas");
+        $nuevoInvDiario->totalinicial=$request->input("totalinicial");
+        $nuevoInvDiario->pesoinicial=(($request->input("onzas")*($request->input("totalinicial")/50))/16);
+        $nuevoInvDiario->totalentrada=$request->input("totalentrada");
+        $nuevoInvDiario->pesoentrada=(($request->input("onzas")*($request->input("totalentrada")/50))/16);
+        $nuevoInvDiario->totalfinal=$request->input("totalfinal");
+        $nuevoInvDiario->pesofinal=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+        $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+        $nuevoInvDiario->pesoconsumo =(($request->input("onzas")* ($nuevoInvDiario->totalconsumo/50))/16);
+
+
+
+
+        $nuevoInvDiario->save();
+
+        return redirect()->route("ExistenciaDiario")->withExito("Se creó la entrega Correctamente ");
+
         //
     }
 
@@ -212,8 +270,84 @@ class ExistenciaDiarioController extends Controller
      * @param  \App\ExistenciaDiario  $existenciaDiario
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExistenciaDiario $existenciaDiario)
+    public function edit(Request $request)
     {
+        try {
+
+
+
+        $total = ($request->input("totalfinal"));
+        if($total == null){
+
+
+        }else{
+
+            $inve  =  DB::table('c_inv_inicials')
+                ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
+                ->leftJoin("calidads","c_inv_inicials.id_calidad","=","calidads.id")
+                ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
+
+                ->select(
+                    "c_inv_inicials.id",
+                    "semillas.name as nombre_semillas",
+                    "calidads.name as nombre_calidads",
+                    "c_inv_inicials.updated_at",
+
+                    "c_inv_inicials.id_tamano","tamanos.name as nombre_tamano",
+                    "c_inv_inicials.id_semilla",
+                    "c_inv_inicials.id_calidad"
+                    ,"c_inv_inicials.totalinicial"
+                )
+                ->where("c_inv_inicials.id_semilla","=",$request->input('id_semillas'))
+                ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))
+                ->where("c_inv_inicials.id_calidad","=",$request->input('id_calidad'))->get();
+            $inventarioDiario=DB::table("existencia_diarios")
+                ->leftJoin("semillas","existencia_diarios.id_semillas","=","semillas.id")
+                ->leftJoin("calidads","existencia_diarios.id_calidad","=","calidads.id")
+                ->leftJoin("tamanos","existencia_diarios.id_tamano","=","tamanos.id")
+                ->select("existencia_diarios.id"
+                    ,"existencia_diarios.created_at")
+                ->where("existencia_diarios.id","=",$request->id)->get();
+
+            foreach  ($inve as $inventario) {
+
+                foreach ($inventarioDiario as $diario) {
+                    $ingresada = $diario->created_at;
+                }
+                $actual = $inventario->updated_at;
+
+                if (Carbon::parse($ingresada)->format('Y-m-d') >= (Carbon::parse($actual)->format('Y-m-d'))) {
+
+
+
+                    $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
+                    $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                    $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                    $editarBultoEntrega->save();
+                }
+            }
+        }
+
+        $EditarInvDiario=ExistenciaDiario::findOrFail($request->id);
+        $EditarInvDiario->onzas=$request->input("onzas");
+        $EditarInvDiario->id_semillas=$request->input('id_semillas');
+        $EditarInvDiario->id_calidad=$request->input('id_calidad');
+        $EditarInvDiario->id_tamano=$request->input("id_tamano");
+        $EditarInvDiario->totalinicial=$request->input("totalinicial");
+        $EditarInvDiario->pesoinicial=(($request->input("onzas")*($request->input("totalinicial")/50))/16);
+        $EditarInvDiario->totalentrada=$request->input("totalentrada");
+        $EditarInvDiario->pesoentrada=(($request->input("onzas")*($request->input("totalentrada")/50))/16);
+        $EditarInvDiario->totalfinal=$request->input("totalfinal");
+        $EditarInvDiario->pesofinal=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+        $EditarInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+        $EditarInvDiario->pesoconsumo=(($request->input("onzas")*($EditarInvDiario->totalconsumo)/50)/16);
+
+        $EditarInvDiario->save();
+        return redirect()->route("ExistenciaDiario")->withExito("Se editó Correctamente");
+
+    }catch (ValidationException $exception){
+return redirect()->route("ExistenciaDiario")->with('errores','errores')->with('id_capa_entregas',$request->input("id"))->withErrors($exception->errors());
+}
         //
     }
 
@@ -235,8 +369,57 @@ class ExistenciaDiarioController extends Controller
      * @param  \App\ExistenciaDiario  $existenciaDiario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ExistenciaDiario $existenciaDiario)
+    public function destroy(Request $request)
     {
+
+
+        $capaentrega = $request->input('id');
+        $borrar = ExistenciaDiario::findOrFail($capaentrega);
+
+        $borrar->delete();
+        return redirect()->route("ExistenciaDiario")->withExito("Se borró la entrega satisfactoriamente");
         //
+        //
+    }
+
+    public function export(Request $request)
+    {
+
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new ExistenciaDiarioExports($fecha))->download('Listado Inventario de Capa'.$fecha.'.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+
+    }
+
+    public function exportpdf(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new ExistenciaDiarioExports($fecha))->download('Listado Inventario de Capa'.$fecha.'.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+
+    }
+    public function exportcvs(Request $request)
+    {
+        $fecha = $request->get("fecha1");
+
+        if ($fecha = null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else {
+            $fecha = Carbon::parse(  $request->get("fecha1"))->format('Y-m-d');
+
+        }
+        return (new ExistenciaDiarioExports($fecha))->download('Listado Inventario de Capa '.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
     }
 }

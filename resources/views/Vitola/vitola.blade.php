@@ -25,7 +25,7 @@
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("vitolaBanda")}}">&times;</a>
+                               href="{{route("vitola")}}">&times;</a>
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{route("vitolanuevaBanda")}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route("vitolanueva")}}" enctype="multipart/form-data">
                         @csrf
                     <div class="modal-body" style="object-fit: fill">
                         <div class="form-group">
@@ -173,7 +173,7 @@
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="{{route("vitolaeditarBanda")}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route("vitolaeditar")}}" enctype="multipart/form-data">
                         @method('PUT');
                         @csrf
                         <div class="modal-body" style="object-fit: fill">
@@ -217,7 +217,7 @@
         <div class="modal fade" id="modalBorrarMarca" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                    <form method="post" action="{{route("vitolaBorrarBanda")}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route("vitolaBorrar")}}" enctype="multipart/form-data">
                         @method("DELETE")
                         @csrf
                         <div class="modal-header" style="background: #2a2a35">

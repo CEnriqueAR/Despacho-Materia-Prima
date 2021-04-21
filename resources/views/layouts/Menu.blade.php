@@ -105,7 +105,6 @@
                             <a class="nav-link" href="{{url('marcas')}}">Marcas</a>
                             <a class="nav-link" href="{{url('semillas')}}">Semillas</a>
                             <a class="nav-link" href="{{url('vitola')}}">Vitolas</a>
-                            <a class="nav-link" href="{{url('peso')}}">Pesos</a>
 
                         </nav>
                     </div>

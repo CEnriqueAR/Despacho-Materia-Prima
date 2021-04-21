@@ -14,7 +14,7 @@ class MarcaBandaController extends Controller
     public function index(Request $request){
       if ($request){
           $query = trim($request->get("search"));
-          $marca = Marca::where("name","like","%".$query."%")  ->orderBy("name")->paginate(10);
+          $marca = Marca::where("name","like","%".$query."%")  ->orderBy("name")->paginate(1000);
 
           return View('Marcas.marcasbanda')
               ->withNoPagina(1)

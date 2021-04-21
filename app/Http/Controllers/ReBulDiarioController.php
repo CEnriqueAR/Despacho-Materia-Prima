@@ -162,7 +162,8 @@ class ReBulDiarioController extends Controller
 $nuevoConsumo = new BInvInicial();
 $nuevoConsumo->id_vitolas=$request->input('id_vitolas');
 $nuevoConsumo->id_marca=$request->input("id_marca");
-$nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal"); ;
+$nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+
 $nuevoConsumo->save();
 }
 
@@ -176,9 +177,8 @@ $nuevoConsumo->save();
         $nuevoInvDiario->pesoentrada=(($request->input("onzas")*$request->input("totalentrada"))/16);
         $nuevoInvDiario->totalfinal=$request->input("totalfinal");
         $nuevoInvDiario->pesofinal=(($request->input("onzas")*$request->input("totalfinal"))/16);
-        $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+        $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-($request->input("totalfinal"));
         $nuevoInvDiario->pesoconsumo =(($request->input("onzas")* $nuevoInvDiario->totalconsumo)/16);
-
 
 
 
@@ -270,7 +270,9 @@ $nuevoConsumo->save();
 
             $editarBultoEntrega = BInvInicial::findOrFail($inventario->id);
             $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-            $editarBultoEntrega->save();
+            $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+
+                $editarBultoEntrega->save();
         }
         }
 

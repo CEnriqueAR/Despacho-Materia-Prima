@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col">
                         <div class="col-lg-10 hero_box_col">
-                            <a href="{{route('DesBanda.index')}}" >
+                            <a href="{{route('BultoSalida')}}" >
                                 <div class="hero_box d-flex flex-row align-items-center ">
                                     <img src="images/earth-globe.svg" class="svg" alt="">
                                     <div class="hero_box_content">
