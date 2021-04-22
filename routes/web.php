@@ -130,6 +130,9 @@ Route::group(["middleware" => "auth"], function () {
         Route::post('/ExistenciaDiario/exportCVS', 'ExistenciaDiarioController@exportcvs')->name("exportarExistenciaDiariocvs");
         Route::get('/ExistenciaDiario/exportCVS', 'ExistenciaDiarioController@exportcvs')->name("exportarExistenciaDiariocvs");
 
+//--------------------------------------------Inventario Inicial Capa ROUTES-------------------------------------------------------->
+        Route::get('/InventarioInicialCapa', 'CInvInicialController@index')->name("InventarioInicialCapa");
+        Route::delete("/InventarioInicialCapa/borrar","CInvInicialController@destroy")->name("InventarioInicialcapaborrar");
 
 
     });
@@ -144,36 +147,34 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/DesBanda', 'DesBanda@index')->name('DesBanda.index');
 
 
-
-
         //--------------------------------------------Empleados BANDA ROUTES-------------------------------------------------------->
-        Route::get("/empleadosBanda","EmpleadoBandaController@index")->name("empleadosBanda");
-        Route::post("/empleadoBanda/nuevo","EmpleadoBandaController@storeEmpleado")->name("nuevoEmpleadoBanda");
-        Route::put("/empleadoBanda/editar","EmpleadoBandaController@editarEmpleado")->name("editarempleadoBanda");
-        Route::delete("/empleadoBanda/borrar","EmpleadoBandaController@borrarEmpleado")->name("borrarEmpleadoBanda");
+        Route::get("/empleadosBanda", "EmpleadoBandaController@index")->name("empleadosBanda");
+        Route::post("/empleadoBanda/nuevo", "EmpleadoBandaController@storeEmpleado")->name("nuevoEmpleadoBanda");
+        Route::put("/empleadoBanda/editar", "EmpleadoBandaController@editarEmpleado")->name("editarempleadoBanda");
+        Route::delete("/empleadoBanda/borrar", "EmpleadoBandaController@borrarEmpleado")->name("borrarEmpleadoBanda");
 
         //--------------------------------------------Marca BANDA ROUTES-------------------------------------------------------->
-        Route::get("/marcasBanda","MarcaBandaController@index")->name("marcasBanda");
-        Route::post("/marcasBanda/nuevo","MarcaBandaController@storeMarca")->name("nuevaMarcaBanda");
-        Route::put("/marcasBanda/editar","MarcaBandaController@editarMarca")->name("editarMarcaBanda");
-        Route::delete("/marcasBanda/borrar","MarcaBandaController@borrarMarca")->name("borrarMarcaBanda");
+        Route::get("/marcasBanda", "MarcaBandaController@index")->name("marcasBanda");
+        Route::post("/marcasBanda/nuevo", "MarcaBandaController@storeMarca")->name("nuevaMarcaBanda");
+        Route::put("/marcasBanda/editar", "MarcaBandaController@editarMarca")->name("editarMarcaBanda");
+        Route::delete("/marcasBanda/borrar", "MarcaBandaController@borrarMarca")->name("borrarMarcaBanda");
 
         //--------------------------------------------Semilla  BANDA ROUTES-------------------------------------------------------->
-        Route::get("/semillasBanda","SemillaController@index1")->name("semillasBanda");
-        Route::post("/semillasBanda/nuevo","SemillaController@storeSemilla1")->name("nuevasemillasBanda");
-        Route::put("/semillasBanda/editar","SemillaController@editarSemilla1")->name("editarsemillasBanda");
-        Route::delete("/semillasBanda/borrar","SemillaController@borrarSemilla1")->name("borrarsemillasBanda");
+        Route::get("/semillasBanda", "SemillaController@index1")->name("semillasBanda");
+        Route::post("/semillasBanda/nuevo", "SemillaController@storeSemilla1")->name("nuevasemillasBanda");
+        Route::put("/semillasBanda/editar", "SemillaController@editarSemilla1")->name("editarsemillasBanda");
+        Route::delete("/semillasBanda/borrar", "SemillaController@borrarSemilla1")->name("borrarsemillasBanda");
 
         //--------------------------------------------vitola  BANDA ROUTES-------------------------------------------------------->
-        Route::get("/vitolaBanda","VitolaController@index")->name("vitolaBanda");
-        Route::post("/vitolaBanda/nuevo","VitolaController@storeVitola")->name("vitolanuevaBanda");
-        Route::put("/vitolaBanda/editar","VitolaController@editarVitola")->name("vitolaeditarBanda");
-        Route::delete("/vitolaBanda/borrar","VitolaController@borrarVitola")->name("vitolaBorrarBanda");
+        Route::get("/vitolaBanda", "VitolaController@index")->name("vitolaBanda");
+        Route::post("/vitolaBanda/nuevo", "VitolaController@storeVitola")->name("vitolanuevaBanda");
+        Route::put("/vitolaBanda/editar", "VitolaController@editarVitola")->name("vitolaeditarBanda");
+        Route::delete("/vitolaBanda/borrar", "VitolaController@borrarVitola")->name("vitolaBorrarBanda");
         //--------------------------------------------Bulto  Tripa ROUTES-------------------------------------------------------->
-        Route::get("/BultoSalida","BultosSalidaController@index")->name("BultoSalida");
-        Route::post("/BultoSalida/nuevo","BultosSalidaController@store")->name("BultoSalidanueva");
-        Route::put("/BultoSalida/editar","BultosSalidaController@edit")->name("BultoSalidaeditar");
-        Route::delete("/BultoSalida/borrar","BultosSalidaController@destroy")->name("BultoSalidaborrar");
+        Route::get("/BultoSalida", "BultosSalidaController@index")->name("BultoSalida");
+        Route::post("/BultoSalida/nuevo", "BultosSalidaController@store")->name("BultoSalidanueva");
+        Route::put("/BultoSalida/editar", "BultosSalidaController@edit")->name("BultoSalidaeditar");
+        Route::delete("/BultoSalida/borrar", "BultosSalidaController@destroy")->name("BultoSalidaborrar");
         //--------------------------------------------Sumar Bultos ROUTES-------------------------------------------------------->
         Route::put('/BultosSalida/1', 'BultosSalidaController@Suma')->name("sumarBulto");
 
@@ -185,10 +186,10 @@ Route::group(["middleware" => "auth"], function () {
         Route::post('/BultoEntrega/exportCVS', 'BultosSalidaController@exportcvs')->name("exportarbultoentregaacvs");
         Route::get('/BultoEntrega/exportCVS', 'BultosSalidaController@exportcvs')->name("exportarbultoentregacvs");
         //--------------------------------------------Bulto  Tripa  Devueltos ROUTES-------------------------------------------------------->
-        Route::get("/BultoDevuelto","BultosDevueltoController@index")->name("BultoDevuelto");
-        Route::post("/BultoDevuelto/nuevo","BultosDevueltoController@store")->name("BultoDevueltonueva");
-        Route::put("/BultoDevuelto/editar","BultosDevueltoController@edit")->name("BultoDevueltoeditar");
-        Route::delete("/BultoDevuelto/borrar","BultosDevueltoController@destroy")->name("BultoDevueltoborrar");
+        Route::get("/BultoDevuelto", "BultosDevueltoController@index")->name("BultoDevuelto");
+        Route::post("/BultoDevuelto/nuevo", "BultosDevueltoController@store")->name("BultoDevueltonueva");
+        Route::put("/BultoDevuelto/editar", "BultosDevueltoController@edit")->name("BultoDevueltoeditar");
+        Route::delete("/BultoDevuelto/borrar", "BultosDevueltoController@destroy")->name("BultoDevueltoborrar");
         //--------------------------------------------Bulto Devuelto ROUTES-------------------------------------------------------->
         Route::post('/BultoDevuelto/export', 'BultosDevueltoController@export')->name("exportarbultodevuelto");
         Route::get('/BultoDevuelto/export', 'BultosDevueltoController@export')->name("exportarbultodevuelto");
@@ -198,9 +199,9 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/BultoDevuelto/exportCVS', 'BultosDevueltoController@exportcvs')->name("exportarbultodevueltocvs");
 //--------------------------------------------Consumo De Banda ROUTES-------------------------------------------------------->
         Route::get('/ConsumoBanda', 'ConsumoBandaController@index')->name("ConsumoBanda");
-        Route::post("/ConsumoBanda/nuevo","ConsumoBandaController@store")->name("ConsumoBandanueva");
-        Route::put("/ConsumoBanda/editar","ConsumoBandaController@edit")->name("ConsumoBandaeditar");
-        Route::delete("/ConsumoBanda/borrar","ConsumoBandaController@destroy")->name("ConsumoBandaborrar");
+        Route::post("/ConsumoBanda/nuevo", "ConsumoBandaController@store")->name("ConsumoBandanueva");
+        Route::put("/ConsumoBanda/editar", "ConsumoBandaController@edit")->name("ConsumoBandaeditar");
+        Route::delete("/ConsumoBanda/borrar", "ConsumoBandaController@destroy")->name("ConsumoBandaborrar");
         //--------------------------------------------Consumo De Bnada Exportar ROUTES-------------------------------------------------------->
         Route::post('/ConsumoBanda/export', 'ConsumoBandaController@export')->name("exportarconsumobanda");
         Route::get('/ConsumoBanda/export', 'ConsumoBandaController@export')->name("exportarconsumobanda");
@@ -210,9 +211,9 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
         //--------------------------------------------Consumo De Bnada Exportar ROUTES-------------------------------------------------------->
         Route::get('/InventarioDiario', 'ReBulDiarioController@index')->name("InventarioDiario");
-        Route::post("/InventarioDiario/nuevo","ReBulDiarioController@store")->name("InventarioDiarionuevo");
-        Route::put("/InventarioDiario/editar","ReBulDiarioController@edit")->name("InventarioDiarioeditar");
-        Route::delete("/InventarioDiario/borrar","ReBulDiarioController@destroy")->name("InventarioDiarioborrar");
+        Route::post("/InventarioDiario/nuevo", "ReBulDiarioController@store")->name("InventarioDiarionuevo");
+        Route::put("/InventarioDiario/editar", "ReBulDiarioController@edit")->name("InventarioDiarioeditar");
+        Route::delete("/InventarioDiario/borrar", "ReBulDiarioController@destroy")->name("InventarioDiarioborrar");
 
         //--------------------------------------------Registro Diario Bultos Exportar ROUTES-------------------------------------------------------->
         Route::post('/InventarioDiario/export', 'ReBulDiarioController@export')->name("exportarbultoentregadiario");
@@ -222,6 +223,9 @@ Route::group(["middleware" => "auth"], function () {
         Route::post('/InventarioDiario/exportCVS', 'ReBulDiarioController@exportcvs')->name("exportarbultoentregaacvsdiario");
         Route::get('/InventarioDiario/exportCVS', 'ReBulDiarioController@exportcvs')->name("exportarbultoentregacvsdiario");
 
+//--------------------------------------------Inventario Inicial Bultos ROUTES-------------------------------------------------------->
+        Route::get('/InventarioInicial', 'BInvInicialController@index')->name("InventarioInicial");
+        Route::delete("/InventarioInicial/borrar","BInvInicialController@destroy")->name("InventarioInicialborrar");
 
 
 

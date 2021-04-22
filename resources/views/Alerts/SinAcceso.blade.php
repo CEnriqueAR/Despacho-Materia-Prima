@@ -49,8 +49,8 @@
                         <h6>Usted no tiene acceso </h6>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button class="btn btn-primary" href="/" >INICIO
-                                </button>
+                                <a class="btn btn-primary" href="/" >INICIO
+                                </a>
                     </div>
                 </div>
             </div>

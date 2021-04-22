@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Calidad;
+use App\CInvInicial;
 use App\Exports\RecepcionCapaExport;
 use App\RecibirCapa;
 use App\Semilla;
@@ -82,6 +83,27 @@ class RecibirCapaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function storeRecepcionCapa(Request $request){
+
+        $inve  =  DB::table('c_inv_inicials')
+            ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("vitolas","c_inv_inicials.id_calidad","=","vitolas.id")
+            ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
+
+            ->select(
+                "c_inv_inicials.id")
+            ->where("c_inv_inicials.id_semilla","=",$request->input("id_semilla"))
+            ->where("c_inv_inicials.id_calidad","=",$request->input("id_calidad"))
+            ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semilla');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+        }
+
         $nuevoCapaEntra = new RecibirCapa();
 
         $nuevoCapaEntra->id_tamano=$request->input('id_tamano');
