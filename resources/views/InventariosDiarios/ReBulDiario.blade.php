@@ -208,6 +208,16 @@
 
                     @csrf
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control @error('onzas') is-invalid @enderror" name="fecha" id="fecha" maxlength="100"
+                                   value="{{ old('fecha')}}" type="date" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
 
                         <div class="form-group">
                             <label for="id_marca">Seleccione la marca</label>
@@ -243,7 +253,7 @@
                         </div>
 
                     <div class="form-group">
-                        <label for="onzasNuevoProducto">onzas</label>
+                        <label for="onzasNuevoProducto">Peso Por Unida (onzas)</label>
                         <input class="form-control @error('onzas') is-invalid @enderror" name="onzas" id="onzasNuevoProducto" maxlength="100"
                                value="{{ old('onzas')}}" required="required">
                         @error('name')
@@ -388,7 +398,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="onzascapaentrega">Onzas</label>
+                            <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
                                     name="onzas" id="onzascapaentrega" maxlength="100" value="{{old('onzas')}}">
                             @error('name')

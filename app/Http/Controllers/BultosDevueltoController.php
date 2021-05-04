@@ -19,15 +19,39 @@ class BultosDevueltoController extends Controller
     public function index(Request $request)
     {
 
-
         if ($request){
             $query = trim($request->get("search"));
 
             $fecha = $request->get("fecha");
 
-            if ($fecha = null)
-                $fecha = Carbon::now()->format('Y-m-d');
-            else{
+            if ($fecha == null) {
+                $fecha = Carbon::now()->format('l');
+                if ($fecha == 'Monday') {
+                    $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
+                    $bultoentrega=DB::table("bultos_salidas")
+                        ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
+                        ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
+                        ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
+
+                        ->select("bultos_salidas.id",
+                            "empleados_bandas.nombre AS nombre_empleado",
+                            "vitolas.name as nombre_vitolas",
+                            "bultos_salidas.id_empleado",
+                            "bultos_salidas.id_vitolas",
+                            "bultos_salidas.id_marca","marcas.name as nombre_marca"
+                            ,"bultos_salidas.total")
+                        ->whereDate("bultos_salidas.created_at","=" ,$fecha)->get();
+                    if ($bultoentrega->count()>0){
+                    }
+                    else{
+                        $fecha = Carbon::now()->subDays(3)->format('Y-m-d');
+                    }
+
+                } else {
+                    $fecha = Carbon::now()->subDay()->format('Y-m-d');
+                }
+            } else{
+
                 $fecha = $request->get("fecha");
 
             }

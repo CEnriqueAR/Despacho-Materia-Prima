@@ -202,6 +202,8 @@ class ConsumoBandaController extends Controller
             'id_marca.required'=>'Se requiere una marca para este producto'
 
             ]);  */
+
+
             $editarConsumoBanda=ConsumoBanda::findOrFail($request->id);
 
             $editarConsumoBanda->id_vitolas=$request->input('id_vitolas');
@@ -211,6 +213,7 @@ class ConsumoBandaController extends Controller
             $editarConsumoBanda->total=$request->input('total');
             $editarConsumoBanda->onzas=$request->input('onzas');
             $editarConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
+
 
 
             $editarConsumoBanda->save();

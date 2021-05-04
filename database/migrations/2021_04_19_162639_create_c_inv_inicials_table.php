@@ -19,6 +19,7 @@ class CreateCInvInicialsTable extends Migration
             $table->foreignId("id_calidad")->references("id")->on("calidads");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->integer("totalinicial")->nullable();
+            $table->decimal("pesoinicial",50,2)->nullable();
             $table->timestamps();
         });
     }

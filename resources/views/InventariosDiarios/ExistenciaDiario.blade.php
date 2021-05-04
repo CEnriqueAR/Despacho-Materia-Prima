@@ -203,7 +203,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Salida De Capa
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -213,9 +213,19 @@
 
                     @csrf
                     <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control @error('onzas') is-invalid @enderror" name="fecha" id="fecha" maxlength="100"
+                                   value="{{ old('fecha')}}" type="date" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
 
                         <div class="form-group">
-                            <label for="id_semillas">Seleccione la marca</label>
+                            <label for="id_semillas">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
                                     style="width: 85%" required="required"
@@ -231,7 +241,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="id_calidad">Seleccione la Vitola</label>
+                            <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
                                     style="width: 85%" required="required"
@@ -247,7 +257,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="id_tamano">Seleccione la Vitola</label>
+                            <label for="id_tamano">Seleccione el Tamaño</label>
                             <br>
                             <select name="id_tamano"
                                     style="width: 85%" required="required"
@@ -263,7 +273,7 @@
                             </select>
                         </div>
                     <div class="form-group">
-                        <label for="onzasNuevoProducto">onzas</label>
+                        <label for="onzasNuevoProducto">Peso Por Unida (onzas)</label>
                         <input class="form-control @error('onzas') is-invalid @enderror" name="onzas" id="onzasNuevoProducto" maxlength="100"
                                value="{{ old('onzas')}}" required="required">
                         @error('name')
@@ -427,7 +437,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="onzascapaentrega">Onzas</label>
+                            <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
                                     name="onzas" id="onzascapaentrega" maxlength="100" value="{{old('onzas')}}">
                             @error('name')

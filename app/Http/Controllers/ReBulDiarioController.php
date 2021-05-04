@@ -37,20 +37,20 @@ class ReBulDiarioController extends Controller
                 $fecha = Carbon::now()->format('l');
                 if ($fecha == 'Monday') {
                     $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
-                    $inventarioDiario1=DB::table("re_bul_diarios")
-                        ->leftJoin("vitolas","re_bul_diarios.id_vitolas","=","vitolas.id")
-                        ->leftJoin("marcas","re_bul_diarios.id_marca","=","marcas.id")
-                        ->select("re_bul_diarios.id",
+                    $bultoentrega=DB::table("bultos_salidas")
+                        ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
+                        ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
+                        ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
+
+                        ->select("bultos_salidas.id",
+                            "empleados_bandas.nombre AS nombre_empleado",
                             "vitolas.name as nombre_vitolas",
-                            "re_bul_diarios.id_vitolas",
-                            "re_bul_diarios.id_marca","marcas.name as nombre_marca"
-                            ,"re_bul_diarios.totalinicial","re_bul_diarios.pesoinicial"
-                            ,"re_bul_diarios.totalentrada","re_bul_diarios.pesoentrada"
-                            ,"re_bul_diarios.totalfinal","re_bul_diarios.pesofinal",
-                            "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
-                            ,"re_bul_diarios.onzas")
-                        ->whereDate("re_bul_diarios.created_at","=" ,$fecha)->get();
-                    if ($inventarioDiario1->count()>0){
+                            "bultos_salidas.id_empleado",
+                            "bultos_salidas.id_vitolas",
+                            "bultos_salidas.id_marca","marcas.name as nombre_marca"
+                            ,"bultos_salidas.total")
+                        ->whereDate("bultos_salidas.created_at","=" ,$fecha)->get();
+                    if ($bultoentrega->count()>0){
                     }
                     else{
                         $fecha = Carbon::now()->subDays(3)->format('Y-m-d');
@@ -167,6 +167,9 @@ $nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("t
 $nuevoConsumo->save();
 }
 
+        $fecha = $request->get("fecha");
+        $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
+
         $nuevoInvDiario = new ReBulDiario();
         $nuevoInvDiario->onzas=$request->input("onzas");
         $nuevoInvDiario->id_vitolas=$request->input('id_vitolas');
@@ -179,6 +182,8 @@ $nuevoConsumo->save();
         $nuevoInvDiario->pesofinal=(($request->input("onzas")*$request->input("totalfinal"))/16);
         $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-($request->input("totalfinal"));
         $nuevoInvDiario->pesoconsumo =(($request->input("onzas")* $nuevoInvDiario->totalconsumo)/16);
+        $nuevoInvDiario->created_at =$fecha1;
+
 
 
 

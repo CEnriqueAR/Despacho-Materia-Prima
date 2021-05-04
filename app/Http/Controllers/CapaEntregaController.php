@@ -48,13 +48,11 @@ class CapaEntregaController extends Controller
                 ->leftJoin("semillas","capa_entregas.id_semilla","=","semillas.id")
                 ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
                 ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
-                ->leftJoin("tamanos","capa_entregas.id_tamano","=","tamanos.id")
 
 
                 ->select("capa_entregas.id","empleados.nombre AS nombre_empleado",
                     "vitolas.name as nombre_vitolas","semillas.name as nombre_semillas",
                     "calidads.name as nombre_calidads",
-                    "capa_entregas.id_tamano","tamanos.name as nombre_tamano",
                     "capa_entregas.id_empleado",
                     "capa_entregas.id_vitolas",
                     "capa_entregas.id_semilla",
@@ -69,7 +67,6 @@ class CapaEntregaController extends Controller
             $empleados = Empleado::all();
             $semilla = Semilla::all();
             $calidad = Calidad::all();
-            $tamano = Tamano::all();
             $vitola = Vitola::all();
             $marca = Marca::all();
 
@@ -78,7 +75,6 @@ class CapaEntregaController extends Controller
                 ->withEntregaCapa($entregaCapa)
                 ->withEmpleados($empleados)
                 ->withSemillas($semilla)
-                ->withTamano($tamano)
                 ->withCalidad($calidad)
                 ->withVitola($vitola)
                 ->withMarca($marca);
@@ -102,20 +98,35 @@ class CapaEntregaController extends Controller
             ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
             ->leftJoin("vitolas","c_inv_inicials.id_calidad","=","vitolas.id")
             ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
-
             ->select(
-                "c_inv_inicials.id")
+                "c_inv_inicials.id",
+                "c_inv_inicials.id_tamano",
+                "tamanos.name as nombre_tamanos")
             ->where("c_inv_inicials.id_semilla","=",$request->input("id_semilla"))
-            ->where("c_inv_inicials.id_calidad","=",$request->input("id_calidad"))
-            ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+            ->where("c_inv_inicials.id_calidad","=",$request->input("id_calidad"))->get();
         if($inve->count()>0){
+
         }else{
+
             $nuevoConsumo = new CInvInicial();
             $nuevoConsumo->id_semilla=$request->input('id_semilla');
             $nuevoConsumo->id_calidad=$request->input('id_calidad');
-            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->id_tamano="2";
             $nuevoConsumo->totalinicial= '0';
             $nuevoConsumo->save();
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semilla');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano="3";
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semilla');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano="4";
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+
         }
         $nuevoCapaEntrega = new CapaEntrega();
 
@@ -124,7 +135,6 @@ class CapaEntregaController extends Controller
         $nuevoCapaEntrega->id_semilla=$request->input('id_semilla');
         $nuevoCapaEntrega->id_calidad=$request->input('id_calidad');
         $nuevoCapaEntrega->id_marca=$request->input("id_marca");
-        $nuevoCapaEntrega->id_tamano=$request->input("id_tamano");
         $nuevoCapaEntrega->total=$request->input('total');
 
 
