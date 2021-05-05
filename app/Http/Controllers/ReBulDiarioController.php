@@ -101,7 +101,8 @@ class ReBulDiarioController extends Controller
                         "marcas.name as nombre_marca",
                         "b_inv_inicials.id_vitolas",
                         "b_inv_inicials.id_marca",
-                        "b_inv_inicials.totalinicial")
+                        "b_inv_inicials.totalinicial",
+                    "b_inv_inicials.pesoinicial")
                     ->orderBy("nombre_marca")->paginate(1000);
 
                 foreach ($inve as $inventario) {
@@ -110,6 +111,7 @@ class ReBulDiarioController extends Controller
                 $nuevoConsumo->id_vitolas = $inventario->id_vitolas;
                 $nuevoConsumo->id_marca = $inventario->id_marca;
                 $nuevoConsumo->totalinicial = $inventario->totalinicial;
+                $nuevoConsumo->pesoinicial = $inventario->pesoinicial;
                 $nuevoConsumo->created_at = Carbon::parse($fecha)->format('Y-m-d');
                 $nuevoConsumo->save();
             }
@@ -159,12 +161,13 @@ class ReBulDiarioController extends Controller
             ->where("b_inv_inicials.id_marca","=",$request->input("id_marca"))->get();
         if($inve->count()>0) {
     }else{
-$nuevoConsumo = new BInvInicial();
-$nuevoConsumo->id_vitolas=$request->input('id_vitolas');
-$nuevoConsumo->id_marca=$request->input("id_marca");
-$nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+            $nuevoConsumo = new BInvInicial();
+            $nuevoConsumo->id_vitolas=$request->input('id_vitolas');
+            $nuevoConsumo->id_marca=$request->input("id_marca");
+            $nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+            $nuevoConsumo->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
 
-$nuevoConsumo->save();
+            $nuevoConsumo->save();
 }
 
         $fecha = $request->get("fecha");
@@ -248,7 +251,8 @@ $nuevoConsumo->save();
                 "b_inv_inicials.updated_at",
                 "b_inv_inicials.id_vitolas",
                 "b_inv_inicials.id_marca",
-                "b_inv_inicials.totalinicial")
+                "b_inv_inicials.totalinicial",
+                "b_inv_inicials.pesoinicial")
             ->where("b_inv_inicials.id_vitolas","=",$request->input('id_vitolas'))
             ->where("b_inv_inicials.id_marca","=",$request->input("id_marca"))->get();
 
@@ -273,10 +277,10 @@ $nuevoConsumo->save();
 
 
 
-            $editarBultoEntrega = BInvInicial::findOrFail($inventario->id);
-            $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-            $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
-
+                $editarBultoEntrega = BInvInicial::findOrFail($inventario->id);
+                $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                $editarBultoEntrega->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+                $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
                 $editarBultoEntrega->save();
         }
         }

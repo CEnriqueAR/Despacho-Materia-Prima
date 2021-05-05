@@ -48,14 +48,15 @@ class BultosSalidaController extends Controller
 
                 ->select("bultos_salidas.id",
                     "empleados_bandas.nombre AS nombre_empleado",
+                    "empleados_bandas.codigo AS codigo_empleado",
                     "vitolas.name as nombre_vitolas",
                     "bultos_salidas.id_empleado",
                     "bultos_salidas.id_vitolas",
                     "bultos_salidas.id_marca","marcas.name as nombre_marca"
                     ,"bultos_salidas.total")
-                ->where("empleados_bandas.nombre","Like","%".$query."%")
+                ->where("empleados_bandas.codigo","Like","%".$query."%")
                 ->whereDate("bultos_salidas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-                ->orderBy("nombre_empleado")
+                ->orderBy("codigo_empleado")
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $empleados = EmpleadosBanda::all();

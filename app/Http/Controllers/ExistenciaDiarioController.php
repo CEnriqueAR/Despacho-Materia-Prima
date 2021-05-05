@@ -242,40 +242,11 @@ class ExistenciaDiarioController extends Controller
             ->where("c_inv_inicials.id_calidad","=",$request->input('id_calidad'))->get();
         if($inve->count()>0){
 
-            foreach ($inve as $inventario){
-                if($inventario->id_tamano == 2) {
-                    if($inventario->id_tamano == 3){
-                        if($inventario->id_tamano == 4){
-                        }else{
-                            $nuevoConsumo = new CInvInicial();
-                            $nuevoConsumo->id_semilla=$request->input('id_semilla');
-                            $nuevoConsumo->id_calidad=$request->input('id_calidad');
-                            $nuevoConsumo->id_tamano = $request->input("id_tamano");
-                            $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-                            $nuevoConsumo->save();
-                        }
-                    }else{
-                        $nuevoConsumo = new CInvInicial();
-                        $nuevoConsumo->id_semilla=$request->input('id_semilla');
-                        $nuevoConsumo->id_calidad=$request->input('id_calidad');
-                        $nuevoConsumo->id_tamano = $request->input("id_tamano");
-                        $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-                        $nuevoConsumo->save();
-                    }
-
-                }else{
-                    $nuevoConsumo = new CInvInicial();
-                    $nuevoConsumo->id_semilla=$request->input('id_semilla');
-                    $nuevoConsumo->id_calidad=$request->input('id_calidad');
-                    $nuevoConsumo->id_tamano = $request->input("id_tamano");
-                    $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-                    $nuevoConsumo->save();
-                }
 
 
-            }
+
         }else{
-            $nuevoConsumo = new ExistenciaDiario();
+            $nuevoConsumo = new CInvInicial();
 
             $nuevoConsumo->id_semillas = $request->input('id_semillas');
             $nuevoConsumo->id_calidad = $request->input('id_calidad');

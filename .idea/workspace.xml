@@ -3,18 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosDevueltoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosDevueltoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_19_162639_create_c_inv_inicials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_19_162639_create_c_inv_inicials_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_155327_create_b_inv_inicials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_155327_create_b_inv_inicials_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -412,7 +407,8 @@
       <workItem from="1619101664239" duration="13732000" />
       <workItem from="1619199088519" duration="1947000" />
       <workItem from="1619446220926" duration="5831000" />
-      <workItem from="1620138190653" duration="14765000" />
+      <workItem from="1620138190653" duration="15126000" />
+      <workItem from="1620224933409" duration="8475000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -533,7 +529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619125574213</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="quitar el tamaño a entrega de capa">
+      <created>1620166552851</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1620166552851</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -649,7 +652,8 @@
     <MESSAGE value="solucion de pequeños errores" />
     <MESSAGE value="sin acceso" />
     <MESSAGE value="agregar el inventario diario" />
-    <option name="LAST_COMMIT_MESSAGE" value="agregar el inventario diario" />
+    <MESSAGE value="quitar el tamaño a entrega de capa" />
+    <option name="LAST_COMMIT_MESSAGE" value="quitar el tamaño a entrega de capa" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -104,7 +104,7 @@
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th>#</th>
+                <th>Codigo</th>
                 <th>Empleado</th>
                 <th>Marca</th>
                 <th>Vitola</th>
@@ -126,7 +126,8 @@
             @endif
             @foreach($entregaCapa as $productos)
                 <tr>
-                    <td>{{$noPagina++}}</td>
+
+                    <td>{{$productos->codigo_empleado}}</td>
 
 
                     <td>{{$productos->nombre_empleado}}</td>
@@ -240,8 +241,8 @@
                                 @foreach($empleados as $empleado)
                                     <option value="{{$empleado->id}}" @if(Request::old('id_empleado')==$empleado->id){{'selected'}}@endif
                                     @if(session("idMarca"))
-                                        {{session("idMarca")==$empleado->id ? 'selected="selected"':''}}
-                                            @endif>{{$empleado->nombre}}
+                                        {{session("idMarca")==$empleado->id  ? 'selected="selected"':''}}
+                                            @endif>{{$empleado->codigo }}
                                     </option>
                                 @endforeach
                             </select>

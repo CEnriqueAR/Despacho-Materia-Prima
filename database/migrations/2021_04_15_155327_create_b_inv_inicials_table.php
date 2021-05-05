@@ -18,6 +18,8 @@ class CreateBInvInicialsTable extends Migration
             $table->foreignId("id_marca")->references("id")->on("marcas");
             $table->foreignId("id_vitolas")->references("id")->on("vitolas");
             $table->integer("totalinicial")->nullable();
+            $table->decimal("pesoinicial",50,2)->nullable();
+
             $table->timestamps();
         });
     }

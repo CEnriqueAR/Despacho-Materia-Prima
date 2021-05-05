@@ -51,6 +51,7 @@ class CapaEntregaController extends Controller
 
 
                 ->select("capa_entregas.id","empleados.nombre AS nombre_empleado",
+                    "empleados.codigo AS codigo_empleado",
                     "vitolas.name as nombre_vitolas","semillas.name as nombre_semillas",
                     "calidads.name as nombre_calidads",
                     "capa_entregas.id_empleado",
@@ -59,9 +60,9 @@ class CapaEntregaController extends Controller
                     "capa_entregas.id_calidad",
                     "capa_entregas.id_marca","marcas.name as nombre_marca"
                     ,"capa_entregas.total")
-                ->where("empleados.nombre","Like","%".$query."%")
+                ->where("empleados.codigo","Like","%".$query."%")
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
-                ->orderBy("empleados.nombre")
+                ->orderBy("empleados.codigo")
               //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $empleados = Empleado::all();
