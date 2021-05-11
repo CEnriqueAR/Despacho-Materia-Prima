@@ -26,7 +26,9 @@ class CreateExistenciaDiariosTable extends Migration
             $table->decimal("pesofinal",50,2)->nullable();
             $table->integer("totalconsumo")->nullable();
             $table->decimal("pesoconsumo",50,2)->nullable();
-            $table->integer("onzas")->nullable();
+            $table->decimal("onzasI")->nullable();
+            $table->decimal("onzasE")->nullable();
+            $table->decimal("onzasF")->nullable();
             $table->timestamps();
         });
     }

@@ -134,6 +134,15 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/InventarioInicialCapa', 'CInvInicialController@index')->name("InventarioInicialCapa");
         Route::delete("/InventarioInicialCapa/borrar","CInvInicialController@destroy")->name("InventarioInicialcapaborrar");
 
+        //--------------------------------------------Resumen  Capa ROUTES-------------------------------------------------------->
+        Route::get('/ResumenDiario', 'ResumenCapaController@index')->name("ResumenDiario");
+        //--------------------------------------------Resumen de capa exportar ROUTES-------------------------------------------------------->
+        Route::post('/ResumenDiario/export', 'ResumenCapaController@export')->name("exportarResumenDiario");
+        Route::get('/ResumenDiario/export', 'ResumenCapaController@export')->name("exportarResumenDiario");
+        Route::post('/ResumenDiario/exportPDF', 'ResumenCapaController@exportpdf')->name("exportarResumenDiariopdf");
+        Route::get('/ResumenDiario/exportPDF', 'ResumenCapaController@exportpdf')->name("exportarResumenDiariopdf");
+        Route::post('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
+        Route::get('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
 
     });
 

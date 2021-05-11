@@ -16,7 +16,9 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
     var libras= button.data('libras');
-    var onzas = button.data('onzas');
+    var onzasI = button.data('onzasI');
+    var onzasE = button.data('onzasE');
+    var onzasF = button.data('onzasF');
     var total = button.data('total');
     var totalinicial = button.data('totalinicial');
     var pesoinicial= button.data('pesoinicial');
@@ -34,7 +36,10 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #semillacapaentrega').val(semilla).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
-    modal.find('.modal-body #onzascapaentrega').val(onzas);
+    modal.find('.modal-body #onzasicapaentrega').val(onzasI);
+    modal.find('.modal-body #onzasecapaentrega').val(onzasE);
+    modal.find('.modal-body #onzasfcapaentrega').val(onzasF);
+
     modal.find('.modal-body #librascapaentrega').val(libras);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
     modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
@@ -57,7 +62,9 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var total = button.data('total');
-    var onzas = button.data('onzas');
+    var onzasI = button.data('onzasI');
+    var onzasE = button.data('onzasE');
+    var onzasF = button.data('onzasF');
     var libras= button.data('libras');
     var totalinicial = button.data('totalinicial');
     var pesoinicial= button.data('pesoinicial');
@@ -71,8 +78,10 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #empleadoNuevocapaentrega').text(empleado);
     modal.find('.modal-body #vitolacapaentrega').text(vitola);
     modal.find('.modal-body #semillacapaentrega').text(semilla);
-    modal.find('.modal-body #librascapaentrega').val(libras);
-    modal.find('.modal-body #onzascapaentrega').text(onzas);
+    modal.find('.modal-body #librascapaentrega').text(libras);
+    modal.find('.modal-body #onzasicapaentrega').text(onzasI);
+    modal.find('.modal-body #onzasecapaentrega').text(onzasE);
+    modal.find('.modal-body #onzasfcapaentrega').text(onzasF);
     modal.find('.modal-body #calidadcapaentrega').text(calidad);
     modal.find('.modal-body #totalcapaentrega').text(total);
     modal.find('.modal-body #marcacapaentrega').text(id_marca);
@@ -86,6 +95,12 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #pesoconsumodiario').text(pesoconsumo);
 
 });
+
+
+
+
+
+
 $('#modalVerCapaEntreg').on('show.bs.modal',function (e) {
     var button = $(e.relatedTarget);
     var empleado = button.data('id_empleado');

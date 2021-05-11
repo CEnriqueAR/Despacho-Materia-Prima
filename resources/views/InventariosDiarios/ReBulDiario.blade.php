@@ -159,7 +159,7 @@
                                 data-pesofinal="{{$productos->pesofinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
                                 data-pesoconsumo="{{$productos->pesoconsumo}}"
-                                data-onzas="{{$productos->onzas}}">
+                                >
                             <span class="fas fa-eye"></span>
                         </button>
                         <button class="btn btn-sm btn-success"
@@ -173,7 +173,9 @@
                                 data-totalentrada="{{$productos->totalentrada}}"
                                 data-totalfinal="{{$productos->totalfinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
-                                data-onzas="{{$productos->onzas}}"
+                                data-onzasI="{{$productos->onzasI}}"
+                                data-onzasF="{{$productos->onzasF}}"
+                                data-onzasE="{{$productos->onzasE}}"
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
@@ -251,49 +253,72 @@
                                 @endforeach
                             </select>
                         </div>
-
-                    <div class="form-group">
-                        <label for="onzasNuevoProducto">Peso Por Unida (onzas)</label>
-                        <input class="form-control @error('onzas') is-invalid @enderror" name="onzas" id="onzasNuevoProducto" maxlength="100"
-                               value="{{ old('onzas')}}" required="required">
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
+                        <div class="form-row">
+                            <div class="form-group col-md-6" >
+                                <label for="totalinicial">Inventario Iniciail </label>
+                                <input class="form-control @error('name') is-invalid @enderror" name="totalinicial" id="totalinicial" maxlength="100"
+                                       value="{{ old('totalinicial')}}" required="required">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
-                        <div>
-
-                        <label for="totalinicial">Inventario Iniciail </label>
-                        <input class="form-control @error('name') is-invalid @enderror" name="totalinicial" id="totalinicial" maxlength="100"
-                               value="{{ old('totalinicial')}}" required="required">
-                        @error('name')
-                        <span class="invalid-feedback" role="alert">
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasI" id="onzascapaentrega" maxlength="100" value="{{old('onzasI')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                        @enderror
-                    </div>
-                        <div>
+                                @enderror
+                            </div>
 
-                            <label for="totalentrada">Entradas </label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="totalentrada" id="totalentrada" maxlength="100"
-                                   value="{{ old('totalentrada')}}" required="required">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
                         </div>
-                        <div>
-
-                            <label for="totalfinal">Inventario Final </label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="totalfinal" id="totalfinal" maxlength="100"
-                                   value="{{ old('totalfinal')}}" required="required">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                        <div class="form-row">
+                            <div class=" form-group col-md-6 ">
+                                <label for="totalentrada">Entradas </label>
+                                <input class="form-control @error('name') is-invalid @enderror" name="totalentrada" id="totalentrada" maxlength="100"
+                                       value="{{ old('totalentrada')}}" required="required">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasE" id="onzascapaentrega" maxlength="100" value="{{old('onzasE')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="totalfinal">Inventario Final </label>
+                                <input class="form-control @error('name') is-invalid @enderror" name="totalfinal" id="totalfinal" maxlength="100"
+                                       value="{{ old('totalfinal')}}" required="required">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasF" id="onzascapaentrega" maxlength="100" value="{{old('onzasF')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
 
                     </div>
@@ -367,46 +392,74 @@
                                     </span>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="totalinicialdiario">Inentario Inicial</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="totalinicial" id="totalinicialdiario" maxlength="100" value="{{old('totalinicial')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="totalinicialdiario">Inentario Inicial</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="totalinicial" id="totalinicialdiario" maxlength="100" value="{{old('totalinicial')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="totalentradadiario">Entradas</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="totalentrada" id="totalentradadiario" maxlength="100" value="{{old('totalentrada')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasI" id="onzascapaentrega" maxlength="100" value="{{old('onzasI')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
+                                @enderror
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="totalfinaldiario">Inventario Final</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="totalfinal" id="totalfinaldiario" maxlength="100" value="{{old('totalfinal')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="totalentradadiario">Entradas</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="totalentrada" id="totalentradadiario" maxlength="100" value="{{old('totalentradaE')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzas" id="onzascapaentrega" maxlength="100" value="{{old('onzas')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
+                                @enderror
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasE" id="onzascapaentrega" maxlength="100" value="{{old('onzasE')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                            @enderror
+                                @enderror
+                            </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="totalfinaldiario">Inventario Final</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="totalfinal" id="totalfinaldiario" maxlength="100" value="{{old('totalfinal')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="onzascapaentrega">Peso Por Unida (onzas)</label>
+                                <input  class="form-control @error('name') is-invalid @enderror"
+                                        name="onzasF" id="onzascapaentrega" maxlength="100" value="{{old('onzasF')}}">
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                     </div>
                     <div class="modal-footer">

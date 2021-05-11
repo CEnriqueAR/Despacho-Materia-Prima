@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReBulDiariosTable extends Migration
+class CreateResumenCapasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,19 @@ class CreateReBulDiariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('re_bul_diarios', function (Blueprint $table) {
+        Schema::create('resumen_capas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_marca")->references("id")->on("marcas");
-            $table->foreignId("id_vitolas")->references("id")->on("vitolas");
-            $table->integer("totalinicial")->nullable();
+            $table->foreignId("id_semilla")->references("id")->on("semillas");
+            $table->integer("totalprimera")->nullable();
             $table->decimal("pesoinicial",50,2)->nullable();
-            $table->integer("totalentrada")->nullable();
+            $table->integer("totalsegunda")->nullable();
             $table->decimal("pesoentrada",50,2)->nullable();
-            $table->integer("totalfinal")->nullable();
+            $table->integer("totaltercera")->nullable();
             $table->decimal("pesofinal",50,2)->nullable();
+            $table->integer("totalcuarta")->nullable();
+            $table->decimal("pesocuarta",50,2)->nullable();
             $table->integer("totalconsumo")->nullable();
             $table->decimal("pesoconsumo",50,2)->nullable();
-            $table->decimal("onzasI",50,2)->nullable();
-            $table->decimal("onzasE",50,2)->nullable();
-            $table->decimal("onzasF",50,2)->nullable();
             $table->timestamps();
         });
     }
@@ -39,6 +37,6 @@ class CreateReBulDiariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('re_bul_diarios');
+        Schema::dropIfExists('resumen_capas');
     }
 }

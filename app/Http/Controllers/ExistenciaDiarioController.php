@@ -45,13 +45,11 @@ class ExistenciaDiarioController extends Controller
                         ->leftJoin("semillas","capa_entregas.id_semilla","=","semillas.id")
                         ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
                         ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
-                        ->leftJoin("tamanos","capa_entregas.id_tamano","=","tamanos.id")
 
 
                         ->select("capa_entregas.id","empleados.nombre AS nombre_empleado",
                             "vitolas.name as nombre_vitolas","semillas.name as nombre_semillas",
                             "calidads.name as nombre_calidads",
-                            "capa_entregas.id_tamano","tamanos.name as nombre_tamano",
                             "capa_entregas.id_empleado",
                             "capa_entregas.id_vitolas",
                             "capa_entregas.id_semilla",
@@ -89,7 +87,9 @@ class ExistenciaDiarioController extends Controller
                     ,"existencia_diarios.totalentrada","existencia_diarios.pesoentrada"
                     ,"existencia_diarios.totalfinal","existencia_diarios.pesofinal",
                     "existencia_diarios.totalconsumo","existencia_diarios.pesoconsumo"
-                    ,"existencia_diarios.onzas")
+                    ,"existencia_diarios.onzasI"
+                    ,"existencia_diarios.onzasE"
+                    ,"existencia_diarios.onzasF")
                 ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("existencia_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_semillas")
@@ -116,6 +116,7 @@ class ExistenciaDiarioController extends Controller
                         "c_inv_inicials.id_calidad"
                         ,"c_inv_inicials.totalinicial"
                         ,"c_inv_inicials.pesoinicial"
+                        ,"c_inv_inicials.onzasI"
                     )->get();
 
                 $fecha1 = $request->get("fecha");
@@ -133,6 +134,8 @@ class ExistenciaDiarioController extends Controller
                     $nuevoConsumo->id_tamano = $inventario->id_tamano;
                     $nuevoConsumo->totalinicial = $inventario->totalinicial;
                     $nuevoConsumo->pesoinicial = $inventario->pesoinicial;
+                    $nuevoConsumo->onzasI = $inventario->onzasI;
+
                     $nuevoConsumo->created_at = $fecha;
                     $nuevoConsumo->save();
                 }
@@ -184,7 +187,9 @@ class ExistenciaDiarioController extends Controller
                     ,"existencia_diarios.totalentrada","existencia_diarios.pesoentrada"
                     ,"existencia_diarios.totalfinal","existencia_diarios.pesofinal",
                     "existencia_diarios.totalconsumo","existencia_diarios.pesoconsumo"
-                    ,"existencia_diarios.onzas")
+                    ,"existencia_diarios.onzasI"
+                    ,"existencia_diarios.onzasE"
+                    ,"existencia_diarios.onzasF")
                 ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("existencia_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_semillas")
@@ -223,6 +228,9 @@ class ExistenciaDiarioController extends Controller
      */
     public function store(Request $request)
     {
+
+        $fecha = $request->get("fecha");
+        $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
         $inve  =  DB::table('c_inv_inicials')
             ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
             ->leftJoin("calidads","c_inv_inicials.id_calidad","=","calidads.id")
@@ -248,28 +256,32 @@ class ExistenciaDiarioController extends Controller
         }else{
             $nuevoConsumo = new CInvInicial();
 
-            $nuevoConsumo->id_semillas = $request->input('id_semillas');
+            $nuevoConsumo->id_semilla = $request->input('id_semillas');
             $nuevoConsumo->id_calidad = $request->input('id_calidad');
             $nuevoConsumo->id_tamano = $request->input("id_tamano");
             $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
             $nuevoConsumo->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+            $nuevoConsumo->onzasI = $request->input("onzasF");
+            $nuevoConsumo->updated_at =$fecha1;
+            $nuevoConsumo->created_at =$fecha1;
             $nuevoConsumo->save();
         }
-        $fecha = $request->get("fecha");
-        $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
+
         $nuevoInvDiario = new ExistenciaDiario();
         $nuevoInvDiario->id_semillas=$request->input('id_semillas');
         $nuevoInvDiario->id_calidad=$request->input('id_calidad');
         $nuevoInvDiario->id_tamano=$request->input("id_tamano");
-        $nuevoInvDiario->onzas=$request->input("onzas");
         $nuevoInvDiario->totalinicial=$request->input("totalinicial");
-        $nuevoInvDiario->pesoinicial=(($request->input("onzas")*($request->input("totalinicial")/50))/16);
+        $nuevoInvDiario->pesoinicial=(($request->input("onzasI")*($request->input("totalinicial")/50))/16);
         $nuevoInvDiario->totalentrada=$request->input("totalentrada");
-        $nuevoInvDiario->pesoentrada=(($request->input("onzas")*($request->input("totalentrada")/50))/16);
+        $nuevoInvDiario->pesoentrada=(($request->input("onzasE")*($request->input("totalentrada")/50))/16);
         $nuevoInvDiario->totalfinal=$request->input("totalfinal");
-        $nuevoInvDiario->pesofinal=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+        $nuevoInvDiario->pesofinal=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
         $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-        $nuevoInvDiario->pesoconsumo =(($request->input("onzas")* ($nuevoInvDiario->totalconsumo/50))/16);
+        $nuevoInvDiario->pesoconsumo =(($request->input("onzasE")* ($nuevoInvDiario->totalconsumo/50))/16);
+        $nuevoInvDiario->onzasI =$request->input("onzasI");
+        $nuevoInvDiario->onzasE=$request->input("onzasE");
+        $nuevoInvDiario->onzasF=$request->input("onzasF");
         $nuevoInvDiario->created_at =$fecha1;
 
 
@@ -352,27 +364,30 @@ class ExistenciaDiarioController extends Controller
 
                     $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
                     $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-                    $editarBultoEntrega->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+                    $editarBultoEntrega->pesoinicial=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
                     $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                    $editarBultoEntrega->onzasI = $request->input("onzasF");
+
                     $editarBultoEntrega->save();
                 }
             }
         }
 
         $EditarInvDiario=ExistenciaDiario::findOrFail($request->id);
-        $EditarInvDiario->onzas=$request->input("onzas");
         $EditarInvDiario->id_semillas=$request->input('id_semillas');
         $EditarInvDiario->id_calidad=$request->input('id_calidad');
         $EditarInvDiario->id_tamano=$request->input("id_tamano");
         $EditarInvDiario->totalinicial=$request->input("totalinicial");
-        $EditarInvDiario->pesoinicial=(($request->input("onzas")*($request->input("totalinicial")/50))/16);
+        $EditarInvDiario->pesoinicial=(($request->input("onzasI")*($request->input("totalinicial")/50))/16);
         $EditarInvDiario->totalentrada=$request->input("totalentrada");
-        $EditarInvDiario->pesoentrada=(($request->input("onzas")*($request->input("totalentrada")/50))/16);
+        $EditarInvDiario->pesoentrada=(($request->input("onzasE")*($request->input("totalentrada")/50))/16);
         $EditarInvDiario->totalfinal=$request->input("totalfinal");
-        $EditarInvDiario->pesofinal=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+        $EditarInvDiario->pesofinal=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
         $EditarInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-        $EditarInvDiario->pesoconsumo=(($request->input("onzas")*($EditarInvDiario->totalconsumo)/50)/16);
-
+        $EditarInvDiario->pesoconsumo=(($request->input("onzasE")*($EditarInvDiario->totalconsumo)/50)/16);
+            $EditarInvDiario->onzasI =$request->input("onzasI");
+            $EditarInvDiario->onzasE=$request->input("onzasE");
+            $EditarInvDiario->onzasF=$request->input("onzasF");
         $EditarInvDiario->save();
         return redirect()->route("ExistenciaDiario")->withExito("Se editó Correctamente");
 
