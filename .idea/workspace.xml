@@ -2,25 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Exports/ResumenCapaExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ResumenCapaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ResumenCapa.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_06_161223_create_resumen_capas_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ResumenCapa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ConsumoBandaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ConsumoBandaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/DevolucionesBultoExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/DevolucionesBultoExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/EntregaBultoExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntregaBultoExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ExistenciaDiarioExports.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ExistenciaDiarioExports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/InventarioDiarioBultosExports.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/InventarioDiarioBultosExports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/RecepcionCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/RecepcionCapaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ResumenCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ResumenCapaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_06_171417_create_existencia_diarios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_06_171417_create_existencia_diarios_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_13_161808_create_consumo_bandas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_13_161808_create_consumo_bandas_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_150948_create_re_bul_diarios_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_150948_create_re_bul_diarios_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_15_155327_create_b_inv_inicials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_15_155327_create_b_inv_inicials_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_19_162639_create_c_inv_inicials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_19_162639_create_c_inv_inicials_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -423,7 +425,9 @@
       <workItem from="1620310281378" duration="6447000" />
       <workItem from="1620328210735" duration="3095000" />
       <workItem from="1620654997642" duration="9672000" />
-      <workItem from="1620740566232" duration="2194000" />
+      <workItem from="1620740566232" duration="14439000" />
+      <workItem from="1620771626130" duration="1067000" />
+      <workItem from="1620828715754" duration="13300000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -558,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620236760338</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Resumen Diario de la capa  y arreglo de las sujerencias">
+      <created>1620743397932</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1620743397932</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -676,7 +687,8 @@
     <MESSAGE value="agregar el inventario diario" />
     <MESSAGE value="quitar el tamaño a entrega de capa" />
     <MESSAGE value="Peso inicial automatico y busqueda por codigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Peso inicial automatico y busqueda por codigo" />
+    <MESSAGE value="Resumen Diario de la capa  y arreglo de las sujerencias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resumen Diario de la capa  y arreglo de las sujerencias" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

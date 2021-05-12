@@ -47,11 +47,21 @@ class ConsumoBandaExport implements FromCollection, ShouldAutoSize ,WithHeadings
     public function headings(): array
     {
         return [
-            'Marca',
+            [
+                'Consumo De Banda Diario ',
+
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Marca',
             'Vitola',
             'Semilla',
             'Tamaño',
             'Total Entregada','Onzas ','Libras '
-        ];
+        ]];
     }
 }

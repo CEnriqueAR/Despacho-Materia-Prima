@@ -48,8 +48,17 @@ class InventarioDiarioBultosExports implements FromCollection ,ShouldAutoSize ,W
     public function headings(): array
     {
         return [
+            [
+                'Inevntario Diario de Bultos',
 
-            'Vitola',
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Vitola',
             'Marca',
             'Inv.Inicial',
             'Peso',
@@ -57,6 +66,6 @@ class InventarioDiarioBultosExports implements FromCollection ,ShouldAutoSize ,W
             'Peso',
             'Inv.Final ','peso ',
              'Consumo ','peso ','Onzas '
-        ];
+        ]];
     }
 }

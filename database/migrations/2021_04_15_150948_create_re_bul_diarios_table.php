@@ -25,9 +25,7 @@ class CreateReBulDiariosTable extends Migration
             $table->decimal("pesofinal",50,2)->nullable();
             $table->integer("totalconsumo")->nullable();
             $table->decimal("pesoconsumo",50,2)->nullable();
-            $table->decimal("onzasI",50,2)->nullable();
-            $table->decimal("onzasE",50,2)->nullable();
-            $table->decimal("onzasF",50,2)->nullable();
+            $table->decimal("onzas",50,2)->nullable();
             $table->timestamps();
         });
     }

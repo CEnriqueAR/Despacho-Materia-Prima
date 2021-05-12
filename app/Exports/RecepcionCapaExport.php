@@ -19,8 +19,9 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Events\AfterSheet;
 
-class RecepcionCapaExport implements  FromCollection , ShouldAutoSize , WithHeadings, WithEvents
+class RecepcionCapaExport implements  FromCollection , ShouldAutoSize , WithHeadings
 {
     use Exportable;
 
@@ -55,25 +56,24 @@ class RecepcionCapaExport implements  FromCollection , ShouldAutoSize , WithHead
     public function headings(): array
     {
         return [
-            'Tamaño',
+            [
+                'Entradas de Capa Diario ',
+
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Tamaño',
             'Semilla',
             'Calidad',
             'Total Recibida',
-        ];
+        ]];
     }
         //
-    public function registerEvents(): array
-    {
-        return [
 
-            AfterSheet::class    => function(AfterSheet $event) {
-                $event->sheet->getStyle("A1:D1")->apllyFromArray([
-
-                    'font'=>[
-                        'bold' =>true],
-                ]);
-            }];
-    }
 
 
 }

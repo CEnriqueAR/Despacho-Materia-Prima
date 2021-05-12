@@ -43,9 +43,18 @@ class DevolucionesBultoExport implements FromCollection , ShouldAutoSize ,WithHe
     public function headings(): array
     {
         return [
-            'Vitola',
+            [
+                'Devoluciones de Bultos a los Salones ',
+
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [   'Vitola',
             'Marca',
             'Total Entregada','Onzas ','Libras '
-        ];
+        ]];
     }
 }

@@ -235,6 +235,9 @@ Route::group(["middleware" => "auth"], function () {
 //--------------------------------------------Inventario Inicial Bultos ROUTES-------------------------------------------------------->
         Route::get('/InventarioInicial', 'BInvInicialController@index')->name("InventarioInicial");
         Route::delete("/InventarioInicial/borrar","BInvInicialController@destroy")->name("InventarioInicialborrar");
+        //--------------------------------------------Sumar Banda ROUTES-------------------------------------------------------->
+        Route::put('/EntregaBanda/50', 'ConsumoBandaController@Suma100')->name("sumar100EntregaBanda");
+        Route::put('/EntregaBanda/sumar', 'ConsumoBandaController@Sumas')->name("sumarEntregaBanda");
 
 
 

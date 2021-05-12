@@ -32,7 +32,7 @@ class EntregaBultoExport implements FromCollection  , ShouldAutoSize ,WithHeadin
             ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
             ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
 
-            ->select(
+            ->select("empleados.codigo AS codigo_empleado",
                 "empleados.nombre AS nombre_empleado",
                 "vitolas.name as nombre_vitolas",
                "marcas.name as nombre_marca"
@@ -47,10 +47,24 @@ class EntregaBultoExport implements FromCollection  , ShouldAutoSize ,WithHeadin
     public function headings(): array
     {
         return [
+            [
+                'Entrega de Bultos a los Salones ',
+
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Codigo',
             'Empleado',
             'Vitola',
             'Marca',
             'Total Entregada',
-        ];
+            $this->fecha,
+        ]];
+
+
     }
 }

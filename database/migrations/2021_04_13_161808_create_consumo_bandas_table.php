@@ -19,7 +19,7 @@ class CreateConsumoBandasTable extends Migration
             $table->foreignId("id_marca")->references("id")->on("marcas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->foreignId("id_vitolas")->references("id")->on("vitolas");
-            $table->integer("onzas")->nullable();
+            $table->decimal("onzas",50,2)->nullable();
             $table->integer("total")->nullable();
             $table->decimal("libras",50,2)->nullable();
 

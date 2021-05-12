@@ -163,9 +163,10 @@
                                 data-pesofinal="{{$productos->pesofinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
                                 data-pesoconsumo="{{$productos->pesoconsumo}}"
+                                data-onzasinicial="{{$productos->onzasI}}"
                                 data-onzasI="{{$productos->onzasI}}"
-                                data-onzasF="{{$productos->onzasF}}"
                                 data-onzasE="{{$productos->onzasE}}"
+                                data-onzasF="{{$productos->onzasF}}"
                                >
                             <span class="fas fa-eye"></span>
                         </button>
@@ -290,9 +291,9 @@
                         @enderror
                         </div>
                             <div class="form-group col-md-6">
-                                <label for="onzasicapaentrega">Peso Por Unida (onzas)</label>
+                                <label for="onzasinicialcapaentrega">Peso Por Unida (onzas)</label>
                                 <input  class="form-control @error('name') is-invalid @enderror"
-                                        name="onzasI" id="onzasicapaentrega" maxlength="100" value="{{old('onzasI')}}">
+                                        name="onzasI" id="onzasinicialcapaentrega" maxlength="100" value="{{old('onzasI')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -313,9 +314,9 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="onzasecapaentrega">Peso Por Unida (onzas)</label>
+                            <label for="onzasentradacapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzasE" id="onzasecapaentrega" maxlength="100" value="{{old('onzasE')}}">
+                                    name="onzasE" id="onzasentradacapaentrega" maxlength="100" value="{{old('onzasE')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -335,9 +336,9 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="onzasfcapaentrega">Peso Por Unida (onzas)</label>
+                            <label for="onzasfinalcapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzasF" id="onzasfcapaentrega" maxlength="100" value="{{old('onzasF')}}">
+                                    name="onzasF" id="onzasfinalcapaentrega" maxlength="100" value="{{old('onzasF')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -448,9 +449,9 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="onzasicapaentrega">Peso Por Unida (onzas)</label>
+                            <label for="onzasinicialcapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzasI" id="onzasicapaentrega" maxlength="100" value="{{old('onzasI')}}">
+                                    name="onzasI" id="onzasinicialcapaentrega" maxlength="100" value="{{old('onzasI')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -471,9 +472,9 @@
 
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="onzasecapaentrega">Peso Por Unida (onzas)</label>
+                            <label for="onzasentradacapaentrega">Peso Por Unida (onzas)</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzasE" id="onzasecapaentrega" maxlength="100" value="{{old('onzasE')}}">
+                                    name="onzasE" id="onzasentradacapaentrega" maxlength="100" value="{{old('onzasE')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -493,9 +494,9 @@
                             @enderror
                         </div>
                             <div class="form-group col-md-6">
-                                <label for="onzasfcapaentrega">Peso Por Unida (onzas)</label>
+                                <label for="onzasfinalcapaentrega">Peso Por Unida (onzas)</label>
                                 <input  class="form-control @error('name') is-invalid @enderror"
-                                        name="onzasF" id="onzascapaentrega" maxlength="100" value="{{old('onzasF')}}">
+                                        name="onzasF" id="onzasfinalcapaentrega" maxlength="100" value="{{old('onzasF')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -538,8 +539,8 @@
 
 
                             <div class="form-group row">
-                                <div class="col-sm-6"><label for="calidadcapaentrega"><strong>Marca:</strong></label></div>
-                                <div class="col-sm-2"><label for="marca" id="calidadcapaentrega"></label></div>
+                                <div class="col-sm-6"><label for="onzasinicialcapaentrega"><strong>Marca:</strong></label></div>
+                                <div class="col-sm-2"><label for="marca" id="onzasinicialcapaentrega"></label></div>
                             </div>
 
                             <div class="form-group row">

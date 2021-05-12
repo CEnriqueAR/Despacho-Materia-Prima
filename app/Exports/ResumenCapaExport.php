@@ -44,11 +44,20 @@ class ResumenCapaExport implements FromCollection,ShouldAutoSize ,WithHeadings
     public function headings(): array
     {
         return [
+            [
+                'Resumen De Capa ',
 
-            'Semilla',
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Semilla',
             'calidad',
             'Cantidad ',
             'Peso ',
-        ];
+        ]];
     }
 }

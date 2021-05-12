@@ -33,14 +33,14 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
             ->leftJoin("semillas","capa_entregas.id_semilla","=","semillas.id")
             ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
             ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
-            ->leftJoin("tamanos","capa_entregas.id_tamano","=","tamanos.id")
 
-            ->select("empleados.nombre AS nombre_empleado",
+            ->select("empleados.codigo AS codigo_empleado",
+                "empleados.nombre AS nombre_empleado",
                 "vitolas.name as nombre_vitolas",
                 "marcas.name as nombre_marca",
                 "semillas.name as nombre_semillas",
-                "calidads.name as nombre_calidads",
-               "tamanos.name as nombre_tamano"
+                "calidads.name as nombre_calidads"
+
 
 
                 ,"capa_entregas.total") ->whereDate('capa_entregas.created_at', '=', $this->fecha)
@@ -55,13 +55,24 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
     public function headings(): array
     {
         return [
+            [
+                'Entrega de Capa a los Salones ',
+
+                ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                 'Planta : TAOSA'
+            ],
+        [ 'Codigo',
             'Empleado',
             'Vitola',
             'Marca',
             'Semilla',
             'Calidad',
-            'Tamaño',
-            'Total Recibida'];
+            'Total Recibida',
+            ]
+        ];
     }
 
 }

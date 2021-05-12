@@ -36,7 +36,7 @@ class ExistenciaDiarioExports implements FromCollection,ShouldAutoSize ,WithHead
                 ,"existencia_diarios.totalentrada","existencia_diarios.pesoentrada"
                 ,"existencia_diarios.totalfinal","existencia_diarios.pesofinal",
                 "existencia_diarios.totalconsumo","existencia_diarios.pesoconsumo"
-                ,"existencia_diarios.onzas")
+              )
             ->whereDate("existencia_diarios.created_at","=" ,$this->fecha)
             ->orderBy("nombre_semillas")->get();
 
@@ -47,8 +47,17 @@ class ExistenciaDiarioExports implements FromCollection,ShouldAutoSize ,WithHead
     public function headings(): array
     {
         return [
+            [
+                ' Invetario De Existencia de Capa  ',
 
-            'Semilla',
+            ],
+            [
+
+                'Fecha Creacion del Documento: '.$this->fecha,
+                'Planta : TAOSA'
+            ],
+            [
+                'Semilla',
             'calidad',
             'Tamaño',
             'Inv.Inicial',
@@ -56,7 +65,7 @@ class ExistenciaDiarioExports implements FromCollection,ShouldAutoSize ,WithHead
             'Entradas',
             'Peso',
             'Inv.Final ','peso ',
-            'Consumo ','peso ','Onzas '
-        ];
+            'Consumo ','peso ',
+        ]];
     }
 }

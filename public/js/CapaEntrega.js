@@ -15,7 +15,8 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
-    var libras= button.data('libras');
+    var libras = button.data('libras');
+    var onzas = button.data('onzas');
     var onzasI = button.data('onzasI');
     var onzasE = button.data('onzasE');
     var onzasF = button.data('onzasF');
@@ -36,10 +37,10 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #semillacapaentrega').val(semilla).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
-    modal.find('.modal-body #onzasicapaentrega').val(onzasI);
-    modal.find('.modal-body #onzasecapaentrega').val(onzasE);
-    modal.find('.modal-body #onzasfcapaentrega').val(onzasF);
-
+    modal.find('.modal-body #onzasinicialcapaentrega').val(onzasI);
+    modal.find('.modal-body #onzasentradacapaentrega').val(onzasE);
+    modal.find('.modal-body #onzasfinalcapaentrega').val(onzasF);
+    modal.find('.modal-body #onzascapaentrega').val(onzas);
     modal.find('.modal-body #librascapaentrega').val(libras);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
     modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
@@ -62,6 +63,7 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var total = button.data('total');
+    var onzas = button.data('onzas');
     var onzasI = button.data('onzasI');
     var onzasE = button.data('onzasE');
     var onzasF = button.data('onzasF');
@@ -77,6 +79,7 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     var modal = $(this);
     modal.find('.modal-body #empleadoNuevocapaentrega').text(empleado);
     modal.find('.modal-body #vitolacapaentrega').text(vitola);
+    modal.find('.modal-body #onzascapaentrega').val(onzas);
     modal.find('.modal-body #semillacapaentrega').text(semilla);
     modal.find('.modal-body #librascapaentrega').text(libras);
     modal.find('.modal-body #onzasicapaentrega').text(onzasI);

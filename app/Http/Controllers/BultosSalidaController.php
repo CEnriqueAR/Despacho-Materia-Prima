@@ -106,6 +106,7 @@ class BultosSalidaController extends Controller
             ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
             ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
             ->select(
+                "consumo_bandas.id",
                 "vitolas.name as nombre_vitolas",
                 "marcas.name as nombre_marca",
                 "consumo_bandas.id_vitolas",
@@ -113,14 +114,27 @@ class BultosSalidaController extends Controller
             ->where("consumo_bandas.id_marca","=",$request->input("id_marca"))
             ->where("consumo_bandas.id_vitolas","=",$request->input("id_vitolas"))
             ->whereDate("consumo_bandas.created_at","=" ,Carbon::now()->format('Y-m-d'))->paginate(1000);
+
+
         if($banda->count()>0){
+
+            foreach ($banda as $bandas) {
+
+                DB::table('consumo_bandas')
+                    ->where("consumo_bandas.id", "=", $bandas->id)
+                    ->increment('total', 100);
+            }
+
         }else{
             $nuevoConsumo = new ConsumoBanda();
             $nuevoConsumo->id_vitolas=$request->input('id_vitolas');
             $nuevoConsumo->id_marca=$request->input("id_marca");
             $nuevoConsumo->id_semillas= '1';
             $nuevoConsumo->id_tamano='1';
+            $nuevoConsumo->total= 100 ;
             $nuevoConsumo->save();
+
+
         }
 //parea ver si exiaste en la tabla intermediaria y si no la inserta
 

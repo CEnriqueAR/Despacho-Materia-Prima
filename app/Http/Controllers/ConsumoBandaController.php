@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\CapaEntrega;
 use App\ConsumoBanda;
-use App\EmpleadosBanda;
 use App\Exports\ConsumoBandaExport;
-use App\Exports\DevolucionesBultoExport;
 use App\Marca;
 use App\Semilla;
 use App\Tamano;
@@ -26,47 +23,14 @@ class ConsumoBandaController extends Controller
     public function index(Request $request)
     {
 
-        $Monday = 'Monday';
-
-
-        if ($request){
+        if ($request) {
             $query = trim($request->get("search"));
 
             $fecha = $request->get("fecha");
 
-            if ($fecha == null) {
-                $fecha = Carbon::now()->format('l');
-                if ($fecha == 'Monday') {
-                    $fecha = Carbon::now()->subDays(2)->format('Y-m-d');
-                    $consumobanda1=DB::table("consumo_bandas")
-                        ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
-                        ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
-                        ->leftJoin("tamanos","consumo_bandas.id_tamano","=","tamanos.id")
-                        ->leftJoin("semillas","consumo_bandas.id_semillas","=","semillas.id")
-
-                        ->select("consumo_bandas.id",
-                            "vitolas.name as nombre_vitolas",
-                            "semillas.name as nombre_semillas",
-                            "consumo_bandas.id_tamano",
-                            "tamanos.name as nombre_tamano",
-                            "consumo_bandas.id_vitolas",
-                            "consumo_bandas.id_semillas",
-                            "consumo_bandas.id_marca","marcas.name as nombre_marca"
-                            ,"consumo_bandas.total"
-                            ,"consumo_bandas.onzas"
-                            ,"consumo_bandas.libras")
-                        ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))->get();
-                    if ($consumobanda1->count()>0){
-                    }
-                    else{
-                            $fecha = Carbon::now()->subDays(3)->format('Y-m-d');
-                        }
-
-                } else {
-                    $fecha = Carbon::now()->subDay()->format('Y-m-d');
-                }
-            } else{
-
+            if ($fecha = null)
+                $fecha = Carbon::now()->format('Y-m-d');
+        }else{
                 $fecha = $request->get("fecha");
 
             }
@@ -89,7 +53,7 @@ class ConsumoBandaController extends Controller
                     ,"consumo_bandas.onzas"
                     ,"consumo_bandas.libras")
                 ->where("marcas.name","Like","%".$query."%")
-                ->whereDate("consumo_bandas.created_at","=" ,$fecha)
+                ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
                 ->orderBy("nombre_marca")
 
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
@@ -108,7 +72,7 @@ class ConsumoBandaController extends Controller
                 ->withMarca($marca);
         }
         //
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -292,5 +256,28 @@ class ConsumoBandaController extends Controller
 
         }
         return (new ConsumoBandaExport($fecha))->download('Listado Consumo De Banda '.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function Suma100(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('consumo_bandas')->where("consumo_bandas.id","=",$capaentrega)->increment('total', 100);
+
+        return redirect()->route("ConsumoBanda")->withExito("Se editó Correctamente");
+
+    }
+    public function Sumas(Request $request){
+
+        $incremeto =  $request->get('suma');
+        $capaentrega = $request->get('id');
+
+        DB::table('consumo_bandas')->where("consumo_bandas.id","=",$capaentrega)
+            ->increment('total', $incremeto);
+
+        return redirect()->route("ConsumoBanda")->withExito("Se editó Correctamente");
+
+
     }
 }

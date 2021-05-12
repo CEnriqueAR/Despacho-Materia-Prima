@@ -76,9 +76,7 @@ class ReBulDiarioController extends Controller
                     ,"re_bul_diarios.totalentrada","re_bul_diarios.pesoentrada"
                     ,"re_bul_diarios.totalfinal","re_bul_diarios.pesofinal",
                     "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
-                    ,"re_bul_diarios.onzasI"
-                    ,"re_bul_diarios.onzasE"
-                    ,"re_bul_diarios.onzasF")
+                    ,"re_bul_diarios.onzas")
                 ->where("marcas.name","Like","%".$query."%")
                 ->whereDate("re_bul_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_marca")
@@ -104,8 +102,7 @@ class ReBulDiarioController extends Controller
                         "b_inv_inicials.id_vitolas",
                         "b_inv_inicials.id_marca",
                         "b_inv_inicials.totalinicial",
-                    "b_inv_inicials.pesoinicial",
-                     "b_inv_inicials.onzasI")
+                    "b_inv_inicials.pesoinicial")
                     ->orderBy("nombre_marca")->paginate(1000);
 
                 foreach ($inve as $inventario) {
@@ -115,12 +112,10 @@ class ReBulDiarioController extends Controller
                 $nuevoConsumo->id_marca = $inventario->id_marca;
                 $nuevoConsumo->totalinicial = $inventario->totalinicial;
                 $nuevoConsumo->pesoinicial = $inventario->pesoinicial;
-                $nuevoConsumo->onzasI = $inventario->onzasI;
                 $nuevoConsumo->created_at = Carbon::parse($fecha)->format('Y-m-d');
                 $nuevoConsumo->save();
             }
             }
-
 
             $inventarioDiario=DB::table("re_bul_diarios")
                 ->leftJoin("vitolas","re_bul_diarios.id_vitolas","=","vitolas.id")
@@ -133,9 +128,7 @@ class ReBulDiarioController extends Controller
                     ,"re_bul_diarios.totalentrada","re_bul_diarios.pesoentrada"
                     ,"re_bul_diarios.totalfinal","re_bul_diarios.pesofinal",
                     "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
-                    ,"re_bul_diarios.onzasI"
-                    ,"re_bul_diarios.onzasE"
-                    ,"re_bul_diarios.onzasF")
+                    ,"re_bul_diarios.onzas")
                 ->where("marcas.name","Like","%".$query."%")
                 ->whereDate("re_bul_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_marca")
@@ -173,6 +166,7 @@ class ReBulDiarioController extends Controller
     {
         $fecha = $request->get("fecha");
         $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
+
         $inve = DB::table('b_inv_inicials')
             ->leftJoin("vitolas", "b_inv_inicials.id_vitolas", "=", "vitolas.id")
             ->leftJoin("marcas", "b_inv_inicials.id_marca", "=", "marcas.id")
@@ -193,7 +187,6 @@ class ReBulDiarioController extends Controller
             $nuevoConsumo->id_marca=$request->input("id_marca");
             $nuevoConsumo->totalinicial= ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
             $nuevoConsumo->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
-            $nuevoConsumo->onzasI = $request->input("onzasF");
             $nuevoConsumo->updated_at =$fecha1;
             $nuevoConsumo->created_at =$fecha1;
             $nuevoConsumo->save();
@@ -202,20 +195,18 @@ class ReBulDiarioController extends Controller
 
 
         $nuevoInvDiario = new ReBulDiario();
+        $nuevoInvDiario->onzas=$request->input("onzas");
         $nuevoInvDiario->id_vitolas=$request->input('id_vitolas');
         $nuevoInvDiario->id_marca=$request->input("id_marca");
         $nuevoInvDiario->totalinicial=$request->input("totalinicial");
-        $nuevoInvDiario->pesoinicial=(($request->input("onzasI")*$request->input("totalinicial"))/16);
+        $nuevoInvDiario->pesoinicial=(($request->input("onzas")*$request->input("totalinicial"))/16);
         $nuevoInvDiario->totalentrada=$request->input("totalentrada");
-        $nuevoInvDiario->pesoentrada=(($request->input("onzasE")*$request->input("totalentrada"))/16);
+        $nuevoInvDiario->pesoentrada=(($request->input("onzas")*$request->input("totalentrada"))/16);
         $nuevoInvDiario->totalfinal=$request->input("totalfinal");
-        $nuevoInvDiario->pesofinal=(($request->input("onzasF")*$request->input("totalfinal"))/16);
+        $nuevoInvDiario->pesofinal=(($request->input("onzas")*$request->input("totalfinal"))/16);
         $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-($request->input("totalfinal"));
-        $nuevoInvDiario->pesoconsumo =(($request->input("onzasE")* $nuevoInvDiario->totalconsumo)/16);
+        $nuevoInvDiario->pesoconsumo =(($request->input("onzas")* $nuevoInvDiario->totalconsumo)/16);
         $nuevoInvDiario->created_at =$fecha1;
-        $nuevoInvDiario->onzasI =$request->input("onzasI");
-        $nuevoInvDiario->onzasE=$request->input("onzasE");
-        $nuevoInvDiario->onzasF=$request->input("onzasF");
 
 
 
@@ -309,9 +300,9 @@ class ReBulDiarioController extends Controller
 
                 $editarBultoEntrega = BInvInicial::findOrFail($inventario->id);
                 $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-                $editarBultoEntrega->pesoinicial=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
+                $editarBultoEntrega->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
                 $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
-                $editarBultoEntrega->onzasI = $request->input("onzasF");
+
                 $editarBultoEntrega->save();
         }
         }
@@ -319,19 +310,18 @@ class ReBulDiarioController extends Controller
     }
 
             $EditarInvDiario=ReBulDiario::findOrFail($request->id);
+            $EditarInvDiario->onzas=$request->input("onzas");
             $EditarInvDiario->id_vitolas=$request->input('id_vitolas');
             $EditarInvDiario->id_marca=$request->input("id_marca");
             $EditarInvDiario->totalinicial=$request->input("totalinicial");
-            $EditarInvDiario->pesoinicial=(($request->input("onzasI")*$request->input("totalinicial"))/16);
+            $EditarInvDiario->pesoinicial=(($request->input("onzas")*$request->input("totalinicial"))/16);
             $EditarInvDiario->totalentrada=$request->input("totalentrada");
-            $EditarInvDiario->pesoentrada=(($request->input("onzasE")*$request->input("totalentrada"))/16);
+            $EditarInvDiario->pesoentrada=(($request->input("onzas")*$request->input("totalentrada"))/16);
             $EditarInvDiario->totalfinal=$request->input("totalfinal");
-            $EditarInvDiario->pesofinal=(($request->input("onzasF")*$request->input("totalfinal"))/16);
+            $EditarInvDiario->pesofinal=(($request->input("onzas")*$request->input("totalfinal"))/16);
             $EditarInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-            $EditarInvDiario->pesoconsumo=(($request->input("onzasE")*$EditarInvDiario->totalconsumo)/16);
-            $EditarInvDiario->onzasI =$request->input("onzasI");
-            $EditarInvDiario->onzasE=$request->input("onzasE");
-            $EditarInvDiario->onzasF=$request->input("onzasF");
+            $EditarInvDiario->pesoconsumo=(($request->input("onzas")*$EditarInvDiario->totalconsumo)/16);
+
             $EditarInvDiario->save();
             return redirect()->route("InventarioDiario")->withExito("Se editó Correctamente");
 

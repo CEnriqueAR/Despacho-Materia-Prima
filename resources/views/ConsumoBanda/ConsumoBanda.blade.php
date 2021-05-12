@@ -110,8 +110,9 @@
                 <th>Semilla</th>
                 <th>Tamaño</th>
                 <th>total</th>
-                <th>Pezo</th>
+                <th>Peso</th>
                 <th>Total En Libras</th>
+                <th><span class="fas fa-info-circle"></span></th>
 
 
                 <th><span class="fas fa-info-circle"></span></th>
@@ -137,7 +138,21 @@
                     <td>{{$productos->libras}}</td>
                     <td>
 
+                        <button class="btn btn-sm btn-info"
+                                data-toggle="modal"
+                                data-target="#modalSumar100"
+                                data-id="{{$productos->id}}"
+                                title="100">
+                            100 </button>
 
+                        <button class="btn btn-sm btn-success"
+                                data-toggle="modal"
+                                data-target="#modalSumar"
+                                data-id="{{$productos->id}}"
+                                title="Agregar">
+                            <span class="fas fa-plus"></span>  </button>
+                    </td>
+                    <td>
 
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
@@ -323,7 +338,7 @@
                             <label for="onzascapaentrega">Onzas</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
                                     name="onzas" id="onzascapaentrega" maxlength="100"
-                                    required="required" type="number" value="{{old('onzas')}}">
+                                    required="required" type="" value="{{old('onzas')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -570,8 +585,73 @@
         </div>
     </div>
 
-    <!-------------------MODAL sumar 75------------------------------>
+    <!-------------------MODAL sumar  100------------------------------>
 
+
+    <div class="modal fade" id="modalSumar100" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumar100EntregaBanda")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro que deseas  Sumar 100 <label
+                                id="nombreProducto"></label>?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-------------------MODAL sumar  50------------------------------>
+    <div class="modal fade" id="modalSumar" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumarEntregaBanda")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="suma">Tota a Sumarl</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="suma" id="suma" maxlength="100"
+                                   value="{{ old('suma')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div></div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
 
     <!-------------------MODAL NUEVO CATEGORIA------------------------------>
 
