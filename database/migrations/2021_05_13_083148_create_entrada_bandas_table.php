@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecibirCapasTable extends Migration
+class CreateEntradaBandasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateRecibirCapasTable extends Migration
      */
     public function up()
     {
-        Schema::create('recibir_capas', function (Blueprint $table) {
+        Schema::create('entrada_bandas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_semillas")->references("id")->on("semillas");
+            $table->foreignId("id_semilla")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
-            $table->foreignId("id_calidad")->references("id")->on("calidads");
             $table->String("variedad")->nullable();
-            $table->integer("total");
+            $table->String("procedencia")->nullable();
+            $table->integer("total")->nullable();
+            $table->String("origen")->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateRecibirCapasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recibir_capas');
+        Schema::dropIfExists('entrada_bandas');
     }
 }

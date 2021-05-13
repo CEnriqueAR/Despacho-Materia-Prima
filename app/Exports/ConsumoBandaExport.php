@@ -53,7 +53,7 @@ class ConsumoBandaExport implements FromCollection, ShouldAutoSize ,WithHeadings
             ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha : '.$this->fecha,
                 'Planta : TAOSA'
             ],
             [

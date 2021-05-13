@@ -61,7 +61,7 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
                 ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha : '.$this->fecha,
                  'Planta : TAOSA'
             ],
         [ 'Codigo',

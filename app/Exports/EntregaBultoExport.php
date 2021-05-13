@@ -53,7 +53,7 @@ class EntregaBultoExport implements FromCollection  , ShouldAutoSize ,WithHeadin
             ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha : '.$this->fecha,
                 'Planta : TAOSA'
             ],
             [

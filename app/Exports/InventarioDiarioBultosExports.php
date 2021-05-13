@@ -54,7 +54,7 @@ class InventarioDiarioBultosExports implements FromCollection ,ShouldAutoSize ,W
             ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha : '.$this->fecha,
                 'Planta : TAOSA'
             ],
             [

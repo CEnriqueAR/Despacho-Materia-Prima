@@ -158,7 +158,7 @@ class RecibirCapaController extends Controller
 
             ]);  */
             $editarCapaRecibida=RecibirCapa::findOrFail($request->id);
-            $editarCapaRecibida->id_calidad=$request->input('id_tamano');
+            $editarCapaRecibida->id_tamano=$request->input('id_tamano');
             $editarCapaRecibida->id_semillas=$request->input("id_semillas");
             $editarCapaRecibida->id_calidad=$request->input("id_calidad");
 

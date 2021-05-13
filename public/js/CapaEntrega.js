@@ -12,6 +12,7 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var empleado = button.data('id_empleado');
     var vitola = button.data('id_vitolas');
     var semilla = button.data('id_semilla');
+    var id_semillas = button.data('id_semillas');
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
@@ -29,18 +30,25 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var pesofinal= button.data('pesofinal');
     var totalconsumo = button.data('totalconsumo');
     var pesoconsumo= button.data('pesoconsumo');
+    var variedad = button.data('variedad');
+    var procedencia = button.data('procedencia');
+    var origen = button.data('origen');
+
 
     var modal = $(this);
     modal.find('.modal-footer #id_producto').val(id_c);
     modal.find('.modal-body #empleadoEditarcapaentrega').val(empleado).change();
     modal.find('.modal-body #vitolacapaentrega').val(vitola).change();
     modal.find('.modal-body #semillacapaentrega').val(semilla).change();
+    modal.find('.modal-body #semillasscapaentrega').val(id_semillas).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
     modal.find('.modal-body #onzasinicialcapaentrega').val(onzasI);
     modal.find('.modal-body #onzasentradacapaentrega').val(onzasE);
     modal.find('.modal-body #onzasfinalcapaentrega').val(onzasF);
     modal.find('.modal-body #onzascapaentrega').val(onzas);
+    modal.find('.modal-body #variedadcapaentrega').val(variedad).change();
+    modal.find('.modal-body #procedenciacapaentrega').val(procedencia).change();
     modal.find('.modal-body #librascapaentrega').val(libras);
     modal.find('.modal-body #marcacapaentrega').val(id_marca).change();
     modal.find('.modal-body #tamanocapaentrega').val(id_tamano).change();
@@ -52,6 +60,7 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #pesofinaldiario').val(pesofinal);
     modal.find('.modal-body #totalconsumodiario').val(totalconsumo);
     modal.find('.modal-body #pesoconsumodiario').val(pesoconsumo);
+    modal.find('.modal-body #origencapaentrega').val(origen);
 
 });
 //Ver Producto
@@ -76,6 +85,9 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     var pesofinal= button.data('pesofinal');
     var totalconsumo = button.data('totalconsumo');
     var pesoconsumo= button.data('pesoconsumo');
+
+    var variedad = button.data('variedad');
+    var procedencia = button.data('procedencia');
     var modal = $(this);
     modal.find('.modal-body #empleadoNuevocapaentrega').text(empleado);
     modal.find('.modal-body #vitolacapaentrega').text(vitola);
@@ -96,6 +108,8 @@ $('#modalVerCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #pesofinaldiario').text(pesofinal);
     modal.find('.modal-body #totalconsumodiario').text(totalconsumo);
     modal.find('.modal-body #pesoconsumodiario').text(pesoconsumo);
+    modal.find('.modal-body #variedadcapaentrega').text(variedad);
+    modal.find('.modal-body #procedenciacapaentrega').text(procedencia);
 
 });
 

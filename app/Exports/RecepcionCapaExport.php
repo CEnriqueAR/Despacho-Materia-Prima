@@ -62,7 +62,7 @@ class RecepcionCapaExport implements  FromCollection , ShouldAutoSize , WithHead
             ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha : '.$this->fecha,
                 'Planta : TAOSA'
             ],
             [

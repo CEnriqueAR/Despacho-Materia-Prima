@@ -49,7 +49,7 @@ class DevolucionesBultoExport implements FromCollection , ShouldAutoSize ,WithHe
             ],
             [
 
-                'Fecha Creacion del Documento: '.$this->fecha,
+                'Fecha: '.$this->fecha,
                 'Planta : TAOSA'
             ],
             [   'Vitola',

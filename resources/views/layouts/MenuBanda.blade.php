@@ -69,6 +69,7 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{url('BultoSalida')}}">Despacho De Bulto</a>
                             <a class="nav-link" href="{{url('ConsumoBanda')}}">Consumo Banda</a>
+                            <a class="nav-link" href="{{url('EntradaBanda')}}">Entrada Banda</a>
 
 
                         </nav>
@@ -84,7 +85,7 @@
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
 
-                            <a class="nav-link" href="{{url('InventarioDiario')}}"> Inventario</a>
+                            <a class="nav-link" href="{{url('InventarioDiario')}}"> Inventario De Bultos</a>
                             <a class="nav-link" href="{{url('BultoDevuelto')}}">Bultos Devueltos</a>
 
 

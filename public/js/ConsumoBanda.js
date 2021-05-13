@@ -12,19 +12,27 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var empleado = button.data('id_empleado');
     var vitola = button.data('id_vitolas');
     var semilla = button.data('id_semilla');
+    var semillas = button.data('id_semillas');
+
     var calidad = button.data('id_calidad');
     var id_marca = button.data('id_marca');
     var id_tamano= button.data('id_tamano');
     var onzas = button.data('onzas');
     var libras= button.data('libras');
     var total = button.data('total');
+    var variedad = button.data('variedad');
+    var procedencia = button.data('procedencia');
 
     var modal = $(this);
     modal.find('.modal-footer #id_producto').val(id_c);
     modal.find('.modal-body #empleadoEditarcapaentrega').val(empleado).change();
     modal.find('.modal-body #vitolacapaentrega').val(vitola).change();
     modal.find('.modal-body #semillacapaentrega').val(semilla).change();
+    modal.find('.modal-body #semillascapaentrega').val(semillas).change();
+
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
+    modal.find('.modal-body #variedadcapaentrega').val(variedad).change();
+    modal.find('.modal-body #procedenciacapaentrega').val(procedencia).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
     modal.find('.modal-body #onzascapaentrega').val(onzas);
     modal.find('.modal-body #librascapaentrega').val(libras);

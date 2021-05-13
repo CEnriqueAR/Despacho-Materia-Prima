@@ -218,7 +218,7 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/ConsumoBanda/exportPDF', 'ConsumoBandaController@exportpdf')->name("exportarconsumobandapdf");
         Route::post('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
         Route::get('/ConsumoBanda/exportCVS', 'ConsumoBandaController@exportcvs')->name("exportarconsumobandacvs");
-        //--------------------------------------------Consumo De Bnada Exportar ROUTES-------------------------------------------------------->
+        //--------------------------------------------Inventario Diario  ROUTES-------------------------------------------------------->
         Route::get('/InventarioDiario', 'ReBulDiarioController@index')->name("InventarioDiario");
         Route::post("/InventarioDiario/nuevo", "ReBulDiarioController@store")->name("InventarioDiarionuevo");
         Route::put("/InventarioDiario/editar", "ReBulDiarioController@edit")->name("InventarioDiarioeditar");
@@ -239,7 +239,22 @@ Route::group(["middleware" => "auth"], function () {
         Route::put('/EntregaBanda/50', 'ConsumoBandaController@Suma100')->name("sumar100EntregaBanda");
         Route::put('/EntregaBanda/sumar', 'ConsumoBandaController@Sumas')->name("sumarEntregaBanda");
 
+        //--------------------------------------------Entrada De Banda  ROUTES-------------------------------------------------------->
+        Route::get('/EntradaBanda', 'EntradaBandaController@index')->name("EntradaBanda");
+        Route::post("/EntradaBanda/nuevo", "EntradaBandaController@store")->name("EntradaBandanuevo");
+        Route::put("/EntradaBanda/editar", "EntradaBandaController@edit")->name("EntradaBandaeditar");
+        Route::delete("/EntradaBanda/borrar", "EntradaBandaController@destroy")->name("EntradaBandaborrar");
+        //--------------------------------------------Sumar Entrada Banda ROUTES-------------------------------------------------------->
+        Route::put('/EntradaBanda/50', 'EntradaBandaController@Suma100')->name("sumar100EntradaBanda");
+        Route::put('/EntradaBanda/sumar', 'EntradaBandaController@Sumas')->name("sumarEntredaBanda");
 
+        //--------------------------------------------Entrada Banda Exportar ROUTES-------------------------------------------------------->
+        Route::post('/EntradaBanda/export', 'EntradaBandaController@export')->name("exportarEntradaBanda");
+        Route::get('/EntradaBanda/export', 'EntradaBandaController@export')->name("exportarEntradaBanda");
+        Route::post('/EntradaBanda/exportPDF', 'EntradaBandaController@exportpdf')->name("exportarEntradaBandapdf");
+        Route::get('/EntradaBanda/exportPDF', 'EntradaBandaController@exportpdf')->name("exportarEntradaBandapdf");
+        Route::post('/EntradaBanda/exportCVS', 'EntradaBandaController@exportcvs')->name("exportarEntradaBandacvs");
+        Route::get('/EntradaBanda/exportCVS', 'EntradaBandaController@exportcvs')->name("exportarEntradaBandacvs");
 
     });
 //--------------------------------------------mildaware Admin------------------------------------------------------

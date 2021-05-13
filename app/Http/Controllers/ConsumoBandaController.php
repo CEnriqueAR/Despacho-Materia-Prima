@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BandaInvInicial;
 use App\ConsumoBanda;
 use App\Exports\ConsumoBandaExport;
 use App\Marca;
@@ -51,7 +52,8 @@ class ConsumoBandaController extends Controller
                     "consumo_bandas.id_marca","marcas.name as nombre_marca"
                     ,"consumo_bandas.total"
                     ,"consumo_bandas.onzas"
-                    ,"consumo_bandas.libras")
+                    ,"consumo_bandas.libras"
+                , "consumo_bandas.variedad" ,"consumo_bandas.procedencia")
                 ->where("marcas.name","Like","%".$query."%")
                 ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
                 ->orderBy("nombre_marca")
@@ -93,6 +95,24 @@ class ConsumoBandaController extends Controller
     public function store(Request $request)
     {
 
+        $inve  =  DB::table('banda_inv_inicials')
+            ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+
+            ->select(
+                "banda_inv_inicials.id")
+            ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
+            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))
+            ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new BandaInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semillas');
+            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->variedad= $request->input("variedad");
+            $nuevoConsumo->save();
+        }
         try{
             $this->validate($request, [
                 'id_vitolas'=>'required',
@@ -114,8 +134,10 @@ class ConsumoBandaController extends Controller
         $nuevoConsumoBanda->onzas=$request->input('onzas');
         $nuevoConsumoBanda->created_at =$fecha1;
         $nuevoConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
+            $nuevoConsumoBanda->variedad=$request->input('variedad');
+            $nuevoConsumoBanda->procedencia=$request->input('procedencia');
 
-        $nuevoConsumoBanda->save();
+            $nuevoConsumoBanda->save();
 
         return redirect()->route("ConsumoBanda")->withExito("Se creó la entraga Correctamente ");
         }catch (ValidationException $exception){
@@ -143,7 +165,24 @@ class ConsumoBandaController extends Controller
      */
     public function edit(Request $request)
     {
+        $inve  =  DB::table('banda_inv_inicials')
+            ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
 
+            ->select(
+                "banda_inv_inicials.id")
+            ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
+            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))
+            ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new BandaInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semillas');
+            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->variedad= $request->input("variedad");
+            $nuevoConsumo->save();
+        }
         try{
             $this->validate($request, [
                 'id_vitolas'=>'required',
@@ -178,7 +217,8 @@ class ConsumoBandaController extends Controller
             $editarConsumoBanda->onzas=$request->input('onzas');
             $editarConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
 
-
+            $editarConsumoBanda->variedad=$request->input('variedad');
+            $editarConsumoBanda->procedencia=$request->input('procedencia');
 
             $editarConsumoBanda->save();
             return redirect()->route("ConsumoBanda")->withExito("Se editó Correctamente");

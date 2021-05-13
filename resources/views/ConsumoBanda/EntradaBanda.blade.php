@@ -24,7 +24,7 @@
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("ConsumoBanda")}}">&times;</a>
+                               href="{{route("EntradaBanda")}}">&times;</a>
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("ConsumoBanda")}}">&times;</a>
+                               href="{{route("EntradaBanda")}}">&times;</a>
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
@@ -105,15 +105,14 @@
             <thead class="thead-dark">
             <tr>
                 <th>#</th>
-                <th>Marca</th>
-                <th>Vitola</th>
+
                 <th>Semilla</th>
                 <th>Variedad</th>
                 <th>Tamaño</th>
                 <th>Procedencia</th>
                 <th>total</th>
-                <th>Peso</th>
-                <th>Total En Libras</th>
+                <th>origen</th>
+
                 <th><span class="fas fa-info-circle"></span></th>
 
 
@@ -121,25 +120,23 @@
             </tr>
             </thead>
             <tbody>
-            @if($consumoBanda->count()<= 0)
+            @if($recibirCapa->count()<= 0)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay productos</td>
                 </tr>
             @endif
-            @foreach($consumoBanda as $productos)
+            @foreach($recibirCapa as $productos)
                 <tr>
                     <td>{{$noPagina++}}</td>
 
 
-                    <td>{{$productos->nombre_marca}}</td>
-                    <td>{{$productos->nombre_vitolas}}</td>
+
                     <td>{{$productos->nombre_semillas}}</td>
                     <td>{{$productos->variedad}}</td>
                     <td>{{$productos->nombre_tamano}}</td>
                     <td>{{$productos->procedencia}}</td>
                     <td>{{$productos->total}}</td>
-                    <td>{{$productos->onzas}}</td>
-                    <td>{{$productos->libras}}</td>
+                    <td>{{$productos->origen}}</td>
 
                     <td>
 
@@ -166,11 +163,8 @@
                                 data-id="{{$productos->id}}"
                                 data-id_semilla="{{$productos->nombre_semillas}}"
                                 data-id_tamano="{{$productos->nombre_tamano}}"
-                                data-id_marca="{{$productos->id_marca}}"
-                                data-id_vitolas="{{$productos->id_vitolas}}"
                                 data-total="{{$productos->total}}"
-                                data-onzas="{{$productos->onzas}}"
-                                data-libras="{{$productos->libras}}"
+                                data-origen="{{$productos->origen}}"
                                 data-variedad="{{$productos->variedad}}"
                                 data-procedencia="{{$productos->procedencia}}"
                                 title="Editar">
@@ -203,7 +197,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("ConsumoBandanueva")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("EntradaBandanuevo")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -218,9 +212,9 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="onzasNuevoProducto">onzas</label>
-                            <input class="form-control @error('onzas') is-invalid @enderror" name="onzas" id="onzasNuevoProducto" maxlength="100"
-                                   value="{{ old('onzas')}}" required="required">
+                            <label for="origenNuevoProducto">Origen</label>
+                            <input class="form-control @error('origen') is-invalid @enderror" name="origen" id="origenNuevoProducto" maxlength="100"
+                                   value="{{ old('origen')}}" required="required">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -238,47 +232,16 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label for="id_marca">Seleccione la marca</label>
-                            <br>
-                            <select name="id_marca"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="marca">
-                                <option disabled selected value="s">Seleccione</option>
-                                @foreach($marca as $marcas)
-                                    <option value="{{$marcas->id}}" @if(Request::old('id_marca')==$marcas->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$marcas->id ? 'selected="selected"':''}}
-                                            @endif>{{$marcas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="vitolacapaentrega">Seleccione la Vitola</label>
-                            <br>
-                            <select name="id_vitolas"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="vitolacapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
-                                @foreach($vitola as $vitolas)
-                                    <option value="{{$vitolas->id}}" @if(Request::old('id_vitolas')==$vitolas->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$vitolas->id ? 'selected="selected"':''}}
-                                            @endif>{{$vitolas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
+
                         <div class="form-group">
                             <label for="semillascapaentrega">Seleccione  semilla</label>
                             <br>
-                            <select name="id_semillas"
+                            <select name="id_semilla"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="semillascapaentrega">
                                 <option disabled selected value="s">Seleccione</option>
                                 @foreach($semilla as $semillas)
-                                    <option value="{{$semillas->id}}" @if(Request::old('id_semillas')==$semillas->id){{'selected'}}@endif
+                                    <option value="{{$semillas->id}}" @if(Request::old('id_semilla')==$semillas->id){{'selected'}}@endif
                                     @if(session("idMarca"))
                                         {{session("idMarca")==$semillas->id ? 'selected="selected"':''}}
                                         @endif>{{$semillas->name}}
@@ -303,8 +266,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="variedadcapaentrega">variedad
-                            </label>
+                            <label for="variedadcapaentrega">variedad</label>
                             <br>
                             <select name="variedad"
                                     required="required"
@@ -332,7 +294,6 @@
                             </select>
                             <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="submit" id="nuevoP" class="btn btn-success">Crear</button>
@@ -355,7 +316,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("ConsumoBandaeditar")}}" >
+                <form id="nuevoP" method="POST" action="{{route("EntradaBandaeditar")}}" >
                     @method("PUT")
 
                     @csrf
@@ -372,10 +333,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="onzascapaentrega">Onzas</label>
+                            <label for="origencapaentrega">Origen</label>
                             <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzas" id="onzascapaentrega" maxlength="100"
-                                    required="required" type="" value="{{old('onzas')}}">
+                                    name="origen" id="origencapaentrega" maxlength="100"
+                                    required="required" type="" value="{{old('origen')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -384,48 +345,9 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <label for="vitolacapaentrega">Seleccione la vitola</label>
-                            <br>
-                            <select name="id_vitolas"
-                                    required
-                                    style="width: 85%"
-                                    class="select2 form-control @error('id_empresa') is-invalid @enderror"
-                                    id="vitolacapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($vitola as $vitolas)
-                                    <option value="{{$vitolas->id}}">{{$vitolas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_empresa')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
 
 
 
-                        <div class="form-group">
-                            <label for="marcacapaentrega">Seleccione la marca</label>
-                            <br>
-                            <select name="id_marca"
-                                    style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="marcacapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($marca as $marca)
-                                    <option value="{{$marca->id}}">{{$marca->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_marca')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
 
                         <div class="form-group">
                             <label for="tamanocapaentrega">Seleccione el Tamaño</label>
@@ -449,7 +371,7 @@
                         <div class="form-group">
                             <label for="semillascapaentrega">Seleccione la Semilla</label>
                             <br>
-                            <select name="id_semillas"
+                            <select name="id_semilla"
                                     style="width: 85%"
                                     class="disponible form-control @error('id_marca') is-invalid @enderror"
                                     id="semillasscapaentrega" required="required">
@@ -515,7 +437,7 @@
     <div class="modal fade" id="modalBorrarCapaEntrega" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form method="post" action="{{route("BultoDevueltoborrar")}}" >
+                <form method="post" action="{{route("EntradaBandaborrar")}}" >
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
@@ -553,7 +475,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobanda")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarEntradaBanda")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -590,7 +512,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobandapdf")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarEntradaBandapdf")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -626,7 +548,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobandacvs")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarEntradaBandacvs")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -658,7 +580,7 @@
     <div class="modal fade" id="modalSumar100" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form method="post" action="{{route("sumar100EntregaBanda")}}" >
+                <form method="post" action="{{route("sumar100EntradaBanda")}}" >
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
@@ -688,7 +610,7 @@
     <div class="modal fade" id="modalSumar" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form method="post" action="{{route("sumarEntregaBanda")}}" >
+                <form method="post" action="{{route("sumarEntredaBanda")}}" >
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
