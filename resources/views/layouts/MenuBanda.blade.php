@@ -87,6 +87,7 @@
 
                             <a class="nav-link" href="{{url('InventarioDiario')}}"> Inventario De Bultos</a>
                             <a class="nav-link" href="{{url('BultoDevuelto')}}">Bultos Devueltos</a>
+                            <a class="nav-link" href="{{url('InventarioBanda')}}"> Inventario De Banda</a>
 
 
 

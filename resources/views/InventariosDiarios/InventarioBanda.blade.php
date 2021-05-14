@@ -1,21 +1,22 @@
 @extends("layouts.MenuBanda")
 @section("content")
     <div class="container-fluid">
-        <h1 class="mt-4">Consumo De Banda
+        <h1 class="mt-4">Inventario Diario Banda
             <div class="btn-group" role="group">
 
                 <button class="btn btn-sm btn-success"
-                        id="botonAbrirModalNuevoConsumo"
-                        data-toggle="modal" data-target="#modalNuevoConsumo">
+                        id="botonAbrirModalNuevoI"
+                        data-toggle="modal" data-target="#modalNuevoI">
                     <span class="fas fa-plus"></span> Nueva
                 </button>
             </div>
+
 
         </h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item" aria-current="page" ><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Consumo De Banda</li>
+                <li class="breadcrumb-item active" aria-current="page">Inventario Diario Banda</li>
 
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
@@ -24,7 +25,7 @@
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("ConsumoBanda")}}">&times;</a>
+                               href="{{route("InventarioBanda")}}">&times;</a>
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
@@ -52,7 +53,7 @@
                                aria-label="Search">
                         <div class="input-group-append">
                             <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("ConsumoBanda")}}">&times;</a>
+                               href="{{route("InventarioBanda")}}">&times;</a>
                             <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
@@ -95,7 +96,7 @@
             <script>
                 document.onreadystatechange = function n(){
                     if (document.readyState){
-                       document.getElementById("botonAbrirModalNuevoConsumo").click();
+                       document.getElementById("botonAbrirModalNuevoI").click();
                     }
                 }
             </script>
@@ -105,60 +106,67 @@
             <thead class="thead-dark">
             <tr>
                 <th>#</th>
-                <th>Marca</th>
-                <th>Vitola</th>
                 <th>Semilla</th>
-                <th>Variedad</th>
-                <th>Tamaño</th>
-                <th>Procedencia</th>
-                <th>total</th>
+                <th>Tamanño</th>
+                <th>variedad</th>
+                <th>Inicial</th>
                 <th>Peso</th>
-                <th>Total En Libras</th>
-                <th><span class="fas fa-info-circle"></span></th>
+                <th>Entradas</th>
+                <th>Peso</th>
+                <th>Final</th>
+                <th>Peso</th>
+                <th>Consumo</th>
+                <th>Peso</th>
 
 
                 <th><span class="fas fa-info-circle"></span></th>
             </tr>
             </thead>
             <tbody>
-            @if($consumoBanda->count()<= 0)
+            @if(!$existenciaDiaria)
                 <tr>
                     <td colspan="4" style="align-items: center">No hay productos</td>
                 </tr>
             @endif
-            @foreach($consumoBanda as $productos)
+            @foreach($existenciaDiaria as $productos)
                 <tr>
                     <td>{{$noPagina++}}</td>
 
 
-                    <td>{{$productos->nombre_marca}}</td>
-                    <td>{{$productos->nombre_vitolas}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
-                    <td>{{$productos->variedad}}</td>
                     <td>{{$productos->nombre_tamano}}</td>
-                    <td>{{$productos->procedencia}}</td>
-                    <td>{{$productos->total}}</td>
-                    <td>{{$productos->onzas}}</td>
-                    <td>{{$productos->libras}}</td>
-
+                    <td>{{$productos->variedad}}</td>
+                    <td>{{$productos->totalinicial}}</td>
+                    <td>{{$productos->pesoinicial}}</td>
+                    <td>{{$productos->totalentrada}}</td>
+                    <td>{{$productos->pesoentrada}}</td>
+                    <td>{{$productos->totalfinal}}</td>
+                    <td>{{$productos->pesofinal}}</td>
+                    <td>{{$productos->totalconsumo}}</td>
+                    <td>{{$productos->pesoconsumo}}</td>
                     <td>
+
+
 
                         <button class="btn btn-sm btn-info"
+                                title="Ver"
                                 data-toggle="modal"
-                                data-target="#modalSumar100"
-                                data-id="{{$productos->id}}"
-                                title="100">
-                            100 </button>
+                                data-target="#modalVerCapaEntrega"
+                                data-semilla="{{$productos->nombre_semillas}}"
+                                data-id_tamano="{{$productos->nombre_tamano}}"
+                                data-inicial="{{$productos->totalinicial}}"
+                                data-pesoinicial="{{$productos->pesoinicial}}"
+                                data-totalentrada="{{$productos->totalentrada}}"
+                                data-pesoentrada="{{$productos->pesoentrada}}"
+                                data-totalfinal="{{$productos->totalfinal}}"
+                                data-pesofinal="{{$productos->pesofinal}}"
+                                data-totalconsumo="{{$productos->totalconsumo}}"
+                                data-pesoconsumo="{{$productos->pesoconsumo}}"
+                                data-variedad="{{$productos->variedad}}"
 
-                        <button class="btn btn-sm btn-success"
-                                data-toggle="modal"
-                                data-target="#modalSumar"
-                                data-id="{{$productos->id}}"
-                                title="Agregar">
-                            <span class="fas fa-plus"></span>  </button>
-                    </td>
-                    <td>
-
+                               >
+                            <span class="fas fa-eye"></span>
+                        </button>
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
                                 data-toggle="modal"
@@ -166,20 +174,23 @@
                                 data-id="{{$productos->id}}"
                                 data-id_semilla="{{$productos->id_semillas}}"
                                 data-id_tamano="{{$productos->id_tamano}}"
-                                data-id_marca="{{$productos->id_marca}}"
-                                data-id_vitolas="{{$productos->id_vitolas}}"
-                                data-total="{{$productos->total}}"
-                                data-onzas="{{$productos->onzas}}"
-                                data-libras="{{$productos->libras}}"
+                                data-totalinicial="{{$productos->totalinicial}}"
+                                data-totalentrada="{{$productos->totalentrada}}"
+                                data-totalfinal="{{$productos->totalfinal}}"
+                                data-pesoconsumo="{{$productos->pesoconsumo}}"
+                                data-totalconsumo="{{$productos->totalconsumo}}"
+                                data-pesoinicial="{{$productos->pesoinicial}}"
+                                data-pesoentrada="{{$productos->pesoentrada}}"
+                                data-pesofinal="{{$productos->pesofinal}}"
                                 data-variedad="{{$productos->variedad}}"
-                                data-procedencia="{{$productos->procedencia}}"
+
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
                         <button class="btn btn-sm btn-danger"
                                 title="Borrar"
                                 data-toggle="modal"
-                                data-target="#modalBorrarCapaEntrega"
+                                data-target="#modalBorrarReBulDiario"
                                 data-id="{{$productos->id}}">
                             <span class="fas fa-trash"></span>
                         </button>
@@ -192,41 +203,22 @@
 
     </div>
     <!-----vista previa imagen------->
-<!----------------------------------------------------MODAL NUEVO PRODUCTO------------------------------------------------------->
-    <div class="modal fade" id="modalNuevoConsumo" tabindex="-1" role="dialog">
+    <!----------------------------------------------------MODAL NUEVO PRODUCTO------------------------------------------------------->
+    <div class="modal fade" id="modalNuevoI" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Consumo  De Banda
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("ConsumoBandanueva")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("InventarioBandanuevo")}}" enctype="multipart/form-data">
 
                     @csrf
+
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="nombreNuevoProducto">Total</label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"
-                                   value="{{ old('total')}}" required="required">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="onzasNuevoProducto">onzas</label>
-                            <input class="form-control @error('onzas') is-invalid @enderror" name="onzas" id="onzasNuevoProducto" maxlength="100"
-                                   value="{{ old('onzas')}}" required="required">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
                             <input class="form-control @error('onzas') is-invalid @enderror" name="fecha" id="fecha" maxlength="100"
@@ -239,65 +231,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="id_marca">Seleccione la marca</label>
-                            <br>
-                            <select name="id_marca"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="marca">
-                                <option disabled selected value="s">Seleccione</option>
-                                @foreach($marca as $marcas)
-                                    <option value="{{$marcas->id}}" @if(Request::old('id_marca')==$marcas->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$marcas->id ? 'selected="selected"':''}}
-                                            @endif>{{$marcas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="vitolacapaentrega">Seleccione la Vitola</label>
-                            <br>
-                            <select name="id_vitolas"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="vitolacapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
-                                @foreach($vitola as $vitolas)
-                                    <option value="{{$vitolas->id}}" @if(Request::old('id_vitolas')==$vitolas->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$vitolas->id ? 'selected="selected"':''}}
-                                            @endif>{{$vitolas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="semillacapaentrega">Seleccione  semilla</label>
+                            <label for="id_semillas">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
                                     style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="semillacapaentrega">
+                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="id_semillas">
                                 <option disabled selected value="s">Seleccione</option>
                                 @foreach($semilla as $semillas)
                                     <option value="{{$semillas->id}}" @if(Request::old('id_semillas')==$semillas->id){{'selected'}}@endif
                                     @if(session("idMarca"))
                                         {{session("idMarca")==$semillas->id ? 'selected="selected"':''}}
                                         @endif>{{$semillas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="tamanocapaentrega">Seleccione tamaño</label>
-                            <br>
-                            <select name="id_tamano"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="tamanocapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
-                                @foreach($tamano as $tamanos)
-                                    <option value="{{$tamanos->id}}" @if(Request::old('id_tamano')==$tamanos->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$tamanos->id ? 'selected="selected"':''}}
-                                        @endif>{{$tamanos->name}}
                                     </option>
                                 @endforeach
                             </select>
@@ -318,22 +262,113 @@
                             <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
                         <div class="form-group">
-                            <label for="procedenciacapaentrega">prosedencia
-                            </label>
+                            <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
-                            <select name="procedencia"
-                                    required="required"
-                                    style="width: 85%"
-                                    class="disponible form-control
-@error('disponible') is-invalid @enderror" id="procedenciacapaentrega">
+                            <select name="id_calidad"
+                                    style="width: 85%" required="required"
+                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
                                 <option disabled selected value="s">Seleccione</option>
-                                <option value="jalapa"@if(Request::old('procedencia')=='jalapa'){{'selected'}}@endif>Jalapa </option>
-                                <option value="ecuador"@if(Request::old('procedencia')=='ecuador'){{'selected'}}@endif>Ecuador </option>
+                                @foreach($calidad as $calidades)
+                                    <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
+                                    @if(session("idMarca"))
+                                        {{session("idMarca")==$calidades->id ? 'selected="selected"':''}}
+                                        @endif>{{$calidades->name}}
+                                    </option>
+                                @endforeach
                             </select>
-                            <!---- Boton para crear un nuevo tipo de categoria- -->
+                        </div>
+                        <div class="form-group">
+                            <label for="id_tamano">Seleccione el Tamaño</label>
+                            <br>
+                            <select name="id_tamano"
+                                    style="width: 85%" required="required"
+                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="id_tamano">
+                                <option disabled selected value="s">Seleccione</option>
+                                @foreach($tamano as $tamanos)
+                                    <option value="{{$tamanos->id}}" @if(Request::old('id_tamano')==$tamanos->id){{'selected'}}@endif
+                                    @if(session("idMarca"))
+                                        {{session("idMarca")==$tamanos->id ? 'selected="selected"':''}}
+                                        @endif>{{$tamanos->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+
+                        <label for="totalinicial">Inventario Inicial </label>
+                        <input class="form-control @error('name') is-invalid @enderror" name="totalinicial" id="totalinicial" maxlength="100"
+                               value="{{ old('totalinicial')}}" required="required">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="pesoinicialdiario">Peso Inicial </label>
+                            <input class="form-control @error('name')
+                                is-invalid @enderror" name="pesoinicial" id="pesoinicialdiario" maxlength="100"
+                                   value="{{ old('pesoinicial')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group">
+
+
+                            <label for="totalentrada">Entradas </label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="totalentrada" id="totalentrada" maxlength="100"
+                                   value="{{ old('totalentrada')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+
+                            <label for="pesoentradadiario">Peso Entrada </label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="pesoentrada" id="pesoentradadiario" maxlength="100"
+                                   value="{{ old('pesoentrada')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="totalfinal">Inventario Final </label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="totalfinal" id="totalfinal" maxlength="100"
+                                   value="{{ old('totalfinal')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+
+                            <label for="pesofinaldiario">Peso Final </label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="pesofinal" id="pesofinaldiario" maxlength="100"
+                                   value="{{ old('pesofinal')}}" required="required">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                     </div>
+
+
                     <div class="modal-footer">
                         <button type="submit" id="nuevoP" class="btn btn-success">Crear</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
@@ -349,109 +384,26 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Consumo De Banda
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("ConsumoBandaeditar")}}" >
+                <form id="nuevoP" method="POST" action="{{route("InventarioBandaeditar")}}" >
                     @method("PUT")
 
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="totalcapaentrega">Total</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="total" id="totalcapaentrega" maxlength="100"
-                                    required="required"type="number" value="{{old('total')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="onzascapaentrega">Onzas</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzas" id="onzascapaentrega" maxlength="100"
-                                    required="required" type="" value="{{old('onzas')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
 
 
-                        <div class="form-group">
-                            <label for="vitolacapaentrega">Seleccione la vitola</label>
-                            <br>
-                            <select name="id_vitolas"
-                                    required
-                                    style="width: 85%"
-                                    class="select2 form-control @error('id_empresa') is-invalid @enderror"
-                                    id="vitolacapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($vitola as $vitolas)
-                                    <option value="{{$vitolas->id}}">{{$vitolas->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_empresa')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <label for="marcacapaentrega">Seleccione la marca</label>
-                            <br>
-                            <select name="id_marca"
-                                    style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="marcacapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($marca as $marca)
-                                    <option value="{{$marca->id}}">{{$marca->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_marca')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tamanocapaentrega">Seleccione el Tamaño</label>
-                            <br>
-                            <select name="id_tamano"
-                                    style="width: 85%"
-                                    class=" TipoCategoria form-control @error('id_marca') is-invalid @enderror"
-                                    id="tamanocapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($tamano as $tamanos)
-                                    <option value="{{$tamanos->id}}">{{$tamanos->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_marca')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
                         <div class="form-group">
                             <label for="semillacapaentrega">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
+                                    required
                                     style="width: 85%"
-                                    class=" TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    class="select2 form-control @error('id_empresa') is-invalid @enderror"
                                     id="semillacapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semilla as $semillas)
@@ -459,7 +411,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            @error('id_marca')
+                            @error('id_empresa')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -480,20 +432,102 @@
                             </select>
                             <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
+
+
+
                         <div class="form-group">
-                            <label for="procedenciacapaentrega">prosedencia
-                            </label>
+                            <label for="tamanocapaentrega">Seleccione el tamaño </label>
                             <br>
-                            <select name="procedencia"
-                                    required="required"
+                            <select name="id_tamano"
                                     style="width: 85%"
-                                    class="disponible form-control
-                                    @error('disponible') is-invalid @enderror" id="procedenciacapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
-                                <option value="jalapa"@if(Request::old('procedencia')=='jalapa'){{'selected'}}@endif>Jalapa </option>
-                                <option value="ecuador"@if(Request::old('procedencia')=='ecuador'){{'selected'}}@endif>Ecuador </option>
+                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    id="tamanocapaentrega" required="required">
+                                <option disabled selected value="">Seleccione</option>
+                                @foreach($tamano as $tamanos)
+                                    <option value="{{$tamanos->id}}">{{$tamanos->name}}
+                                    </option>
+                                @endforeach
                             </select>
-                            <!---- Boton para crear un nuevo tipo de categoria- -->
+                            @error('id_marca')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-row">
+
+                            <label for="totalinicialdiario">Inentario Inicial</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="totalinicial" id="totalinicialdiario" maxlength="100" value="{{old('totalinicial')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-row">
+
+                            <label for="pesoinicialdiario">Peso Inicial</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="pesoinicial" id="pesoinicialdiario" maxlength="100" value="{{old('pesoinicial')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                        </div>
+
+                        <div class="form-row">
+                            <label for="totalentradadiario">Entradas</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="totalentrada" id="totalentradadiario" maxlength="100" value="{{old('totalentradaE')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+
+
+                        </div>
+
+                        <div class="form-row">
+
+                            <label for="pesoentradadiario">Peso Entrada</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="pesoentrada" id="pesoentradadiario" maxlength="100" value="{{old('pesoentrada')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
+                        </div>
+                        <div class="form-row">
+
+                            <label for="totalfinaldiario">Inventario Final</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="totalfinal" id="totalfinaldiario" maxlength="100" value="{{old('totalfinal')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                    </div>
+
+                        <div class="form-row">
+
+                            <label for="pesofinaldiario">Peso Final</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="pesofinal" id="pesofinaldiario" maxlength="100" value="{{old('pesofinal')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -507,15 +541,14 @@
         </div>
     </div>
 
-    <!------------------MODAL VER PRODUCTO-------------------------------->
 
 
 
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
-    <div class="modal fade" id="modalBorrarCapaEntrega" tabindex="-1" role="dialog">
+    <div class="modal fade" id="modalBorrarReBulDiario" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form method="post" action="{{route("BultoDevueltoborrar")}}" >
+                <form method="post" action="{{route("InventarioBandaborrar")}}" >
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
@@ -526,7 +559,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar El Consumo De Banda ? <label
+                        <p>¿Estás seguro que deseas borrar esta entrads <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>
@@ -553,7 +586,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobanda")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarInventarioBanda")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -590,7 +623,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobandapdf")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarInventarioBandapdf")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -626,7 +659,7 @@
                         <span aria-hidden="true" style="color: white">&times;</span>
                     </button>
                 </div>
-                <form id="nuevoP" method="POST" action="{{route("exportarconsumobandacvs")}}" enctype="multipart/form-data">
+                <form id="nuevoP" method="POST" action="{{route("exportarInventarioBandacvs")}}" enctype="multipart/form-data">
 
                     @csrf
                     <div class="modal-body">
@@ -652,73 +685,8 @@
         </div>
     </div>
 
-    <!-------------------MODAL sumar  100------------------------------>
+    <!-------------------MODAL sumar 75------------------------------>
 
-
-    <div class="modal fade" id="modalSumar100" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <form method="post" action="{{route("sumar100EntregaBanda")}}" >
-                    @method("PUT")
-                    @csrf
-                    <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span style="color: white" aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿Estás seguro que deseas  Sumar 100 <label
-                                id="nombreProducto"></label>?</p>
-
-                    </div>
-                    <div class="modal-footer">
-                        <input id="id_capa_entrega" name="id" type="hidden">
-                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <!-------------------MODAL sumar  50------------------------------>
-    <div class="modal fade" id="modalSumar" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <form method="post" action="{{route("sumarEntregaBanda")}}" >
-                    @method("PUT")
-                    @csrf
-                    <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span style="color: white" aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="suma">Tota a Sumarl</label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="suma" id="suma" maxlength="100"
-                                   value="{{ old('suma')}}" required="required">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div></div>
-                    <div class="modal-footer">
-                        <input id="id_capa_entrega" name="id" type="hidden">
-                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
 
     <!-------------------MODAL NUEVO CATEGORIA------------------------------>
 

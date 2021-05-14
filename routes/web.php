@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-
-
 Route::group(["middleware" => "auth"], function () {
 
     Route::get('/', function () {
@@ -25,20 +23,12 @@ Route::group(["middleware" => "auth"], function () {
 
     });
 
-
     Route::get('/SinAcceso', function () {
         return view('Alerts.SinAcceso');
 
-
     });
 
-
-
     Route::get('/prnpriview','PrintEmpleadoController@prnpriview')->name("imprimirEmpleado");
-
-
-
-
 
 //--------------------------------------------mildware de Capa------------------------------------------------------
     //--------------------------------------------Mildware de Capa------------------------------------------------------
@@ -143,12 +133,7 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/ResumenDiario/exportPDF', 'ResumenCapaController@exportpdf')->name("exportarResumenDiariopdf");
         Route::post('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
         Route::get('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
-
     });
-
-
-
-
 //--------------------------------------------mildaware Despacho de tripa y banda------------------------------------------------------
 //--------------------------------------------mildaware Despacho de tripa y bandaS------------------------------------------------------
 
@@ -255,6 +240,18 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/EntradaBanda/exportPDF', 'EntradaBandaController@exportpdf')->name("exportarEntradaBandapdf");
         Route::post('/EntradaBanda/exportCVS', 'EntradaBandaController@exportcvs')->name("exportarEntradaBandacvs");
         Route::get('/EntradaBanda/exportCVS', 'EntradaBandaController@exportcvs')->name("exportarEntradaBandacvs");
+        //--------------------------------------------Inventario De Banda  ROUTES-------------------------------------------------------->
+        Route::get('/InventarioBanda', 'InventarioBandaController@index')->name("InventarioBanda");
+        Route::post("/InventarioBanda/nuevo", "InventarioBandaController@store")->name("InventarioBandanuevo");
+        Route::put("/InventarioBanda/editar", "InventarioBandaController@edit")->name("InventarioBandaeditar");
+        Route::delete("/InventarioBanda/borrar", "InventarioBandaController@destroy")->name("InventarioBandaborrar");
+        //--------------------------------------------Registro Diario Bultos Exportar ROUTES-------------------------------------------------------->
+        Route::post('/InventarioBanda/export', 'InventarioBandaController@export')->name("exportarInventarioBanda");
+        Route::get('/InventarioBanda/export', 'InventarioBandaController@export')->name("exportarInventarioBanda");
+        Route::post('/InventarioBanda/exportPDF', 'InventarioBandaController@exportpdf')->name("exportarInventarioBandapdf");
+        Route::get('/InventarioBanda/exportPDF', 'InventarioBandaController@exportpdf')->name("exportarInventarioBandapdf");
+        Route::post('/InventarioBanda/exportCVS', 'InventarioBandaController@exportcvs')->name("exportarInventarioBandacvs");
+        Route::get('/InventarioBanda/exportCVS', 'InventarioBandaController@exportcvs')->name("exportarInventarioBandacvs");
 
     });
 //--------------------------------------------mildaware Admin------------------------------------------------------
@@ -266,10 +263,4 @@ Route::group(["middleware" => "auth"], function () {
 
         Route::post('/Usuario/registrar', 'Usuario@agregarUsuario')->name('registrarUsuario');
     });
-
-
-
 });
-
-
-
