@@ -29,15 +29,18 @@ class EntradaBandaExport implements FromCollection , ShouldAutoSize , WithHeadin
         $recibirCapa = DB::table("entrada_bandas")
             ->leftJoin("semillas", "entrada_bandas.id_semilla", "=", "semillas.id")
             ->leftJoin("tamanos", "entrada_bandas.id_tamano", "=", "tamanos.id")
+            ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
+
             ->select(
 
 
                "semillas.name as nombre_semillas"
-                , "entrada_bandas.variedad",
+                , "variedads.name as nombre_variedad",
                 "tamanos.name AS nombre_tamano",
                 "entrada_bandas.origen"
                 , "entrada_bandas.total"
-                , "entrada_bandas.procedencia")
+                , "procedencias.name as nombre_procedencias")
 
             ->whereDate('entrada_bandas.created_at', '=', $this->fecha)
             ->get();

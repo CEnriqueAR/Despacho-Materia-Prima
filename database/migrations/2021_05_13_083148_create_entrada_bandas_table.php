@@ -17,8 +17,8 @@ class CreateEntradaBandasTable extends Migration
             $table->id();
             $table->foreignId("id_semilla")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
-            $table->String("variedad")->nullable();
-            $table->String("procedencia")->nullable();
+            $table->String("id_variedad")->references("id")->on("variedads")->nullable();
+            $table->String("id_procedencia")->references("id")->on("procedencias")->nullable();
             $table->integer("total")->nullable();
             $table->String("origen")->nullable();
             $table->timestamps();

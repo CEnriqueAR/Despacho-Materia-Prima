@@ -252,6 +252,17 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/InventarioBanda/exportPDF', 'InventarioBandaController@exportpdf')->name("exportarInventarioBandapdf");
         Route::post('/InventarioBanda/exportCVS', 'InventarioBandaController@exportcvs')->name("exportarInventarioBandacvs");
         Route::get('/InventarioBanda/exportCVS', 'InventarioBandaController@exportcvs')->name("exportarInventarioBandacvs");
+        //--------------------------------------------Procedencia ROUTES-------------------------------------------------------->
+        Route::get("/Procedencia","ProcedenciaController@index")->name("Procedencia");
+        Route::post("/Procedencia/nuevo","ProcedenciaController@storeMarca")->name("nuevaProcedencia");
+        Route::put("/Procedencia/editar","ProcedenciaController@editarMarca")->name("editarProcedencia");
+        Route::delete("/Procedencia/borrar","ProcedenciaController@borrarMarca")->name("borrarProcedencia");
+        //--------------------------------------------variedad ROUTES-------------------------------------------------------->
+        Route::get("/variedad","VariedadController@index")->name("variedad");
+        Route::post("/variedad/nuevo","VariedadController@storeMarca")->name("nuevavariedad");
+        Route::put("/variedad/editar","VariedadController@editarMarca")->name("editarvariedad");
+        Route::delete("/variedad/borrar","VariedadController@borrarMarca")->name("borrarvariedad");
+
 
     });
 //--------------------------------------------mildaware Admin------------------------------------------------------

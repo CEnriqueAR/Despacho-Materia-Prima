@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Exports/InventarioBandaExport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/InventarioBanda.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/ProcedenciaController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/VariedadController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Procedencia.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Variedad.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_095620_create_variedads_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_03_18_095634_create_procedencias_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Procedencia/procedencia.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Variedad/variedad.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/ConsumoBanda.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/EntradaBandaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntradaBandaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_13_083148_create_entrada_bandas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_13_083148_create_entrada_bandas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -285,7 +293,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/InventariosDiarios" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Procedencia" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -295,11 +303,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Procedencia" />
+      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Variedad" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\InventariosDiarios" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\ConsumoBanda" />
       <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\InventarioInicial" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\resources\views\Alerts" />
-      <recent name="C:\laragon\www\DespachoMateriaPrima\public\js" />
     </key>
     <key name="OPEN_URL_DIALOG">
       <recent name="https://github.com/qirolab/laravel-excel-export-import-example.git" />
@@ -417,7 +425,14 @@
       <workItem from="1620828715754" duration="13504000" />
       <workItem from="1620864390749" duration="3918000" />
       <workItem from="1620912849495" duration="23408000" />
-      <workItem from="1620950493559" duration="2056000" />
+      <workItem from="1620950493559" duration="2133000" />
+      <workItem from="1620998996500" duration="3125000" />
+      <workItem from="1621026216364" duration="326000" />
+      <workItem from="1621027104421" duration="577000" />
+      <workItem from="1621041460816" duration="1285000" />
+      <workItem from="1621214905274" duration="127000" />
+      <workItem from="1621216340941" duration="675000" />
+      <workItem from="1621352607067" duration="4050000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -573,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620923249809</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="peso indibidual">
+      <created>1620952645277</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1620952645277</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -694,7 +716,8 @@
     <MESSAGE value="Resumen Diario de la capa  y arreglo de las sujerencias" />
     <MESSAGE value="Correccion de Exportar  Y re bul diarios com antes" />
     <MESSAGE value="Entrada de Capa con todos los mykis" />
-    <option name="LAST_COMMIT_MESSAGE" value="Entrada de Capa con todos los mykis" />
+    <MESSAGE value="peso indibidual" />
+    <option name="LAST_COMMIT_MESSAGE" value="peso indibidual" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

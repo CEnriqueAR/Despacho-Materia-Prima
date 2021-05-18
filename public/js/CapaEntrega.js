@@ -30,8 +30,8 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var pesofinal= button.data('pesofinal');
     var totalconsumo = button.data('totalconsumo');
     var pesoconsumo= button.data('pesoconsumo');
-    var variedad = button.data('variedad');
-    var procedencia = button.data('procedencia');
+    var variedad = button.data('id_variedad');
+    var procedencia = button.data('id_procedencia');
     var origen = button.data('origen');
 
 

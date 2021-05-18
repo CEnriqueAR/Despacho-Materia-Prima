@@ -8,9 +8,11 @@ use App\CInvInicial;
 use App\EntradaBanda;
 use App\Exports\EntradaBandaExport;
 use App\Exports\RecepcionCapaExport;
+use App\Procedencia;
 use App\RecibirCapa;
 use App\Semilla;
 use App\Tamano;
+use App\Variedad;
 use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
@@ -39,24 +41,32 @@ class EntradaBandaController extends Controller
             $recibirCapa = DB::table("entrada_bandas")
                 ->leftJoin("semillas", "entrada_bandas.id_semilla", "=", "semillas.id")
                 ->leftJoin("tamanos", "entrada_bandas.id_tamano", "=", "tamanos.id")
+                ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
                 ->select("entrada_bandas.id", "tamanos.name AS nombre_tamano",
                     "entrada_bandas.id_tamano",
                     "entrada_bandas.origen",
-                    "entrada_bandas.id_semilla", "semillas.name as nombre_semillas"
-                    , "entrada_bandas.total" , "entrada_bandas.variedad"
-                    , "entrada_bandas.procedencia")
+                    "entrada_bandas.id_semilla", "semillas.name as nombre_semillas",
+                 "entrada_bandas.id_variedad", "variedads.name as nombre_variedad",
+                    "entrada_bandas.id_procedencia", "procedencias.name as nombre_procedencia"
+                    , "entrada_bandas.total" )
                 ->where("semillas.name", "Like", "%" . $query . "%")
                 ->whereDate("entrada_bandas.created_at", "=", Carbon::parse($fecha)->format('Y-m-d'))
                 ->orderBy("nombre_semillas")
                 ->paginate(1000);
             $tamano = Tamano::all();
             $semillas = Semilla::all();
+            $variedad = Variedad::all();
+            $procedencia =Procedencia::all();
 
             return view("ConsumoBanda.EntradaBanda")
                 ->withNoPagina(1)
                 ->withRecibirCapa($recibirCapa)
                 ->withTamano($tamano)
-                ->withSemilla($semillas);
+                ->withSemilla($semillas)
+                ->withVariedad($variedad)
+                ->withProcedencia($procedencia);
+
         }
     }
 
@@ -85,7 +95,7 @@ class EntradaBandaController extends Controller
             ->select(
                 "banda_inv_inicials.id")
             ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
-            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))
+            ->where("banda_inv_inicials.variedad","=",$request->input("id_variedad"))
             ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
         if($inve->count()>0){
         }else{
@@ -93,7 +103,7 @@ class EntradaBandaController extends Controller
             $nuevoConsumo->id_semilla=$request->input('id_semilla');
             $nuevoConsumo->id_tamano=$request->input("id_tamano");
             $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->variedad= $request->input("variedad");
+            $nuevoConsumo->variedad= $request->input("id_variedad");
             $nuevoConsumo->save();
         }
 
@@ -101,8 +111,8 @@ class EntradaBandaController extends Controller
 
         $nuevoCapaEntra->id_tamano=$request->input('id_tamano');
         $nuevoCapaEntra->id_semilla=$request->input("id_semilla");
-        $nuevoCapaEntra->variedad=$request->input("variedad");
-        $nuevoCapaEntra->procedencia=$request->input('procedencia');
+        $nuevoCapaEntra->id_variedad=$request->input("id_variedad");
+        $nuevoCapaEntra->id_procedencia=$request->input('id_procedencia');
         $nuevoCapaEntra->total=$request->input('total');
         $nuevoCapaEntra->origen=$request->input('origen');
 
@@ -156,8 +166,8 @@ class EntradaBandaController extends Controller
         $editarBandaRecibida=EntradaBanda::findOrFail($request->id);
         $editarBandaRecibida->id_tamano=$request->input('id_tamano');
         $editarBandaRecibida->id_semilla=$request->input("id_semilla");
-        $editarBandaRecibida->variedad=$request->input("variedad");
-        $editarBandaRecibida->procedencia=$request->input('procedencia');
+        $editarBandaRecibida->id_variedad=$request->input("id_variedad");
+        $editarBandaRecibida->id_procedencia=$request->input('id_procedencia');
         $editarBandaRecibida->total=$request->input('total');
         $editarBandaRecibida->origen=$request->input('origen');
         $editarBandaRecibida->save();

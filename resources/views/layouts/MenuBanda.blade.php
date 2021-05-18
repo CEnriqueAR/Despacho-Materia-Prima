@@ -109,6 +109,8 @@
                             <a class="nav-link" href="{{url('marcasBanda')}}">Marcas</a>
                             <a class="nav-link" href="{{url('semillasBanda')}}">Semilla</a>
                             <a class="nav-link" href="{{url('vitolaBanda')}}">Vitolas</a>
+                            <a class="nav-link" href="{{url('Procedencia')}}">Procedencia</a>
+                            <a class="nav-link" href="{{url('variedad')}}">Variedad</a>
                             <a class="nav-link" href="{{url('InventarioInicial')}}">Inventario Diario</a>
 
 
