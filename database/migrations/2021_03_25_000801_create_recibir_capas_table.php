@@ -18,7 +18,6 @@ class CreateRecibirCapasTable extends Migration
             $table->foreignId("id_semillas")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
             $table->foreignId("id_calidad")->references("id")->on("calidads");
-            $table->String("variedad")->nullable();
             $table->integer("total");
             $table->timestamps();
         });

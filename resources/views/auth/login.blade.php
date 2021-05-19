@@ -29,7 +29,7 @@
                             <strong>INICIE SESIÓN POR FAVOR</strong>
                         </h4>
                         <br />
-                        @if(isset(Auth::user()->email))
+                        @if(isset(Auth::user()->name))
                         @endif
                         @if($message = Session::get('error'))
                             <div class="alert alert-danger alert-block">
@@ -50,10 +50,10 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                                 <label class="form-label">Correo Electronico</label>
-                                <input id="validation-email"
+                                <input id="validation"
                                        class="form-control"
                                        placeholder="Correo Electronico"
-                                       name="email"
+                                       name="name"
                                        type="text"
                                        data-validation="[NOTEMPTY]">
                             </div>
@@ -67,8 +67,6 @@
                                        placeholder="Contraseña">
                             </div>
                             <div class="form-group">
-                                <a href="{{ url('/password/lost') }}" class="pull-right cat__core__link--blue cat__core__link--underlined">¿Olvidaste la contraseña?
-                                    </a>
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox"  checked>

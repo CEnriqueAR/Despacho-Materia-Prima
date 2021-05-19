@@ -344,7 +344,7 @@
                             <select name="id_tamano"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_tamano">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)
                                     <option value="{{$tamanos->id}}" @if(Request::old('id_tamano')==$tamanos->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -361,7 +361,7 @@
                             <select name="id_semillas"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_semillas">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($semillas as $semilla)
                                     <option value="{{$semilla->id}}" @if(Request::old('id_semillas')==$semilla->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -373,12 +373,12 @@
                         </div>
                         <div class="form-group">
 
-                            <label for="id_calidad">Seleccione la Semilla</label>
+                            <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
                                     <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
                                     @if(session("idMarca"))

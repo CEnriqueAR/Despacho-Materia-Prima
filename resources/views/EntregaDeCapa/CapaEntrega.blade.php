@@ -222,7 +222,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="nombreNuevoProducto">Total</label>
-                            <input class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"
+                            <input  class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"
                                    value="{{ old('total')}}" required="required">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -235,15 +235,17 @@
                             <label for="empleadoEditarcapaentrega">Seleccione Empleado</label>
                             <br>
                             <select name="id_empleado"
-                                    style="width: 85%" required="required"
+                                    required
+                                    style="width: 85%"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="empleadoEditarcapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($empleados as $empleado)
                                     <option value="{{$empleado->id}}" @if(Request::old('id_empleado')==$empleado->id){{'selected'}}@endif
                                     @if(session("idMarca"))
                                         {{session("idMarca")==$empleado->id  ? 'selected="selected"':''}}
                                             @endif>{{$empleado->codigo }}
                                     </option>
+
                                 @endforeach
                             </select>
                         </div>
@@ -252,9 +254,9 @@
                             <label for="id_marca">Seleccione la marca</label>
                             <br>
                             <select name="id_marca"
-                                    style="width: 85%" required="required"
+                                    style="width: 85%" required
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="marca">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($marca as $marcas)
                                     <option value="{{$marcas->id}}" @if(Request::old('id_marca')==$marcas->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -268,9 +270,9 @@
                             <label for="vitolacapaentrega">Seleccione la Vitola</label>
                             <br>
                             <select name="id_vitolas"
-                                    style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="vitolacapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
+                                    style="width: 85%"
+                                    required class="  form-control @error('id_marca') is-invalid @enderror" id="vitolacapaentrega">
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($vitola as $vitolas)
                                     <option value="{{$vitolas->id}}" @if(Request::old('id_vitolas')==$vitolas->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -284,9 +286,9 @@
                             <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
-                                    style="width: 85%" required="required"
+                                    style="width: 85%" required
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
                                     <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -299,10 +301,12 @@
                         <div class="form-group">
                             <label for="id_semilla">Seleccione la Semilla</label>
                             <br>
+
                             <select name="id_semilla"
-                                    style="width: 85%" required="required"
+                                    required
+                                    style="width: 85%"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_semilla">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($semillas as $semilla)
                                     <option value="{{$semilla->id}}" @if(Request::old('id_semilla')==$semilla->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -391,7 +395,7 @@
                             <label for="semillacapaentrega">Seleccione la semilla</label>
                             <br>
                             <select name="id_semilla"
-                                    required
+                                    required="required"
                                     style="width: 85%"
                                     class="TipoCategoria form-control @error('id_semilla') is-invalid @enderror"
                                     id="semillacapaentrega" required="required">
@@ -413,6 +417,7 @@
                             <label for="calidadcapaentrega">Seleccione la calidad</label>
                             <br>
                             <select name="id_calidad"
+                                    required="required"
                                     style="width: 85%"
                                     class=" TipoCategoria form-control @error('id_calidad') is-invalid @enderror"
                                     id="calidadcapaentrega" required="required">
@@ -433,6 +438,7 @@
                             <label for="marcacapaentrega">Seleccione la marca</label>
                             <br>
                             <select name="id_marca"
+                                    required="required"
                                     style="width: 85%"
                                     class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
                                     id="marcacapaentrega" required="required">

@@ -133,6 +133,10 @@ Route::group(["middleware" => "auth"], function () {
         Route::get('/ResumenDiario/exportPDF', 'ResumenCapaController@exportpdf')->name("exportarResumenDiariopdf");
         Route::post('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
         Route::get('/ResumenDiario/exportCVS', 'ResumenCapaController@exportcvs')->name("exportarResumenDiariocvs");
+
+        //--------------------------------------------Resumen  Capa ROUTES-------------------------------------------------------->
+        Route::get('/ResumenMensual', 'EntradaCapaMensualController@index')->name("ResumenMensual");
+
     });
 //--------------------------------------------mildaware Despacho de tripa y banda------------------------------------------------------
 //--------------------------------------------mildaware Despacho de tripa y bandaS------------------------------------------------------

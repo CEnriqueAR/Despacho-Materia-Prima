@@ -218,7 +218,7 @@
                             <select name="id_marca"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="marca">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($marca as $marcas)
                                     <option value="{{$marcas->id}}" @if(Request::old('id_marca')==$marcas->id){{'selected'}}@endif
                                     @if(session("idMarca"))
@@ -234,7 +234,7 @@
                             <select name="id_vitolas"
                                     style="width: 85%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="vitolacapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
+                                <option disabled selected value="">Seleccione</option>
                                 @foreach($vitola as $vitolas)
                                     <option value="{{$vitolas->id}}" @if(Request::old('id_vitolas')==$vitolas->id){{'selected'}}@endif
                                     @if(session("idMarca"))

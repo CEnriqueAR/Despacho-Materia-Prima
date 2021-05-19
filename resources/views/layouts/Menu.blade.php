@@ -83,8 +83,9 @@
                     <div class="collapse" id="collapseinicio2" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{url('ResumenDiario')}}"> Resumen Diario</a>
+
                             <a class="nav-link" href="{{url('ExistenciaDiario')}}"> Inventario</a>
+                            <a class="nav-link" href="{{url('ResumenDiario')}}"> Resumen Diario</a>
 
 
 

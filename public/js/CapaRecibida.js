@@ -13,11 +13,15 @@ $('#modalEditarCapaRecibida').on('show.bs.modal',function (e) {
     var id_semillas = button.data('id_semillas');
     var id_calidad = button.data('id_calidad');
     var total = button.data('total');
+    var variedad = button.data('id_variedad');
+    var procedencia = button.data('id_procedencia');
 
     var modal = $(this);
     modal.find('.modal-footer #id_producto').val(id_c);
     modal.find('.modal-body #tamanocaparecibida').val(id_tamano).change();
     modal.find('.modal-body #totalcaparecibida').val(total);
+    modal.find('.modal-body #variedadcapaentrega').val(variedad).change();
+    modal.find('.modal-body #procedenciacapaentrega').val(procedencia).change();
     modal.find('.modal-body #semillacaparecibida').val(id_semillas).change();
     modal.find('.modal-body #calidadcaparecibida').val(id_calidad).change();
 });

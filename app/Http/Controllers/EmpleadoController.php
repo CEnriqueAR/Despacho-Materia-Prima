@@ -14,7 +14,7 @@ class EmpleadoController extends Controller
     public function index(Request $request){
         if ($request){
             $query = trim($request->get("search"));
-            $empleado = Empleado::where("nombre","like","%".$query."%")->where("puesto","=","Rolero")->orderBy("nombre")->paginate(1000);
+            $empleado = Empleado::where("nombre","like","%".$query."%")->orderBy("nombre")->paginate(1000);
 
            return View('Empleados.Empleados')
                 ->withNoPagina(1)
