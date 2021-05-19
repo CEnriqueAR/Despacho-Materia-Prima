@@ -91,11 +91,14 @@ class EntradaBandaController extends Controller
         $inve  =  DB::table('banda_inv_inicials')
             ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
             ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+            ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
 
             ->select(
                 "banda_inv_inicials.id")
             ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
-            ->where("banda_inv_inicials.variedad","=",$request->input("id_variedad"))
+            ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
+            ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))
             ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
         if($inve->count()>0){
         }else{
@@ -103,7 +106,8 @@ class EntradaBandaController extends Controller
             $nuevoConsumo->id_semilla=$request->input('id_semilla');
             $nuevoConsumo->id_tamano=$request->input("id_tamano");
             $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
             $nuevoConsumo->save();
         }
 
@@ -163,6 +167,29 @@ class EntradaBandaController extends Controller
         'id_marca.required'=>'Se requiere una marca para este producto'
 
         ]);  */
+
+        $inve  =  DB::table('banda_inv_inicials')
+            ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
+            ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+            ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
+
+            ->select(
+                "banda_inv_inicials.id")
+            ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
+            ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
+            ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))
+            ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
+        if($inve->count()>0){
+        }else{
+            $nuevoConsumo = new BandaInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semilla');
+            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->id_variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
+            $nuevoConsumo->save();
+        }
         $editarBandaRecibida=EntradaBanda::findOrFail($request->id);
         $editarBandaRecibida->id_tamano=$request->input('id_tamano');
         $editarBandaRecibida->id_semilla=$request->input("id_semilla");

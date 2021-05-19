@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaCapaMensualController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/InventarioMensual/EntradaCapa.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_13_183659_create_empleados_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_13_183659_create_empleados_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_25_000801_create_recibir_capas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_12_141136_empleados_banda.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_141136_empleados_banda.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_13_083148_create_entrada_bandas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_13_083148_create_entrada_bandas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/CapaRecibida.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaRecibida.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BultosDevueltos/Bultosdevuelto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosDevueltos/Bultosdevuelto.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_13_084630_create_banda_inv_inicials_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_13_084630_create_banda_inv_inicials_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_13_101245_create_inventario_bandas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_05_13_101245_create_inventario_bandas_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/InventarioBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/InventarioBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/Menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/AuthenticatesUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/ui/auth-backend/AuthenticatesUsers.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +424,7 @@
       <workItem from="1621216340941" duration="675000" />
       <workItem from="1621352607067" duration="16821000" />
       <workItem from="1621381930336" duration="2422000" />
-      <workItem from="1621435421255" duration="7430000" />
+      <workItem from="1621435421255" duration="16358000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -611,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621357088745</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="correccion de requerido">
+      <created>1621446670179</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1621446670179</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -734,7 +724,8 @@
     <MESSAGE value="Entrada de Capa con todos los mykis" />
     <MESSAGE value="peso indibidual" />
     <MESSAGE value="Variedad y Procedencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Variedad y Procedencia" />
+    <MESSAGE value="correccion de requerido" />
+    <option name="LAST_COMMIT_MESSAGE" value="correccion de requerido" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

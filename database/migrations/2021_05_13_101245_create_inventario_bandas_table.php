@@ -17,7 +17,8 @@ class CreateInventarioBandasTable extends Migration
             $table->id();
             $table->foreignId("id_semillas")->references("id")->on("semillas");
             $table->foreignId("id_tamano")->references("id")->on("tamanos");
-            $table->String("variedad");
+            $table->foreignId("id_variedad")->references("id")->on("variedads")->nullable();
+            $table->foreignId("id_procedencia")->references("id")->on("procedencias")->nullable();
             $table->integer("totalinicial")->nullable();
             $table->decimal("pesoinicial",50,2)->nullable();
             $table->integer("totalentrada")->nullable();

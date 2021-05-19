@@ -20,7 +20,8 @@ class CreateBandaInvInicialsTable extends Migration
             $table->integer("totalinicial")->nullable();
             $table->decimal("pesoinicial",50,2)->nullable();
             $table->decimal("onzasI",50,2)->nullable();
-            $table->String("variedad")->nullable();
+            $table->foreignId("id_variedad")->references("id")->on("variedads")->nullable();
+            $table->foreignId("id_procedencia")->references("id")->on("procedencias")->nullable();
 
             $table->timestamps();
         });

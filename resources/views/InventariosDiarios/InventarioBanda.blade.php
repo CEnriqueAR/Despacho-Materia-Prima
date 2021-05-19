@@ -109,6 +109,7 @@
                 <th>Semilla</th>
                 <th>Tamanño</th>
                 <th>variedad</th>
+                <th>Procedencia</th>
                 <th>Inicial</th>
                 <th>Peso</th>
                 <th>Entradas</th>
@@ -135,7 +136,8 @@
 
                     <td>{{$productos->nombre_semillas}}</td>
                     <td>{{$productos->nombre_tamano}}</td>
-                    <td>{{$productos->variedad}}</td>
+                    <td>{{$productos->nombre_variedad}}</td>
+                    <td>{{$productos->nombre_procedencia}}</td>
                     <td>{{$productos->totalinicial}}</td>
                     <td>{{$productos->pesoinicial}}</td>
                     <td>{{$productos->totalentrada}}</td>
@@ -162,7 +164,8 @@
                                 data-pesofinal="{{$productos->pesofinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
                                 data-pesoconsumo="{{$productos->pesoconsumo}}"
-                                data-variedad="{{$productos->variedad}}"
+                                data-variedad="{{$productos->id_variedad}}"
+                                data-procedencia="{{$productos->id_procedencia}}"
 
                                >
                             <span class="fas fa-eye"></span>
@@ -182,7 +185,8 @@
                                 data-pesoinicial="{{$productos->pesoinicial}}"
                                 data-pesoentrada="{{$productos->pesoentrada}}"
                                 data-pesofinal="{{$productos->pesofinal}}"
-                                data-variedad="{{$productos->variedad}}"
+                                data-variedad="{{$productos->id_variedad}}"
+                                data-procedencia="{{$productos->id_procedencia}}"
 
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>

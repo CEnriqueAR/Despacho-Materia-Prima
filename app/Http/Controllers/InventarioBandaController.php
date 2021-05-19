@@ -71,11 +71,14 @@ class InventarioBandaController extends Controller
 
             $entregaCapa=DB::table("inventario_bandas")
                 ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
+                ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "inventario_bandas.id_procedencia", "=", "procedencias.id")
                 ->leftJoin("tamanos","inventario_bandas.id_tamano","=","tamanos.id")
                 ->select("inventario_bandas.id","semillas.name as nombre_semillas",
                     "inventario_bandas.id_tamano","tamanos.name as nombre_tamano",
                     "inventario_bandas.id_semillas",
-                    "inventario_bandas.variedad"
+                    "inventario_bandas.id_variedad", "variedads.name as nombre_variedad",
+                    "inventario_bandas.id_procedencia", "procedencias.name as nombre_procedencia"
                     ,"inventario_bandas.totalinicial","inventario_bandas.pesoinicial"
                     ,"inventario_bandas.totalentrada","inventario_bandas.pesoentrada"
                     ,"inventario_bandas.totalfinal","inventario_bandas.pesofinal",
@@ -95,16 +98,20 @@ class InventarioBandaController extends Controller
                 $inve  =  DB::table('banda_inv_inicials')
                     ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
                     ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+                    ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+                    ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
 
                     ->select(
                         "banda_inv_inicials.id",
                         "semillas.name as nombre_semillas",
                         "banda_inv_inicials.id_tamano","tamanos.name as nombre_tamano",
+                        "banda_inv_inicials.id_variedad", "variedads.name as nombre_variedad",
+                        "banda_inv_inicials.id_procedencia", "procedencias.name as nombre_procedencia",
                         "banda_inv_inicials.id_semilla"
                         ,"banda_inv_inicials.totalinicial"
                         ,"banda_inv_inicials.pesoinicial"
                         ,"banda_inv_inicials.onzasI"
-                        ,"banda_inv_inicials.variedad"
+
                     )->get();
 
                 $fecha1 = $request->get("fecha");
@@ -121,7 +128,8 @@ class InventarioBandaController extends Controller
                     $nuevoConsumo->id_tamano = $inventario->id_tamano;
                     $nuevoConsumo->totalinicial = $inventario->totalinicial;
                     $nuevoConsumo->pesoinicial = $inventario->pesoinicial;
-                    $nuevoConsumo->variedad = $inventario->variedad;
+                    $nuevoConsumo->id_variedad = $inventario->id_variedad;
+                    $nuevoConsumo->id_procedencia = $inventario->id_procedencia;
                     $nuevoConsumo->created_at = $fecha;
                     $nuevoConsumo->save();
                 }
@@ -131,13 +139,18 @@ class InventarioBandaController extends Controller
                 $recibirCapa = DB::table("entrada_bandas")
                     ->leftJoin("semillas", "entrada_bandas.id_semilla", "=", "semillas.id")
                     ->leftJoin("tamanos", "entrada_bandas.id_tamano", "=", "tamanos.id")
+                    ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
+                    ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
                     ->select("entrada_bandas.id", "tamanos.name AS nombre_tamano",
                         "entrada_bandas.id_tamano",
                         "entrada_bandas.origen",
-                        "entrada_bandas.id_semilla", "semillas.name as nombre_semillas"
-                        , "entrada_bandas.total" , "entrada_bandas.variedad"
-                        , "entrada_bandas.procedencia")
+                        "entrada_bandas.id_semilla", "semillas.name as nombre_semillas",
+                        "entrada_bandas.id_variedad", "variedads.name as nombre_variedad",
+                        "entrada_bandas.id_procedencia", "procedencias.name as nombre_procedencia"
+                        , "entrada_bandas.total" )
                     ->where("entrada_bandas.id_semilla","=",$entrega->id_semillas)
+                    ->where("entrada_bandas.id_variedad","=",$entrega->id_variedad)
+                    ->where("entrada_bandas.id_procedencia","=",$entrega->id_procedencia)
                     ->where("entrada_bandas.id_tamano","=",$entrega->id_tamano)
                     ->whereDate("entrada_bandas.created_at","=" ,$fecha)->get();
 
@@ -160,11 +173,14 @@ class InventarioBandaController extends Controller
             }
             $entregaCapa=DB::table("inventario_bandas")
                 ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
+                ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "inventario_bandas.id_procedencia", "=", "procedencias.id")
                 ->leftJoin("tamanos","inventario_bandas.id_tamano","=","tamanos.id")
                 ->select("inventario_bandas.id","semillas.name as nombre_semillas",
                     "inventario_bandas.id_tamano","tamanos.name as nombre_tamano",
                     "inventario_bandas.id_semillas",
-                    "inventario_bandas.variedad"
+                    "inventario_bandas.id_variedad", "variedads.name as nombre_variedad",
+                    "inventario_bandas.id_procedencia", "procedencias.name as nombre_procedencia"
                     ,"inventario_bandas.totalinicial","inventario_bandas.pesoinicial"
                     ,"inventario_bandas.totalentrada","inventario_bandas.pesoentrada"
                     ,"inventario_bandas.totalfinal","inventario_bandas.pesofinal",
@@ -214,13 +230,21 @@ class InventarioBandaController extends Controller
         $inve  = DB::table("banda_inv_inicials")
         ->leftJoin("semillas", "banda_inv_inicials.id_semilla", "=", "semillas.id")
         ->leftJoin("tamanos", "banda_inv_inicials.id_tamano", "=", "tamanos.id")
-        ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
+        ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
+        ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
+
+            ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
             "banda_inv_inicials.id_tamano",
 
-            "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas"
+            "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas",
+                "banda_inv_inicials.id_variedad", "variedads.name as nombre_variedad",
+                "banda_inv_inicials.id_procedencia", "procedencias.name as nombre_procedencia"
             , "banda_inv_inicials.totalinicial" , "banda_inv_inicials.variedad")
         ->where("banda_inv_inicials.id_semilla","=",$request->input('id_semillas'))
-        ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
+
+            ->where("entrada_bandas.id_variedad","=",$request->input('id_variedad'))
+            ->where("entrada_bandas.id_procedencia","=",$request->input('id_procedencia'))
+            ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
             ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))->get();
         if($inve->count()>0){
 
@@ -231,10 +255,11 @@ class InventarioBandaController extends Controller
             $nuevoConsumo = new BandaInvInicial();
 
             $nuevoConsumo->id_semilla = $request->input('id_semillas');
-            $nuevoConsumo->variedad = $request->input('variedad');
             $nuevoConsumo->id_tamano = $request->input("id_tamano");
             $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
             $nuevoConsumo->pesoinicial= $request->input("pesofinal");
+            $nuevoConsumo->id_variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
             $nuevoConsumo->updated_at =$fecha1;
             $nuevoConsumo->created_at =$fecha1;
             $nuevoConsumo->save();
@@ -242,7 +267,8 @@ class InventarioBandaController extends Controller
 
         $nuevoInvDiario = new InventarioBanda();
         $nuevoInvDiario->id_semillas=$request->input('id_semillas');
-        $nuevoInvDiario->variedad=$request->input('variedad');
+        $nuevoInvDiario->id_variedad= $request->input("id_variedad");
+        $nuevoInvDiario->id_procedencia= $request->input("id_procedencia");
         $nuevoInvDiario->id_tamano=$request->input("id_tamano");
         $nuevoInvDiario->totalinicial=$request->input("totalinicial");
         $nuevoInvDiario->pesoinicial=$request->input("pesoinicial");
@@ -296,6 +322,10 @@ class InventarioBandaController extends Controller
 
             $inve  = DB::table("banda_inv_inicials")
                 ->leftJoin("semillas", "banda_inv_inicials.id_semilla", "=", "semillas.id")
+
+                ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
+
                 ->leftJoin("tamanos", "banda_inv_inicials.id_tamano", "=", "tamanos.id")
                 ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
                     "banda_inv_inicials.id_tamano"
@@ -303,10 +333,14 @@ class InventarioBandaController extends Controller
                     "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas"
                     , "banda_inv_inicials.totalinicial" , "banda_inv_inicials.variedad")
                 ->where("banda_inv_inicials.id_semilla","=",$request->input('id_semillas'))
-                ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
+                ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
+                ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
                 ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))->get();
             $inventarioDiario=DB::table("inventario_bandas")
                 ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
+
+                ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "inventario_bandas.id_procedencia", "=", "procedencias.id")
                 ->leftJoin("tamanos","inventario_bandas.id_tamano","=","tamanos.id")
                 ->select("inventario_bandas.id"
                     ,"inventario_bandas.created_at")
@@ -327,7 +361,8 @@ class InventarioBandaController extends Controller
                     $editarBultoEntrega->totalinicial = $request->input("totalfinal");
                     $editarBultoEntrega->pesoinicial=((($request->input("totalinicial")/100)*6)/16);
                     $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
-                    $editarBultoEntrega->variedad = $request->input("variedad");
+                    $editarBultoEntrega->id_variedad= $request->input("id_variedad");
+                    $editarBultoEntrega->id_procedencia= $request->input("id_procedencia");
 
                     $editarBultoEntrega->save();
                 }
@@ -336,7 +371,8 @@ class InventarioBandaController extends Controller
 
             $nuevoInvDiario= InventarioBanda::findOrFail($request->id);
             $nuevoInvDiario->id_semillas=$request->input('id_semillas');
-            $nuevoInvDiario->variedad=$request->input('variedad');
+            $nuevoInvDiario->id_variedad= $request->input("id_variedad");
+            $nuevoInvDiario->id_procedencia= $request->input("id_procedencia");
             $nuevoInvDiario->id_tamano=$request->input("id_tamano");
             $nuevoInvDiario->totalinicial=$request->input("totalinicial");
             $nuevoInvDiario->pesoinicial=$request->input("pesoinicial");
