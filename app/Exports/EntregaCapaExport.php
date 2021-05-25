@@ -70,7 +70,7 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
             'Marca',
             'Semilla',
             'Calidad',
-            'Total Recibida',
+            'Total ',
             ]
         ];
     }

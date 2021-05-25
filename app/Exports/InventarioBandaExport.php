@@ -27,11 +27,14 @@ class InventarioBandaExport implements FromCollection,ShouldAutoSize ,WithHeadin
     {
         $entregaCapa=DB::table("inventario_bandas")
             ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
+            ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "inventario_bandas.id_procedencia", "=", "procedencias.id")
             ->leftJoin("tamanos","inventario_bandas.id_tamano","=","tamanos.id")
             ->select("semillas.name as nombre_semillas",
-                "inventario_bandas.variedad",
-                "tamanos.name as nombre_tamano"
+           "tamanos.name as nombre_tamano",
 
+               "variedads.name as nombre_variedad",
+                "procedencias.name as nombre_procedencia"
                 ,"inventario_bandas.totalinicial","inventario_bandas.pesoinicial"
                 ,"inventario_bandas.totalentrada","inventario_bandas.pesoentrada"
                 ,"inventario_bandas.totalfinal","inventario_bandas.pesofinal",
@@ -60,6 +63,7 @@ class InventarioBandaExport implements FromCollection,ShouldAutoSize ,WithHeadin
                 'Semilla',
                 'Tamaño',
                 'variedad',
+                'Procedencia',
                 'Inv.Inicial',
                 'Peso',
                 'Entradas',

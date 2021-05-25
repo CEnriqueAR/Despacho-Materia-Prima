@@ -42,9 +42,6 @@
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfecha">Excel</a>
 
-                <a class="btn btn-danger hideClearSearch" style="color: white"
-                   id="botonAbrirModalNuevoRecepcionCapa"
-                   data-toggle="modal" data-target="#modalfechapdf">PDF</a>
 
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
@@ -164,8 +161,8 @@
                                 data-pesofinal="{{$productos->pesofinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
                                 data-pesoconsumo="{{$productos->pesoconsumo}}"
-                                data-variedad="{{$productos->id_variedad}}"
-                                data-procedencia="{{$productos->id_procedencia}}"
+                                data-id_variedad="{{$productos->id_variedad}}"
+                                data-id_procedencia="{{$productos->id_procedencia}}"
 
                                >
                             <span class="fas fa-eye"></span>
@@ -185,8 +182,8 @@
                                 data-pesoinicial="{{$productos->pesoinicial}}"
                                 data-pesoentrada="{{$productos->pesoentrada}}"
                                 data-pesofinal="{{$productos->pesofinal}}"
-                                data-variedad="{{$productos->id_variedad}}"
-                                data-procedencia="{{$productos->id_procedencia}}"
+                                data-id_variedad="{{$productos->id_variedad}}"
+                                data-id_procedencia="{{$productos->id_procedencia}}"
 
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
@@ -251,36 +248,42 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="variedadcapaentrega">variedad
-                            </label>
+                            <label for="variedadcapaentrega">variedad</label>
                             <br>
-                            <select name="variedad"
-                                    required="required"
-                                    style="width: 85%"
-                                    class="disponible form-control
-                            @error('disponible') is-invalid @enderror" id="variedadcapaentrega">
+                            <select name="id_variedad"
+                                    style="width: 85%" required="required"
+                                    class="marca form-control @error('id_marca')
+                                        is-invalid @enderror" id="variedadcapaentrega">
                                 <option disabled selected value="">Seleccione</option>
-                                <option value="seco"@if(Request::old('variedad')=='seco'){{'selected'}}@endif>seco </option>
-                                <option value="viso"@if(Request::old('variedad')=='viso'){{'selected'}}@endif>viso </option>
+                                @foreach($variedad as $variedades)
+                                    <option value="{{$variedades->id}}" @if(Request::old('id_variedad')==$variedades->id){{'selected'}}@endif
+                                    @if(session("idMarca"))
+                                        {{session("idMarca")==$variedades->id ? 'selected="selected"':''}}
+                                        @endif>{{$variedades->name}}
+                                    </option>
+                                @endforeach
                             </select>
                             <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
                         <div class="form-group">
-                            <label for="id_calidad">Seleccione la Calidad</label>
+                            <label for="procedenciacapaentrega">prosedencia
+                            </label>
                             <br>
-                            <select name="id_calidad"
+                            <select name="id_procedencia"
                                     style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
+                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="procedenciacapaentrega">
                                 <option disabled selected value="">Seleccione</option>
-                                @foreach($calidad as $calidades)
-                                    <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
+                                @foreach($procedencia as $procedencias)
+                                    <option value="{{$procedencias->id}}" @if(Request::old('id_procedencia')==$procedencias->id){{'selected'}}@endif
                                     @if(session("idMarca"))
-                                        {{session("idMarca")==$calidades->id ? 'selected="selected"':''}}
-                                        @endif>{{$calidades->name}}
+                                        {{session("idMarca")==$procedencias->id ? 'selected="selected"':''}}
+                                        @endif>{{$procedencias->name}}
                                     </option>
                                 @endforeach
                             </select>
+                            <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
+
                         <div class="form-group">
                             <label for="id_tamano">Seleccione el Tamaño</label>
                             <br>
@@ -425,15 +428,33 @@
                             <label for="variedadcapaentrega">variedad
                             </label>
                             <br>
-                            <select name="variedad"
+                            <select name="id_variedad"
                                     required="required"
                                     style="width: 85%"
                                     class="disponible form-control
                             @error('disponible') is-invalid @enderror" id="variedadcapaentrega">
-                                <option disabled selected value="s">Seleccione</option>
-                                <option value="seco"@if(Request::old('variedad')=='seco'){{'selected'}}@endif>seco </option>
-                                <option value="viso"@if(Request::old('variedad')=='viso'){{'selected'}}@endif>viso </option>
+                                <option disabled selected value="">Seleccione</option>
+                                @foreach($variedad as $variedades)
+                                    <option value="{{$variedades->id}}">{{$variedades->name}}
+                                    </option>
+                                @endforeach
                             </select>
+                            <!---- Boton para crear un nuevo tipo de categoria- -->
+                        </div>
+                        <div class="form-group">
+                            <label for="procedenciacapaentrega">prosedencia
+                            </label>
+                            <br>
+                            <select name="id_procedencia"
+                                    required="required"
+                                    style="width: 85%"
+                                    class="disponible form-control
+                                    @error('disponible') is-invalid @enderror" id="procedenciacapaentrega">
+                                <option disabled selected value="">Seleccione</option>
+                                @foreach($procedencia as $procedencias)
+                                    <option value="{{$procedencias->id}}">{{$procedencias->name}}
+                                    </option>
+                                @endforeach  </select>
                             <!---- Boton para crear un nuevo tipo de categoria- -->
                         </div>
 

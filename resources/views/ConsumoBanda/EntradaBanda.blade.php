@@ -161,12 +161,12 @@
                                 data-toggle="modal"
                                 data-target="#modalEditarCapaEntrega"
                                 data-id="{{$productos->id}}"
-                                data-id_semilla="{{$productos->nombre_semillas}}"
-                                data-id_tamano="{{$productos->nombre_tamano}}"
+                                data-id_semilla="{{$productos->id_semilla}}"
+                                data-id_tamano="{{$productos->id_tamano}}"
                                 data-total="{{$productos->total}}"
                                 data-origen="{{$productos->origen}}"
-                                data-variedad="{{$productos->id_variedad}}"
-                                data-procedencia="{{$productos->id_procedencia}}"
+                                data-id_variedad="{{$productos->id_variedad}}"
+                                data-id_procedencia="{{$productos->id_procedencia}}"
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
@@ -234,11 +234,12 @@
 
 
                         <div class="form-group">
-                            <label for="semillascapaentrega">Seleccione  semilla</label>
+                            <label for="semillasscapaentrega">Seleccione  semilla</label>
                             <br>
                             <select name="id_semilla"
                                     style="width: 85%" required="required"
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="semillascapaentrega">
+                                    class="marca form-control @error('id_marca')
+                                        is-invalid @enderror" id="semillasscapaentrega">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semilla as $semillas)
                                     <option value="{{$semillas->id}}" @if(Request::old('id_semilla')==$semillas->id){{'selected'}}@endif
@@ -375,7 +376,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="semillascapaentrega">Seleccione la Semilla</label>
+                            <label for="semillasscapaentrega">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semilla"
                                     style="width: 85%"

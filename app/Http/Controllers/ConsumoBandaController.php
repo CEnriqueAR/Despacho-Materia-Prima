@@ -6,8 +6,10 @@ use App\BandaInvInicial;
 use App\ConsumoBanda;
 use App\Exports\ConsumoBandaExport;
 use App\Marca;
+use App\Procedencia;
 use App\Semilla;
 use App\Tamano;
+use App\Variedad;
 use App\Vitola;
 use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
@@ -41,10 +43,14 @@ class ConsumoBandaController extends Controller
                 ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
                 ->leftJoin("tamanos","consumo_bandas.id_tamano","=","tamanos.id")
                 ->leftJoin("semillas","consumo_bandas.id_semillas","=","semillas.id")
+                ->leftJoin("variedads", "consumo_bandas.variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "consumo_bandas.procedencia", "=", "procedencias.id")
 
                 ->select("consumo_bandas.id",
                     "vitolas.name as nombre_vitolas",
                     "semillas.name as nombre_semillas",
+                    "variedads.name as nombre_variedad",
+                    "procedencias.name as nombre_procedencia",
                     "consumo_bandas.id_tamano",
                     "tamanos.name as nombre_tamano",
                     "consumo_bandas.id_vitolas",
@@ -64,6 +70,8 @@ class ConsumoBandaController extends Controller
             $marca = Marca::all();
             $tamano = Tamano::all();
             $semilla = Semilla::all();
+        $variedad = Variedad::all();
+        $procedencia =Procedencia::all();
 
             return view("ConsumoBanda.ConsumoBanda")
                 ->withNoPagina(1)
@@ -71,8 +79,11 @@ class ConsumoBandaController extends Controller
                 ->withTamano($tamano)
                 ->withVitola($vitola)
                 ->withSemilla($semilla)
-                ->withMarca($marca);
-        }
+                ->withMarca($marca)
+        ->withVariedad($variedad)
+        ->withProcedencia($procedencia);
+
+    }
         //
 
 
@@ -98,11 +109,15 @@ class ConsumoBandaController extends Controller
         $inve  =  DB::table('banda_inv_inicials')
             ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
             ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+            ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
 
             ->select(
                 "banda_inv_inicials.id")
             ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
-            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))
+            ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
+            ->where("banda_inv_inicials.id_procedencia","=",$request->input("od_procedencia"))
+
             ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
         if($inve->count()>0){
         }else{
@@ -110,7 +125,8 @@ class ConsumoBandaController extends Controller
             $nuevoConsumo->id_semilla=$request->input('id_semillas');
             $nuevoConsumo->id_tamano=$request->input("id_tamano");
             $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->variedad= $request->input("variedad");
+            $nuevoConsumo->id_variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
             $nuevoConsumo->save();
         }
         try{
@@ -134,8 +150,8 @@ class ConsumoBandaController extends Controller
         $nuevoConsumoBanda->onzas=$request->input('onzas');
         $nuevoConsumoBanda->created_at =$fecha1;
         $nuevoConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
-            $nuevoConsumoBanda->variedad=$request->input('variedad');
-            $nuevoConsumoBanda->procedencia=$request->input('procedencia');
+            $nuevoConsumoBanda->variedad=$request->input('id_variedad');
+            $nuevoConsumoBanda->procedencia=$request->input('id_procedencia');
 
             $nuevoConsumoBanda->save();
 
@@ -168,11 +184,14 @@ class ConsumoBandaController extends Controller
         $inve  =  DB::table('banda_inv_inicials')
             ->leftJoin("semillas","banda_inv_inicials.id_semilla","=","semillas.id")
             ->leftJoin("tamanos","banda_inv_inicials.id_tamano","=","tamanos.id")
+            ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
 
             ->select(
                 "banda_inv_inicials.id")
             ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semillas"))
-            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))
+            ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
+            ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))
             ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
         if($inve->count()>0){
         }else{
@@ -180,7 +199,9 @@ class ConsumoBandaController extends Controller
             $nuevoConsumo->id_semilla=$request->input('id_semillas');
             $nuevoConsumo->id_tamano=$request->input("id_tamano");
             $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->variedad= $request->input("variedad");
+            $nuevoConsumo->id_variedad= $request->input("id_variedad");
+            $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
+
             $nuevoConsumo->save();
         }
         try{
@@ -217,8 +238,8 @@ class ConsumoBandaController extends Controller
             $editarConsumoBanda->onzas=$request->input('onzas');
             $editarConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
 
-            $editarConsumoBanda->variedad=$request->input('variedad');
-            $editarConsumoBanda->procedencia=$request->input('procedencia');
+            $editarConsumoBanda->variedad=$request->input('id_variedad');
+            $editarConsumoBanda->procedencia=$request->input('id_procedencia');
 
             $editarConsumoBanda->save();
             return redirect()->route("ConsumoBanda")->withExito("Se editó Correctamente");

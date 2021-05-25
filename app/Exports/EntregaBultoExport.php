@@ -62,7 +62,7 @@ class EntregaBultoExport implements FromCollection  , ShouldAutoSize ,WithHeadin
             'Vitola',
             'Marca',
             'Total Entregada',
-            $this->fecha,
+
         ]];
 
 

@@ -119,6 +119,7 @@ class EntradaBandaController extends Controller
         $nuevoCapaEntra->id_procedencia=$request->input('id_procedencia');
         $nuevoCapaEntra->total=$request->input('total');
         $nuevoCapaEntra->origen=$request->input('origen');
+        $nuevoCapaEntra->created_at=$request->input('fecha');
 
 
         $nuevoCapaEntra->save();

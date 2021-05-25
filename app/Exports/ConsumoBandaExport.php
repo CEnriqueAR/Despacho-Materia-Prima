@@ -30,11 +30,15 @@ class ConsumoBandaExport implements FromCollection, ShouldAutoSize ,WithHeadings
             ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
             ->leftJoin("tamanos","consumo_bandas.id_tamano","=","tamanos.id")
             ->leftJoin("semillas","consumo_bandas.id_semillas","=","semillas.id")
+              ->leftJoin("variedads", "consumo_bandas.variedad", "=", "variedads.id")
+              ->leftJoin("procedencias", "consumo_bandas.procedencia", "=", "procedencias.id")
 
             ->select("marcas.name as nombre_marca",
                 "vitolas.name as nombre_vitolas",
                 "semillas.name as nombre_semillas",
-                "tamanos.name as nombre_tamano"
+                "variedads.name as nombre_variedad",
+                "tamanos.name as nombre_tamano",
+               "procedencias.name as nombre_procedencia"
                 ,"consumo_bandas.total"
                 ,"consumo_bandas.onzas"
                 ,"consumo_bandas.libras")
@@ -60,7 +64,9 @@ class ConsumoBandaExport implements FromCollection, ShouldAutoSize ,WithHeadings
                 'Marca',
             'Vitola',
             'Semilla',
+                'Variedad',
             'Tamaño',
+                'Procedencia',
             'Total Entregada','Onzas ','Libras '
         ]];
     }

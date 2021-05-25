@@ -9,8 +9,10 @@ use App\ExistenciaDiario;
 use App\Exports\ExistenciaDiarioExports;
 use App\Exports\InventarioBandaExport;
 use App\InventarioBanda;
+use App\Procedencia;
 use App\Semilla;
 use App\Tamano;
+use App\Variedad;
 use Carbon\Carbon;
 use Dotenv\Exception\ValidationException;
 use Illuminate\Http\Request;
@@ -195,12 +197,16 @@ class InventarioBandaController extends Controller
             $calidad = Calidad::all();
             $tamano = Tamano::all();
 
+            $variedad = Variedad::all();
+            $procedencia =Procedencia::all();
             return view("InventariosDiarios.InventarioBanda")
                 ->withNoPagina(1)
                 ->withExistenciaDiaria($entregaCapa)
                 ->withSemilla($semilla)
                 ->withTamano($tamano)
-                ->withCalidad($calidad);
+                ->withCalidad($calidad)
+                ->withVariedad($variedad)
+                ->withProcedencia($procedencia);
 
         }
         //
@@ -230,8 +236,8 @@ class InventarioBandaController extends Controller
         $inve  = DB::table("banda_inv_inicials")
         ->leftJoin("semillas", "banda_inv_inicials.id_semilla", "=", "semillas.id")
         ->leftJoin("tamanos", "banda_inv_inicials.id_tamano", "=", "tamanos.id")
-        ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
-        ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
+        ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
+        ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
 
             ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
             "banda_inv_inicials.id_tamano",
@@ -239,13 +245,13 @@ class InventarioBandaController extends Controller
             "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas",
                 "banda_inv_inicials.id_variedad", "variedads.name as nombre_variedad",
                 "banda_inv_inicials.id_procedencia", "procedencias.name as nombre_procedencia"
-            , "banda_inv_inicials.totalinicial" , "banda_inv_inicials.variedad")
+            , "banda_inv_inicials.totalinicial" )
         ->where("banda_inv_inicials.id_semilla","=",$request->input('id_semillas'))
 
-            ->where("entrada_bandas.id_variedad","=",$request->input('id_variedad'))
-            ->where("entrada_bandas.id_procedencia","=",$request->input('id_procedencia'))
+            ->where("banda_inv_inicials.id_variedad","=",$request->input('id_variedad'))
+            ->where("banda_inv_inicials.id_procedencia","=",$request->input('id_procedencia'))
             ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
-            ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))->get();
+            ->where("banda_inv_inicials.id_semilla","=",$request->input("id_semilla"))->get();
         if($inve->count()>0){
 
 
@@ -256,7 +262,7 @@ class InventarioBandaController extends Controller
 
             $nuevoConsumo->id_semilla = $request->input('id_semillas');
             $nuevoConsumo->id_tamano = $request->input("id_tamano");
-            $nuevoConsumo->totalinicial = ($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
+            $nuevoConsumo->totalinicial = $request->input("totalfinal");
             $nuevoConsumo->pesoinicial= $request->input("pesofinal");
             $nuevoConsumo->id_variedad= $request->input("id_variedad");
             $nuevoConsumo->id_procedencia= $request->input("id_procedencia");
@@ -359,7 +365,7 @@ class InventarioBandaController extends Controller
 
                     $editarBultoEntrega = BandaInvInicial::findOrFail($inventario->id);
                     $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-                    $editarBultoEntrega->pesoinicial=((($request->input("totalinicial")/100)*6)/16);
+                    $editarBultoEntrega->pesoinicial=$request->input("totalinicial");
                     $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
                     $editarBultoEntrega->id_variedad= $request->input("id_variedad");
                     $editarBultoEntrega->id_procedencia= $request->input("id_procedencia");
