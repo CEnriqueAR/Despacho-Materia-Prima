@@ -241,7 +241,7 @@ class InventarioBandaController extends Controller
 
             ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
             "banda_inv_inicials.id_tamano",
-
+                "banda_inv_inicials.updated_at",
             "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas",
                 "banda_inv_inicials.id_variedad", "variedads.name as nombre_variedad",
                 "banda_inv_inicials.id_procedencia", "procedencias.name as nombre_procedencia"
@@ -255,6 +255,37 @@ class InventarioBandaController extends Controller
         if($inve->count()>0){
 
 
+            $inventarioDiario=DB::table("inventario_bandas")
+                ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
+
+                ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "inventario_bandas.id_procedencia", "=", "procedencias.id")
+                ->leftJoin("tamanos","inventario_bandas.id_tamano","=","tamanos.id")
+                ->select("inventario_bandas.id"
+                    ,"inventario_bandas.created_at")
+                ->where("inventario_bandas.id","=",$request->id)->get();
+
+            foreach  ($inve as $inventario) {
+
+                foreach ($inventarioDiario as $diario) {
+                    $ingresada = $diario->created_at;
+                }
+                $actual = $inventario->updated_at;
+
+                if (Carbon::parse($ingresada)->format('Y-m-d') >= (Carbon::parse($actual)->format('Y-m-d'))) {
+
+
+
+                    $editarBultoEntrega = BandaInvInicial::findOrFail($inventario->id);
+                    $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                    $editarBultoEntrega->pesoinicial=$request->input("totalinicial");
+                    $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                    $editarBultoEntrega->id_variedad= $request->input("id_variedad");
+                    $editarBultoEntrega->id_procedencia= $request->input("id_procedencia");
+
+                    $editarBultoEntrega->save();
+                }
+            }
 
 
         }else{

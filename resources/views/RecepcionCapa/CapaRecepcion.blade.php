@@ -342,7 +342,7 @@
                             <label for="id_tamano">Seleccione el tamaño</label>
                             <br>
                             <select name="id_tamano"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%"required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_tamano">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)
@@ -359,7 +359,7 @@
                             <label for="id_semillas">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_semillas">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semillas as $semilla)
@@ -376,7 +376,7 @@
                             <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
@@ -420,7 +420,7 @@
 
                         <div class="form-group">
                             <label for="totalcaparecibida">Total</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
+                            <input  class="  form-control @error('name') is-invalid @enderror"
                                     name="total" id="totalcaparecibida" maxlength="100" value="{{old('total')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -433,8 +433,8 @@
                             <br>
                             <select name="id_semillas"
                                     required
-                                    style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_semilla') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class="empresa form-control @error('id_semilla') is-invalid @enderror"
                                     id="semillacaparecibida" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semillas as $semillas)
@@ -452,8 +452,8 @@
                             <label for="calidadcaparecibida">Seleccione la calidad</label>
                             <br>
                             <select name="id_calidad"
-                                    style="width: 85%"
-                                    class=" TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class=" empresa form-control @error('id_marca') is-invalid @enderror"
                                     id="calidadcaparecibida" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
@@ -471,8 +471,8 @@
                             <label for="tamanocaparecibida">Seleccione el Tamaño</label>
                             <br>
                             <select name="id_tamano"
-                                    style="width: 85%"
-                                    class=" TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class=" empresa form-control @error('id_marca') is-invalid @enderror"
                                     id="tamanocaparecibida" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)

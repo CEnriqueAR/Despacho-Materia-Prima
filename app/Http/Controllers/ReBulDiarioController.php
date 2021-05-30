@@ -176,11 +176,45 @@ class ReBulDiarioController extends Controller
                 "b_inv_inicials.id",
                 "b_inv_inicials.updated_at",
                 "b_inv_inicials.id_vitolas",
+                "b_inv_inicials.updated_at",
                 "b_inv_inicials.id_marca",
                 "b_inv_inicials.totalinicial")
             ->where("b_inv_inicials.id_vitolas","=",$request->input('id_vitolas'))
             ->where("b_inv_inicials.id_marca","=",$request->input("id_marca"))->get();
         if($inve->count()>0) {
+
+
+
+            $inventarioDiario=DB::table("re_bul_diarios")
+                ->leftJoin("vitolas","re_bul_diarios.id_vitolas","=","vitolas.id")
+                ->leftJoin("marcas","re_bul_diarios.id_marca","=","marcas.id")
+                ->select("re_bul_diarios.id",
+                    "re_bul_diarios.created_at")
+                ->where("re_bul_diarios.id","=",$request->id)->get();
+
+
+            foreach  ($inve as $inventario) {
+
+                foreach ($inventarioDiario as $diario) {
+                    $ingresada = $diario->created_at;
+                }
+                $actual = $inventario->updated_at;
+
+                if (Carbon::parse($ingresada)->format('Y-m-d') >= (Carbon::parse($actual)->format('Y-m-d'))) {
+
+
+
+                    $editarBultoEntrega = BInvInicial::findOrFail($inventario->id);
+                    $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                    $editarBultoEntrega->pesoinicial=(($request->input("onzas")*($request->input("totalfinal")/50))/16);
+                    $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+
+                    $editarBultoEntrega->save();
+                }
+            }
+
+
+
     }else{
             $nuevoConsumo = new BInvInicial();
             $nuevoConsumo->id_vitolas=$request->input('id_vitolas');

@@ -3,20 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ConsumoBandaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ConsumoBandaExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/EntregaBultoExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntregaBultoExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/InventarioBandaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/InventarioBandaExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/BultosDevueltos/Bultosdevuelto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosDevueltos/Bultosdevuelto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/InventarioBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/InventarioBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/MenuBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -292,7 +298,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/InventarioMensual" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../moldes" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -441,7 +447,10 @@
       <workItem from="1621790047081" duration="868000" />
       <workItem from="1621871470596" duration="10569000" />
       <workItem from="1621900671041" duration="1288000" />
-      <workItem from="1621951986421" duration="484000" />
+      <workItem from="1621951986421" duration="8142000" />
+      <workItem from="1622045997320" duration="6420000" />
+      <workItem from="1622075506720" duration="492000" />
+      <workItem from="1622350570152" duration="282000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -625,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621464052608</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="ultima correccion">
+      <created>1621953340288</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1621953340288</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -725,7 +741,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="uno bien gordo" />
     <MESSAGE value="Primero con Despacho de Banda" />
     <MESSAGE value="entrega de despacho de capa , tamaño , se milla , calidad" />
     <MESSAGE value="recibir capa  falta la vista" />
@@ -750,7 +765,8 @@
     <MESSAGE value="Variedad y Procedencia" />
     <MESSAGE value="correccion de requerido" />
     <MESSAGE value="correccion inventario de Banda" />
-    <option name="LAST_COMMIT_MESSAGE" value="correccion inventario de Banda" />
+    <MESSAGE value="ultima correccion" />
+    <option name="LAST_COMMIT_MESSAGE" value="ultima correccion" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

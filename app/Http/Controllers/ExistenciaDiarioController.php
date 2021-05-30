@@ -243,7 +243,7 @@ class ExistenciaDiarioController extends Controller
                 "c_inv_inicials.id_tamano","tamanos.name as nombre_tamano",
                 "c_inv_inicials.id_semilla",
                 "c_inv_inicials.id_calidad"
-                ,"c_inv_inicials.totalinicial"
+                ,"c_inv_inicials.totalinicial", "c_inv_inicials.updated_at"
             )
             ->where("c_inv_inicials.id_semilla","=",$request->input('id_semillas'))
             ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))
@@ -251,7 +251,34 @@ class ExistenciaDiarioController extends Controller
         if($inve->count()>0){
 
 
+            $inventarioDiario=DB::table("existencia_diarios")
+                ->leftJoin("semillas","existencia_diarios.id_semillas","=","semillas.id")
+                ->leftJoin("calidads","existencia_diarios.id_calidad","=","calidads.id")
+                ->leftJoin("tamanos","existencia_diarios.id_tamano","=","tamanos.id")
+                ->select("existencia_diarios.id"
+                    ,"existencia_diarios.created_at")
+                ->where("existencia_diarios.id","=",$request->id)->get();
 
+            foreach  ($inve as $inventario) {
+
+                foreach ($inventarioDiario as $diario) {
+                    $ingresada = $diario->created_at;
+                }
+                $actual = $inventario->updated_at;
+
+                if (Carbon::parse($ingresada)->format('Y-m-d') >= (Carbon::parse($actual)->format('Y-m-d'))) {
+
+
+
+                    $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
+                    $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                    $editarBultoEntrega->pesoinicial=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
+                    $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                    $editarBultoEntrega->onzasI = $request->input("onzasF");
+
+                    $editarBultoEntrega->save();
+                }
+            }
 
         }else{
             $nuevoConsumo = new CInvInicial();

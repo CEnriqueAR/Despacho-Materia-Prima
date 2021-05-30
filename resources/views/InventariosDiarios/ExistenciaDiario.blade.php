@@ -234,7 +234,7 @@
                             <label for="id_semillas">Seleccione la Semilla</label>
                             <br>
                             <select name="id_semillas"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%" required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_semillas">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semilla as $semillas)
@@ -250,7 +250,7 @@
                             <label for="id_calidad">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%"  required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
@@ -266,7 +266,7 @@
                             <label for="id_tamano">Seleccione el Tamaño</label>
                             <br>
                             <select name="id_tamano"
-                                    style="width: 85%" required="required"
+                                    style="width: 100%"  required="required"
                                     class="marca form-control @error('id_marca') is-invalid @enderror" id="id_tamano">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)
@@ -381,8 +381,8 @@
                             <br>
                             <select name="id_semillas"
                                     required
-                                    style="width: 85%"
-                                    class="select2 form-control @error('id_empresa') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class="empresa form-control @error('id_empresa') is-invalid @enderror"
                                     id="semillacapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($semilla as $semillas)
@@ -403,8 +403,8 @@
                             <label for="calidadcapaentrega">Seleccione la Calidad</label>
                             <br>
                             <select name="id_calidad"
-                                    style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class="empresa form-control @error('id_marca') is-invalid @enderror"
                                     id="calidadcapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($calidad as $calidades)
@@ -422,8 +422,8 @@
                             <label for="tamanocapaentrega">Seleccione el tamaño </label>
                             <br>
                             <select name="id_tamano"
-                                    style="width: 85%"
-                                    class="TipoCategoria form-control @error('id_marca') is-invalid @enderror"
+                                    style="width: 100%"
+                                    class="empresa form-control @error('id_marca') is-invalid @enderror"
                                     id="tamanocapaentrega" required="required">
                                 <option disabled selected value="">Seleccione</option>
                                 @foreach($tamano as $tamanos)
