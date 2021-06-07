@@ -74,7 +74,7 @@
                         </nav>
                     </div>
                     <div class="sb-sidenav-menu-heading">Registros</div>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseinicio2"
+                    <a class="nav-link collapsed" href="###" data-toggle="collapse" data-target="#collapseinicio2"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-pager"></i></div>
                         R. Diarios
@@ -93,7 +93,7 @@
                         </nav>
                     </div>
                     <div class="sb-sidenav-menu-heading">Administración General</div>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
+                    <a class="nav-link collapsed" href="##" data-toggle="collapse" data-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
                         General

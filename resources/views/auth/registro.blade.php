@@ -92,7 +92,7 @@
                                     required="required"
                                     style="width: 100%"
                                     class="disponible form-control @error('disponible') is-invalid @enderror" id="disponible">
-                                    <option disabled selected value="s">Seleccione</option>
+                                    <option disabled selected value="">Seleccione</option>
                                     <option value="0"@if(Request::old('is_admin')==0){{'selected'}}@endif>Administrador </option>
                                     <option value="1"@if(Request::old('is_admin')==1){{'selected'}}@endif>Despacho De Capa </option>
                                     <option value="2"@if(Request::old('is_admin')==2){{'selected'}}@endif>Despacho De Banda Y Tripa </option>
@@ -102,7 +102,7 @@
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-primary">Registrar </button>
-                                <button type="button" class="btn btn-danger" href="/">Cancelar</button>
+                                <a type="button" class="btn btn-danger" href="/">Cancelar</a>
                             </div>
                         </form>
                     </div>

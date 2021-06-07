@@ -17,7 +17,7 @@ class EmpleadosBanda extends Migration
             $table->id();
             $table->string("nombre",100);
             $table->integer("codigo")->unique();
-            $table->string("puesto");
+            $table->string("puesto")->nullable();
             $table->timestamps();
         });
         //

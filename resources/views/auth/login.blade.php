@@ -49,10 +49,10 @@
                         <form id="form-validation" name="form-validation" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
                             <div class="form-group">
-                                <label class="form-label">Correo Electronico</label>
+                                <label class="form-label">Nombre De Usuario</label>
                                 <input id="validation"
                                        class="form-control"
-                                       placeholder="Correo Electronico"
+                                       placeholder="Usuario"
                                        name="name"
                                        type="text"
                                        data-validation="[NOTEMPTY]">
