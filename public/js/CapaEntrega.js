@@ -18,9 +18,9 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var id_tamano= button.data('id_tamano');
     var libras = button.data('libras');
     var onzas = button.data('onzas');
-    var onzasI = button.data('onzasI');
-    var onzasE = button.data('onzasE');
-    var onzasF = button.data('onzasF');
+    var onzasi = button.data('onzasi');
+    var onzase = button.data('onzase');
+    var onzasf = button.data('onzasf');
     var total = button.data('total');
     var totalinicial = button.data('totalinicial');
     var pesoinicial= button.data('pesoinicial');
@@ -45,9 +45,9 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #semillasscapaentrega').val(id_semilla).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
-    modal.find('.modal-body #onzasinicialcapaentrega').val(onzasI);
-    modal.find('.modal-body #onzasentradacapaentrega').val(onzasE);
-    modal.find('.modal-body #onzasfinalcapaentrega').val(onzasF);
+    modal.find('.modal-body #onzasinicialcapaentrega').val(onzasi);
+    modal.find('.modal-body #onzasentradacapaentrega').val(onzase);
+    modal.find('.modal-body #onzasfinalcapaentrega').val(onzasf);
     modal.find('.modal-body #onzascapaentrega').val(onzas);
     modal.find('.modal-body #variedadcapaentregaa').val(variedad).change();
     modal.find('.modal-body #procedenciacapaentregaa').val(procedencia).change();

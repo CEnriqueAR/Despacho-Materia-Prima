@@ -227,7 +227,7 @@
                         <div class="modal-body">
                             <p>¿Estás seguro que deseas borrar el empleado <label
                                     id="nombre"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
+                            <p>¡¡¡Todas las entregas realizadas a este usuario seran borradas!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

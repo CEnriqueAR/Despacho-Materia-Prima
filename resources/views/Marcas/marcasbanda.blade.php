@@ -214,7 +214,7 @@
                         @method("DELETE")
                         @csrf
                         <div class="modal-header" style="background: #2a2a35">
-                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Producto
+                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span style="color: white" aria-hidden="true">&times;</span>

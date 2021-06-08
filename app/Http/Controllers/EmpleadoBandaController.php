@@ -15,7 +15,7 @@ class EmpleadoBandaController extends Controller
     public function index(Request $request){
         if ($request){
             $query = trim($request->get("search"));
-            $empleado = EmpleadosBanda::where("nombre","like","%".$query."%")->orderBy("nombre")->paginate(1000);
+            $empleado = EmpleadosBanda::where("codigo","like","%".$query."%")->orderBy("nombre")->paginate(1000);
 
            return View('Empleados.EmpleadosBanda')
 

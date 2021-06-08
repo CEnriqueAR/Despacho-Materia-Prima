@@ -42,10 +42,6 @@
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfecha">Excel</a>
 
-                <a class="btn btn-danger hideClearSearch" style="color: white"
-                   id="botonAbrirModalNuevoRecepcionCapa"
-                   data-toggle="modal" data-target="#modalfechapdf">PDF</a>
-
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
                     <div class="input-group" style="width: 300px">
@@ -153,9 +149,9 @@
                                 data-toggle="modal"
                                 data-target="#modalEditarCapaEntrega"
                                 data-id="{{$productos->id}}"
-                                data-onzasI="{{$productos->onzasI}}"
-                                data-onzasF="{{$productos->onzasF}}"
-                                data-onzasE="{{$productos->onzasE}}"
+                                data-onzasi="{{$productos->onzasI}}"
+                                data-onzasf="{{$productos->onzasF}}"
+                                data-onzase="{{$productos->onzasE}}"
                                 data-id_semilla="{{$productos->id_semillas}}"
                                 data-id_calidad="{{$productos->id_calidad}}"
                                 data-id_tamano="{{$productos->id_tamano}}"
@@ -482,16 +478,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <label for="onzasinicialcapaentrega">Peso Por Unida (onzas)</label>
-                            <input  class="form-control @error('name') is-invalid @enderror"
-                                    name="onzasI" id="onzasinicialcapaentrega" maxlength="100" value="{{old('onzasI')}}">
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
+
 
 
                     </div>
@@ -506,59 +493,6 @@
         </div>
     </div>
 
-    <!------------------MODAL VER PRODUCTO-------------------------------->
-    <div class="modal fade" id="modalVerCapaEntrega" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                    </button>
-                </div>
-                    @include('Alerts.errors')
-
-                    @csrf
-                    <div class="modal-body row" >
-
-
-                        <div class="col-sm-10 card">
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="onzasinicialcapaentrega"><strong>Marca:</strong></label></div>
-                                <div class="col-sm-2"><label for="marca" id="onzasinicialcapaentrega"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="librascapaentrega"><strong>Vitola:</strong></label></div>
-                                <div class="col-sm-2"><label for="precioLoteProducto" id="librascapaentrega"></label></div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalinicialdiario"><strong>Total Entregado:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalinicialdiario"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalentradadiario"><strong>Onzas:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalentradadiario"></label></div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalfinaldiario"><strong>Libras:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalfinaldiario"></label></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-success">Aceptar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
@@ -569,14 +503,14 @@
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar esta entrada <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

@@ -1,7 +1,7 @@
 @extends("layouts.Menu")
 @section("content")
     <div class="container-fluid">
-        <h1 class="mt-4">Inventario Inicial
+        <h1 class="mt-4">Resumen Diario
 
 
         </h1>
@@ -109,35 +109,6 @@
         </table>
 
 
-        <!--------------------------MODAL BORRAR MARCA----------------------------------->
-        <div class="modal fade" id="modalBorrarMarca" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <form method="post" action="{{route("InventarioInicialcapaborrar")}}" enctype="multipart/form-data">
-                        @method("DELETE")
-                        @csrf
-                        <div class="modal-header" style="background: #2a2a35">
-                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Producto
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span style="color: white" aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>¿Estás seguro que deseas borrar la marca <label
-                                    id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <input id="id" name="id" type="hidden" value="">
-                            <button type="submit" class="btn btn-danger">Borrar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
 
 
     </div>
