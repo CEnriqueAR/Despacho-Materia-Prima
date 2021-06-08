@@ -119,7 +119,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-pencil-alt"></span> Agregar Marca
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-pencil-alt"></span> Agregar Semilla
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -129,7 +129,7 @@
                         @csrf
                     <div class="modal-body" style="object-fit: fill">
                         <div class="form-group">
-                            <label for="name">Nombre Marca:</label>
+                            <label for="name">Nombre Semilla:</label>
                             <input type="text"
                                    class="form-control @error('name') is-invalid @enderror" name="name" id="name" maxlength="30"
                                    value="{{old('name')}}" required>
@@ -167,7 +167,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-pencil-alt"></span> Editar Marca
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-pencil-alt"></span> Editar Semilla
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -178,10 +178,10 @@
                         @csrf
                         <div class="modal-body" style="object-fit: fill">
                             <div class="form-group">
-                                <label for="name">Nombre Marca:</label>
+                                <label for="name">Nombre Semilla:</label>
                                 <input required="required" type="text"
                                        class="form-control @error('name') is-invalid @enderror" name="name" id="name" maxlength="30"
-                                       value="{{old('name')}}"">
+                                       value="{{old('name')}}">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message}}</strong>
@@ -221,16 +221,15 @@
                         @method("DELETE")
                         @csrf
                         <div class="modal-header" style="background: #2a2a35">
-                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Producto
+                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span style="color: white" aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>¿Estás seguro que deseas borrar la marca <label
+                            <p>¿Estás seguro que deseas borrar la Semilla <label
                                     id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

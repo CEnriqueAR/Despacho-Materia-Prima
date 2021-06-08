@@ -223,7 +223,6 @@
                         <div class="modal-body">
                             <p>¿Estás seguro que deseas borrar la marca <label
                                     id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

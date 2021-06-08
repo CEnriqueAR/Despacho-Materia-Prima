@@ -41,9 +41,6 @@
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfecha">Excel</a>
 
-                <a class="btn btn-danger hideClearSearch" style="color: white"
-                   id="botonAbrirModalNuevoRecepcionCapa"
-                   data-toggle="modal" data-target="#modalfechapdf">PDF</a>
 
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
@@ -472,7 +469,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -541,7 +538,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar esta entrada <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>
@@ -676,7 +673,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 75
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -709,7 +706,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 100
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -739,7 +736,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -747,7 +744,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="suma">Tota a Sumarl</label>
+                            <label for="suma">Tota a Sumar</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="suma" id="suma" maxlength="100"
                                    value="{{ old('suma')}}" required="required">
                             @error('name')

@@ -109,16 +109,15 @@
                         @method("DELETE")
                         @csrf
                         <div class="modal-header" style="background: #2a2a35">
-                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Producto
+                            <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span style="color: white" aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>¿Estás seguro que deseas borrar la marca <label
+                            <p>¿Estás seguro que  lo deseas borrar  <label
                                     id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

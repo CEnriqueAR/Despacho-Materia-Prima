@@ -85,12 +85,17 @@ class MarcaController extends Controller
 
     }
     //Funcion Borrar Marca
-    public function borrarMarca(Request $request){
-        $id = $request->input("id");
-        $borrar = Marca::findOrFail($id);
+    public function borrarMarca(Request $request)
+    {
+        try {
 
-        $borrar->delete();
-        return redirect()->route("marcas")->withExito("Marca borrada con éxito");
+            $id = $request->input("id");
+            $borrar = Marca::findOrFail($id);
+            $borrar->delete();
+            return redirect()->route("marcas")->withExito("Marca borrada con éxito");
+
+        } catch (ValidationException $exception) {
+            return redirect()->route("marcas")->withMalo('Nose puede borara porque ya esta en uso');
+        }
     }
-
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CapaEntrega;
 use App\Http\Requests\createEmpleadosRequest;
 use App\Empleado;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class EmpleadoController extends Controller
     public function index(Request $request){
         if ($request){
             $query = trim($request->get("search"));
-            $empleado = Empleado::where("nombre","like","%".$query."%")->orderBy("nombre")->paginate(1000);
+            $empleado = Empleado::where("codigo","like","%".$query."%")->orderBy("nombre")->paginate(1000);
 
            return View('Empleados.Empleados')
                 ->withNoPagina(1)
@@ -75,10 +76,10 @@ class EmpleadoController extends Controller
     public function borrarEmpleado(Request $request){
         $id = $request->input("id");
         $borrar = Empleado::findOrFail($id);
-       // $updateProducto = Producto::where("id_marca","=",$id)->get();
-        //foreach ($updateProducto as $producto){
-          //  $producto->delete();
-      //  }
+        $updateProducto = CapaEntrega::where("id_empleado","=",$id)->get();
+       foreach ($updateProducto as $producto){
+         $producto->delete();
+        }
         $borrar->delete();
         return redirect()->route("empleados")->withExito("Empleado borrada con éxito");
     }

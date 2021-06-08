@@ -4,7 +4,7 @@
         <h1 class="mt-4">Empleados
             <div class="btn-group" role="group">
                 <button class="btn btn-sm btn-success"
-                        id="botonAbrirModalNuevoEmpleado"
+                        id="modalCrearEmpleado"
                         data-toggle="modal" data-target="#modalCrearEmpleado">
                     <span class="fas fa-plus"></span> Nueva
                 </button>
@@ -237,7 +237,7 @@
                         <div class="modal-body">
                             <p>¿Estás seguro que deseas borrar el empleado <label
                                     id="nombre"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
+                            <p>¡¡¡Todas las entregas realizadas a este usuario seran borradas!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

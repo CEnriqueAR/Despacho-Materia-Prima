@@ -42,6 +42,14 @@
                 </button>
             </div>
         @endif
+        @if(session("malo"))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{session("malo")}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
 
         <!--------------------------Reabrir modal si hay errror---------------------------->
         @if(session("errores"))
@@ -230,7 +238,6 @@
                         <div class="modal-body">
                             <p>¿Estás seguro que deseas borrar la marca <label
                                     id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">

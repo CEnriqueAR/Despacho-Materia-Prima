@@ -148,33 +148,14 @@
 
 
 
-                        <button class="btn btn-sm btn-info"
-                                title="Ver"
-                                data-toggle="modal"
-                                data-target="#modalVerCapaEntrega"
-                                data-semilla="{{$productos->nombre_semillas}}"
-                                data-calidad="{{$productos->nombre_calidads}}"
-                                data-id_tamano="{{$productos->nombre_tamano}}"
-                                data-inicial="{{$productos->totalinicial}}"
-                                data-pesoinicial="{{$productos->pesoinicial}}"
-                                data-totalentrada="{{$productos->totalentrada}}"
-                                data-pesoentrada="{{$productos->pesoentrada}}"
-                                data-totalfinal="{{$productos->totalfinal}}"
-                                data-pesofinal="{{$productos->pesofinal}}"
-                                data-totalconsumo="{{$productos->totalconsumo}}"
-                                data-pesoconsumo="{{$productos->pesoconsumo}}"
-                                data-onzasinicial="{{$productos->onzasI}}"
-                                data-onzasI="{{$productos->onzasI}}"
-                                data-onzasE="{{$productos->onzasE}}"
-                                data-onzasF="{{$productos->onzasF}}"
-                               >
-                            <span class="fas fa-eye"></span>
-                        </button>
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
                                 data-toggle="modal"
                                 data-target="#modalEditarCapaEntrega"
                                 data-id="{{$productos->id}}"
+                                data-onzasI="{{$productos->onzasI}}"
+                                data-onzasF="{{$productos->onzasF}}"
+                                data-onzasE="{{$productos->onzasE}}"
                                 data-id_semilla="{{$productos->id_semillas}}"
                                 data-id_calidad="{{$productos->id_calidad}}"
                                 data-id_tamano="{{$productos->id_tamano}}"
@@ -182,9 +163,6 @@
                                 data-totalentrada="{{$productos->totalentrada}}"
                                 data-totalfinal="{{$productos->totalfinal}}"
                                 data-totalconsumo="{{$productos->totalconsumo}}"
-                                data-onzasI="{{$productos->onzasI}}"
-                                data-onzasF="{{$productos->onzasF}}"
-                                data-onzasE="{{$productos->onzasE}}"
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
@@ -281,7 +259,7 @@
 
                         <div class="form-row">
                         <div class="form-group col-md-6" >
-                        <label for="totalinicial">Inventario Iniciail </label>
+                        <label for="totalinicial">Inventario Inicial </label>
                         <input class="form-control @error('name') is-invalid @enderror" name="totalinicial" id="totalinicial" maxlength="100"
                                value="{{ old('totalinicial')}}" required="required">
                         @error('name')
@@ -363,7 +341,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -503,6 +481,16 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="onzasinicialcapaentrega">Peso Por Unida (onzas)</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="onzasI" id="onzasinicialcapaentrega" maxlength="100" value="{{old('onzasI')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
 
