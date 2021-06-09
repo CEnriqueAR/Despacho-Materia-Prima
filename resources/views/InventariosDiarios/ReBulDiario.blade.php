@@ -142,23 +142,7 @@
 
 
 
-                        <button class="btn btn-sm btn-info"
-                                title="Ver"
-                                data-toggle="modal"
-                                data-target="#modalVerCapaEntrega"
-                                data-id_marca="{{$productos->nombre_marca}}"
-                                data-id_vitolas="{{$productos->nombre_vitolas}}"
-                                data-inicial="{{$productos->totalinicial}}"
-                                data-pesoinicial="{{$productos->pesoinicial}}"
-                                data-totalentrada="{{$productos->totalentrada}}"
-                                data-pesoentrada="{{$productos->pesoentrada}}"
-                                data-totalfinal="{{$productos->totalfinal}}"
-                                data-pesofinal="{{$productos->pesofinal}}"
-                                data-totalconsumo="{{$productos->totalconsumo}}"
-                                data-pesoconsumo="{{$productos->pesoconsumo}}"
-                                data-onzas="{{$productos->onzas}}">
-                            <span class="fas fa-eye"></span>
-                        </button>
+
                         <button class="btn btn-sm btn-success"
                                 id="editarCapaEntrega{{$productos->id}}"
                                 data-toggle="modal"
@@ -195,7 +179,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Salida De Capa
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -251,7 +235,7 @@
                     </div>
                         <div>
 
-                        <label for="totalinicial">Inventario Iniciail </label>
+                        <label for="totalinicial">Inventario Inicial </label>
                         <input class="form-control @error('name') is-invalid @enderror" name="totalinicial" id="totalinicial" maxlength="100"
                                value="{{ old('totalinicial')}}" required="required">
                         @error('name')
@@ -407,59 +391,6 @@
         </div>
     </div>
 
-    <!------------------MODAL VER PRODUCTO-------------------------------->
-    <div class="modal fade" id="modalVerCapaEntrega" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Detalle del Producto
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" style="color: white">&times;</span>
-                    </button>
-                </div>
-                    @include('Alerts.errors')
-
-                    @csrf
-                    <div class="modal-body row" >
-
-
-                        <div class="col-sm-10 card">
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalinicialdiario"><strong>Marca:</strong></label></div>
-                                <div class="col-sm-2"><label for="marca" id="totalinicialdiario"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="vitolacapaentrega"><strong>Vitola:</strong></label></div>
-                                <div class="col-sm-2"><label for="precioLoteProducto" id="vitolacapaentrega"></label></div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalinicialdiario"><strong>Total Entregado:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalinicialdiario"></label></div>
-                            </div>
-
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalentradadiario"><strong>Onzas:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalentradadiario"></label></div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="totalfinaldiario"><strong>Libras:</strong></label></div>
-                                <div class="col-sm-2"><label for="disponible" id="totalfinaldiario"></label></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button data-dismiss="modal" class="btn btn-success">Aceptar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
@@ -470,14 +401,14 @@
                     @method("DELETE")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar Salida
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Borrar
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar esta entrads <label
+                        <p>¿Estás seguro que deseas borrar  <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmpleadoBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/EmpleadosBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/EmpleadosBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/ImprimirEmpleados.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ExistenciaDiario.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ResumenCapa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ResumenCapa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Marcas/marcasbanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Marcas/marcasbanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Peso/PesoCapa.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Procedencia/procedencia.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Procedencia/procedencia.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Variedad/variedad.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Variedad/variedad.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Vitola/vitolaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Vitola/vitolaBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BInvInicialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BInvInicialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosExportController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/datosInsertaddos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datosInsertaddos.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/InventarioInicial/Binicial.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventarioInicial/Binicial.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -457,7 +454,8 @@
       <workItem from="1622728662773" duration="8678000" />
       <workItem from="1622821733570" duration="2148000" />
       <workItem from="1623073612703" duration="10350000" />
-      <workItem from="1623159514424" duration="12785000" />
+      <workItem from="1623159514424" duration="16346000" />
+      <workItem from="1623245590109" duration="10795000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -669,7 +667,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623167529516</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Correcciones Erroresx3">
+      <created>1623188102826</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1623188102826</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -769,7 +774,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="peso" />
     <MESSAGE value="correxion el de editar faltan 2" />
     <MESSAGE value="Exportar Por Fecha" />
     <MESSAGE value="Botones de sumar" />
@@ -794,7 +798,8 @@
     <MESSAGE value="ultima correccionx2" />
     <MESSAGE value="Correcciones Errores" />
     <MESSAGE value="Correcciones Erroresx2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Erroresx2" />
+    <MESSAGE value="Correcciones Erroresx3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Erroresx3" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

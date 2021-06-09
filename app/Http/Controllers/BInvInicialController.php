@@ -17,7 +17,9 @@ class BInvInicialController extends Controller
 
     public function index(Request $request)
     {
-
+        if ($request){
+            $query = trim($request->get("search"));
+        }
 
                               $inve = DB::table('b_inv_inicials')
                             ->leftJoin("vitolas", "b_inv_inicials.id_vitolas", "=", "vitolas.id")
@@ -29,7 +31,8 @@ class BInvInicialController extends Controller
                                 "b_inv_inicials.id",
                             "b_inv_inicials.id_marca",
                             "b_inv_inicials.totalinicial")
-                            ->orderBy("nombre_marca")->paginate(1000);
+                                  ->where("marcas.name","Like","%".$query."%")
+                                  ->orderBy("nombre_marca")->paginate(1000);
         $marca = Marca::all();
         $vitola = Vitola::all();
 

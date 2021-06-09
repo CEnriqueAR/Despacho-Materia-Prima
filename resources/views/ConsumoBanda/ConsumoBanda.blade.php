@@ -1,7 +1,7 @@
 @extends("layouts.MenuBanda")
 @section("content")
     <div class="container-fluid">
-        <h1 class="mt-4">Consumo De Banda
+        <h1 class="mt-4">Entrega De Banda
             <div class="btn-group" role="group">
 
                 <button class="btn btn-sm btn-success"
@@ -15,7 +15,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item" aria-current="page" ><a href="/">Inicio</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Consumo De Banda</li>
+                <li class="breadcrumb-item active" aria-current="page">Entrega De Banda</li>
 
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
@@ -193,7 +193,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Consumo  De Banda
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span>  Entrega  De Banda
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -352,7 +352,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header" style="background: #2a2a35">
-                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Consumo De Banda
+                    <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Editar Entrega De Banda
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" style="color: white">&times;</span>
@@ -513,10 +513,6 @@
         </div>
     </div>
 
-    <!------------------MODAL VER PRODUCTO-------------------------------->
-
-
-
     <!------------------MODAL BORRAR PRODUCTO---------------------------->
     <div class="modal fade" id="modalBorrarCapaEntrega" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -532,7 +528,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas borrar El Consumo De Banda ? <label
+                        <p>¿Estás seguro que deseas borrar la Entrega De Banda ? <label
                                 id="nombreProducto"></label>?</p>
 
                     </div>
@@ -668,7 +664,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -698,7 +694,7 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 200
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
@@ -706,7 +702,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="suma">Tota a Sumarl</label>
+                            <label for="suma">Tota a Sumar</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="suma" id="suma" maxlength="100"
                                    value="{{ old('suma')}}" required="required">
                             @error('name')
@@ -725,91 +721,6 @@
 
         </div>
     </div>
-
-    <!-------------------MODAL NUEVO CATEGORIA------------------------------>
-
-    {{-- <div class="modal fade" id="modalNuevaCategoria" tabindex="-1" role="dialog">
-         <div class="modal-dialog" role="document">
-             <div class="modal-content">
-                 <div class="modal-header" style="background: #2a2a35">
-                     <h5 class="modal-title" style="color: white"><span class="fas fa-plus"></span> Agregar Categoría
-                     </h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                         <span aria-hidden="true" style="color: white">&times;</span>
-                     </button>
-                 </div>
-                 <form method="POST" action="{{route("CapaEntrega")}}" enctype="multipart/form-data">
-
-                     @csrf
-                     <div class="modal-body">
-                         <div class="form-group">
-                             <label for="nombreNuevaCategoria">Nombre de categoria</label>
-                             <input required class="form-control" name="name"
-                                    id="nombreNuevaCategoria" maxlength="100">
-                         </div>
-                         <div class="form-group">
-                             <label for="tipoNuevaCategoria">Seleccione el tipo de Categoria
-
-                             </label>
-                             <br>
-                             <select name="id_categoria"
-                                     required
-                                     style="width: 85%"
-                                     class="empresa2 form-control" id="tipoNuevaCategoria">
-                                 <option disabled selected value="">Seleccione</option>
-                                 @foreach($calidad as $calidad)
-                                     <option value="{{$calidad->id}}" @if(session("idNuevaCategoria"))
-                                         {{session("idNuevaCategoria") == $tipoCategoria->id ? 'selected="selected"':''}}
-                                         @endif>{{$calidad->name}}</option>
-                                 @endforeach
-                             </select>
-                             <!---- Boton para crear un nuevo tipo de categoria- -->
-
-                         </div>
-                         <div class="form-group">
-                             <label for="descripcionNuevaCategoria">Descripción de nueva categoria (Opcional):</label>
-                             <textarea class="form-control"
-                                       name="descripcion"
-                                       id="descripcionNuevaCategoria"
-                                       maxlength="192"></textarea>
-                         </div>
-                         <label for="imagenCategoria">Seleccione una imagen (opcional): </label>
-                         <div class="input-group image-preview">
-
-                             <input type="text" name="imagen_url" class="form-control image-preview-filename"
-                                    disabled="disabled">
-                             <!-- don't give a name === doesn't send on POST/GET -->
-                             <span class="input-group-btn">
-                                 <!-- image-preview-clear button -->
-                                 <button type="button" class="btn btn-outline-danger image-preview-clear"
-                                         style="display:none;">
-                                     <span class="fas fa-times"></span> Clear
-                                 </button>
-                                 <!-- image-preview-input -->
-                                 <div class="btn btn-default image-preview-input">
-                                     <span class="fas fa-folder-open"></span>
-                                     <span class="image-preview-input-title">Seleccionar</span>
-                                     <input type="file" accept="image/png, image/jpeg, image/gif"
-                                            name="imagen_url"/>
-                                     <!-- rename it -->
-                                 </div>
-                             </span>
-                         </div><!-- /input-group image-preview [TO HERE]-->
-                     </div>
-                     <div class="modal-footer">
-                         <button type="submit" class="btn btn-success" >Crear</button>
-                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                     </div>
-                 </form>
-
-             </div>
-         </div>
-     </div>
-
-
-
-
---}}
 
 
      <style>

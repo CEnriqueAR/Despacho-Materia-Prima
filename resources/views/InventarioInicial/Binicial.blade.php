@@ -65,9 +65,8 @@
             <thead class="thead-dark">
             <tr>
                 <th>#</th>
-                <th>Semilla</th>
-                <th>Calidad</th>
-                <th>Tamaño</th>
+                <th>Marcas</th>
+                <th>Vitolas</th>
 
                 <th><span class="fas fa-info-circle"></span></th>
             </tr>
@@ -117,7 +116,7 @@
                         <div class="modal-body">
                             <p>¿Estás seguro que deseas borrar la marca <label
                                     id="nombreMarca"></label>? </p>
-                            <p>¡¡¡Los productos que tienen registrada esta marca serán borrados!!!</p>
+                            <p>¡¡¡Al borrala ya no se le agregaran al Inventario de Diario de Bultos!!!</p>
                         </div>
                         <div class="modal-footer">
                             <input id="id" name="id" type="hidden" value="">
