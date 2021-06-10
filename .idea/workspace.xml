@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BInvInicialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BInvInicialController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmpleadosExportController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PesoController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/datosInsertaddos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datosInsertaddos.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventarioInicial/Binicial.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventarioInicial/Binicial.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ReBulDiario.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +448,8 @@
       <workItem from="1622821733570" duration="2148000" />
       <workItem from="1623073612703" duration="10350000" />
       <workItem from="1623159514424" duration="16346000" />
-      <workItem from="1623245590109" duration="10795000" />
+      <workItem from="1623245590109" duration="10894000" />
+      <workItem from="1623333256465" duration="8333000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -674,7 +668,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623188102826</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Correcciones Erroresx4">
+      <created>1623276997236</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1623276997236</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -774,7 +775,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correxion el de editar faltan 2" />
     <MESSAGE value="Exportar Por Fecha" />
     <MESSAGE value="Botones de sumar" />
     <MESSAGE value="Agregar usuarios depende el rol" />
@@ -799,7 +799,8 @@
     <MESSAGE value="Correcciones Errores" />
     <MESSAGE value="Correcciones Erroresx2" />
     <MESSAGE value="Correcciones Erroresx3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Erroresx3" />
+    <MESSAGE value="Correcciones Erroresx4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Erroresx4" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

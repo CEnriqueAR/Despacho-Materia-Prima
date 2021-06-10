@@ -53,6 +53,7 @@ class InventarioBandaController extends Controller
                             "capa_entregas.id_calidad",
                             "capa_entregas.id_marca","marcas.name as nombre_marca"
                             ,"capa_entregas.total")
+                        ->where("semillas.name", "Like", "%" . $query . "%")
                         ->whereDate("capa_entregas.created_at","=" ,$fecha)
                         ->get();
                     if ($entregaCapa1->count()>0){
@@ -359,21 +360,21 @@ class InventarioBandaController extends Controller
 
             $inve  = DB::table("banda_inv_inicials")
                 ->leftJoin("semillas", "banda_inv_inicials.id_semilla", "=", "semillas.id")
-
                 ->leftJoin("variedads", "banda_inv_inicials.id_variedad", "=", "variedads.id")
                 ->leftJoin("procedencias", "banda_inv_inicials.id_procedencia", "=", "procedencias.id")
-
                 ->leftJoin("tamanos", "banda_inv_inicials.id_tamano", "=", "tamanos.id")
                 ->select("banda_inv_inicials.id", "tamanos.name AS nombre_tamano",
                     "banda_inv_inicials.id_tamano"
                     ,"banda_inv_inicials.updated_at",
                     "banda_inv_inicials.id_semilla", "semillas.name as nombre_semillas"
-                    , "banda_inv_inicials.totalinicial" , "banda_inv_inicials.variedad")
+                    , "banda_inv_inicials.totalinicial" , "banda_inv_inicials.id_variedad")
                 ->where("banda_inv_inicials.id_semilla","=",$request->input('id_semillas'))
                 ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))
-                ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
-                ->where("banda_inv_inicials.variedad","=",$request->input("variedad"))->get();
-            $inventarioDiario=DB::table("inventario_bandas")
+                ->where("banda_inv_inicials.id_procedencia","=",$request->input("id_procedencia"))
+                ->where("banda_inv_inicials.id_tamano","=",$request->input("id_tamano"))
+                ->where("banda_inv_inicials.id_variedad","=",$request->input("id_variedad"))->get();
+
+                  $inventarioDiario=DB::table("inventario_bandas")
                 ->leftJoin("semillas","inventario_bandas.id_semillas","=","semillas.id")
 
                 ->leftJoin("variedads", "inventario_bandas.id_variedad", "=", "variedads.id")
