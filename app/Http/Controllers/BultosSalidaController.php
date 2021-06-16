@@ -25,10 +25,6 @@ class BultosSalidaController extends Controller
      */
     public function index(Request $request)
     {
-
-
-
-
         if ($request){
             $query = trim($request->get("search"));
 
@@ -40,7 +36,6 @@ class BultosSalidaController extends Controller
                 $fecha = $request->get("fecha");
 
             }
-
             $bultoentrega=DB::table("bultos_salidas")
                 ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
                 ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
@@ -315,5 +310,16 @@ class BultosSalidaController extends Controller
 
         }
         return (new EntregaBultoExport($fecha))->download('Listado de Entrega Bultos'.$fecha.'.csv', \Maatwebsite\Excel\Excel::CSV);
+    }
+
+    public function Suma100(Request $request){
+
+
+        $capaentrega = $request->get('id');
+
+        DB::table('consumo_bandas')->where("consumo_bandas.id","=",$capaentrega)->increment('total', 100);
+
+        return redirect()->route("BultoSalida")->withExito("Se editó Correctamente");
+
     }
 }

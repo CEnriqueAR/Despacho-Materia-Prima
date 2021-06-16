@@ -58,6 +58,10 @@ class CapaEntregaController extends Controller
                     "capa_entregas.id_vitolas",
                     "capa_entregas.id_semilla",
                     "capa_entregas.id_calidad",
+                    "capa_entregas.manchada",
+                    "capa_entregas.botada",
+                    "capa_entregas.rota",
+                    "capa_entregas.picada",
                     "capa_entregas.id_marca","marcas.name as nombre_marca"
                     ,"capa_entregas.total")
                 ->where("empleados.codigo","Like","%".$query."%")
@@ -71,9 +75,19 @@ class CapaEntregaController extends Controller
             $vitola = Vitola::all();
             $marca = Marca::all();
 
+            $entregaCapass=DB::table("capa_entregas")
+                ->leftJoin("empleados","capa_entregas.id_empleado","=","empleados.id")
+                ->leftJoin("vitolas","capa_entregas.id_vitolas","=","vitolas.id")
+                ->leftJoin("semillas","capa_entregas.id_semilla","=","semillas.id")
+                ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
+                ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
+                ->selectRaw("SUM(total) as total_capa")
+                ->get();
+
             return view("EntregaDeCapa.CapaEntrega")
                 ->withNoPagina(1)
                 ->withEntregaCapa($entregaCapa)
+                ->withTotal($entregaCapass)
                 ->withEmpleados($empleados)
                 ->withSemillas($semilla)
                 ->withCalidad($calidad)
@@ -138,6 +152,11 @@ class CapaEntregaController extends Controller
         $nuevoCapaEntrega->id_marca=$request->input("id_marca");
         $nuevoCapaEntrega->total=$request->input('total');
 
+        $nuevoCapaEntrega->manchada=0;
+        $nuevoCapaEntrega->picada=0;
+        $nuevoCapaEntrega->botada=0;
+        $nuevoCapaEntrega->rota= 0;
+
 
         $nuevoCapaEntrega->save();
 
@@ -177,9 +196,7 @@ class CapaEntregaController extends Controller
                 'id_vitolas'=>'required',
                 'id_marca'=>'required',
                  'id_semilla'=>'required',
-                'id_calidad'=>'required|integer',
-                'id_tamano'=>'required|integer',
-                'total'=>'required'
+
             ]);
                  /**,$messages = [
                 'id_empleado.required' => 'El nombre del producto es requerido.',
@@ -201,8 +218,11 @@ class CapaEntregaController extends Controller
             $editarCapaEntrega->id_semilla=$request->input('id_semilla');
             $editarCapaEntrega->id_calidad=$request->input('id_calidad');
             $editarCapaEntrega->id_marca=$request->input("id_marca");
-            $editarCapaEntrega->id_tamano=$request->input("id_tamano");
             $editarCapaEntrega->total=$request->input('total');
+            $editarCapaEntrega->manchada=$request->input('manchada');
+            $editarCapaEntrega->picada=$request->input('picada');
+            $editarCapaEntrega->botada=$request->input('botada');
+            $editarCapaEntrega->rota=$request->input('rota');
 
 
             $editarCapaEntrega->save();

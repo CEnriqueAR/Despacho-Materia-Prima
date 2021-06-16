@@ -22,6 +22,10 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     var onzase = button.data('onzase');
     var onzasf = button.data('onzasf');
     var total = button.data('total');
+    var manchada = button.data('manchada');
+    var rota = button.data('rota');
+    var botada = button.data('botada');
+    var picada = button.data('picada');
     var totalinicial = button.data('totalinicial');
     var pesoinicial= button.data('pesoinicial');
     var totalentrada = button.data('totalentrada');
@@ -45,6 +49,12 @@ $('#modalEditarCapaEntrega').on('show.bs.modal',function (e) {
     modal.find('.modal-body #semillasscapaentrega').val(id_semilla).change();
     modal.find('.modal-body #calidadcapaentrega').val(calidad).change();
     modal.find('.modal-body #totalcapaentrega').val(total);
+
+    modal.find('.modal-body #manchada').val(manchada);
+    modal.find('.modal-body #rota').val(rota);
+    modal.find('.modal-body #picada').val(picada);
+    modal.find('.modal-body #botada').val(botada);
+
     modal.find('.modal-body #onzasinicialcapaentrega').val(onzasi);
     modal.find('.modal-body #onzasentradacapaentrega').val(onzase);
     modal.find('.modal-body #onzasfinalcapaentrega').val(onzasf);

@@ -40,8 +40,11 @@
                 <a class="btn btn-success hideClearSearch" style="color: white"
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfecha">Excel</a>
-
-
+                @foreach($total as $producto)
+<label  class="d-none d-md-inline-block form-inline
+                           ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2"
+        style="align-content: center">Total Entregado: {{$producto->total_capa}}</label>
+                    @endforeach
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
                     <div class="input-group" style="width: 300px">
@@ -106,8 +109,11 @@
                 <th>Marca</th>
                 <th>Vitola</th>
                 <th>Semilla</th>
-                <th>Calidad</th>
                 <th>total</th>
+                <th>Manc</th>
+                <th>Picad</th>
+                <th>Botas</th>
+                <th>Rotas</th>
                 <th><span>Agregar</span></th>
 
 
@@ -131,8 +137,15 @@
                     <td>{{$productos->nombre_marca}}</td>
                     <td>{{$productos->nombre_vitolas}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
-                    <td>{{$productos->nombre_calidads}}</td>
                     <td>{{$productos->total}}</td>
+                    <td>{{$productos->manchada}}</td>
+
+
+                    <td>{{$productos->picada}}</td>
+                    <td>{{$productos->botada}}</td>
+
+                    <td>{{$productos->rota}}</td>
+
                     <td>
 
 
@@ -182,7 +195,12 @@
                                 data-id_vitolas="{{$productos->id_vitolas}}"
                                 data-id_semilla="{{$productos->id_semilla}}"
                                 data-id_calidad="{{$productos->id_calidad}}"
+                                data-manchada="{{$productos->manchada}}"
+                                data-rota="{{$productos->rota}}"
+                                data-picada="{{$productos->picada}}"
                                 data-total="{{$productos->total}}"
+                                data-botada="{{$productos->botada}}"
+
                                 title="Editar">
                             <span class="fas fa-pencil-alt"></span>
                         </button>
@@ -446,6 +464,46 @@
                                 @endforeach
                             </select>
                             @error('id_marca')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="botada">botada</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="botada" id="botada" maxlength="100" value="{{old('botada')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="picada">picada</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="picada" id="picada" maxlength="100" value="{{old('picada')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="rota">rota</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="rota" id="rota" maxlength="100" value="{{old('rota')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="manchada">manchada</label>
+                            <input  class="form-control @error('name') is-invalid @enderror"
+                                    name="manchada" id="manchada" maxlength="100" value="{{old('manchada')}}">
+                            @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

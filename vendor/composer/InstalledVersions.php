@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '0e4122e6a154d1ca7e3d62585e6092418b77bd41',
+    'reference' => '01494ee29af9e15a42688a624b8f9c2ddb3ab0ea',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -455,7 +455,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '0e4122e6a154d1ca7e3d62585e6092418b77bd41',
+      'reference' => '01494ee29af9e15a42688a624b8f9c2ddb3ab0ea',
     ),
     'laravel/tinker' => 
     array (
@@ -1052,6 +1052,33 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'spatie/db-dumper' => 
+    array (
+      'pretty_version' => '2.21.1',
+      'version' => '2.21.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '05e5955fb882008a8947c5a45146d86cfafa10d1',
+    ),
+    'spatie/laravel-backup' => 
+    array (
+      'pretty_version' => '6.16.0',
+      'version' => '6.16.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b2229a07d92c2bb146ad9c5223fc32e9d74830c',
+    ),
+    'spatie/temporary-directory' => 
+    array (
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f517729b3793bca58f847c5fd383ec16f03ffec6',
     ),
     'swiftmailer/swiftmailer' => 
     array (

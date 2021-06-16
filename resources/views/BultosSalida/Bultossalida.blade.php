@@ -138,6 +138,12 @@
                             data-target="#modalSumar75"
                             data-id="{{$productos->id}}"
                             title="Agregar"><span class="fas fa-plus"></span></button>
+                        <button class="btn btn-sm btn-info"
+                                data-toggle="modal"
+                                data-target="#modalSumar100"
+                                data-id="{{$productos->id}}"
+                                title="100">
+                            100 </button>
 
                         <button class="btn btn-sm btn-info"
                                 title="Ver"
@@ -567,6 +573,34 @@
                     <div class="modal-footer">
                         <input id="id_capa_entrega" name="id" type="hidden" value="">
                         <button type="submit" class="btn btn-success">Sumar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="modalSumar100" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form method="post" action="{{route("sumar100BandaBulto")}}" >
+                    @method("PUT")
+                    @csrf
+                    <div class="modal-header" style="background: #2a2a35">
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: white" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro que deseas  Sumar 100 <label
+                                id="nombreProducto"></label>?</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="id_capa_entrega" name="id" type="hidden">
+                        <button type="submit" class="btn btn-success" id="id_capa_entrega" name="id" >Sumar</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>

@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.5",
         "maatwebsite/excel": "^3.1",
-        "nesbot/carbon": "^2.46"
+        "nesbot/carbon": "^2.46",
+        "spatie/laravel-backup": "^6.16"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

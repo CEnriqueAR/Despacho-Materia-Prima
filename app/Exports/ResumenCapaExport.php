@@ -13,12 +13,12 @@ class ResumenCapaExport implements FromCollection,ShouldAutoSize ,WithHeadings
 
     use \Maatwebsite\Excel\Concerns\Exportable;
 
-    protected $fecha;
 
-    public function __construct(string $fecha)
+    public function __construct(string $fecha1,$fecha2)
     {
 
-        $this->fecha = $fecha;
+        $this->fecha1 = $fecha1;
+        $this->fecha2 = $fecha2;
     }
     /**
      * @return \Illuminate\Support\Collection
@@ -34,7 +34,7 @@ class ResumenCapaExport implements FromCollection,ShouldAutoSize ,WithHeadings
             ->selectRaw("SUM(totalconsumo) as total_capa")
             ->selectRaw("SUM(pesoconsumo) as total_peso")
             ->groupBy('id_semillas' ,'id_calidad')
-            ->whereDate("existencia_diarios.created_at","=" ,$this->fecha)
+            ->whereBetween("existencia_diarios.created_at", [$this->fecha1,$this->fecha2])
             ->orderBy("nombre_semilla")->get();
 
         return $entregaCapa;
@@ -50,7 +50,7 @@ class ResumenCapaExport implements FromCollection,ShouldAutoSize ,WithHeadings
             ],
             [
 
-                'Fecha : '.$this->fecha,
+                'Fecha : '.$this->fecha1,
                 'Planta : TAOSA'
             ],
             [

@@ -6,21 +6,11 @@
 
         </h1>
         <nav aria-label="breadcrumb">
+
             <ol class="breadcrumb">
                 <li class="breadcrumb-item" aria-current="page" ><a href="/">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Resumen  Diario</li>
-                <form  class="d-none d-md-inline-block form-inline
-                           ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
-                    <div class="input-group" style="width: 300px">
-                        <input class="form-control" name="fecha" type="date" placeholder="fecha"
-                               aria-label="Search">
-                        <div class="input-group-append">
-                            <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
-                               href="{{route("ResumenDiario")}}">&times;</a>
-                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
+
             </ol>
             <div class="pagination pagination-sm">
 
@@ -35,7 +25,22 @@
                 <a class="btn btn-danger hideClearSearch" style="color: white"
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfechapdf">PDF</a>
+                <form  class="d-none d-md-inline-block form-inline
+                           ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
+                    <div class="input-group " >
+                        <input class="form-control col-md-6" name="fecha1" type="Date" placeholder="Search"
+                               aria-label="Search">
+                        <label>  hasta  </label>
 
+                        <input class="form-control col-md-6" name="fecha2" type="Date" placeholder="Search"
+                               aria-label="Search">
+                        <div class="input-group-append">
+                            <a id="borrarBusqueda" class="btn btn-danger hideClearSearch" style="color: white"
+                               href="{{route("ResumenDiario")}}">&times;</a>
+                            <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
 
             </div>
 
@@ -128,11 +133,22 @@
 
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="fecha1">Fecha</label>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha1">Fecha Inicial</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
                                    type="datetime-local"
                                    value="{{ old('fecha1')}}" >
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha2">Fecha Final</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha2" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha2')}}" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -165,11 +181,22 @@
 
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="fecha1">Fecha</label>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha1">Fecha Inicial</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
                                    type="datetime-local"
-                                   value="{{ old('fecha1')}}">
+                                   value="{{ old('fecha1')}}" >
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha2">Fecha Final</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha2" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha2')}}" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -201,11 +228,22 @@
 
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label for="fecha1">Fecha</label>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha1">Fecha Inicial</label>
                             <input class="form-control @error('name') is-invalid @enderror" name="fecha1" id="fecha1"
                                    type="datetime-local"
-                                   value="{{ old('fecha1')}}">
+                                   value="{{ old('fecha1')}}" >
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                        <div class="form-row cols-md-6">
+                            <label for="fecha2">Fecha Final</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha2" id="fecha1"
+                                   type="datetime-local"
+                                   value="{{ old('fecha2')}}" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

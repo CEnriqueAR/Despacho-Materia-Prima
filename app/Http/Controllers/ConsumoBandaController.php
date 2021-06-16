@@ -30,8 +30,8 @@ class ConsumoBandaController extends Controller
             $query = trim($request->get("search"));
 
             $fecha = $request->get("fecha");
-
-            if ($fecha = null)
+        }
+            if ($fecha = null){
                 $fecha = Carbon::now()->format('Y-m-d');
         }else{
                 $fecha = $request->get("fecha");
