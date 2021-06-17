@@ -31,7 +31,7 @@ class RecibirCapaController extends Controller
 
           $fecha = $request->get("fecha");
 
-            if ($fecha = null)
+            if ($fecha == null)
                 $fecha = Carbon::now()->format('Y-m-d');
             else{
                 $fecha = $request->get("fecha");
@@ -54,10 +54,19 @@ class RecibirCapaController extends Controller
             $semillas = Semilla::all();
             $calidad = Calidad::all();
 
+            $entregaCapass=DB::table("recibir_capas")
+                ->leftJoin("semillas","recibir_capas.id_semillas","=","semillas.id")
+                ->leftJoin("calidads","recibir_capas.id_calidad","=","calidads.id")
+                ->selectRaw("SUM(total) as total_capa")
+                ->where("semillas.name","Like","%".$query."%")
+                ->whereDate("recibir_capas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->get();
+
             return view("RecepcionCapa.CapaRecepcion")
                 ->withNoPagina(1)
                 ->withRecibirCapa($recibirCapa)
                 ->withTamano($tamano)
+                ->withTotal($entregaCapass)
                ->withSemillas($semillas)
                ->withCalidad($calidad);
         }
@@ -103,13 +112,19 @@ class RecibirCapaController extends Controller
             $nuevoConsumo->totalinicial= '0';
             $nuevoConsumo->save();
         }
+        $fechaa =$request->input('fecha');
+        if ($fechaa == null)
+            $fechaa = Carbon::now()->format('Y-m-d');
+        else{
+            $fechaa = $request->get("fecha");
 
+        }
         $nuevoCapaEntra = new RecibirCapa();
 
         $nuevoCapaEntra->id_tamano=$request->input('id_tamano');
         $nuevoCapaEntra->id_semillas=$request->input("id_semillas");
         $nuevoCapaEntra->id_calidad=$request->input("id_calidad");
-
+        $nuevoCapaEntra->created_at=$fechaa;
         $nuevoCapaEntra->total=$request->input('total');
 
 

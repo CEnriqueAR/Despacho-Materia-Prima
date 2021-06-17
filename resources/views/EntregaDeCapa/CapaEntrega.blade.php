@@ -234,7 +234,22 @@
                 <form id="nuevoP" method="POST" action="{{route("nuevoCapaEntrega")}}" enctype="multipart/form-data">
 
                     @csrf
+
+
                     <div class="modal-body">
+
+
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input class="form-control @error('name') is-invalid @enderror" name="fecha" id="fecha"
+                                   type="datetime-local"
+                                   value="{{ old('fecha')}}">
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label for="nombreNuevoProducto">Total</label>
                             <input  class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"

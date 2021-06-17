@@ -73,11 +73,25 @@ class ConsumoBandaController extends Controller
         $variedad = Variedad::all();
         $procedencia =Procedencia::all();
 
+        $entregaCapass=DB::table("consumo_bandas")
+            ->leftJoin("vitolas","consumo_bandas.id_vitolas","=","vitolas.id")
+            ->leftJoin("marcas","consumo_bandas.id_marca","=","marcas.id")
+            ->leftJoin("tamanos","consumo_bandas.id_tamano","=","tamanos.id")
+            ->leftJoin("semillas","consumo_bandas.id_semillas","=","semillas.id")
+            ->leftJoin("variedads", "consumo_bandas.variedad", "=", "variedads.id")
+            ->leftJoin("procedencias", "consumo_bandas.procedencia", "=", "procedencias.id")
+            ->selectRaw("SUM(total) as total_capa")
+            ->where("marcas.name","Like","%".$query."%")
+            ->whereDate("consumo_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+            ->get();
+
             return view("ConsumoBanda.ConsumoBanda")
                 ->withNoPagina(1)
                 ->withConsumoBanda($consumobanda)
                 ->withTamano($tamano)
                 ->withVitola($vitola)
+                ->withTotal($entregaCapass)
+
                 ->withSemilla($semilla)
                 ->withMarca($marca)
         ->withVariedad($variedad)
@@ -141,6 +155,14 @@ class ConsumoBandaController extends Controller
         $fecha = $request->get("fecha");
         $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
 
+            $fechaa =$request->input('fecha');
+            if ($fechaa == null)
+                $fechaa = Carbon::now()->format('Y-m-d');
+            else{
+                $fechaa = $request->get("fecha");
+
+            }
+
         $nuevoConsumoBanda = new ConsumoBanda();
         $nuevoConsumoBanda->id_vitolas=$request->input('id_vitolas');
         $nuevoConsumoBanda->id_semillas=$request->input('id_semillas');
@@ -148,7 +170,7 @@ class ConsumoBandaController extends Controller
         $nuevoConsumoBanda->id_tamano=$request->input("id_tamano");
         $nuevoConsumoBanda->total=$request->input('total');
         $nuevoConsumoBanda->onzas=$request->input('onzas');
-        $nuevoConsumoBanda->created_at =$fecha1;
+            $nuevoConsumoBanda->created_at=$fechaa;
         $nuevoConsumoBanda->libras=  ($request->input("total") * $request->input('onzas')/16);
             $nuevoConsumoBanda->variedad=$request->input('id_variedad');
             $nuevoConsumoBanda->procedencia=$request->input('id_procedencia');

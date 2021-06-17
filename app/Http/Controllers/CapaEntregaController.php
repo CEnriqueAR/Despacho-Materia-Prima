@@ -35,7 +35,7 @@ class CapaEntregaController extends Controller
 
             $fecha = $request->get("fecha");
 
-            if ($fecha = null)
+            if ($fecha == null)
                 $fecha = Carbon::now()->format('Y-m-d');
             else{
                 $fecha = $request->get("fecha");
@@ -65,6 +65,7 @@ class CapaEntregaController extends Controller
                     "capa_entregas.id_marca","marcas.name as nombre_marca"
                     ,"capa_entregas.total")
                 ->where("empleados.codigo","Like","%".$query."%")
+
                 ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
                 ->orderBy("empleados.codigo")
               //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
@@ -82,6 +83,8 @@ class CapaEntregaController extends Controller
                 ->leftJoin("marcas","capa_entregas.id_marca","=","marcas.id")
                 ->leftJoin("calidads","capa_entregas.id_calidad","=","calidads.id")
                 ->selectRaw("SUM(total) as total_capa")
+                ->where("empleados.codigo","Like","%".$query."%")
+                ->whereDate("capa_entregas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
                 ->get();
 
             return view("EntregaDeCapa.CapaEntrega")
@@ -143,6 +146,13 @@ class CapaEntregaController extends Controller
             $nuevoConsumo->save();
 
         }
+        $fechaa =$request->input('fecha');
+        if ($fechaa == null)
+            $fechaa = Carbon::now()->format('Y-m-d');
+        else{
+            $fechaa = $request->get("fecha");
+
+        }
         $nuevoCapaEntrega = new CapaEntrega();
 
         $nuevoCapaEntrega->id_empleado=$request->input('id_empleado');
@@ -151,6 +161,7 @@ class CapaEntregaController extends Controller
         $nuevoCapaEntrega->id_calidad=$request->input('id_calidad');
         $nuevoCapaEntrega->id_marca=$request->input("id_marca");
         $nuevoCapaEntrega->total=$request->input('total');
+        $nuevoCapaEntrega->created_at=$fechaa;
 
         $nuevoCapaEntrega->manchada=0;
         $nuevoCapaEntrega->picada=0;

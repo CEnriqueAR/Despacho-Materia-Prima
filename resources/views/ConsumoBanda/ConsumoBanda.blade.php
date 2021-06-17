@@ -41,6 +41,12 @@
                    id="botonAbrirModalNuevoRecepcionCapa"
                    data-toggle="modal" data-target="#modalfecha">Excel</a>
 
+                @foreach($total as $producto)
+                    <label  class="d-none d-md-inline-block form-inline
+                           ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2"
+                            style="align-content: center">Total Entregado: {{$producto->total_capa}}</label>
+                @endforeach
+
                 <form  class="d-none d-md-inline-block form-inline
                            ml-auto mr-0 mr-md-2 my-0 my-md-0 mb-md-2">
                     <div class="input-group" style="width: 300px">
@@ -226,7 +232,7 @@
                         <div class="form-group">
                             <label for="fecha">Fecha</label>
                             <input class="form-control @error('onzas') is-invalid @enderror" name="fecha" id="fecha" maxlength="100"
-                                   value="{{ old('fecha')}}" type="date" required="required">
+                                   value="{{ old('fecha')}}" type="date" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

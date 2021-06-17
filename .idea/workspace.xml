@@ -2,217 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/packages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/cache/services.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/backup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ar/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/cs/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/da/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/de/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/en/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/es/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/fa/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/fi/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/fr/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/hi/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/id/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/it/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ja/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/nl/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/no/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/pl/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/pt-BR/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/pt/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ro/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/ru/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/tr/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/uk/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-CN/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/vendor/backup/zh-TW/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/.github/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/.github/FUNDING.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/.github/workflows/php-cs-fixer.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/.github/workflows/run-tests.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/.php_cs.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Compressors/Compressor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Compressors/GzipCompressor.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Databases/MongoDb.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Databases/MySql.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Databases/PostgreSql.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Databases/Sqlite.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/DbDumper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Exceptions/CannotSetParameter.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Exceptions/CannotStartDump.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/db-dumper/src/Exceptions/DumpFailed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.github/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.github/FUNDING.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.github/ISSUE_TEMPLATE/config.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.github/workflows/php-cs-fixer.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.github/workflows/run-tests.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/.php_cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/UPGRADING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/logomark.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/logomark.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/logomark@2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/logomark@3x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/logomark@4x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/200.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/500.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/600.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/700.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/800.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/palette/900.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/art/socialcard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/composer.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/config/backup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/about-us.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/advanced-usage/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/advanced-usage/adding-extra-files-to-a-backup.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/advanced-usage/backing-up-a-non-laravel-application.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/advanced-usage/binary-database-dumps-with-postgresql.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/advanced-usage/encrypt-backup-archives.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/changelog.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/cleaning-up-old-backups/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/cleaning-up-old-backups/events.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/cleaning-up-old-backups/overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/high-level-overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/installation-and-setup.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/introduction.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/monitoring-the-health-of-all-backups/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/monitoring-the-health-of-all-backups/creating-your-custom-health-check.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/monitoring-the-health-of-all-backups/events.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/monitoring-the-health-of-all-backups/overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/questions-and-issues.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/requirements.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/sending-notifications/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/sending-notifications/adding-extra-notification-channels.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/sending-notifications/customizing-the-notifiable.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/sending-notifications/overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/support-us.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/taking-backups/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/taking-backups/events.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/docs/taking-backups/overview.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/ar/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/cs/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/da/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/de/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/en/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/es/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/fa/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/fi/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/fr/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/hi/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/id/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/it/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/ja/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/nl/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/no/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/pl/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/pt-BR/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/pt/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/ro/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/ru/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/tr/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/uk/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/zh-CN/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/resources/lang/zh-TW/notifications.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/BackupDestination/Backup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/BackupDestination/BackupCollection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/BackupDestination/BackupDestination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/BackupDestination/BackupDestinationFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/BackupServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Commands/BackupCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Commands/BaseCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Commands/CleanupCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Commands/ListCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Commands/MonitorCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/BackupHasFailed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/BackupManifestWasCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/BackupWasSuccessful.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/BackupZipWasCreated.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/CleanupHasFailed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/CleanupWasSuccessful.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/DumpingDatabase.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/HealthyBackupWasFound.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Events/UnhealthyBackupWasFound.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/CannotCreateDbDumper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/InvalidBackupDestination.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/InvalidBackupJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/InvalidCommand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/InvalidConfiguration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/InvalidHealthCheck.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Exceptions/NotificationCouldNotBeSent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Helpers/ConsoleOutput.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Helpers/File.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Helpers/Format.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Helpers/RightAlignedTableStyle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Helpers/functions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Listeners/EncryptBackupArchive.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/BaseNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/EventHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifiable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/BackupHasFailed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/BackupWasSuccessful.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/CleanupHasFailed.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/CleanupWasSuccessful.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/HealthyBackupWasFound.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Notifications/Notifications/UnhealthyBackupWasFound.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/BackupJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/BackupJobFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/DbDumperFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/FileSelection.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/Manifest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Backup/Zip.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Cleanup/CleanupJob.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Cleanup/CleanupStrategy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Cleanup/Period.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Cleanup/Strategies/DefaultStrategy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/BackupDestinationStatus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/BackupDestinationStatusFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/HealthCheck.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/HealthCheckFailure.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/IsReachable.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/MaximumAgeInDays.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vendor/spatie/laravel-backup/src/Tasks/Monitor/HealthChecks/MaximumStorageInMegabytes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DespachoMateriaPrima.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DespachoMateriaPrima.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exports/ResumenCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ResumenCapaExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ResumenCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ResumenCapaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datosInsertaddos.sql" beforeDir="false" afterPath="$PROJECT_DIR$/datosInsertaddos.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/CapaEntrega.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/CapaEntrega.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/InventariosDiarios/ResumenCapa.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/InventariosDiarios/ResumenCapa.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -664,7 +464,9 @@
       <workItem from="1623333256465" duration="9022000" />
       <workItem from="1623453040840" duration="1215000" />
       <workItem from="1623681100803" duration="5734000" />
-      <workItem from="1623850217728" duration="15603000" />
+      <workItem from="1623850217728" duration="16036000" />
+      <workItem from="1623888867200" duration="706000" />
+      <workItem from="1623937187932" duration="7378000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -897,7 +699,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623362361032</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Correccion Sujeridas">
+      <created>1623883577762</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1623883577762</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -997,7 +806,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Botones de sumar" />
     <MESSAGE value="Agregar usuarios depende el rol" />
     <MESSAGE value="Entrega de Bultos y Devoluciones Bulto" />
     <MESSAGE value="Consumo De Banda" />
@@ -1022,7 +830,8 @@
     <MESSAGE value="Correcciones Erroresx3" />
     <MESSAGE value="Correcciones Erroresx4" />
     <MESSAGE value="Correcciones Erroresx5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correcciones Erroresx5" />
+    <MESSAGE value="Correccion Sujeridas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correccion Sujeridas" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

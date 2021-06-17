@@ -58,10 +58,20 @@ class BultosSalidaController extends Controller
             $vitola = Vitola::all();
             $marca = Marca::all();
 
+            $entregaCapass=DB::table("bultos_salidas")
+                ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
+                ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
+                ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
+                ->selectRaw("SUM(total) as total_capa")
+                ->where("empleados_bandas.codigo","Like","%".$query."%")
+                ->whereDate("bultos_salidas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->get();
+
             return view("BultosSalida.Bultossalida")
                 ->withNoPagina(1)
                 ->withEntregaBulto($bultoentrega)
                 ->withEmpleados($empleados)
+                ->withTotal($entregaCapass)
                 ->withVitola($vitola)
                 ->withMarca($marca);
         }
@@ -154,18 +164,26 @@ class BultosSalidaController extends Controller
 
 
 
+            $fechaa =$request->input('fecha');
+            if ($fechaa == null)
+                $fechaa = Carbon::now()->format('Y-m-d');
+            else{
+                $fechaa = $request->get("fecha");
 
+            }
 
         $nuevoBultoEntrega = new BultosSalida();
         $nuevoBultoEntrega->id_empleado=$request->input('id_empleado');
         $nuevoBultoEntrega->id_vitolas=$request->input('id_vitolas');
         $nuevoBultoEntrega->id_marca=$request->input("id_marca");
         $nuevoBultoEntrega->total=('1');
+        $nuevoBultoEntrega->created_at=$fechaa;
 
 
 
 
-        $nuevoBultoEntrega->save();
+
+            $nuevoBultoEntrega->save();
 
         return redirect()->route("BultoSalida")->withExito("Se creó la entrega Correctamente ");
         }catch (ValidationException $exception){

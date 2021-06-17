@@ -59,11 +59,22 @@ class EntradaBandaController extends Controller
             $variedad = Variedad::all();
             $procedencia =Procedencia::all();
 
+            $entregaCapass=DB::table("entrada_bandas")
+                ->leftJoin("semillas", "entrada_bandas.id_semilla", "=", "semillas.id")
+                ->leftJoin("tamanos", "entrada_bandas.id_tamano", "=", "tamanos.id")
+                ->leftJoin("variedads", "entrada_bandas.id_variedad", "=", "variedads.id")
+                ->leftJoin("procedencias", "entrada_bandas.id_procedencia", "=", "procedencias.id")
+                ->selectRaw("SUM(total) as total_capa")
+                ->where("semillas.name","Like","%".$query."%")
+                ->whereDate("entrada_bandas.created_at","=" ,Carbon::parse($fecha)->format('Y-m-d'))
+                ->get();
+
             return view("ConsumoBanda.EntradaBanda")
                 ->withNoPagina(1)
                 ->withRecibirCapa($recibirCapa)
                 ->withTamano($tamano)
                 ->withSemilla($semillas)
+                ->withTotal($entregaCapass)
                 ->withVariedad($variedad)
                 ->withProcedencia($procedencia);
 
@@ -111,6 +122,13 @@ class EntradaBandaController extends Controller
             $nuevoConsumo->save();
         }
 
+        $fechaa =$request->input('fecha');
+        if ($fechaa == null)
+            $fechaa = Carbon::now()->format('Y-m-d');
+        else{
+            $fechaa = $request->get("fecha");
+
+        }
         $nuevoCapaEntra = new EntradaBanda();
 
         $nuevoCapaEntra->id_tamano=$request->input('id_tamano');
@@ -119,8 +137,7 @@ class EntradaBandaController extends Controller
         $nuevoCapaEntra->id_procedencia=$request->input('id_procedencia');
         $nuevoCapaEntra->total=$request->input('total');
         $nuevoCapaEntra->origen=$request->input('origen');
-        $nuevoCapaEntra->created_at=$request->input('fecha');
-
+        $nuevoCapaEntra->created_at=$fechaa;
 
         $nuevoCapaEntra->save();
 
