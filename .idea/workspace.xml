@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsumoBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosDevueltoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosDevueltoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReBulDiarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_12_173834_create_bultos_devueltos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_173834_create_bultos_devueltos_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/BultosSalida/Bultossalida.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/ConsumoBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ConsumoBanda/EntradaBanda.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/RecepcionCapa/CapaRecepcion.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -466,7 +461,7 @@
       <workItem from="1623681100803" duration="5734000" />
       <workItem from="1623850217728" duration="16036000" />
       <workItem from="1623888867200" duration="706000" />
-      <workItem from="1623937187932" duration="7378000" />
+      <workItem from="1623937187932" duration="17849000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -706,7 +701,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623883577762</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Correccion Sujeridas">
+      <created>1623949254520</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1623949254520</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

@@ -19,6 +19,7 @@ class CreateBultosDevueltosTable extends Migration
             $table->foreignId("id_vitolas")->references("id")->on("vitolas");
             $table->integer("onzas");
             $table->integer("total");
+            $table->boolean("usado");
             $table->decimal("libras",50,2);
             $table->timestamps();
         });

@@ -1,7 +1,7 @@
 @extends("layouts.MenuBanda")
 @section("content")
     <div class="container-fluid">
-        <h1 class="mt-4">Entrega De Banda
+        <h1 class="mt-4">Consumo De Banda
             <div class="btn-group" role="group">
 
                 <button class="btn btn-sm btn-success"
