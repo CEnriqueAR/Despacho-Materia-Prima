@@ -166,11 +166,11 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'carlosaleman29z@gmail.com',
+            'to' => 'your@example.com',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'carlosaleman29z@gmail.com'),
-                'name' => env('MAIL_FROM_NAME', 'Copia De Seguridad'),
+                'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+                'name' => env('MAIL_FROM_NAME', 'Example'),
             ],
         ],
 

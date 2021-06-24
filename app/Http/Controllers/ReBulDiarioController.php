@@ -78,7 +78,6 @@ class ReBulDiarioController extends Controller
                     ,"re_bul_diarios.totalfinal","re_bul_diarios.pesofinal",
                     "re_bul_diarios.totalconsumo","re_bul_diarios.pesoconsumo"
                     ,"re_bul_diarios.onzas")
-                ->where("marcas.name","Like","%".$query."%")
                 ->whereDate("re_bul_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_marca")
 

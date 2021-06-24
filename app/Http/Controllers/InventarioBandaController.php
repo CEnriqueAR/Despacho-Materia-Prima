@@ -53,7 +53,6 @@ class InventarioBandaController extends Controller
                             "capa_entregas.id_calidad",
                             "capa_entregas.id_marca","marcas.name as nombre_marca"
                             ,"capa_entregas.total")
-                        ->where("semillas.name", "Like", "%" . $query . "%")
                         ->whereDate("capa_entregas.created_at","=" ,$fecha)
                         ->get();
                     if ($entregaCapa1->count()>0){

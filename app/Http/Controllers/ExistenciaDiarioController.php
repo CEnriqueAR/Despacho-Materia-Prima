@@ -90,7 +90,6 @@ class ExistenciaDiarioController extends Controller
                     ,"existencia_diarios.onzasI"
                     ,"existencia_diarios.onzasE"
                     ,"existencia_diarios.onzasF")
-                ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("existencia_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_semillas")
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))

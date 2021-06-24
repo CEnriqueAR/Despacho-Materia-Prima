@@ -67,4 +67,6 @@ class Kernel extends HttpKernel
         'banda' => \App\Http\Middleware\BandaMiddlewar::class,
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
     ];
+
+
 }

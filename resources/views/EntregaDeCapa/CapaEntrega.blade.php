@@ -109,11 +109,9 @@
                 <th>Marca</th>
                 <th>Vitola</th>
                 <th>Semilla</th>
+                <th>Calidad</th>
                 <th>total</th>
-                <th>Manc</th>
-                <th>Picad</th>
-                <th>Botas</th>
-                <th>Rotas</th>
+
                 <th><span>Agregar</span></th>
 
 
@@ -137,14 +135,10 @@
                     <td>{{$productos->nombre_marca}}</td>
                     <td>{{$productos->nombre_vitolas}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
+                    <td>{{$productos->nombre_calidads}}</td>
+
                     <td>{{$productos->total}}</td>
-                    <td>{{$productos->manchada}}</td>
 
-
-                    <td>{{$productos->picada}}</td>
-                    <td>{{$productos->botada}}</td>
-
-                    <td>{{$productos->rota}}</td>
 
                     <td>
 
