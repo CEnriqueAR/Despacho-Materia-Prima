@@ -126,6 +126,124 @@
     ),
     'password_timeout' => 10800,
   ),
+  'backup' => 
+  array (
+    'backup' => 
+    array (
+      'name' => 'Laravel',
+      'source' => 
+      array (
+        'files' => 
+        array (
+          'include' => 
+          array (
+            0 => 'C:\\laragon\\www\\DespachoMateriaPrima',
+          ),
+          'exclude' => 
+          array (
+            0 => 'C:\\laragon\\www\\DespachoMateriaPrima\\vendor',
+            1 => 'C:\\laragon\\www\\DespachoMateriaPrima\\node_modules',
+          ),
+          'follow_links' => false,
+          'ignore_unreadable_directories' => false,
+          'relative_path' => NULL,
+        ),
+        'databases' => 
+        array (
+          0 => 'mysql',
+        ),
+      ),
+      'database_dump_compressor' => NULL,
+      'database_dump_file_extension' => '',
+      'destination' => 
+      array (
+        'filename_prefix' => '',
+        'disks' => 
+        array (
+          0 => 'C:\\laragon\\www\\DespachoMateriaPrima\\public\\/Copia',
+        ),
+      ),
+      'temporary_directory' => 'C:\\laragon\\www\\DespachoMateriaPrima\\storage\\app/backup-temp',
+      'password' => NULL,
+      'encryption' => 'default',
+    ),
+    'notifications' => 
+    array (
+      'notifications' => 
+      array (
+        'Spatie\\Backup\\Notifications\\Notifications\\BackupHasFailed' => 
+        array (
+          0 => 'mail',
+        ),
+        'Spatie\\Backup\\Notifications\\Notifications\\UnhealthyBackupWasFound' => 
+        array (
+          0 => 'mail',
+        ),
+        'Spatie\\Backup\\Notifications\\Notifications\\CleanupHasFailed' => 
+        array (
+          0 => 'mail',
+        ),
+        'Spatie\\Backup\\Notifications\\Notifications\\BackupWasSuccessful' => 
+        array (
+          0 => 'mail',
+        ),
+        'Spatie\\Backup\\Notifications\\Notifications\\HealthyBackupWasFound' => 
+        array (
+          0 => 'mail',
+        ),
+        'Spatie\\Backup\\Notifications\\Notifications\\CleanupWasSuccessful' => 
+        array (
+          0 => 'mail',
+        ),
+      ),
+      'notifiable' => 'Spatie\\Backup\\Notifications\\Notifiable',
+      'mail' => 
+      array (
+        'to' => 'your@example.com',
+        'from' => 
+        array (
+          'address' => NULL,
+          'name' => 'Laravel',
+        ),
+      ),
+      'slack' => 
+      array (
+        'webhook_url' => '',
+        'channel' => NULL,
+        'username' => NULL,
+        'icon' => NULL,
+      ),
+    ),
+    'monitor_backups' => 
+    array (
+      0 => 
+      array (
+        'name' => 'Laravel',
+        'disks' => 
+        array (
+          0 => 'local',
+        ),
+        'health_checks' => 
+        array (
+          'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumAgeInDays' => 1,
+          'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumStorageInMegabytes' => 5000,
+        ),
+      ),
+    ),
+    'cleanup' => 
+    array (
+      'strategy' => 'Spatie\\Backup\\Tasks\\Cleanup\\Strategies\\DefaultStrategy',
+      'default_strategy' => 
+      array (
+        'keep_all_backups_for_days' => 7,
+        'keep_daily_backups_for_days' => 16,
+        'keep_weekly_backups_for_weeks' => 8,
+        'keep_monthly_backups_for_months' => 4,
+        'keep_yearly_backups_for_years' => 2,
+        'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
+      ),
+    ),
+  ),
   'broadcasting' => 
   array (
     'default' => 'log',
@@ -763,124 +881,6 @@
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
-    ),
-  ),
-  'backup' => 
-  array (
-    'backup' => 
-    array (
-      'name' => 'Laravel',
-      'source' => 
-      array (
-        'files' => 
-        array (
-          'include' => 
-          array (
-            0 => 'C:\\laragon\\www\\DespachoMateriaPrima',
-          ),
-          'exclude' => 
-          array (
-            0 => 'C:\\laragon\\www\\DespachoMateriaPrima\\vendor',
-            1 => 'C:\\laragon\\www\\DespachoMateriaPrima\\node_modules',
-          ),
-          'follow_links' => false,
-          'ignore_unreadable_directories' => false,
-          'relative_path' => NULL,
-        ),
-        'databases' => 
-        array (
-          0 => 'mysql',
-        ),
-      ),
-      'database_dump_compressor' => NULL,
-      'database_dump_file_extension' => '',
-      'destination' => 
-      array (
-        'filename_prefix' => '',
-        'disks' => 
-        array (
-          0 => 'local',
-        ),
-      ),
-      'temporary_directory' => 'C:\\laragon\\www\\DespachoMateriaPrima\\storage\\app/backup-temp',
-      'password' => NULL,
-      'encryption' => 'default',
-    ),
-    'notifications' => 
-    array (
-      'notifications' => 
-      array (
-        'Spatie\\Backup\\Notifications\\Notifications\\BackupHasFailed' => 
-        array (
-          0 => 'mail',
-        ),
-        'Spatie\\Backup\\Notifications\\Notifications\\UnhealthyBackupWasFound' => 
-        array (
-          0 => 'mail',
-        ),
-        'Spatie\\Backup\\Notifications\\Notifications\\CleanupHasFailed' => 
-        array (
-          0 => 'mail',
-        ),
-        'Spatie\\Backup\\Notifications\\Notifications\\BackupWasSuccessful' => 
-        array (
-          0 => 'mail',
-        ),
-        'Spatie\\Backup\\Notifications\\Notifications\\HealthyBackupWasFound' => 
-        array (
-          0 => 'mail',
-        ),
-        'Spatie\\Backup\\Notifications\\Notifications\\CleanupWasSuccessful' => 
-        array (
-          0 => 'mail',
-        ),
-      ),
-      'notifiable' => 'Spatie\\Backup\\Notifications\\Notifiable',
-      'mail' => 
-      array (
-        'to' => 'your@example.com',
-        'from' => 
-        array (
-          'address' => NULL,
-          'name' => 'Laravel',
-        ),
-      ),
-      'slack' => 
-      array (
-        'webhook_url' => '',
-        'channel' => NULL,
-        'username' => NULL,
-        'icon' => NULL,
-      ),
-    ),
-    'monitor_backups' => 
-    array (
-      0 => 
-      array (
-        'name' => 'Laravel',
-        'disks' => 
-        array (
-          0 => 'local',
-        ),
-        'health_checks' => 
-        array (
-          'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumAgeInDays' => 1,
-          'Spatie\\Backup\\Tasks\\Monitor\\HealthChecks\\MaximumStorageInMegabytes' => 5000,
-        ),
-      ),
-    ),
-    'cleanup' => 
-    array (
-      'strategy' => 'Spatie\\Backup\\Tasks\\Cleanup\\Strategies\\DefaultStrategy',
-      'default_strategy' => 
-      array (
-        'keep_all_backups_for_days' => 7,
-        'keep_daily_backups_for_days' => 16,
-        'keep_weekly_backups_for_weeks' => 8,
-        'keep_monthly_backups_for_months' => 4,
-        'keep_yearly_backups_for_years' => 2,
-        'delete_oldest_backups_when_using_more_megabytes_than' => 5000,
-      ),
     ),
   ),
   'trustedproxy' => 

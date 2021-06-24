@@ -4,7 +4,7 @@
         <h1 class="mt-4">Empleados
             <div class="btn-group" role="group">
                 <button class="btn btn-sm btn-success"
-                        id="modalCrearEmpleado"
+                        id="botonAbrirModalNuevoEmpleado"
                         data-toggle="modal" data-target="#modalCrearEmpleado">
                     <span class="fas fa-plus"></span> Nueva
                 </button>

@@ -34,7 +34,8 @@ class CInvInicialController extends Controller
                 "c_inv_inicials.id_calidad"
                 ,"c_inv_inicials.totalinicial"
             )
-            ->orderBy("nombre_semillas")->paginate(1000);
+            ->orderBy("nombre_semillas")
+            ->orderBy("nombre_calidads")->paginate(1000);
         $semilla = Semilla::all();
         $calidad = Calidad::all();
         $tamano = Tamano::all();

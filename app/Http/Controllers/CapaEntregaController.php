@@ -160,7 +160,12 @@ class CapaEntregaController extends Controller
         $nuevoCapaEntrega->id_semilla=$request->input('id_semilla');
         $nuevoCapaEntrega->id_calidad=$request->input('id_calidad');
         $nuevoCapaEntrega->id_marca=$request->input("id_marca");
-        $nuevoCapaEntrega->total=$request->input('total');
+
+        if ($request->input('total') == null){
+            $nuevoCapaEntrega->total = 0;
+        }else {
+            $nuevoCapaEntrega->total = $request->input('total');
+        }
         $nuevoCapaEntrega->created_at=$fechaa;
 
         $nuevoCapaEntrega->manchada=0;
@@ -319,7 +324,7 @@ class CapaEntregaController extends Controller
 
         $capaentrega = $request->get('id');
 
-        DB::table('capa_entregas')->where("capa_entregas.id","=",$capaentrega)->increment('total', 75);
+        DB::table('capa_entregas')->where("capa_entregas.id","=",$capaentrega)->increment('total', 50);
 
         return redirect()->route("CapaEntrega")->withExito("Se editó Correctamente");
 

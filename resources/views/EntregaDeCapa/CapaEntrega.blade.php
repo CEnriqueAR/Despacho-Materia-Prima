@@ -148,7 +148,7 @@
                             data-toggle="modal"
                             data-target="#modalSumar75"
                             data-id="{{$productos->id}}"
-                            title="75"> 75</button>
+                            title="50"> 50</button>
 
 
                         <button class="btn btn-sm btn-info"
@@ -740,14 +740,14 @@
                     @method("PUT")
                     @csrf
                     <div class="modal-header" style="background: #2a2a35">
-                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 75
+                        <h5 class="modal-title" style="color: white"><span class="fas fa-trash"></span> Sumar 50
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span style="color: white" aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro que deseas Sumar 75<label
+                        <p>¿Estás seguro que deseas Sumar 50<label
                                 id="nombreProducto"></label>?</p>
 
                     </div>

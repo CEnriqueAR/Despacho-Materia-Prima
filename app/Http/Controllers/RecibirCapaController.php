@@ -105,10 +105,23 @@ class RecibirCapaController extends Controller
             ->where("c_inv_inicials.id_tamano","=",$request->input("id_tamano"))->get();
         if($inve->count()>0){
         }else{
+        
             $nuevoConsumo = new CInvInicial();
             $nuevoConsumo->id_semilla=$request->input('id_semillas');
             $nuevoConsumo->id_calidad=$request->input('id_calidad');
-            $nuevoConsumo->id_tamano=$request->input("id_tamano");
+            $nuevoConsumo->id_tamano="2";
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semillas');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano="3";
+            $nuevoConsumo->totalinicial= '0';
+            $nuevoConsumo->save();
+            $nuevoConsumo = new CInvInicial();
+            $nuevoConsumo->id_semilla=$request->input('id_semillas');
+            $nuevoConsumo->id_calidad=$request->input('id_calidad');
+            $nuevoConsumo->id_tamano="4";
             $nuevoConsumo->totalinicial= '0';
             $nuevoConsumo->save();
         }

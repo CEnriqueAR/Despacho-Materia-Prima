@@ -192,6 +192,7 @@ class ExistenciaDiarioController extends Controller
                 ->where("semillas.name","Like","%".$query."%")
                 ->whereDate("existencia_diarios.created_at","=" ,$fecha)
                 ->orderBy("nombre_semillas")
+                ->orderBy("nombre_calidads")
                 //  ->whereDate("capa_entregas.created_at","=" ,Carbon::now()->format('Y-m-d'))
                 ->paginate(1000);
             $semilla = Semilla::all();
@@ -227,8 +228,13 @@ class ExistenciaDiarioController extends Controller
      */
     public function store(Request $request)
     {
+        $fecha =$request->input('fecha');
+        if ($fecha == null)
+            $fecha = Carbon::now()->format('Y-m-d');
+        else{
+            $fecha = $request->get("fecha");
 
-        $fecha = $request->get("fecha");
+        }
         $fecha1 = Carbon::parse($fecha)->format('Y-m-d');
         $inve  =  DB::table('c_inv_inicials')
             ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
@@ -291,30 +297,96 @@ class ExistenciaDiarioController extends Controller
             $nuevoConsumo->updated_at =$fecha1;
             $nuevoConsumo->created_at =$fecha1;
             $nuevoConsumo->save();
+            if ($request->input("id_tamano") == '2') {
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "3";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "4";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+            }
+            if ($request->input("id_tamano") == '3') {
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "2";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "4";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+            }
+            if ($request->input("id_tamano") == '4') {
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "3";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+                $nuevoConsumo = new CInvInicial();
+                $nuevoConsumo->id_semilla = $request->input('id_semillas');
+                $nuevoConsumo->id_calidad = $request->input('id_calidad');
+                $nuevoConsumo->id_tamano = "2";
+                $nuevoConsumo->totalinicial = '0';
+                $nuevoConsumo->save();
+            }
+        }
+        $f = $request->input("onzasF");
+        $e =  $request->input("onzasE");
+        if ($f or $e === null ){
+            $EditarInvDiario = new ExistenciaDiario();
+            $EditarInvDiario->id_semillas = $request->input('id_semillas');
+            $EditarInvDiario->id_calidad = $request->input('id_calidad');
+            $EditarInvDiario->id_tamano = $request->input("id_tamano");
+            $EditarInvDiario->totalinicial = $request->input("totalinicial");
+            $EditarInvDiario->pesoinicial = (($request->input("onzasI") * ($request->input("totalinicial") / 50)) / 16);
+            $EditarInvDiario->totalentrada = $request->input("totalentrada");
+            $EditarInvDiario->pesoentrada = (($request->input("onzasI") * ($request->input("totalentrada") / 50)) / 16);
+            $EditarInvDiario->totalfinal = $request->input("totalfinal");
+            $EditarInvDiario->pesofinal = (($request->input("onzasI") * ($request->input("totalfinal") / 50)) / 16);
+            $EditarInvDiario->totalconsumo = ($request->input("totalinicial") + $request->input("totalentrada")) - $request->input("totalfinal");
+            $EditarInvDiario->pesoconsumo = (($request->input("onzasI") * ($EditarInvDiario->totalconsumo) / 50) / 16);
+            $EditarInvDiario->onzasI = $request->input("onzasI");
+            $EditarInvDiario->onzasE = $request->input("onzasI");
+            $EditarInvDiario->onzasF = $request->input("onzasI");
+            $EditarInvDiario->created_at =$fecha1;
+
+            $EditarInvDiario->save();
+        }else {
+            $EditarInvDiario = new ExistenciaDiario();
+            $EditarInvDiario->id_semillas = $request->input('id_semillas');
+            $EditarInvDiario->id_calidad = $request->input('id_calidad');
+            $EditarInvDiario->id_tamano = $request->input("id_tamano");
+            $EditarInvDiario->totalinicial = $request->input("totalinicial");
+            $EditarInvDiario->pesoinicial = (($request->input("onzasI") * ($request->input("totalinicial") / 50)) / 16);
+            $EditarInvDiario->totalentrada = $request->input("totalentrada");
+            $EditarInvDiario->pesoentrada = (($request->input("onzasE") * ($request->input("totalentrada") / 50)) / 16);
+            $EditarInvDiario->totalfinal = $request->input("totalfinal");
+            $EditarInvDiario->pesofinal = (($request->input("onzasF") * ($request->input("totalfinal") / 50)) / 16);
+            $EditarInvDiario->totalconsumo = ($request->input("totalinicial") + $request->input("totalentrada")) - $request->input("totalfinal");
+            $EditarInvDiario->pesoconsumo = (($request->input("onzasE") * ($EditarInvDiario->totalconsumo) / 50) / 16);
+            $EditarInvDiario->onzasI = $request->input("onzasI");
+            $EditarInvDiario->onzasE = $request->input("onzasE");
+            $EditarInvDiario->onzasF = $request->input("onzasF");
+            $EditarInvDiario->created_at =$fecha1;
+            $EditarInvDiario->save();
         }
 
-        $nuevoInvDiario = new ExistenciaDiario();
-        $nuevoInvDiario->id_semillas=$request->input('id_semillas');
-        $nuevoInvDiario->id_calidad=$request->input('id_calidad');
-        $nuevoInvDiario->id_tamano=$request->input("id_tamano");
-        $nuevoInvDiario->totalinicial=$request->input("totalinicial");
-        $nuevoInvDiario->pesoinicial=(($request->input("onzasI")*($request->input("totalinicial")/50))/16);
-        $nuevoInvDiario->totalentrada=$request->input("totalentrada");
-        $nuevoInvDiario->pesoentrada=(($request->input("onzasE")*($request->input("totalentrada")/50))/16);
-        $nuevoInvDiario->totalfinal=$request->input("totalfinal");
-        $nuevoInvDiario->pesofinal=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
-        $nuevoInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-        $nuevoInvDiario->pesoconsumo =(($request->input("onzasE")* ($nuevoInvDiario->totalconsumo/50))/16);
-        $nuevoInvDiario->onzasI =$request->input("onzasI");
-        $nuevoInvDiario->onzasE=$request->input("onzasE");
-        $nuevoInvDiario->onzasF=$request->input("onzasF");
-        $nuevoInvDiario->created_at =$fecha1;
 
 
 
 
 
-        $nuevoInvDiario->save();
+
 
         return redirect()->route("ExistenciaDiario")->withExito("Se creó la entrega Correctamente ");
 
@@ -386,35 +458,69 @@ class ExistenciaDiarioController extends Controller
 
                 if (Carbon::parse($ingresada)->format('Y-m-d') >= (Carbon::parse($actual)->format('Y-m-d'))) {
 
+                    $f = $request->input("onzasF");
+                    $e =  $request->input("onzasE");
+                    if ($f or $e ==  null) {
 
+                        $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
+                        $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                        $editarBultoEntrega->pesoinicial = (($request->input("onzasF") * ($request->input("totalfinal") / 50)) / 16);
+                        $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                        $editarBultoEntrega->onzasI = $request->input("onzasI");
 
-                    $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
-                    $editarBultoEntrega->totalinicial = $request->input("totalfinal");
-                    $editarBultoEntrega->pesoinicial=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
-                    $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
-                    $editarBultoEntrega->onzasI = $request->input("onzasF");
+                        $editarBultoEntrega->save();
+                    }else{
 
-                    $editarBultoEntrega->save();
+                        $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
+                        $editarBultoEntrega->totalinicial = $request->input("totalfinal");
+                        $editarBultoEntrega->pesoinicial = (($request->input("onzasF") * ($request->input("totalfinal") / 50)) / 16);
+                        $editarBultoEntrega->updated_at = Carbon::parse($ingresada)->format('Y-m-d');
+                        $editarBultoEntrega->onzasI = $request->input("onzasF");
+
+                        $editarBultoEntrega->save();
+                    }
                 }
             }
         }
+$f = $request->input("onzasF");
+        $e =  $request->input("onzasE");
+        if ($f  or $e == null){
+            $EditarInvDiario = ExistenciaDiario::findOrFail($request->id);
+            $ini = $request->input("onzasI");
+            $EditarInvDiario->onzasI = $request->input("onzasI");
+            $EditarInvDiario->onzasE = $request->input("onzasI");
+            $EditarInvDiario->onzasF = $request->input("onzasI");
+            $EditarInvDiario->id_semillas = $request->input('id_semillas');
+            $EditarInvDiario->id_calidad = $request->input('id_calidad');
+            $EditarInvDiario->id_tamano = $request->input("id_tamano");
+            $EditarInvDiario->totalinicial = $request->input("totalinicial");
+            $EditarInvDiario->pesoinicial = (($request->input("onzasI") * ($request->input("totalinicial") / 50)) / 16);
+            $EditarInvDiario->totalentrada = $request->input("totalentrada");
+            $EditarInvDiario->pesoentrada = (($request->input("onzasI") * ($request->input("totalentrada") / 50)) / 16);
+            $EditarInvDiario->totalfinal = $request->input("totalfinal");
+            $EditarInvDiario->pesofinal = (($request->input("onzasI") * ($request->input("totalfinal") / 50)) / 16);
+            $EditarInvDiario->totalconsumo = ($request->input("totalinicial") + $request->input("totalentrada")) - $request->input("totalfinal");
+            $EditarInvDiario->pesoconsumo = (($request->input("onzasI") * ($EditarInvDiario->totalconsumo) / 50) / 16);
 
-        $EditarInvDiario=ExistenciaDiario::findOrFail($request->id);
-        $EditarInvDiario->id_semillas=$request->input('id_semillas');
-        $EditarInvDiario->id_calidad=$request->input('id_calidad');
-        $EditarInvDiario->id_tamano=$request->input("id_tamano");
-        $EditarInvDiario->totalinicial=$request->input("totalinicial");
-        $EditarInvDiario->pesoinicial=(($request->input("onzasI")*($request->input("totalinicial")/50))/16);
-        $EditarInvDiario->totalentrada=$request->input("totalentrada");
-        $EditarInvDiario->pesoentrada=(($request->input("onzasE")*($request->input("totalentrada")/50))/16);
-        $EditarInvDiario->totalfinal=$request->input("totalfinal");
-        $EditarInvDiario->pesofinal=(($request->input("onzasF")*($request->input("totalfinal")/50))/16);
-        $EditarInvDiario->totalconsumo=($request->input("totalinicial")+$request->input("totalentrada"))-$request->input("totalfinal");
-        $EditarInvDiario->pesoconsumo=(($request->input("onzasE")*($EditarInvDiario->totalconsumo)/50)/16);
-            $EditarInvDiario->onzasI =$request->input("onzasI");
-            $EditarInvDiario->onzasE=$request->input("onzasE");
-            $EditarInvDiario->onzasF=$request->input("onzasF");
-        $EditarInvDiario->save();
+            $EditarInvDiario->save();
+        }else {
+            $EditarInvDiario = ExistenciaDiario::findOrFail($request->id);
+            $EditarInvDiario->id_semillas = $request->input('id_semillas');
+            $EditarInvDiario->id_calidad = $request->input('id_calidad');
+            $EditarInvDiario->id_tamano = $request->input("id_tamano");
+            $EditarInvDiario->totalinicial = $request->input("totalinicial");
+            $EditarInvDiario->pesoinicial = (($request->input("onzasI") * ($request->input("totalinicial") / 50)) / 16);
+            $EditarInvDiario->totalentrada = $request->input("totalentrada");
+            $EditarInvDiario->pesoentrada = (($request->input("onzasE") * ($request->input("totalentrada") / 50)) / 16);
+            $EditarInvDiario->totalfinal = $request->input("totalfinal");
+            $EditarInvDiario->pesofinal = (($request->input("onzasF") * ($request->input("totalfinal") / 50)) / 16);
+            $EditarInvDiario->totalconsumo = ($request->input("totalinicial") + $request->input("totalentrada")) - $request->input("totalfinal");
+            $EditarInvDiario->pesoconsumo = (($request->input("onzasE") * ($EditarInvDiario->totalconsumo) / 50) / 16);
+            $EditarInvDiario->onzasI = $request->input("onzasI");
+            $EditarInvDiario->onzasE = $request->input("onzasE");
+            $EditarInvDiario->onzasF = $request->input("onzasF");
+            $EditarInvDiario->save();
+        }
         return redirect()->route("ExistenciaDiario")->withExito("Se editó Correctamente");
 
     }catch (ValidationException $exception){
