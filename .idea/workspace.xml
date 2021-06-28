@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CInvInicialController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CInvInicialController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/EntregaCapaExport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exports/ExistenciaDiarioExports.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/ExistenciaDiarioExports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BultosSalidaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CapaEntregaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecibirCapaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Empleados/Empleados.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/EntregaDeCapa/CapaEntrega.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -469,7 +470,10 @@
       <workItem from="1624129667407" duration="1066000" />
       <workItem from="1624418512336" duration="40000" />
       <workItem from="1624468212476" duration="7088000" />
-      <workItem from="1624549528126" duration="8703000" />
+      <workItem from="1624549528126" duration="11492000" />
+      <workItem from="1624582014247" duration="1766000" />
+      <workItem from="1624628077688" duration="6632000" />
+      <workItem from="1624893602184" duration="4810000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -730,7 +734,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624549920731</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="correccion de capa">
+      <created>1624564936715</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1624564936715</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -830,7 +841,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Consumo De Banda" />
     <MESSAGE value="Inventario De Bulto Diario" />
     <MESSAGE value="arreglos y agregar que me regrese un dia atras los inventarios diarios" />
     <MESSAGE value="solucion de pequeños errores" />
@@ -855,7 +865,8 @@
     <MESSAGE value="Correccion Sujeridas" />
     <MESSAGE value="Correccion Sujeridas partev 1000000" />
     <MESSAGE value="correccion de bultos" />
-    <option name="LAST_COMMIT_MESSAGE" value="correccion de bultos" />
+    <MESSAGE value="correccion de capa" />
+    <option name="LAST_COMMIT_MESSAGE" value="correccion de capa" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

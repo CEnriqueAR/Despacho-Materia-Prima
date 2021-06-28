@@ -30,11 +30,11 @@ class ExistenciaDiarioController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request){
+        if ($request) {
             $query = trim($request->get("search"));
 
             $fecha = $request->get("fecha");
-
+        }
             if ($fecha == null) {
                 $fecha = Carbon::now()->format('l');
                 if ($fecha == 'Monday') {
@@ -173,7 +173,7 @@ class ExistenciaDiarioController extends Controller
 
 
             }
-            $entregaCapa=DB::table("existencia_diarios")
+            $entregaCapas=DB::table("existencia_diarios")
                 ->leftJoin("semillas","existencia_diarios.id_semillas","=","semillas.id")
                 ->leftJoin("calidads","existencia_diarios.id_calidad","=","calidads.id")
                 ->leftJoin("tamanos","existencia_diarios.id_tamano","=","tamanos.id")
@@ -201,14 +201,14 @@ class ExistenciaDiarioController extends Controller
 
             return view("InventariosDiarios.ExistenciaDiario")
                 ->withNoPagina(1)
-                ->withExistenciaDiaria($entregaCapa)
+                ->withExistenciaDiaria($entregaCapas)
                 ->withSemilla($semilla)
                 ->withTamano($tamano)
                 ->withCalidad($calidad);
 
         }
         //
-        }
+
 
     /**
      * Show the form for creating a new resource.
@@ -342,7 +342,7 @@ class ExistenciaDiarioController extends Controller
         }
         $f = $request->input("onzasF");
         $e =  $request->input("onzasE");
-        if ($f or $e === null ){
+        if ($f  == null ){
             $EditarInvDiario = new ExistenciaDiario();
             $EditarInvDiario->id_semillas = $request->input('id_semillas');
             $EditarInvDiario->id_calidad = $request->input('id_calidad');
@@ -460,7 +460,7 @@ class ExistenciaDiarioController extends Controller
 
                     $f = $request->input("onzasF");
                     $e =  $request->input("onzasE");
-                    if ($f or $e ==  null) {
+                    if ($f  ==  null) {
 
                         $editarBultoEntrega = CInvInicial::findOrFail($inventario->id);
                         $editarBultoEntrega->totalinicial = $request->input("totalfinal");
@@ -482,9 +482,7 @@ class ExistenciaDiarioController extends Controller
                 }
             }
         }
-$f = $request->input("onzasF");
-        $e =  $request->input("onzasE");
-        if ($f  or $e == null){
+        if ( $request->input("onzasF") == null){
             $EditarInvDiario = ExistenciaDiario::findOrFail($request->id);
             $ini = $request->input("onzasI");
             $EditarInvDiario->onzasI = $request->input("onzasI");

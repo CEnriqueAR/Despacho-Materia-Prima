@@ -247,7 +247,7 @@
                         <div class="form-group">
                             <label for="nombreNuevoProducto">Total</label>
                             <input  class="form-control @error('name') is-invalid @enderror" name="total" id="nombreNuevoProducto" maxlength="100"
-                                   value="{{ old('total')}}" required="required">
+                                   value="{{ old('total')}}" >
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

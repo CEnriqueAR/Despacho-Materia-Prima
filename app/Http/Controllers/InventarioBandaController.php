@@ -164,6 +164,7 @@ class InventarioBandaController extends Controller
 
                         $editarCapaEntrega=InventarioBanda::findOrFail($entrega->id);
                         $editarCapaEntrega->totalentrada = $reci->total;
+                        $editarCapaEntrega->totalentrada = $reci->total;
                         $editarCapaEntrega->save();
 
                     }

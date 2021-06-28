@@ -287,18 +287,11 @@ class BultosSalidaController extends Controller
                     ->leftJoin("empleados_bandas","bultos_salidas.id_empleado","=","empleados_bandas.id")
                     ->leftJoin("vitolas","bultos_salidas.id_vitolas","=","vitolas.id")
                     ->leftJoin("marcas","bultos_salidas.id_marca","=","marcas.id")
-
                     ->select("bultos_salidas.id",
-                        "empleados_bandas.nombre AS nombre_empleado",
-                        "empleados_bandas.codigo AS codigo_empleado",
                         "vitolas.name as nombre_vitolas",
-                        "bultos_salidas.id_empleado",
                         "bultos_salidas.id_vitolas",
-                        "bultos_salidas.id_marca","marcas.name as nombre_marca"
-                        ,"bultos_salidas.total")
-                  ->where('bultos_salidas.id','=',$capaentrega);
-
-        DB::table('bultos_salidas')->where("bultos_salidas.id","=",$capaentrega)->increment('total', 1);
+                        "bultos_salidas.id_marca")
+                  ->where("bultos_salidas.id","=",$capaentrega)->get();
       foreach ($Bulto as $bultos) {
           $banda = DB::table('consumo_bandas')
               ->leftJoin("vitolas", "consumo_bandas.id_vitolas", "=", "vitolas.id")
@@ -310,13 +303,13 @@ class BultosSalidaController extends Controller
                   "consumo_bandas.id_vitolas",
                   "consumo_bandas.id_marca")
               ->where("consumo_bandas.id_marca", "=", $bultos->id_marca)
-              ->where("consumo_bandas.id_vitolas", "=", $bultos->id_marca)
-              ->whereDate("consumo_bandas.created_at", "=", Carbon::now()->format('Y-m-d'))->paginate(1000);
-
-          DB::table('consumo_bandas')->where("consumo_bandas.id","=",$banda)->increment('total', 100);
-
+              ->where("consumo_bandas.id_vitolas", "=", $bultos->id_vitolas)
+              ->whereDate("consumo_bandas.created_at", "=", Carbon::now()->format('Y-m-d'))->get();
+foreach ($banda as $bandas)
+          DB::table('consumo_bandas')->where("consumo_bandas.id","=",$bandas->id)->increment('total', 100);
       }
 
+        DB::table('bultos_salidas')->where("bultos_salidas.id","=",$capaentrega)->increment('total', 1);
 
         return redirect()->route("BultoSalida")->withExito("Se Incremento el bulto  Correctamente");
     }

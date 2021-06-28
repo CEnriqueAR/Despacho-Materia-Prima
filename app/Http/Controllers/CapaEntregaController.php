@@ -112,40 +112,7 @@ class CapaEntregaController extends Controller
     }
     public function StoreEntrega(Request $request){
 
-        $inve  =  DB::table('c_inv_inicials')
-            ->leftJoin("semillas","c_inv_inicials.id_semilla","=","semillas.id")
-            ->leftJoin("vitolas","c_inv_inicials.id_calidad","=","vitolas.id")
-            ->leftJoin("tamanos","c_inv_inicials.id_tamano","=","tamanos.id")
-            ->select(
-                "c_inv_inicials.id",
-                "c_inv_inicials.id_tamano",
-                "tamanos.name as nombre_tamanos")
-            ->where("c_inv_inicials.id_semilla","=",$request->input("id_semilla"))
-            ->where("c_inv_inicials.id_calidad","=",$request->input("id_calidad"))->get();
-        if($inve->count()>0){
 
-        }else{
-
-            $nuevoConsumo = new CInvInicial();
-            $nuevoConsumo->id_semilla=$request->input('id_semilla');
-            $nuevoConsumo->id_calidad=$request->input('id_calidad');
-            $nuevoConsumo->id_tamano="2";
-            $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->save();
-            $nuevoConsumo = new CInvInicial();
-            $nuevoConsumo->id_semilla=$request->input('id_semilla');
-            $nuevoConsumo->id_calidad=$request->input('id_calidad');
-            $nuevoConsumo->id_tamano="3";
-            $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->save();
-            $nuevoConsumo = new CInvInicial();
-            $nuevoConsumo->id_semilla=$request->input('id_semilla');
-            $nuevoConsumo->id_calidad=$request->input('id_calidad');
-            $nuevoConsumo->id_tamano="4";
-            $nuevoConsumo->totalinicial= '0';
-            $nuevoConsumo->save();
-
-        }
         $fechaa =$request->input('fecha');
         if ($fechaa == null)
             $fechaa = Carbon::now()->format('Y-m-d');

@@ -38,7 +38,8 @@ class ExistenciaDiarioExports implements FromCollection,ShouldAutoSize ,WithHead
                 "existencia_diarios.totalconsumo","existencia_diarios.pesoconsumo"
               )
             ->whereDate("existencia_diarios.created_at","=" ,$this->fecha)
-            ->orderBy("nombre_semillas")->get();
+            ->orderBy("nombre_semillas")
+            ->orderBy("nombre_calidads")->get();
 
         return $entregaCapa;
         //
@@ -66,6 +67,7 @@ class ExistenciaDiarioExports implements FromCollection,ShouldAutoSize ,WithHead
             'Peso',
             'Inv.Final ','peso ',
             'Consumo ','peso ',
+                'Dev. Cuarto Firo ','peso ',
         ]];
     }
 }

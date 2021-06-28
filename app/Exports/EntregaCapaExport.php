@@ -40,10 +40,11 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
                 "marcas.name as nombre_marca",
                 "semillas.name as nombre_semillas",
                 "calidads.name as nombre_calidads"
-
-
-
-                ,"capa_entregas.total") ->whereDate('capa_entregas.created_at', '=', $this->fecha)
+                ,"capa_entregas.total"
+                ,"capa_entregas.manchada"
+                ,"capa_entregas.botada"
+                ,"capa_entregas.rota"
+                ,"capa_entregas.picada") ->whereDate('capa_entregas.created_at', '=', $this->fecha)
 
 
             ->get();
@@ -70,7 +71,7 @@ class EntregaCapaExport implements  FromCollection , ShouldAutoSize ,WithHeading
             'Marca',
             'Semilla',
             'Calidad',
-            'Total ',
+            'Total ','Manchada','Botada','Rota','Picada'
             ]
         ];
     }
