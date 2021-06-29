@@ -109,7 +109,6 @@
                 <th>Marca</th>
                 <th>Vitola</th>
                 <th>Semilla</th>
-                <th>Calidad</th>
                 <th>total</th>
 
                 <th><span>Agregar</span></th>
@@ -135,7 +134,6 @@
                     <td>{{$productos->nombre_marca}}</td>
                     <td>{{$productos->nombre_vitolas}}</td>
                     <td>{{$productos->nombre_semillas}}</td>
-                    <td>{{$productos->nombre_calidads}}</td>
 
                     <td>{{$productos->total}}</td>
 
@@ -307,22 +305,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="id_calidad">Seleccione la Calidad</label>
-                            <br>
-                            <select name="id_calidad"
-                                    style="width: 100%" required
-                                    class="marca form-control @error('id_marca') is-invalid @enderror" id="id_calidad">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($calidad as $calidades)
-                                    <option value="{{$calidades->id}}" @if(Request::old('id_calidad')==$calidades->id){{'selected'}}@endif
-                                    @if(session("idMarca"))
-                                        {{session("idMarca")==$calidades->id ? 'selected="selected"':''}}
-                                            @endif>{{$calidades->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label for="id_semilla">Seleccione la Semilla</label>
                             <br>
 
@@ -437,26 +419,6 @@
                         </div>
 
 
-                        <div class="form-group">
-                            <label for="calidadcapaentrega">Seleccione la calidad</label>
-                            <br>
-                            <select name="id_calidad"
-                                    required="required"
-                                    style="width: 100%"
-                                    class=" empresa form-control @error('id_calidad') is-invalid @enderror"
-                                    id="calidadcapaentrega" required="required">
-                                <option disabled selected value="">Seleccione</option>
-                                @foreach($calidad as $calidades)
-                                    <option value="{{$calidades->id}}">{{$calidades->name}}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('id_calidad')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
 
                         <div class="form-group">
                             <label for="marcacapaentrega">Seleccione la marca</label>
@@ -569,10 +531,6 @@
                                 <div class="col-sm-2"><label for="tipoNuevaCategoria" id="semillacapaentrega"></label></div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-sm-6"><label for="calidadcapaentrega"><strong>Calidad:</strong></label></div>
-                                <div class="col-sm-4"><label for="empresa" id="calidadcapaentrega"></label></div>
-                            </div>
 
                             <div class="form-group row">
                                 <div class="col-sm-6"><label for="totalcapaentrega"><strong>Total Entregado:</strong></label></div>
