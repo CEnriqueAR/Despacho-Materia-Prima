@@ -9,7 +9,7 @@ $('#modalBorrarEmpleado').on('show.bs.modal', function (e) {
     modal.find('.modal-footer #id').val(id);
     modal.find('.modal-body #codigo').val(codigo);
     modal.find('.modal-body #nombre').val(nombre);
-    modal.find('.modal_body #puesto').val(puesto);
+    modal.find('.modal-body #puesto').val(puesto);
 });
 $('#modalEditarEmpleado').on('show.bs.modal', function (e) {
     var button = $(e.relatedTarget);

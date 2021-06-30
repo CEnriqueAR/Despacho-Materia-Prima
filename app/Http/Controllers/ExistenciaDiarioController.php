@@ -207,25 +207,7 @@ class ExistenciaDiarioController extends Controller
                 ->withCalidad($calidad);
 
         }
-        //
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $fecha =$request->input('fecha');
@@ -393,23 +375,7 @@ class ExistenciaDiarioController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\ExistenciaDiario  $existenciaDiario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ExistenciaDiario $existenciaDiario)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\ExistenciaDiario  $existenciaDiario
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request)
     {
         try {
@@ -527,24 +493,12 @@ return redirect()->route("ExistenciaDiario")->with('errores','errores')->with('i
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ExistenciaDiario  $existenciaDiario
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, ExistenciaDiario $existenciaDiario)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\ExistenciaDiario  $existenciaDiario
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Request $request)
     {
 

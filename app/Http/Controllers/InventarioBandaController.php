@@ -454,7 +454,8 @@ class InventarioBandaController extends Controller
 
         $borrar->delete();
         return redirect()->route("InventarioBanda")->withExito("Se borró la entrega satisfactoriamente");
-    }public function export(Request $request)
+    }
+    public function export(Request $request)
 {
 
     $fecha = $request->get("fecha1");

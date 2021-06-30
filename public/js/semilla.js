@@ -16,5 +16,5 @@ $('#modalEditarSemilla').on('show.bs.modal', function (e) {
     var modal=$(this);
     modal.find('.modal-footer #id_marca').val(id);
     modal.find('.modal-body #name').val(name);
-    modal.find('.modal_body #descripcionNuevaMarca').val(decription);
+    modal.find('.modal-body #descripcionNuevaMarca').val(decription);
 });

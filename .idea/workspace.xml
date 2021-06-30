@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="57c54c9b-33d3-4d33-911a-83376045b93e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_21_024123_create_capa_entregas_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EntradaBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ExistenciaDiarioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InventarioBandaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/empleado.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/empleado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/marca.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/marca.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/semilla.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/semilla.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -467,7 +472,8 @@
       <workItem from="1624582014247" duration="1766000" />
       <workItem from="1624628077688" duration="6632000" />
       <workItem from="1624893602184" duration="5874000" />
-      <workItem from="1624973478599" duration="599000" />
+      <workItem from="1624973478599" duration="16549000" />
+      <workItem from="1625061743422" duration="11707000" />
     </task>
     <task id="LOCAL-00001" summary="uno bien gordo">
       <created>1616007630288</created>
@@ -742,7 +748,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624918247475</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="correccion de capa">
+      <created>1624975301233</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1624975301233</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
